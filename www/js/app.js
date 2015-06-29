@@ -40,6 +40,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.subjects', {
+    url: "/subjects",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/subjects.html",
+        //controller: 'SubjectsCtrl'
+      }
+    }
+  })
+
+  .state('app.subject-new', {
+    url: "/subject-new",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/subject-new.html",
+        //controller: 'SubjectNewCtrl'
+      }
+    }
+  })
+
   .state('app.search', {
     url: "/search",
     views: {

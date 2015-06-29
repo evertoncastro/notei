@@ -9,7 +9,6 @@ ion-content{
 }
 .box-home{
     .home-menu{
-      margin-top: 30px;
         .list{
 
           .item{
@@ -23,6 +22,7 @@ ion-content{
               padding-top: 8%;
               float: right;
               span{
+                font-family: "Helvetica Neue", Roboto, "Segoe UI", sans-serif;
                 font-size: 30px;
               }
             }

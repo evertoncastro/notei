@@ -11,8 +11,15 @@
 }
 
 //Making the menu button to be pull from top
+/*
 .bar .buttons-left span {
   padding-top: 12px;
+}
+*/
+
+//Making the button back to be pull from top
+.bar-stable .button.button-clear {
+  margin-top: 12px;
 }
 
 .bar-stable .button.button-clear {
@@ -27,4 +34,8 @@
     left: 50%;
     margin-left: -95px;
   }
+}
+
+.has-header {
+  top: 75px;
 }
