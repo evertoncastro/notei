@@ -7675,6 +7675,10 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.header-details .header-img {
+  width: 150px;
+  margin-top: 10px; }
+
 ion-content {
   background-color: #FFFFFF; }
 
@@ -7696,3 +7700,20 @@ ion-content {
   color: #444;
   height: 75px;
   background-color: #000000; }
+
+.bar.bar-stable .title {
+  color: #444;
+  height: 75px; }
+
+.bar .buttons-left span {
+  padding-top: 12px; }
+
+.bar-stable .button.button-clear {
+  color: #ffffff; }
+
+.platform-android .header-details .header-img {
+  width: 150px;
+  margin-top: 10px;
+  position: absolute;
+  left: 50%;
+  margin-left: -95px; }
