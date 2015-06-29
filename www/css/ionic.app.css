@@ -7674,3 +7674,25 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+ion-content {
+  background-color: #FFFFFF; }
+
+.box-home .home-menu {
+  margin-top: 30px; }
+  .box-home .home-menu .list .item {
+    padding: 0px; }
+    .box-home .home-menu .list .item .item-img {
+      width: 20%;
+      float: left; }
+    .box-home .home-menu .list .item .col-right {
+      width: 80%;
+      padding-top: 8%;
+      float: right; }
+      .box-home .home-menu .list .item .col-right span {
+        font-size: 30px; }
+
+.bar.bar-stable {
+  color: #444;
+  height: 75px;
+  background-color: #000000; }

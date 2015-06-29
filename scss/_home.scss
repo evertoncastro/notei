@@ -1,0 +1,26 @@
+ion-content{
+  background-color: #FFFFFF;
+}
+.box-home{
+    .home-menu{
+      margin-top: 30px;
+        .list{
+
+          .item{
+            padding: 0px;
+              .item-img{
+                width: 20%;
+                float: left;
+              }
+            .col-right{
+              width: 80%;
+              padding-top: 8%;
+              float: right;
+              span{
+                font-size: 30px;
+              }
+            }
+          }
+        }
+    }
+}
