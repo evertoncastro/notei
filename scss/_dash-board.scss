@@ -10,36 +10,54 @@
         background-color: #000000;
         color: #FFFFFF;
         height: 50px;
-        border-radius: 10px 10px 0px 0px;
+        border-radius: 10px 10px 10px 10px;
         text-align: center;
         .title{
           margin-top: 15px;
           display: inline-block;
         }
       }
-      .subject-grade{
-        display: inline-block;
-        width: 50%;
-        text-align: center;
-        float: left;
-        height: 50px;
-        background-color: #e8e8e8;
-        .title{
-          margin-top: 15px;
+      .subject-details{
+        height: 150px;
+        border: solid 1px;
+        border-radius: 0px 0px 10px 10px;
+        margin-top: -7px;
+        position: relative;
+        z-index: -1;
+        .subject-grade{
           display: inline-block;
+          width: 50%;
+          text-align: center;
+          float: left;
+          height: 50px;
+          background-color: #FFFFFF;
+          margin-top: 0px;
+          .title{
+            margin-top: 15px;
+            display: inline-block;
+          }
+        }
+        .subject-attendance{
+          display: inline-block;
+          width: 50%;
+          text-align: center;
+          float: right;
+          height: 50px;
+          background-color: #e8e8e8;
+          margin-top: 0px;
+          .title{
+            margin-top: 15px;
+            display: inline-block;
+          }
+        }
+        .board-grade{
+
+        }
+        .board-attendance{
+
         }
       }
-      .subject-attendance{
-        display: inline-block;
-        width: 50%;
-        text-align: center;
-        float: right;
-        height: 50px;
-        .title{
-          margin-top: 15px;
-          display: inline-block;
-        }
-      }
+
     }
   }
 }
