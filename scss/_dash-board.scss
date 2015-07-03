@@ -1,0 +1,45 @@
+.box-dash-board{
+  .subjects-board{
+    height: auto;
+    margin: 5% 5%;
+    .subject-item{
+      height: auto;
+      border-radius: 15px;
+      .subject-title{
+        display: block;
+        background-color: #000000;
+        color: #FFFFFF;
+        height: 50px;
+        border-radius: 10px 10px 0px 0px;
+        text-align: center;
+        .title{
+          margin-top: 15px;
+          display: inline-block;
+        }
+      }
+      .subject-grade{
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        float: left;
+        height: 50px;
+        background-color: #e8e8e8;
+        .title{
+          margin-top: 15px;
+          display: inline-block;
+        }
+      }
+      .subject-attendance{
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        float: right;
+        height: 50px;
+        .title{
+          margin-top: 15px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}

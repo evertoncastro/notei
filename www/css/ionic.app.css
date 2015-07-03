@@ -7677,7 +7677,7 @@ a.button {
 
 .header-details .header-img {
   width: 150px;
-  margin-top: 10px; }
+  margin-top: -5px; }
 
 ion-content {
   background-color: #FFFFFF; }
@@ -7696,13 +7696,13 @@ ion-content {
       font-size: 30px; }
 
 .bar.bar-stable {
-  color: #444;
+  color: #FFFFFF;
   height: 75px;
   background-color: #000000; }
 
 .bar.bar-stable .title {
-  color: #444;
-  height: 75px; }
+  color: #FFFFFF;
+  margin-top: 16px; }
 
 /*
 .bar .buttons-left span {
@@ -7724,3 +7724,39 @@ ion-content {
 
 .has-header {
   top: 75px; }
+
+.box-dash-board .subjects-board {
+  height: auto;
+  margin: 5% 5%; }
+  .box-dash-board .subjects-board .subject-item {
+    height: auto;
+    border-radius: 15px; }
+    .box-dash-board .subjects-board .subject-item .subject-title {
+      display: block;
+      background-color: #000000;
+      color: #FFFFFF;
+      height: 50px;
+      border-radius: 10px 10px 0px 0px;
+      text-align: center; }
+      .box-dash-board .subjects-board .subject-item .subject-title .title {
+        margin-top: 15px;
+        display: inline-block; }
+    .box-dash-board .subjects-board .subject-item .subject-grade {
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      float: left;
+      height: 50px;
+      background-color: #e8e8e8; }
+      .box-dash-board .subjects-board .subject-item .subject-grade .title {
+        margin-top: 15px;
+        display: inline-block; }
+    .box-dash-board .subjects-board .subject-item .subject-attendance {
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      float: right;
+      height: 50px; }
+      .box-dash-board .subjects-board .subject-item .subject-attendance .title {
+        margin-top: 15px;
+        display: inline-block; }

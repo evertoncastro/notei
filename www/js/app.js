@@ -34,7 +34,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: "/home",
     views: {
       'menuContent': {
-        templateUrl: "templates/home.html",
+        templateUrl: "templates/home.html"
         //controller: 'HomeCtrl'
       }
     }
@@ -44,7 +44,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: "/subjects",
     views: {
       'menuContent': {
-        templateUrl: "templates/subjects.html",
+        templateUrl: "templates/subjects.html"
         //controller: 'SubjectsCtrl'
       }
     }
@@ -54,11 +54,22 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: "/subject-new",
     views: {
       'menuContent': {
-        templateUrl: "templates/subject-new.html",
+        templateUrl: "templates/subject-new.html"
         //controller: 'SubjectNewCtrl'
       }
     }
   })
+
+  .state('app.dash-board', {
+    url: "/dash-board",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/dash-board.html"
+        //controller: 'DashBoardCtrl'
+      }
+    }
+  })
+
 
   .state('app.search', {
     url: "/search",
