@@ -4,10 +4,10 @@
             <div class="box-dash-board">
                 <div class="subjects-board">
                     <div class="subject-item">
-                        <div class="subject-title">
+                        <div class="subject-title" ng-click="openSubject()">
                             <span class="title">Matemática</span>
                         </div>
-                        <div class="subject-details">
+                        <div class="subject-details" ng-show="showSubject">
                             <div class="subject-grade">
                                 <span class="title">Notas</span>
                             </div>
@@ -15,11 +15,30 @@
                                 <span class="title">Faltas</span>
                             </div>
                             <div class="board-grade">
-                                <span>P1</span>
+                                <label class="item-board-grade item item-input">
+                                    <span class="input-label">1ª Prova</span>
+                                    <input class="input-text" type="text">
+                                </label>
+                                <label class="item-board-grade item item-input">
+                                    <span class="input-label">2ª Prova</span>
+                                    <input class="input-text" type="text">
+                                </label>
+                                <label class="item-board-grade item item-input">
+                                    <span class="input-label">3ª Prova</span>
+                                    <input class="input-text" type="text">
+                                </label>
+                                <label class="item-board-grade item item-input">
+                                    <span class="input-label">Trabalho</span>
+                                    <input class="input-text" type="text">
+                                </label>
+
+                                <label class="item-board-media item item-input">
+                                    <span class="input-label">Trabalho</span>
+                                </label>
                             </div>
-                            <div class="board-attendance">
-                                <span>Faltas</span>
-                            </div>
+
+
+
                         </div>
 
                     </div>

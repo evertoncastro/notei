@@ -1,29 +1,32 @@
 // Karma configuration
-// Generated on Sat Jun 27 2015 15:11:46 GMT-0300 (BRT)
+// Generated on Mon Mar 23 2015 14:04:19 GMT-0300 (BRT)
 
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: 'www',
 
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
+    /*!
+     * ionic.bundle.js is a concatenation of:
+     * ionic.js, angular.js, angular-animate.js,
+     * angular-sanitize.js, angular-ui-router.js,
+     * and ionic-angular.js
+     */
 
     // list of files / patterns to load in the browser
-        files: [
-          '../www/lib/angular/angular.js',
-          '../www/js/*.js',
-          '../www/lib/angular-mocks/angular-mocks.js',
-          '**/*tests.js'
-        ],
-
-    // Use the PhantomJS browser instead of Chrome
-        browsers: ['PhantomJS'],
-
+    files: [
+      'lib/ionic/js/ionic.bundle.js',
+      '../node_modules/angular-mocks/angular-mocks.js',
+      'js/**/*.js',
+      'lib/ionic/js/angular-resource.min.js',
+      '../tests/**/*.js'
+    ],
 
 
     // list of files to exclude
@@ -40,7 +43,11 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'html'],
+
+    htmlReporter: {
+      outputFile: '../tests/report/index.html'
+    },
 
 
     // web server port
@@ -62,11 +69,11 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    //browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false
-  })
-}
+  });
+};
