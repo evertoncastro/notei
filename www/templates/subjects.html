@@ -1,10 +1,28 @@
-<ion-view>
-    <ion-nav-title class="header-details">
-        <img class="header-img" src="img/anotei_text.png">
-    </ion-nav-title>
+<ion-view view-title="Minhas Matérias">
+    <ion-nav-buttons class="button-add-subject" side="right">
+        <i class="ion-android-add-circle" ui-sref="app.subject-new"></i>
+    </ion-nav-buttons>
     <ion-content>
-        <button class="button button-small button-dark" ui-sref="app.subject-new">
-            Nova matéria
-        </button>
+        <div class="wrapper-subjects">
+            <div class="box-subjects">
+                <ion-list class="subjects-list">
+                    <ion-item class="subjects-item">
+                        <span>Matemática</span>
+                        <i class="ion-edit"></i>
+                        <i class="ion-trash-a"></i>
+                    </ion-item>
+                    <ion-item class="subjects-item">
+                        <span>Matemática</span>
+                        <i class="ion-edit"></i>
+                        <i class="ion-trash-a"></i>
+                    </ion-item>
+                    <ion-item class="subjects-item">
+                        <span>Matemática</span>
+                        <i class="ion-edit"></i>
+                        <i class="ion-trash-a"></i>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

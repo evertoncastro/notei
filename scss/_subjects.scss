@@ -1,0 +1,32 @@
+.ion-android-add-circle{
+  font-size: 30px;
+  padding: 18px 10px 18px 18px;
+}
+.box-subjects{
+  padding: 5% 5%;
+  .subjects-list{
+    .subjects-item{
+      margin: 0% 0% 5% 0%;
+      border-radius: 10px;
+      border: solid 1px #000000;
+      position: relative;
+      span{
+        display: inline-block;
+      }
+      .ion-edit{
+        position: absolute;
+        right: 85px;
+        font-size: 25px;
+        top: 0px;
+        padding: 13px 10px 13px 10px;
+      }
+      .ion-trash-a{
+        position: absolute;
+        right: 20px;
+        font-size: 30px;
+        top: 0px;
+        padding: 10px 10px 10px 10px;
+      }
+    }
+  }
+}

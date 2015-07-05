@@ -14,6 +14,7 @@
         height: 50px;
         border-radius: 10px 10px 10px 10px;
         text-align: center;
+        margin: 5% 0% 0% 0%;
         .title{
           margin-top: 15px;
           display: inline-block;
@@ -75,10 +76,54 @@
           }
           .item-board-media{
             display: block;
+            border: none;
+            margin: 10px 0px;
+            padding: 0px 0 0px 30%;
+            span{
+              padding: 7px 0px 7px 0px;
+              display: inline-block;
+              text-align: center;
+              width: 30%;
+              color: #444;
+              font-size: 16px;
+            }
           }
         }
         .board-attendance{
-
+          padding-left: 1px;
+          .item-board-grade{
+            width: 24.5%;
+            display: inline-block;
+            border: none;
+            padding: 0px 0px 0px 0px;
+            .input-label{
+              width: 100%;
+              text-align: center;
+              padding: 7px 0px 7px 0px;
+            }
+            .input-text {
+              width: 60%;
+              padding: 0px;
+              text-align: center;
+              margin-left: 20%;
+              border: solid 1px;
+              border-radius: 10px;
+            }
+          }
+          .item-board-media{
+            display: block;
+            border: none;
+            margin: 10px 0px;
+            padding: 0px 0 0px 30%;
+            span{
+              padding: 7px 0px 7px 0px;
+              display: inline-block;
+              text-align: center;
+              width: 30%;
+              color: #444;
+              font-size: 16px;
+            }
+          }
         }
       }
 
