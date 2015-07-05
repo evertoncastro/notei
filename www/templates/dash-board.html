@@ -9,12 +9,16 @@
                         </div>
                         <div class="subject-details" ng-show="showSubject">
                             <div class="subject-grade">
-                                <span class="title">Notas</span>
+                                <button class="title" ng-click="openLeftTab()" ng-disabled="showLeftTab">
+                                    <span>Notas</span>
+                                </button>
                             </div>
                             <div class="subject-attendance">
-                                <span class="title">Faltas</span>
+                                <button class="title" ng-click="openRightTab()" ng-disabled="showRightTab">
+                                    <span>Faltas</span>
+                                </button>
                             </div>
-                            <div class="board-grade">
+                            <div class="board-grade" ng-show="showLeftTab">
                                 <label class="item-board-grade item item-input">
                                     <span class="input-label">1ª Prova</span>
                                     <input class="input-text" type="tel" maxlength="3" placeholder="0,0">
@@ -37,14 +41,10 @@
                                     <span class="input-label">9.0</span>
                                 </label>
                             </div>
-                            <div class="board-attendance">
+                            <div class="board-attendance" ng-show="showRightTab">
                                 <label class="item-board-grade item item-input">
                                     <span class="input-label">Faltas</span>
-                                    <input class="input-text" type="tel" maxlength="3" placeholder="0,0">
-                                </label>
-                                <label class="item-board-media item item-input">
-                                    <span class="input-label">Média:</span>
-                                    <span class="input-label">9.0</span>
+                                    <input class="input-text" type="tel" maxlength="2" placeholder="0">
                                 </label>
                             </div>
                         </div>

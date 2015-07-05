@@ -7762,8 +7762,12 @@ ion-content {
         background-color: #FFFFFF;
         margin-top: 0px; }
         .box-dash-board .subjects-board .subject-item .subject-details .subject-grade .title {
-          margin-top: 15px;
-          display: inline-block; }
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          border: none;
+          background-color: #FFFFFF;
+          padding: 10px 6px 0px 6px; }
       .box-dash-board .subjects-board .subject-item .subject-details .subject-attendance {
         display: inline-block;
         width: 50%;
@@ -7773,10 +7777,15 @@ ion-content {
         background-color: #e8e8e8;
         margin-top: 0px; }
         .box-dash-board .subjects-board .subject-item .subject-details .subject-attendance .title {
-          margin-top: 15px;
-          display: inline-block; }
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          border: none;
+          background-color: #FFFFFF;
+          padding: 10px 6px 0px 6px; }
       .box-dash-board .subjects-board .subject-item .subject-details .board-grade {
-        padding-left: 1px; }
+        padding-left: 1px;
+        height: 180px; }
         .box-dash-board .subjects-board .subject-item .subject-details .board-grade .item-board-grade {
           width: 24.5%;
           display: inline-block;
@@ -7806,35 +7815,26 @@ ion-content {
             color: #444;
             font-size: 16px; }
       .box-dash-board .subjects-board .subject-item .subject-details .board-attendance {
-        padding-left: 1px; }
+        padding-left: 1px;
+        height: 180px; }
         .box-dash-board .subjects-board .subject-item .subject-details .board-attendance .item-board-grade {
-          width: 24.5%;
+          width: 100%;
           display: inline-block;
           border: none;
-          padding: 0px 0px 0px 0px; }
+          padding: 0px 0px 0px 0px;
+          margin: 25px 0px 0px 0px; }
           .box-dash-board .subjects-board .subject-item .subject-details .board-attendance .item-board-grade .input-label {
             width: 100%;
             text-align: center;
-            padding: 7px 0px 7px 0px; }
+            padding: 7px 0px 7px 0px;
+            max-width: none; }
           .box-dash-board .subjects-board .subject-item .subject-details .board-attendance .item-board-grade .input-text {
-            width: 60%;
+            width: 15%;
             padding: 0px;
             text-align: center;
-            margin-left: 20%;
+            margin-left: 42.5%;
             border: solid 1px;
             border-radius: 10px; }
-        .box-dash-board .subjects-board .subject-item .subject-details .board-attendance .item-board-media {
-          display: block;
-          border: none;
-          margin: 10px 0px;
-          padding: 0px 0 0px 30%; }
-          .box-dash-board .subjects-board .subject-item .subject-details .board-attendance .item-board-media span {
-            padding: 7px 0px 7px 0px;
-            display: inline-block;
-            text-align: center;
-            width: 30%;
-            color: #444;
-            font-size: 16px; }
 
 .ion-android-add-circle {
   font-size: 30px;
