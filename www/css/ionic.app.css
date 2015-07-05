@@ -7704,7 +7704,9 @@ ion-content {
 
 .bar.bar-stable .title {
   color: #FFFFFF;
-  margin-top: 16px; }
+  margin-top: 16px;
+  font-size: 22px;
+  font-weight: bold; }
 
 /*
 .bar .buttons-left span {
@@ -7745,7 +7747,9 @@ ion-content {
       margin: 5% 0% 0% 0%; }
       .box-dash-board .subjects-board .subject-item .subject-title .title {
         margin-top: 15px;
-        display: inline-block; }
+        display: inline-block;
+        font-size: 20px;
+        font-weight: bold; }
     .box-dash-board .subjects-board .subject-item .subject-details {
       height: auto;
       border: solid 1px;
@@ -7767,7 +7771,12 @@ ion-content {
           height: 100%;
           border: none;
           background-color: #FFFFFF;
-          padding: 10px 6px 0px 6px; }
+          padding: 6px 6px 0px 6px;
+          font-size: 20px;
+          font-weight: bold; }
+        .box-dash-board .subjects-board .subject-item .subject-details .subject-grade .title-before-click {
+          background-color: #A9E2F3;
+          color: #FFFFFF; }
       .box-dash-board .subjects-board .subject-item .subject-details .subject-attendance {
         display: inline-block;
         width: 50%;
@@ -7782,7 +7791,12 @@ ion-content {
           height: 100%;
           border: none;
           background-color: #FFFFFF;
-          padding: 10px 6px 0px 6px; }
+          padding: 6px 6px 0px 6px;
+          font-size: 20px;
+          font-weight: bold; }
+        .box-dash-board .subjects-board .subject-item .subject-details .subject-attendance .title-before-click {
+          background-color: #A9E2F3;
+          color: #FFFFFF; }
       .box-dash-board .subjects-board .subject-item .subject-details .board-grade {
         padding-left: 1px;
         height: 180px; }

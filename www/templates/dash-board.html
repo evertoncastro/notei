@@ -9,12 +9,14 @@
                         </div>
                         <div class="subject-details" ng-show="showSubject">
                             <div class="subject-grade">
-                                <button class="title" ng-click="openLeftTab()" ng-disabled="showLeftTab">
+                                <button class="title" ng-click="openLeftTab()"
+                                        ng-disabled="showLeftTab" ng-class="{'title-before-click': showRightTab}">
                                     <span>Notas</span>
                                 </button>
                             </div>
                             <div class="subject-attendance">
-                                <button class="title" ng-click="openRightTab()" ng-disabled="showRightTab">
+                                <button class="title" ng-click="openRightTab()"
+                                        ng-disabled="showRightTab" ng-class="{'title-before-click': showLeftTab}">
                                     <span>Faltas</span>
                                 </button>
                             </div>

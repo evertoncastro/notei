@@ -18,6 +18,8 @@
         .title{
           margin-top: 15px;
           display: inline-block;
+          font-size: 20px;
+          font-weight: bold;
         }
       }
       .subject-details{
@@ -41,7 +43,13 @@
             height: 100%;
             border: none;
             background-color: #FFFFFF;
-            padding: 10px 6px 0px 6px;
+            padding: 6px 6px 0px 6px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          .title-before-click{
+            background-color: #A9E2F3;
+            color: #FFFFFF;
           }
         }
         .subject-attendance{
@@ -58,7 +66,13 @@
             height: 100%;
             border: none;
             background-color: #FFFFFF;
-            padding: 10px 6px 0px 6px;
+            padding: 6px 6px 0px 6px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          .title-before-click{
+            background-color: #A9E2F3;
+            color: #FFFFFF;
           }
         }
         .board-grade{
