@@ -8,28 +8,29 @@ ion-content{
   background-color: #FFFFFF;
 }
 .box-home{
-    .home-menu{
-        .list{
-
-          .item{
-            .item-content {
-              padding: 0px 49px 0px 16px;
-            }
-            padding: 0px;
-              .item-img{
-                width: 20%;
-                float: left;
-              }
-            .col-right{
-              width: 80%;
-              padding-top: 8%;
-              float: right;
-              span{
-                font-family: "Helvetica Neue", Roboto, "Segoe UI", sans-serif;
-                font-size: 30px;
-              }
-            }
-          }
-        }
+  padding: 10%;
+  position: relative;
+  .home-item{
+    display: inline-block;
+    width: 100%;
+    border: solid 1px #888888;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    box-shadow: 1px 1px 20px 0px #888888;
+    .item-img{
+      width: 30%;
+      display: inline-block;
     }
+    .col-right{
+      width: auto;
+      display: inline-block;
+      span{
+        font-family: "Helvetica Neue", Roboto, "Segoe UI", sans-serif;
+        font-size: 30px;
+        position: absolute;
+        top: 40%;
+      }
+    }
+  }
 }
