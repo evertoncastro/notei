@@ -9,13 +9,14 @@
       z-index: 0;
       .subject-title{
         display: block;
-        background-color: #013ADF;
-        color: #FFFFFF;
+        background-color: #FFFFFF;
+        color: #000000;
         height: 50px;
         border-radius: 10px 10px 10px 10px;
         text-align: center;
         margin: 5% 0% 0% 0%;
         box-shadow: 1px 1px 20px 0px #888888;
+        border: solid 1px #888888;
         .title{
           margin-top: 15px;
           display: inline-block;

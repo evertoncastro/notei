@@ -7687,6 +7687,7 @@ ion-content {
   position: relative; }
   .box-home .home-item {
     display: inline-block;
+    background-color: #FFFFFF;
     width: 100%;
     border: solid 1px #888888;
     border-radius: 10px;
@@ -7708,7 +7709,7 @@ ion-content {
 .bar.bar-stable {
   color: #FFFFFF;
   height: 75px;
-  background-color: #013ADF; }
+  background-color: #000000; }
 
 .bar.bar-stable .title {
   color: #FFFFFF;
@@ -7747,13 +7748,14 @@ ion-content {
     z-index: 0; }
     .box-dash-board .subjects-board .subject-item .subject-title {
       display: block;
-      background-color: #013ADF;
-      color: #FFFFFF;
+      background-color: #FFFFFF;
+      color: #000000;
       height: 50px;
       border-radius: 10px 10px 10px 10px;
       text-align: center;
       margin: 5% 0% 0% 0%;
-      box-shadow: 1px 1px 20px 0px #888888; }
+      box-shadow: 1px 1px 20px 0px #888888;
+      border: solid 1px #888888; }
       .box-dash-board .subjects-board .subject-item .subject-title .title {
         margin-top: 15px;
         display: inline-block;
@@ -7887,3 +7889,13 @@ ion-content {
       top: 0px;
       padding: 10px 10px 10px 10px; }
 
+.box-subjects-new {
+  padding: 5%; }
+  .box-subjects-new .subjects-form .item {
+    border-radius: 10px;
+    margin-bottom: 5%;
+    border: solid 1px #888888;
+    box-shadow: 1px 1px 10px 0px #888888; }
+  .box-subjects-new .subjects-form .button {
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 0px #888888; }

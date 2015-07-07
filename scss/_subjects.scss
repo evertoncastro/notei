@@ -33,5 +33,18 @@
 }
 
 .box-subjects-new{
+  padding: 5%;
+  .subjects-form{
+    .item{
+      border-radius: 10px;
+      margin-bottom: 5%;
+      border: solid 1px #888888;
+      box-shadow: 1px 1px 10px 0px #888888;
+    }
+    .button{
+      border-radius: 10px;
+      box-shadow: 1px 1px 10px 0px #888888;
+    }
+  }
 
 }
