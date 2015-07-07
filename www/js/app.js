@@ -70,6 +70,25 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.homework', {
+    url: "/homework",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/homework.html"
+        //controller: 'HomeworkCtrl'
+      }
+    }
+  })
+
+  .state('app.homework-new', {
+    url: "/homework-new",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/homework-new.html"
+        //controller: 'HomeworkNewCtrl'
+      }
+    }
+  })
 
   .state('app.search', {
     url: "/search",
