@@ -74,8 +74,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: "/homework",
     views: {
       'menuContent': {
-        templateUrl: "templates/homework.html"
-        //controller: 'HomeworkCtrl'
+        templateUrl: "templates/homework.html",
+        controller: 'HomeworkCtrl'
       }
     }
   })

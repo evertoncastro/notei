@@ -3,25 +3,60 @@
         <i class="ion-android-add-circle" ui-sref="app.homework-new"></i>
     </ion-nav-buttons>
     <ion-content>
-        <div class="wrapper-homework">
-            <div class="box-homework">
-                <ion-list class="homework-list">
-                    <ion-item class="homework-item">
-                        <span>Trabalho 1</span>
-                        <i class="ion-edit"></i>
-                        <i class="ion-trash-a"></i>
-                    </ion-item>
-                    <ion-item class="homework-item">
-                        <span>Trabalho 2</span>
-                        <i class="ion-edit"></i>
-                        <i class="ion-trash-a"></i>
-                    </ion-item>
-                    <ion-item class="homework-item">
-                        <span>Trabalho 3</span>
-                        <i class="ion-edit"></i>
-                        <i class="ion-trash-a"></i>
-                    </ion-item>
-                </ion-list>
+        <div class="wrapper-dash-board">
+            <div class="box-dash-board">
+                <div class="homeworks-board">
+                    <div class="homework-item">
+                        <div class="homework-title" ng-click="openHomework()">
+                            <span class="title">Matemática</span>
+                            <i class="ion-edit"></i>
+                            <i class="ion-trash-a"></i>
+                        </div>
+                        <div class="homework-details" ng-show="showHomework">
+                            <div class="homework-grade">
+                                <button class="title" ng-click="openLeftTab()"
+                                        ng-disabled="showLeftTab" ng-class="{'title-before-click': showRightTab}">
+                                    <span>Notas</span>
+                                </button>
+                            </div>
+                            <div class="homework-attendance">
+                                <button class="title" ng-click="openRightTab()"
+                                        ng-disabled="showRightTab" ng-class="{'title-before-click': showLeftTab}">
+                                    <span>Faltas</span>
+                                </button>
+                            </div>
+                            <div class="board-grade" ng-show="showLeftTab">
+                                <label class="item-board-grade item item-input">
+                                    <span class="input-label">1ª Prova</span>
+                                    <input class="input-text" type="tel" maxlength="3" placeholder="0,0">
+                                </label>
+                                <label class="item-board-grade item item-input">
+                                    <span class="input-label">2ª Prova</span>
+                                    <input class="input-text" type="tel" maxlength="3" placeholder="0,0">
+                                </label>
+                                <label class="item-board-grade item item-input">
+                                    <span class="input-label">3ª Prova</span>
+                                    <input class="input-text" type="tel" maxlength="3" placeholder="0,0">
+                                </label>
+                                <label class="item-board-grade item item-input">
+                                    <span class="input-label">Trabalho</span>
+                                    <input class="input-text" type="tel" maxlength="3" placeholder="0,0">
+                                </label>
+
+                                <label class="item-board-media item item-input">
+                                    <span class="input-label">Média:</span>
+                                    <span class="input-label">9.0</span>
+                                </label>
+                            </div>
+                            <div class="board-attendance" ng-show="showRightTab">
+                                <label class="item-board-grade item item-input">
+                                    <span class="input-label">Faltas</span>
+                                    <input class="input-text" type="tel" maxlength="2" placeholder="0">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </ion-content>
