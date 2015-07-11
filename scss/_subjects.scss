@@ -5,7 +5,7 @@
 .box-subject{
   .subjects-board{
     height: auto;
-    margin: 5% 10%;
+    margin: 5% 5%;
     .subject-item{
       height: auto;
       border-radius: 15px;
@@ -161,6 +161,28 @@
         }
       }
 
+    }
+  }
+}
+
+.box-subject-new{
+  padding: 15px;
+  .subject-form{
+    .item{
+      margin: 0px 0px 10px 0px;
+      border-radius: 10px;
+      .input-label{
+        //font-family: action_manbold;
+        font-size: 20px;
+      }
+      .text{
+        //font-family: action_manregular;
+        font-size: 16px;
+      }
+    }
+    .button{
+      border-radius: 10px;
+      font-family: action_manbold;
     }
   }
 }

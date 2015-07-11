@@ -8,52 +8,45 @@
                 <div class="homeworks-board">
                     <div class="homework-item">
                         <div class="homework-title" ng-click="openHomework()">
-                            <span class="title">Matemática</span>
+                            <span class="title">Título</span>
                             <i class="ion-edit"></i>
                             <i class="ion-trash-a"></i>
                         </div>
                         <div class="homework-details" ng-show="showHomework">
-                            <div class="homework-grade">
+                            <div class="homework-info">
                                 <button class="title" ng-click="openLeftTab()"
                                         ng-disabled="showLeftTab" ng-class="{'title-before-click': showRightTab}">
-                                    <span>Notas</span>
+                                    <span>Detalhes</span>
                                 </button>
                             </div>
-                            <div class="homework-attendance">
+                            <div class="homework-observation">
                                 <button class="title" ng-click="openRightTab()"
                                         ng-disabled="showRightTab" ng-class="{'title-before-click': showLeftTab}">
-                                    <span>Faltas</span>
+                                    <span>Observações</span>
                                 </button>
                             </div>
-                            <div class="board-grade" ng-show="showLeftTab">
-                                <label class="item-board-grade item item-input">
-                                    <span class="input-label">1ª Prova</span>
-                                    <input class="input-text" type="tel" maxlength="3" placeholder="0,0">
+                            <div class="board-detail" ng-show="showLeftTab">
+                                <label class="item-board-detail item item-input item-stacked-label ion-ios-arrow-down">
+                                    <span class="display-label">Matéria</span>
+                                    <select>
+                                        <option value="">Selecione uma opção</option>
+                                        <option value="Aniversário">Matemática</option>
+                                    </select>
                                 </label>
-                                <label class="item-board-grade item item-input">
-                                    <span class="input-label">2ª Prova</span>
-                                    <input class="input-text" type="tel" maxlength="3" placeholder="0,0">
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Data de entrega: <span class="display-label-inner">10/10/2015</span> </span>
                                 </label>
-                                <label class="item-board-grade item item-input">
-                                    <span class="input-label">3ª Prova</span>
-                                    <input class="input-text" type="tel" maxlength="3" placeholder="0,0">
-                                </label>
-                                <label class="item-board-grade item item-input">
-                                    <span class="input-label">Trabalho</span>
-                                    <input class="input-text" type="tel" maxlength="3" placeholder="0,0">
-                                </label>
-
-                                <label class="item-board-media item item-input">
-                                    <span class="input-label">Média:</span>
-                                    <span class="input-label">9.0</span>
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Nota: <span class="display-label-inner">10</span> </span>
                                 </label>
                             </div>
-                            <div class="board-attendance" ng-show="showRightTab">
-                                <label class="item-board-grade item item-input">
+                            <div class="board-observation" ng-show="showRightTab">
+                                <label class="item-board-observation item item-input">
                                     <span class="input-label">Faltas</span>
                                     <input class="input-text" type="tel" maxlength="2" placeholder="0">
                                 </label>
                             </div>
+
                         </div>
                     </div>
                 </div>
