@@ -15,16 +15,16 @@
         display: block;
         background-color: #FFFFFF;
         color: #000000;
-        height: 50px;
+        height: 70px;
         border-radius: 10px 10px 10px 10px;
         //text-align: center;
         margin: 5% 0% 0% 0%;
         box-shadow: 1px 1px 20px 0px #888888;
         border: solid 1px #888888;
         .title{
-          margin-top: 15px;
-          margin-left: 15px;
-          display: inline-block;
+          padding: 8px 0px 5px 10px;
+          width: 62%;
+          display: block;
           font-size: 20px;
           font-weight: bold;
         }
@@ -33,14 +33,14 @@
           right: 75px;
           font-size: 25px;
           top: 0px;
-          padding: 13px 10px 13px 10px;
+          padding: 24px 10px 13px 10px;
         }
         .ion-trash-a{
           position: absolute;
           right: 20px;
           font-size: 30px;
           top: 0px;
-          padding: 10px 10px 10px 10px;
+          padding: 21px 10px 10px 10px;
         }
       }
       .exam-details{
@@ -120,7 +120,7 @@
               width: auto;
               position: absolute;
               top: 3px;
-              left: 145px;
+              left: 55px;
             }
             input[type=number]{
               display: inline-block;
