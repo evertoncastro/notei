@@ -7971,7 +7971,7 @@ ion-content {
         height: 50px;
         background-color: #FFFFFF;
         margin-top: 0px;
-        margin-bottom: 5px; }
+        margin-bottom: 15px; }
         .box-homework .homeworks-board .homework-item .homework-details .homework-info .title {
           display: inline-block;
           width: 100%;
@@ -8006,25 +8006,38 @@ ion-content {
           color: #FFFFFF; }
       .box-homework .homeworks-board .homework-item .homework-details .board-detail {
         padding-left: 1px;
-        height: 180px; }
+        height: 220px; }
         .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail {
           width: 90%;
+          position: relative;
           background-color: #F2F2F2;
-          border-radius: 5px;
-          margin: 2% 5% 0% 5%;
+          border-radius: 10px;
+          margin: 7px 5% 0% 5%;
           display: block;
           border: none;
-          padding: 5px 0px 5px 0px;
+          padding: 10px 0px 10px 0px;
           text-align: left; }
           .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail .display-label {
             width: 100%;
             padding: 7px 0px 7px 7px; }
+          .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input[type=date] {
+            display: inline-block;
+            width: auto;
+            position: absolute;
+            top: 3px;
+            left: 145px; }
+          .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input[type=number] {
+            display: inline-block;
+            width: auto;
+            position: absolute;
+            top: 3px;
+            left: 60px; }
           .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail select {
             background: transparent;
             display: inline-block;
             width: 100%;
             font-size: 14px;
-            margin-left: 36px;
+            margin-left: 15px;
             margin-top: 0px;
             line-height: 1;
             border: 0;
@@ -8045,25 +8058,19 @@ ion-content {
           margin-top: -14px; }
       .box-homework .homeworks-board .homework-item .homework-details .board-observation {
         padding-left: 1px;
-        height: 180px; }
+        height: 220px; }
         .box-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
-          width: 100%;
-          display: inline-block;
-          border: none;
-          padding: 0px 0px 0px 0px;
-          margin: 25px 0px 0px 0px; }
-          .box-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation .input-label {
+          width: 90%;
+          height: 63%;
+          margin: 0% 5% 0% 5%;
+          padding: 0%;
+          border: none; }
+          .box-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation textarea {
             width: 100%;
-            text-align: center;
-            padding: 7px 0px 7px 0px;
-            max-width: none; }
-          .box-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation .input-text {
-            width: 15%;
-            padding: 0px;
-            text-align: center;
-            margin-left: 42.5%;
-            border: solid 1px;
-            border-radius: 10px; }
+            height: 100%;
+            background-color: #F2F2F2;
+            border-radius: 10px;
+            padding: 2% 5%; }
 
 .box-homework-new {
   padding: 15px; }
