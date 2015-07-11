@@ -2,21 +2,22 @@
   font-size: 30px;
   padding: 18px 10px 18px 18px;
 }
-.box-subject{
-  .subjects-board{
+.box-exam{
+  .exams-board{
     height: auto;
     margin: 5% 5%;
-    .subject-item{
+    .exam-item{
       height: auto;
       border-radius: 15px;
       position: relative;
       z-index: 0;
-      .subject-title{
+      .exam-title{
         display: block;
         background-color: #FFFFFF;
         color: #000000;
         height: 50px;
         border-radius: 10px 10px 10px 10px;
+        //text-align: center;
         margin: 5% 0% 0% 0%;
         box-shadow: 1px 1px 20px 0px #888888;
         border: solid 1px #888888;
@@ -42,7 +43,7 @@
           padding: 10px 10px 10px 10px;
         }
       }
-      .subject-details{
+      .exam-details{
         height: auto;
         border: solid 1px #888888;
         border-radius: 0px 0px 10px 10px;
@@ -50,20 +51,22 @@
         position: relative;
         z-index: -1;
         box-shadow: 1px 1px 20px 0px #888888;
-        .subject-info{
-          display: block;
-          width: 100%;
+        .exam-info{
+          display: inline-block;
+          width: 50%;
           text-align: center;
+          float: left;
           height: 50px;
           background-color: #FFFFFF;
           margin-top: 0px;
+          margin-bottom: 15px;
           .title{
             display: inline-block;
             width: 100%;
             height: 100%;
             border: none;
             background-color: #FFFFFF;
-            padding: 20px 6px 0px 6px;
+            padding: 6px 6px 0px 6px;
             font-size: 20px;
             font-weight: bold;
           }
@@ -72,7 +75,7 @@
             color: #FFFFFF;
           }
         }
-        /*.subject-observation{
+        .exam-observation{
           display: inline-block;
           width: 50%;
           text-align: center;
@@ -94,10 +97,10 @@
             background-color: #A9E2F3;
             color: #FFFFFF;
           }
-        }*/
+        }
         .board-detail{
           padding-left: 1px;
-          height: 205px;
+          height: 270px;
           .item-board-detail{
             width: 90%;
             position: relative;
@@ -109,33 +112,24 @@
             padding: 10px 0px 10px 0px;
             text-align: left;
             .display-label{
+              width: 100%;
               padding: 7px 0px 7px 7px;
-              margin-right: 10px;
-              width: auto;
             }
-           /* input[type=date]{
+            input[type=date]{
               display: inline-block;
               width: auto;
               position: absolute;
               top: 3px;
               left: 145px;
-            }*/
-            input{
+            }
+            input[type=number]{
               display: inline-block;
               width: auto;
               position: absolute;
-              top: 4px;
-            }
-            input[type=number]{
+              top: 3px;
               left: 60px;
             }
-            input[type=text]{
-              left: 90px;
-            }
-            input[type=email]{
-
-            }
-            /*select{
+            select{
               background: transparent;
               display: inline-block;
               width: 100%;
@@ -146,7 +140,7 @@
               border: 0;
               -webkit-appearance: none;
               color: #666666;
-            }*/
+            }
             .input-text {
               width: 60%;
               padding: 0px;
@@ -156,20 +150,20 @@
               border-radius: 10px;
             }
           }
-         /* .ion-ios-arrow-down:before{
+          .ion-ios-arrow-down:before{
             float: right;
             position: absolute;
             right: 17px;
             top: 70%;
             margin-top: -14px;
-          }*/
+          }
         }
-        /*.board-observation{
+        .board-observation{
           padding-left: 1px;
-          height: 220px;
+          height: 270px;
           .item-board-observation{
             width: 90%;
-            height: 63%;
+            height: 70%;
             margin: 0% 5% 0% 5%;
             padding: 0%;
             border: none;
@@ -181,16 +175,16 @@
               padding: 2% 5%;
             }
           }
-        }*/
+        }
       }
+
     }
   }
 }
 
-
-.box-subject-new{
+.box-exam-new{
   padding: 15px;
-  .subject-form{
+  .exam-form{
     .item{
       margin: 0px 0px 10px 0px;
       border-radius: 10px;
@@ -198,10 +192,29 @@
         //font-family: action_manbold;
         font-size: 20px;
       }
+      select{
+        background: transparent;
+        display: block;
+        width: 100%;
+        height: 34px;
+        font-size: 16px;
+        margin-left: -4px;
+        margin-top: 0px;
+        line-height: 1;
+        border: 0;
+        -webkit-appearance: none;
+        color: #666666;
+      }
       .text{
         //font-family: action_manregular;
         font-size: 16px;
       }
+    }
+    .ion-ios-arrow-down:before{
+      float: right;
+      position: absolute;
+      right: 17px;
+      top: 60%;
     }
     .button{
       border-radius: 10px;

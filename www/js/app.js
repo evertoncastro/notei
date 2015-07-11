@@ -90,6 +90,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.exam', {
+    url: "/exam",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/exam.html",
+        controller: 'ExamCtrl'
+      }
+    }
+  })
+
+  .state('app.exam-new', {
+    url: "/exam-new",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/exam-new.html"
+        //controller: 'ExamNewCtrl'
+      }
+    }
+  })
+
   .state('app.search', {
     url: "/search",
     views: {

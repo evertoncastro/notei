@@ -1,0 +1,59 @@
+<ion-view view-title="Minhas Provas">
+    <ion-nav-buttons class="button-add-exam" side="right">
+        <i class="ion-android-add-circle" ui-sref="app.exam-new"></i>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="wrapper-exam">
+            <div class="box-exam">
+                <div class="exams-board">
+                    <div class="exam-item">
+                        <div class="exam-title" ng-click="openExam()">
+                            <span class="title">Título / Matéria</span>
+                            <i class="ion-edit"></i>
+                            <i class="ion-trash-a"></i>
+                        </div>
+                        <div class="exam-details" ng-show="showExam">
+                            <div class="exam-info">
+                                <button class="title" ng-click="openLeftTab()"
+                                        ng-disabled="showLeftTab" ng-class="{'title-before-click': showRightTab}">
+                                    <span>Detalhes</span>
+                                </button>
+                            </div>
+                            <div class="exam-observation">
+                                <button class="title" ng-click="openRightTab()"
+                                        ng-disabled="showRightTab" ng-class="{'title-before-click': showLeftTab}">
+                                    <span>Observações</span>
+                                </button>
+                            </div>
+                            <div class="board-detail" ng-show="showLeftTab">
+                                <label class="item-board-detail item item-input item-stacked-label ion-ios-arrow-down">
+                                    <span class="display-label">Matéria:</span>
+                                    <select>
+                                        <option value="">Selecione uma opção</option>
+                                        <option value="Aniversário">Matemática</option>
+                                    </select>
+                                </label>
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Data:</span><input type="date">
+                                </label>
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Peso: </span><input type="number">
+                                </label>
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Nota: </span><input type="number">
+                                </label>
+                            </div>
+                            <div class="board-observation" ng-show="showRightTab">
+                                <label class="item-board-observation item item-input">
+                                    <textarea>
+
+                                    </textarea>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
