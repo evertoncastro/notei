@@ -2,7 +2,32 @@
     <ion-header-bar>
         <h1 class="title">Matéria</h1>
     </ion-header-bar>
-    <ion-content>
-        Teste matéria
+    <ion-content scroll="false">
+        <div class="box-modal-subject">
+           <div class="grade-media">
+               <h2 class="label-grade-media">Média Final</h2>
+               <label class="item-grade-media item item-input">
+                   <button class="button button-result">
+                       Resultado
+                   </button>
+                   <span class="value-grade-media">9,5</span>
+               </label>
+           </div>
+           <div class="area-for-grade">
+               <label class="item-for-grade item item-input">
+                   <span class="display-label">Atividade </span>
+                   <label class="group">
+                       <span class="title-detail">Peso:</span><input type="number" value="10">
+                       <span class="title-detail">Nota:</span><input type="number" value="10">
+                   </label>
+                   <label class="toggle">
+                       <input type="checkbox">
+                       <div class="track">
+                           <div class="handle"></div>
+                       </div>
+                   </label>
+               </label>
+           </div>
+        </div>
     </ion-content>
 </ion-modal-view>

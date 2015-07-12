@@ -1,5 +1,108 @@
 .wrapper-modal-subject{
   width: 90%;
   height: 90%;
-  margin: 5%;
+  margin: 90px 5%;
+  border-radius: 10px;
+  border: solid 1px #888888;
+  box-shadow: 0px 0px 20px 3px #888888;
+  padding: 3%;
+  .scroll-content{
+    margin-top: -32px;
+  }
+  ion-header-bar{
+    border-radius: 10px 10px 0px 0px;
+    background-color: #F3E2A9;
+    h1{
+      font-size: 25px !important;
+      color: #FFFFFF;
+      font-weight: bold !important;
+    }
+  }
+  .box-modal-subject{
+    padding: 3%;
+    .grade-media{
+      display: block;
+      .label-grade-media{
+        display: block;
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .item-grade-media{
+        padding: 10px 0 10px 10px;
+        position: relative;
+        .button-result{
+          background-color: #F3E2A9;
+          font-weight: bold;
+          border: none;
+          box-shadow: 0px 0px 5px 0px #888888;
+        }
+        .text-result{
+          width: 100px;
+          text-align: center;
+          position: absolute;
+          left: 50%;
+          margin-left: -50px;
+          top: 50%;
+          margin-top: -14px;
+          font-size: 20px;
+        }
+        .value-grade-media{
+          float: right;
+          width: 45px;
+          height: 45px;
+          text-align: center;
+          padding: 12px 0px 0px 0px;
+          box-shadow: 0px 0px 5px 0px #888888;
+          position: absolute;
+          right: 8px;
+          background-color: #F3E2A9;
+          border-radius: 30px;
+          font-weight: bold;
+        }
+      }
+    }
+    .area-for-grade{
+      .item-for-grade{
+        display: block;
+        .display-label{
+          display: block;
+          width: 75%;
+          padding: 4px 0px 7px 0px;
+          font-weight: bold;
+        }
+        .group{
+          padding: 5px 0px 5px 0px;
+          border: solid 1px #F3E2A9;
+          border-radius: 10px;
+          display: inline-block;
+          margin-bottom: 2px;
+          .title-detail{
+            display: inline-block;
+            font-weight: bold;
+            margin-left: 20px;
+          }
+          input[type=number]{
+            display: inline-block;
+            height: auto;
+            width: 50px;
+            padding: 0px;
+            text-align: center;
+          }
+        }
+        .toggle{
+          position: absolute;
+          display: inline-block;
+          pointer-events: auto;
+          top: 23px;
+          right: 10px;
+          padding: 5px;
+          input:checked + .track {
+            border-color: #F3E2A9;
+            background-color: #F3E2A9;
+          }
+        }
+      }
+    }
+  }
 }
