@@ -15,18 +15,20 @@
         display: block;
         background-color: #FFFFFF;
         color: #000000;
-        height: 70px;
+        height: 61px;
         border-radius: 10px 10px 10px 10px;
-        //text-align: center;
         margin: 5% 0% 0% 0%;
-        box-shadow: 1px 1px 20px 0px #888888;
+        /* box-shadow: 1px 1px 20px 0px #888888; */
         border: solid 1px #888888;
         .title{
-          padding: 8px 0px 5px 10px;
+          padding: 5px 0px 5px 10px;
           width: 62%;
           display: block;
           font-size: 20px;
           font-weight: bold;
+        }
+        .title-min{
+          font-size: 14px !important;
         }
         .ion-edit{
           position: absolute;
@@ -50,7 +52,7 @@
         margin-top: -7px;
         position: relative;
         z-index: -1;
-        box-shadow: 1px 1px 20px 0px #888888;
+        /* box-shadow: 1px 1px 20px 0px #888888; */
         .exam-info{
           display: inline-block;
           width: 50%;
@@ -71,7 +73,7 @@
             font-weight: bold;
           }
           .title-before-click{
-            background-color: #A9E2F3;
+            background-color: #F3E2A9;
             color: #FFFFFF;
           }
         }
@@ -94,7 +96,7 @@
             font-weight: bold;
           }
           .title-before-click{
-            background-color: #A9E2F3;
+            background-color: #F3E2A9;
             color: #FFFFFF;
           }
         }
@@ -219,6 +221,9 @@
     .button{
       border-radius: 10px;
       font-family: action_manbold;
+      background-color: #F3e2A9;
+      border: none;
+      font-size: 22px;
     }
   }
 }

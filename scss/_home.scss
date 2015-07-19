@@ -8,17 +8,18 @@ ion-content{
   background-color: #FFFFFF;
 }
 .box-home{
-  padding: 10%;
+  padding: 15px 10%;
   position: relative;
   .home-item{
     display: inline-block;
-    background-color: #FFFFFF;
+    background-color: #F3E2A9;
     width: 100%;
     border: solid 1px #888888;
     border-radius: 10px;
     margin-bottom: 30px;
     position: relative;
-    box-shadow: 1px 1px 20px 0px #888888;
+    /* box-shadow: 1px 1px 20px 0px #888888; */
+    border: none;
     .item-img{
       width: 30%;
       display: inline-block;
