@@ -3,6 +3,7 @@
   padding: 18px 10px 18px 18px;
 }
 .box-homework{
+  font-family: robotoregular;
   .homeworks-board{
     height: auto;
     margin: 5% 5%;
@@ -182,6 +183,7 @@
 }
 
 .box-homework-new{
+  font-family: robotoregular;
   padding: 15px;
   .homework-form{
     .item{
@@ -217,7 +219,7 @@
     }
     .button{
       border-radius: 10px;
-      font-family: action_manbold;
+      font-family: robotoregular;
       background-color: #F3e2A9;
       border: none;
       font-size: 22px;

@@ -3,6 +3,7 @@
   padding: 18px 10px 18px 18px;
 }
 .box-exam{
+  font-family: robotoregular;
   .exams-board{
     height: auto;
     margin: 5% 5%;
@@ -185,6 +186,7 @@
 }
 
 .box-exam-new{
+  font-family: robotoregular;
   padding: 15px;
   .exam-form{
     .item{
@@ -220,7 +222,7 @@
     }
     .button{
       border-radius: 10px;
-      font-family: action_manbold;
+      font-family: robotoregular;
       background-color: #F3e2A9;
       border: none;
       font-size: 22px;
