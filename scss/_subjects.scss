@@ -20,7 +20,7 @@
         border-radius: 10px 10px 10px 10px;
         margin: 5% 0% 0% 0%;
         /* box-shadow: 1px 1px 20px 0px #888888; */
-        border: solid 2px #f3e2a9;
+        border: solid 1px $mainColor;
         .title{
           margin-top: 15px;
           margin-left: 15px;
@@ -50,6 +50,7 @@
         margin-top: -7px;
         position: relative;
         z-index: -1;
+        border: solid 1px $mainColor;
         /* box-shadow: 1px 1px 20px 0px #888888; */
         .subject-info{
           display: block;
@@ -69,8 +70,8 @@
             font-weight: bold;
           }
           .title-before-click{
-            background-color: #A9E2F3;
-            color: #FFFFFF;
+            background-color: $boxBackground;
+            color: #888888;
           }
         }
         /*.subject-observation{
@@ -196,7 +197,7 @@
     .item{
       margin: 0px 0px 10px 0px;
       border-radius: 10px;
-      border: solid 1px #F3e2A9;
+      border: solid 1px $mainColor;
       .input-label{
         //font-family: action_manbold;
         font-size: 20px;
@@ -209,7 +210,7 @@
     .button{
       border-radius: 10px;
       font-family: robotoregular;
-      background-color: #F3e2A9;
+      background-color: $mainColor;
       border: none;
       font-size: 22px;
     }

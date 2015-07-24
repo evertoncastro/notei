@@ -2,7 +2,7 @@
   font-family: robotoregular;
   width: 90%;
   height: 90%;
-  margin: 90px 5%;
+  margin: 5%;
   border-radius: 10px;
   border: solid 1px #888888;
   box-shadow: 0px 0px 20px 3px #888888;
@@ -12,7 +12,7 @@
   }
   ion-header-bar{
     border-radius: 10px 10px 0px 0px;
-    background-color: #F3E2A9;
+    background-color: $modalColor;
     h1{
       font-size: 25px !important;
       color: #FFFFFF;
@@ -32,19 +32,25 @@
       border: none;
       background: #FFFFFF;
       font-size: 22px;
-      color: #F3E2A9;
+      color: $modalColor;
       font-weight: bold;
     }
   }
   .box-modal-subject{
-    padding: 3%;
-    .grade-media{
+    padding: 2%;
+    .area-for-grade{
       height: 80px;
-      padding: 0px 0px 0px 0px;
-      position: relative;
+      border: solid 1px $modalColor;
+      border-radius: 4px;
+      background-color: $modalBox;
+      margin: 0px 0px 2% 0px;
+      color: $modalColor;
       .col-50{
         position: relative;
-        padding: 0px 0px 0px 0px;
+        padding: 5px 0px 0px 0px;
+        display: inline-block;
+        max-width: 49.3%;
+        height: 100%;
         .title-grade-media{
           text-align: center;
           display: block;
@@ -52,35 +58,36 @@
         }
         .value-grade{
           width: 65px;
-          height: 45px;
+          height: 36px;
           display: inline-block;
-          padding: 13px 6px 6px 7px;
-          background-color: #F3E2A9;
-          border-radius: 26px;
+          padding: 7px 7px 6px 6px;
+          border-radius: 15px;
           text-align: center;
           font-weight: bold;
-          color: #FFFFFF;
+          color: $modalColor;
           font-size: 16px;
           position: absolute;
           left: 50%;
           top: 50%;
-          margin: -15px 0px 0px -33px;
+          margin: -7px 0px 0px -33px;
+          border: solid 1px $modalColor;
         }
         .attendance{
           width: 66px;
-          margin: -15px 0px 0px -33px;
+          margin: -7px 0px 0px -33px;
         }
       }
-    }
-    .area-for-grade{
-      height: 80px;
       .item-for-grade{
         display: block;
+        background-color: transparent;
+        border: none;
+        padding: 6px 0 5px 10px;
         .display-label{
           display: block;
           width: 75%;
           padding: 4px 0px 7px 0px;
           font-weight: bold;
+          color: $modalColor;
         }
         .group{
           padding: 0px 0px 0px 0px;
@@ -91,16 +98,18 @@
           .title-detail{
             display: inline-block;
             font-weight: bold;
+            color: $modalColor;
           }
-          input[type=number]{
+          input[type=tel]{
             display: inline-block;
             height: 100%;
             width: 50px;
             padding: 0px;
             text-align: center;
-            border: solid 1px #F3E2A9;
+            border: solid 1px $modalColor;
             border-radius: 10px;
-            margin: 0px 15px 0px 10px;
+            margin: 0px 10px 0px 6px;
+            color: $modalColor;
           }
         }
       /*  .toggle{
@@ -121,23 +130,31 @@
           padding: 0px 0px;
           cursor: pointer;
           top: 50%;
-          margin: -14px 0px 0px 0px;
-          right: 20px;
+          margin: -20px -6px 0px 0px;
+          right: 10px;
           input{
             position: relative;
-            width: 28px;
-            height: 28px;
+            width: 45px;
+            height: 45px;
             display: block;
             border: 0;
             background: transparent;
             cursor: pointer;
             -webkit-appearance: none;
-            padding: 0px;
+            padding: 8px;
           }
         }
         .checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before {
-          background: #F3E2A9;
-          border-color: #F3E2A9;
+          background: $modalColor;
+          border-color: $modalColor;
+        }
+        .checkbox input:before, .checkbox-icon:before{
+          border: solid 1px $modalColor;
+          background: $modalBox;
+        }
+        .checkbox input:after, .checkbox-icon:after{
+          top: 39%;
+          left: 35%;
         }
       }
     }

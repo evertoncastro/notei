@@ -19,6 +19,12 @@ $dark:                            #444 !default;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 $stable:                          #013ADF !default;
+$mainColor: #00BFFF;
+
+$modalColor: #00BFFF;
+$modalBox: #FFFFFF;
+
+$boxBackground: #F2F2F2;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
