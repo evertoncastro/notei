@@ -56,11 +56,12 @@
             }
           }
           .board-detail{
-            height: 300px;
+            height: auto;
+            padding: 15px 0px 20px 0px;
             .item-board-detail{
               border: none;
               padding: 17px 0px 17px 0px;
-              margin: 9px 5% 0% 5%;
+              margin: 13px 5% 0% 5%;
               font-size: 20px;
               .display-label{
 
@@ -68,6 +69,7 @@
               input{
                 padding: 0px 0px 2px 0px;
                 font-size: 20px;
+                width: 70%;
               }
             }
           }
@@ -100,6 +102,50 @@
             margin: -16px 0px 0px -85px;
             font-size: 32px;
             line-height: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  /****MEDIA QUERY FOR SUBJECT PAGE****/
+  #wrapper-subject{
+    .subjects-board {
+      .subject-item {
+        .subject-title {
+          height: 80px;
+          .title {
+            font-size: 32px;
+            line-height: 32px;
+            margin: 24px 0px 0px 15px;
+          }
+          .ion-edit{
+            font-size: 32px;
+            padding: 26px 18px 22px 18px;
+          }
+          .ion-trash-a{
+            font-size: 40px;
+            padding: 20px 14px 20px 14px;
+          }
+        }
+        .subject-details{
+          .board-detail{
+            padding: 20px 0px 25px 0px;
+            height: auto;
+            .item-board-detail{
+              border: none;
+              padding: 17px 0px 17px 0px;
+              margin: 15px 5% 0% 5%;
+              font-size: 24px;
+              .display-label{
+
+              }
+              input{
+                padding: 0px 0px 2px 0px;
+                font-size: 24px;
+                width: 70%;
+              }
+            }
           }
         }
       }

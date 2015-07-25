@@ -82,5 +82,73 @@
       }
     }
   }
+
+  /****MEDIA QUERY FOR EXAM PAGE****/
+  #wrapper-exam{
+    .exams-board {
+      .exam-item {
+        .exam-title {
+          height: 70px;
+          .title {
+            font-size: 24px;
+            line-height: 24px;
+            margin: 1px 0px 0px 10px;
+          }
+          .title-min{
+            font-size: 15px !important;
+            line-height: 15px !important;
+            margin: 4px 0px 0px 10px !important;
+          }
+          .ion-edit{
+            font-size: 30px;
+            padding: 22px 10px 18px 10px;
+          }
+          .ion-trash-a{
+            font-size: 36px;
+            padding: 19px 10px 15px 10px;
+          }
+        }
+        .exam-details{
+          .exam-info{
+            height: 55px;
+            margin-bottom: 25px;
+            .title{
+              font-size: 22px;
+            }
+          }
+          .exam-observation{
+            height: 55px;
+            .title{
+              font-size: 22px;
+            }
+          }
+          .board-detail{
+            padding: 0px 0px 25px 0px;
+            .item-board-detail{
+              font-size: 18px;
+              margin: 10px 5% 0% 5%;
+              select{
+                font-size: 18px;
+              }
+              input{
+                top: 5px;
+                left: 65px;
+                font-size: 18px;
+              }
+              input[type=date]{
+                padding-top: 0px;
+              }
+              input[type=number]{
+                padding-top: 3px;
+              }
+            }
+            .ion-ios-arrow-down:before{
+              margin-top: -17px !important;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 

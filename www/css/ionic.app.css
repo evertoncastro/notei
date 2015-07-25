@@ -7902,6 +7902,7 @@ ion-content {
             border: none;
             padding: 10px 0px 10px 0px;
             text-align: left;
+            font-size: 14px;
             /* input[type=date]{
               display: inline-block;
               width: auto;
@@ -7932,7 +7933,8 @@ ion-content {
               font-weight: 700;
               height: auto;
               top: 4px;
-              width: 55%;
+              width: 62%;
+              font-size: 12px;
               float: right;
               padding: 3px 10px 0px 0px; }
             .box-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input[type=number] {
@@ -8385,14 +8387,14 @@ ion-content {
           right: 75px;
           font-size: 25px;
           top: 0px;
-          padding: 24px 10px 13px 10px;
+          padding: 18px 10px 18px 10px;
           color: #848484; }
         .box-exam .exams-board .exam-item .exam-title .ion-trash-a {
           position: absolute;
           right: 20px;
           font-size: 30px;
           top: 0px;
-          padding: 21px 10px 10px 10px;
+          padding: 16px 10px 15px 10px;
           color: #848484; }
       .box-exam .exams-board .exam-item .exam-details {
         height: auto;
@@ -8445,12 +8447,14 @@ ion-content {
             background-color: #F2F2F2;
             color: #888888; }
         .box-exam .exams-board .exam-item .exam-details .board-detail {
-          padding-left: 1px;
-          height: 270px; }
+          height: auto;
+          padding: 0px 0px 15px 0px; }
           .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail {
             width: 90%;
             position: relative;
             background-color: #F2F2F2;
+            color: #848484;
+            font-family: robotoregular;
             border-radius: 10px;
             margin: 7px 5% 0% 5%;
             display: block;
@@ -8460,6 +8464,9 @@ ion-content {
             .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail .display-label {
               width: 100%;
               padding: 7px 0px 7px 7px; }
+            .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input {
+              color: #848484;
+              font-family: robotoregular; }
             .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input[type=date] {
               display: inline-block;
               width: auto;
@@ -8475,14 +8482,15 @@ ion-content {
             .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail select {
               background: transparent;
               display: inline-block;
+              color: #848484;
+              font-family: robotoregular;
               width: 100%;
               font-size: 14px;
               margin-left: 15px;
               margin-top: 0px;
               line-height: 1;
               border: 0;
-              -webkit-appearance: none;
-              color: #666666; }
+              -webkit-appearance: none; }
             .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail .input-text {
               width: 60%;
               padding: 0px;
@@ -8625,7 +8633,50 @@ ion-content {
       #wrapper-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input {
         padding: 0px 10px 0px 0px;
         font-size: 18px;
-        width: 65%; } }
+        width: 65%; }
+  /****MEDIA QUERY FOR EXAM PAGE****/
+  #wrapper-exam .exams-board .exam-item .exam-title {
+    height: 70px; }
+    #wrapper-exam .exams-board .exam-item .exam-title .title {
+      font-size: 24px;
+      line-height: 24px;
+      margin: 1px 0px 0px 10px; }
+    #wrapper-exam .exams-board .exam-item .exam-title .title-min {
+      font-size: 15px !important;
+      line-height: 15px !important;
+      margin: 4px 0px 0px 10px !important; }
+    #wrapper-exam .exams-board .exam-item .exam-title .ion-edit {
+      font-size: 30px;
+      padding: 22px 10px 18px 10px; }
+    #wrapper-exam .exams-board .exam-item .exam-title .ion-trash-a {
+      font-size: 36px;
+      padding: 19px 10px 15px 10px; }
+  #wrapper-exam .exams-board .exam-item .exam-details .exam-info {
+    height: 55px;
+    margin-bottom: 25px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .exam-info .title {
+      font-size: 22px; }
+  #wrapper-exam .exams-board .exam-item .exam-details .exam-observation {
+    height: 55px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .exam-observation .title {
+      font-size: 22px; }
+  #wrapper-exam .exams-board .exam-item .exam-details .board-detail {
+    padding: 0px 0px 25px 0px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail {
+      font-size: 18px;
+      margin: 10px 5% 0% 5%; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail select {
+        font-size: 18px; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input {
+        top: 5px;
+        left: 65px;
+        font-size: 18px; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input[type=date] {
+        padding-top: 0px; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input[type=number] {
+        padding-top: 3px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .board-detail .ion-ios-arrow-down:before {
+      margin-top: -17px !important; } }
 
 @media screen and (min-width: 600px) and (max-width: 799px) {
   /****MEDIA QUERY FOR HOME PAGE****/
@@ -8656,15 +8707,17 @@ ion-content {
   #wrapper-subject .subjects-board .subject-item .subject-details .subject-info .title {
     font-size: 24px; }
   #wrapper-subject .subjects-board .subject-item .subject-details .board-detail {
-    height: 300px; }
+    height: auto;
+    padding: 15px 0px 20px 0px; }
     #wrapper-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail {
       border: none;
       padding: 17px 0px 17px 0px;
-      margin: 9px 5% 0% 5%;
+      margin: 13px 5% 0% 5%;
       font-size: 20px; }
       #wrapper-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input {
         padding: 0px 0px 2px 0px;
-        font-size: 20px; } }
+        font-size: 20px;
+        width: 70%; } }
 
 @media screen and (min-width: 800px) and (max-width: 999px) {
   /****MEDIA QUERY FOR HOME PAGE****/
@@ -8678,4 +8731,29 @@ ion-content {
     #wrapper-dash-board .subjects-board .subject-item .subject-title .title {
       margin: -16px 0px 0px -85px;
       font-size: 32px;
-      line-height: 32px; } }
+      line-height: 32px; }
+  /****MEDIA QUERY FOR SUBJECT PAGE****/
+  #wrapper-subject .subjects-board .subject-item .subject-title {
+    height: 80px; }
+    #wrapper-subject .subjects-board .subject-item .subject-title .title {
+      font-size: 32px;
+      line-height: 32px;
+      margin: 24px 0px 0px 15px; }
+    #wrapper-subject .subjects-board .subject-item .subject-title .ion-edit {
+      font-size: 32px;
+      padding: 26px 18px 22px 18px; }
+    #wrapper-subject .subjects-board .subject-item .subject-title .ion-trash-a {
+      font-size: 40px;
+      padding: 20px 14px 20px 14px; }
+  #wrapper-subject .subjects-board .subject-item .subject-details .board-detail {
+    padding: 20px 0px 25px 0px;
+    height: auto; }
+    #wrapper-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail {
+      border: none;
+      padding: 17px 0px 17px 0px;
+      margin: 15px 5% 0% 5%;
+      font-size: 24px; }
+      #wrapper-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input {
+        padding: 0px 0px 2px 0px;
+        font-size: 24px;
+        width: 70%; } }
