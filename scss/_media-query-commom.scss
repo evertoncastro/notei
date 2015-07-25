@@ -1,0 +1,19 @@
+/**** MEDIA QUERY FOR MODAL SIZE ****/
+@media (max-width: 680px) {
+  #wrapper-modal-subject {
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+  }
+}
+
+@media (min-width: 680px){
+  .modal {
+    top: 10%;
+    right: 15%;
+    bottom: 10%;
+    left: 15%;
+    min-height: 240px;
+    width: 70%;
+  }
+}

@@ -8074,10 +8074,13 @@ ion-content {
             display: block;
             border: none;
             padding: 10px 0px 10px 0px;
-            text-align: left; }
+            text-align: left;
+            color: #848484; }
             .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail .display-label {
               width: 100%;
               padding: 7px 0px 7px 7px; }
+            .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input {
+              color: #848484; }
             .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input[type=date] {
               display: inline-block;
               width: auto;
@@ -8128,7 +8131,9 @@ ion-content {
               height: 100%;
               background-color: #F2F2F2;
               border-radius: 10px;
-              padding: 2% 5%; }
+              padding: 2% 5%;
+              color: #848484;
+              line-height: inherit; }
 
 .box-homework-new {
   font-family: robotoregular;
@@ -8167,21 +8172,18 @@ ion-content {
     border: none;
     font-size: 22px; }
 
-.wrapper-modal-subject {
+#wrapper-modal-subject {
   font-family: robotoregular;
-  width: 90%;
-  height: 90%;
-  margin: 5%;
   border-radius: 10px;
   border: solid 1px #888888;
   box-shadow: 0px 0px 20px 3px #888888;
   padding: 3%; }
-  .wrapper-modal-subject .scroll-content {
+  #wrapper-modal-subject .scroll-content {
     margin-top: -32px; }
-  .wrapper-modal-subject ion-header-bar {
+  #wrapper-modal-subject ion-header-bar {
     border-radius: 10px 10px 0px 0px;
     background-color: #00BFFF; }
-    .wrapper-modal-subject ion-header-bar h1 {
+    #wrapper-modal-subject ion-header-bar h1 {
       font-size: 25px !important;
       color: #FFFFFF;
       font-weight: bold !important;
@@ -8189,7 +8191,7 @@ ion-content {
       text-align: left !important;
       position: absolute !important;
       left: 1px !important; }
-    .wrapper-modal-subject ion-header-bar .close-modal {
+    #wrapper-modal-subject ion-header-bar .close-modal {
       position: absolute;
       right: 5px;
       top: 5px;
@@ -8201,26 +8203,27 @@ ion-content {
       font-size: 22px;
       color: #00BFFF;
       font-weight: bold; }
-  .wrapper-modal-subject .box-modal-subject {
+  #wrapper-modal-subject .box-modal-subject {
     padding: 2%; }
-    .wrapper-modal-subject .box-modal-subject .area-for-grade {
+    #wrapper-modal-subject .box-modal-subject .area-for-grade {
       height: 80px;
       border: solid 1px #00BFFF;
-      border-radius: 4px;
+      border-radius: 10px;
       background-color: #FFFFFF;
       margin: 0px 0px 2% 0px;
       color: #848484; }
-      .wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 {
+      #wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 {
         position: relative;
-        padding: 5px 0px 0px 0px;
+        padding: 12px 0px 0px 0px;
         display: inline-block;
         max-width: 49.3%;
-        height: 100%; }
-        .wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 .title-grade-media {
+        height: 100%;
+        font-weight: bold; }
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 .title-grade-media {
           text-align: center;
           display: block;
           font-size: 18px; }
-        .wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 .value-grade {
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 .value-grade {
           width: 65px;
           height: 36px;
           display: inline-block;
@@ -8232,13 +8235,12 @@ ion-content {
           position: absolute;
           left: 50%;
           top: 50%;
-          margin: -7px 0px 0px -33px;
-          border: solid 1px #00BFFF;
+          margin: 0px 0px 0px -33px;
           color: #848484; }
-        .wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 .attendance {
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 .attendance {
           width: 66px;
-          margin: -7px 0px 0px -33px; }
-      .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade {
+          margin: 0px 0px 0px -33px; }
+      #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade {
         display: block;
         background-color: transparent;
         border: none;
@@ -8255,23 +8257,23 @@ ion-content {
             background-color: #F3E2A9;
           }
         }*/ }
-        .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .display-label {
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .display-label {
           display: block;
           width: 75%;
           padding: 4px 0px 7px 0px;
           font-weight: bold;
           color: #848484; }
-        .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group {
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group {
           padding: 0px 0px 0px 0px;
           border-radius: 10px;
           height: 30px;
           display: inline-block;
           margin-bottom: 2px; }
-          .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group .title-detail {
+          #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group .title-detail {
             display: inline-block;
             font-weight: bold;
             color: #848484; }
-          .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group input[type=tel] {
+          #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group input[type=tel] {
             display: inline-block;
             height: 100%;
             width: 50px;
@@ -8281,7 +8283,7 @@ ion-content {
             border-radius: 10px;
             margin: 0px 10px 0px 6px;
             color: #848484; }
-        .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox {
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox {
           position: absolute;
           display: inline-block;
           padding: 0px 0px;
@@ -8289,7 +8291,7 @@ ion-content {
           top: 50%;
           margin: -20px -6px 0px 0px;
           right: 10px; }
-          .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input {
+          #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input {
             position: relative;
             width: 45px;
             height: 45px;
@@ -8299,13 +8301,13 @@ ion-content {
             cursor: pointer;
             -webkit-appearance: none;
             padding: 8px; }
-        .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:checked:before, .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:checked + .checkbox-icon:before {
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:checked:before, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:checked + .checkbox-icon:before {
           background: #00BFFF;
           border-color: #00BFFF; }
-        .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:before, .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox-icon:before {
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:before, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox-icon:before {
           border: solid 1px #00BFFF;
           background: #FFFFFF; }
-        .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:after, .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox-icon:after {
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:after, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox-icon:after {
           top: 39%;
           left: 35%; }
 
@@ -8447,7 +8449,7 @@ ion-content {
             background-color: #F2F2F2;
             color: #888888; }
         .box-exam .exams-board .exam-item .exam-details .board-detail {
-          height: auto;
+          height: 270px;
           padding: 0px 0px 15px 0px; }
           .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail {
             width: 90%;
@@ -8471,13 +8473,13 @@ ion-content {
               display: inline-block;
               width: auto;
               position: absolute;
-              top: 3px;
+              top: 4px;
               left: 55px; }
             .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input[type=number] {
               display: inline-block;
               width: auto;
               position: absolute;
-              top: 3px;
+              top: 4px;
               left: 60px; }
             .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail select {
               background: transparent;
@@ -8518,7 +8520,9 @@ ion-content {
               height: 100%;
               background-color: #F2F2F2;
               border-radius: 10px;
-              padding: 2% 5%; }
+              padding: 2% 5%;
+              color: #848484;
+              line-height: inherit; }
 
 .box-exam-new {
   font-family: robotoregular;
@@ -8661,6 +8665,7 @@ ion-content {
     #wrapper-exam .exams-board .exam-item .exam-details .exam-observation .title {
       font-size: 22px; }
   #wrapper-exam .exams-board .exam-item .exam-details .board-detail {
+    height: 315px;
     padding: 0px 0px 25px 0px; }
     #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail {
       font-size: 18px;
@@ -8672,11 +8677,62 @@ ion-content {
         left: 65px;
         font-size: 18px; }
       #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input[type=date] {
-        padding-top: 0px; }
+        padding-top: 1px; }
       #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input[type=number] {
         padding-top: 3px; }
     #wrapper-exam .exams-board .exam-item .exam-details .board-detail .ion-ios-arrow-down:before {
-      margin-top: -17px !important; } }
+      margin-top: -17px !important; }
+  #wrapper-exam .exams-board .exam-item .exam-details .board-observation {
+    height: 315px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation {
+      height: 68%; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation textarea {
+        font-size: 20px; }
+  /****MEDIA QUERY FOR HOMEWORK PAGE****/
+  #wrapper-homework .homeworks-board .homework-item .homework-title {
+    height: 60px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .title {
+      font-size: 24px;
+      line-height: 24px;
+      margin: 18px 0px 0px 10px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .ion-edit {
+      font-size: 26px;
+      padding: 18px 10px 16px 10px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .ion-trash-a {
+      font-size: 32px;
+      padding: 15px 10px 13px 10px; }
+  #wrapper-homework .homeworks-board .homework-item .homework-details .homework-info {
+    height: 55px;
+    margin-bottom: 15px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .homework-info .title {
+      font-size: 22px; }
+  #wrapper-homework .homeworks-board .homework-item .homework-details .homework-observation {
+    height: 55px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .homework-observation .title {
+      font-size: 22px; }
+  #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail {
+    height: 260px;
+    padding: 0px 0px 25px 0px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail {
+      font-size: 18px;
+      margin: 10px 5% 0% 5%; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail select {
+        font-size: 18px; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input {
+        top: 5px;
+        font-size: 18px; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input[type=date] {
+        padding-top: 3px; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input[type=number] {
+        padding-top: 4px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .ion-ios-arrow-down:before {
+      margin-top: -17px !important; }
+  #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation {
+    height: 260px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
+      height: 68%; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation textarea {
+        font-size: 20px; } }
 
 @media screen and (min-width: 600px) and (max-width: 799px) {
   /****MEDIA QUERY FOR HOME PAGE****/
@@ -8717,7 +8773,105 @@ ion-content {
       #wrapper-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input {
         padding: 0px 0px 2px 0px;
         font-size: 20px;
-        width: 70%; } }
+        width: 70%; }
+  /****MEDIA QUERY FOR EXAM PAGE****/
+  #wrapper-exam .exams-board .exam-item .exam-title {
+    height: 80px; }
+    #wrapper-exam .exams-board .exam-item .exam-title .title {
+      font-size: 26px;
+      line-height: 26px;
+      margin: 2px 0px 0px 10px; }
+    #wrapper-exam .exams-board .exam-item .exam-title .title-min {
+      font-size: 16px !important;
+      line-height: 16px !important;
+      margin: 8px 0px 0px 10px !important; }
+    #wrapper-exam .exams-board .exam-item .exam-title .ion-edit {
+      font-size: 32px;
+      padding: 26px 10px 22px 10px; }
+    #wrapper-exam .exams-board .exam-item .exam-title .ion-trash-a {
+      font-size: 38px;
+      padding: 23px 10px 19px 10px; }
+  #wrapper-exam .exams-board .exam-item .exam-details .exam-info {
+    height: 60px;
+    margin-bottom: 25px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .exam-info .title {
+      font-size: 23px; }
+  #wrapper-exam .exams-board .exam-item .exam-details .exam-observation {
+    height: 60px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .exam-observation .title {
+      font-size: 23px; }
+  #wrapper-exam .exams-board .exam-item .exam-details .board-detail {
+    padding: 0px 0px 25px 0px;
+    height: 345px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail {
+      font-size: 20px;
+      margin: 14px 5% 0% 5%; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail select {
+        font-size: 18px; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input {
+        top: 5px;
+        left: 65px;
+        font-size: 18px; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input[type=date] {
+        padding-top: 4px; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input[type=number] {
+        padding-top: 5px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .board-detail .ion-ios-arrow-down:before {
+      margin-top: -22px !important;
+      font-size: 25px; }
+  #wrapper-exam .exams-board .exam-item .exam-details .board-observation {
+    height: 345px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation {
+      height: 68%; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation textarea {
+        font-size: 24px; }
+  /****MEDIA QUERY FOR HOMEWORK PAGE****/
+  #wrapper-homework .homeworks-board .homework-item .homework-title {
+    height: 70px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .title {
+      font-size: 26px;
+      line-height: 26px;
+      margin: 22px 0px 0px 10px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .ion-edit {
+      font-size: 30px;
+      padding: 22px 10px 18px 10px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .ion-trash-a {
+      font-size: 36px;
+      padding: 19px 10px 15px 10px; }
+  #wrapper-homework .homeworks-board .homework-item .homework-details .homework-info {
+    height: 55px;
+    margin-bottom: 25px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .homework-info .title {
+      font-size: 22px; }
+  #wrapper-homework .homeworks-board .homework-item .homework-details .homework-observation {
+    height: 55px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .homework-observation .title {
+      font-size: 22px; }
+  #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail {
+    height: 280px;
+    padding: 0px 0px 25px 0px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail {
+      font-size: 20px;
+      margin: 15px 5% 0% 5%; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail select {
+        font-size: 18px; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input {
+        top: 5px;
+        font-size: 20px; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input[type=date] {
+        padding-top: 6px;
+        margin-left: 14px; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input[type=number] {
+        top: 7px;
+        margin-left: 5px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .ion-ios-arrow-down:before {
+      margin-top: -17px !important; }
+  #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation {
+    height: 280px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
+      height: 63%; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation textarea {
+        font-size: 20px; } }
 
 @media screen and (min-width: 800px) and (max-width: 999px) {
   /****MEDIA QUERY FOR HOME PAGE****/
@@ -8756,4 +8910,118 @@ ion-content {
       #wrapper-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input {
         padding: 0px 0px 2px 0px;
         font-size: 24px;
-        width: 70%; } }
+        width: 70%; }
+  /****MEDIA QUERY FOR EXAM PAGE****/
+  #wrapper-exam .exams-board .exam-item .exam-title {
+    height: 80px; }
+    #wrapper-exam .exams-board .exam-item .exam-title .title {
+      font-size: 26px;
+      line-height: 26px;
+      margin: 2px 0px 0px 10px; }
+    #wrapper-exam .exams-board .exam-item .exam-title .title-min {
+      font-size: 16px !important;
+      line-height: 16px !important;
+      margin: 8px 0px 0px 10px !important; }
+    #wrapper-exam .exams-board .exam-item .exam-title .ion-edit {
+      font-size: 32px;
+      padding: 26px 10px 22px 10px; }
+    #wrapper-exam .exams-board .exam-item .exam-title .ion-trash-a {
+      font-size: 38px;
+      padding: 23px 10px 19px 10px; }
+  #wrapper-exam .exams-board .exam-item .exam-details .exam-info {
+    height: 60px;
+    margin-bottom: 25px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .exam-info .title {
+      font-size: 23px; }
+  #wrapper-exam .exams-board .exam-item .exam-details .exam-observation {
+    height: 60px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .exam-observation .title {
+      font-size: 23px; }
+  #wrapper-exam .exams-board .exam-item .exam-details .board-detail {
+    padding: 0px 0px 25px 0px;
+    height: 345px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail {
+      font-size: 20px;
+      margin: 14px 5% 0% 5%; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail select {
+        font-size: 18px; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input {
+        top: 5px;
+        left: 65px;
+        font-size: 18px; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input[type=date] {
+        padding-top: 4px; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input[type=number] {
+        padding-top: 5px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .board-detail .ion-ios-arrow-down:before {
+      margin-top: -22px !important;
+      font-size: 25px; }
+  #wrapper-exam .exams-board .exam-item .exam-details .board-observation {
+    height: 345px; }
+    #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation {
+      height: 68%; }
+      #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation textarea {
+        font-size: 24px; }
+  /****MEDIA QUERY FOR HOMEWORK PAGE****/
+  #wrapper-homework .homeworks-board .homework-item .homework-title {
+    height: 70px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .title {
+      font-size: 26px;
+      line-height: 26px;
+      margin: 22px 0px 0px 10px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .ion-edit {
+      font-size: 30px;
+      padding: 22px 10px 18px 10px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .ion-trash-a {
+      font-size: 36px;
+      padding: 19px 10px 15px 10px; }
+  #wrapper-homework .homeworks-board .homework-item .homework-details .homework-info {
+    height: 55px;
+    margin-bottom: 25px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .homework-info .title {
+      font-size: 22px; }
+  #wrapper-homework .homeworks-board .homework-item .homework-details .homework-observation {
+    height: 55px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .homework-observation .title {
+      font-size: 22px; }
+  #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail {
+    height: 280px;
+    padding: 0px 0px 25px 0px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail {
+      font-size: 20px;
+      margin: 15px 5% 0% 5%; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail select {
+        font-size: 18px; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input {
+        top: 5px;
+        font-size: 20px; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input[type=date] {
+        padding-top: 6px;
+        margin-left: 14px; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input[type=number] {
+        top: 7px;
+        margin-left: 5px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .ion-ios-arrow-down:before {
+      margin-top: -17px !important; }
+  #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation {
+    height: 280px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
+      height: 63%; }
+      #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation textarea {
+        font-size: 20px; } }
+
+/**** MEDIA QUERY FOR MODAL SIZE ****/
+@media (max-width: 680px) {
+  #wrapper-modal-subject {
+    width: 90%;
+    height: 90%;
+    margin: 5%; } }
+
+@media (min-width: 680px) {
+  .modal {
+    top: 10%;
+    right: 15%;
+    bottom: 10%;
+    left: 15%;
+    min-height: 240px;
+    width: 70%; } }

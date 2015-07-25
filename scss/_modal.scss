@@ -1,8 +1,8 @@
-.wrapper-modal-subject{
+#wrapper-modal-subject{
   font-family: robotoregular;
-  width: 90%;
-  height: 90%;
-  margin: 5%;
+  //width: 90%;
+  //height: 90%;
+  //margin: 5%;
   border-radius: 10px;
   border: solid 1px #888888;
   box-shadow: 0px 0px 20px 3px #888888;
@@ -41,16 +41,17 @@
     .area-for-grade{
       height: 80px;
       border: solid 1px $modalColor;
-      border-radius: 4px;
+      border-radius: 10px;
       background-color: $modalBox;
       margin: 0px 0px 2% 0px;
       color: $mainFont;
       .col-50{
         position: relative;
-        padding: 5px 0px 0px 0px;
+        padding: 12px 0px 0px 0px;
         display: inline-block;
         max-width: 49.3%;
         height: 100%;
+        font-weight: bold;
         .title-grade-media{
           text-align: center;
           display: block;
@@ -68,13 +69,12 @@
           position: absolute;
           left: 50%;
           top: 50%;
-          margin: -7px 0px 0px -33px;
-          border: solid 1px $modalColor;
+          margin: 0px 0px 0px -33px;
           color: $mainFont;
         }
         .attendance{
           width: 66px;
-          margin: -7px 0px 0px -33px;
+          margin: 0px 0px 0px -33px;
         }
       }
       .item-for-grade{

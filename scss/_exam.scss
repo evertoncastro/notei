@@ -106,7 +106,7 @@
           }
         }
         .board-detail{
-          height: auto;
+          height: 270px;
           padding: 0px 0px 15px 0px;
           .item-board-detail{
             width: 90%;
@@ -132,14 +132,14 @@
               display: inline-block;
               width: auto;
               position: absolute;
-              top: 3px;
+              top: 4px;
               left: 55px;
             }
             input[type=number]{
               display: inline-block;
               width: auto;
               position: absolute;
-              top: 3px;
+              top: 4px;
               left: 60px;
             }
             select{
@@ -187,6 +187,8 @@
               background-color: #F2F2F2;
               border-radius: 10px;
               padding: 2% 5%;
+              color: $mainFont;
+              line-height: inherit;
             }
           }
         }
