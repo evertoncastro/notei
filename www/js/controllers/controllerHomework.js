@@ -1,7 +1,7 @@
 /**
  * Created by everton on 04/07/15.
  */
-angular.module('starter').controller('HomeworkCtrl', HomeworkCtrl);
+angular.module('anotei').controller('HomeworkCtrl', HomeworkCtrl);
 
 function HomeworkCtrl($scope){
 

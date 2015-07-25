@@ -1,7 +1,7 @@
 /**
  * Created by everton on 04/07/15.
  */
-angular.module('starter').controller('SubjectCtrl', SubjectCtrl);
+angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
 
 function SubjectCtrl($scope){
 

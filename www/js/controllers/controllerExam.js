@@ -1,7 +1,7 @@
 /**
  * Created by everton on 04/07/15.
  */
-angular.module('starter').controller('ExamCtrl', ExamCtrl);
+angular.module('anotei').controller('ExamCtrl', ExamCtrl);
 
 function ExamCtrl($scope){
 
