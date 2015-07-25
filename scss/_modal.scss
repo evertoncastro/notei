@@ -44,7 +44,7 @@
       border-radius: 4px;
       background-color: $modalBox;
       margin: 0px 0px 2% 0px;
-      color: $modalColor;
+      color: $mainFont;
       .col-50{
         position: relative;
         padding: 5px 0px 0px 0px;
@@ -64,13 +64,13 @@
           border-radius: 15px;
           text-align: center;
           font-weight: bold;
-          color: $modalColor;
           font-size: 16px;
           position: absolute;
           left: 50%;
           top: 50%;
           margin: -7px 0px 0px -33px;
           border: solid 1px $modalColor;
+          color: $mainFont;
         }
         .attendance{
           width: 66px;
@@ -87,7 +87,7 @@
           width: 75%;
           padding: 4px 0px 7px 0px;
           font-weight: bold;
-          color: $modalColor;
+          color: $mainFont;
         }
         .group{
           padding: 0px 0px 0px 0px;
@@ -98,7 +98,7 @@
           .title-detail{
             display: inline-block;
             font-weight: bold;
-            color: $modalColor;
+            color: $mainFont;
           }
           input[type=tel]{
             display: inline-block;
@@ -109,7 +109,7 @@
             border: solid 1px $modalColor;
             border-radius: 10px;
             margin: 0px 10px 0px 6px;
-            color: $modalColor;
+            color: $mainFont;
           }
         }
       /*  .toggle{

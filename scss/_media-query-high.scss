@@ -1,0 +1,108 @@
+@media screen and (min-width: 600px) and (max-width: 799px) {
+  /****MEDIA QUERY FOR HOME PAGE****/
+  #wrapper-home{
+    .col-right{
+      span{
+        font-size: 44px;
+        line-height: 44px;
+        margin: -22px 0px 0px 0px;
+      }
+    }
+  }
+
+  /****MEDIA QUERY FOR DASH BOARD PAGE****/
+  #wrapper-dash-board{
+    .subjects-board {
+      .subject-item {
+        .subject-title {
+          height: 70px;
+          .title {
+            margin: -14px 0px 0px -75px;
+            font-size: 28px;
+            line-height: 28px;
+          }
+        }
+      }
+    }
+  }
+
+  /****MEDIA QUERY FOR SUBJECT PAGE****/
+  #wrapper-subject{
+    .subjects-board {
+      .subject-item {
+        .subject-title {
+          height: 70px;
+          .title {
+            font-size: 28px;
+            line-height: 28px;
+            margin: 21px 0px 0px 15px;
+          }
+          .ion-edit{
+            font-size: 30px;
+            padding: 22px 10px 18px 10px;
+          }
+          .ion-trash-a{
+            font-size: 36px;
+            padding: 20px 10px 14px 10px;
+          }
+        }
+        .subject-details{
+          .subject-info{
+            .title{
+              font-size: 24px;
+              span{
+
+              }
+            }
+          }
+          .board-detail{
+            height: 300px;
+            .item-board-detail{
+              border: none;
+              padding: 17px 0px 17px 0px;
+              margin: 9px 5% 0% 5%;
+              font-size: 20px;
+              .display-label{
+
+              }
+              input{
+                padding: 0px 0px 2px 0px;
+                font-size: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 800px) and (max-width: 999px) {
+  /****MEDIA QUERY FOR HOME PAGE****/
+  #wrapper-home{
+    .col-right{
+      span{
+        font-size: 50px;
+        line-height: 50px;
+        margin: -25px 0px 0px 0px;
+      }
+    }
+  }
+
+  /****MEDIA QUERY FOR DASH BOARD PAGE****/
+  #wrapper-dash-board{
+    .subjects-board {
+      .subject-item {
+        .subject-title {
+          height: 80px;
+          .title {
+            margin: -16px 0px 0px -85px;
+            font-size: 32px;
+            line-height: 32px;
+          }
+        }
+      }
+    }
+  }
+}

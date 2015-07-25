@@ -27,6 +27,7 @@
           display: block;
           font-size: 20px;
           font-weight: bold;
+          color: $mainFont;
         }
         .title-min{
           font-size: 14px !important;
@@ -37,6 +38,7 @@
           font-size: 25px;
           top: 0px;
           padding: 24px 10px 13px 10px;
+          color: $mainFont;
         }
         .ion-trash-a{
           position: absolute;
@@ -44,6 +46,7 @@
           font-size: 30px;
           top: 0px;
           padding: 21px 10px 10px 10px;
+          color: $mainFont;
         }
       }
       .exam-details{
@@ -197,6 +200,7 @@
       .input-label{
         //font-family: action_manbold;
         font-size: 20px;
+        color: $mainFont;
       }
       select{
         background: transparent;
@@ -214,6 +218,7 @@
       .text{
         //font-family: action_manregular;
         font-size: 16px;
+        color: $mainFont;
       }
     }
     .ion-ios-arrow-down:before{

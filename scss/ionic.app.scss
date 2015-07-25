@@ -26,6 +26,8 @@ $modalBox: #FFFFFF;
 
 $boxBackground: #F2F2F2;
 
+$mainFont: #848484;
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import "home";
@@ -38,4 +40,5 @@ $boxBackground: #F2F2F2;
 @import "fonts";
 @import "exam";
 @import "settings";
-
+@import "media-query-low";
+@import "media-query-high";

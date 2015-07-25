@@ -27,6 +27,7 @@
           display: inline-block;
           font-size: 20px;
           font-weight: bold;
+          color: $mainFont;
         }
         .ion-edit{
           position: absolute;
@@ -34,6 +35,7 @@
           font-size: 25px;
           top: 0px;
           padding: 13px 10px 13px 10px;
+          color: $mainFont;
         }
         .ion-trash-a{
           position: absolute;
@@ -41,6 +43,7 @@
           font-size: 30px;
           top: 0px;
           padding: 10px 10px 10px 10px;
+          color: $mainFont;
         }
       }
       .homework-details{
@@ -194,6 +197,7 @@
       .input-label{
         //font-family: action_manbold;
         font-size: 20px;
+        color: $mainFont;
       }
       select{
         background: transparent;
@@ -206,11 +210,12 @@
         line-height: 1;
         border: 0;
         -webkit-appearance: none;
-        color: #666666;
+        color: $mainFont;
       }
       .text{
         //font-family: action_manregular;
         font-size: 16px;
+        color: $mainFont;
       }
     }
     .ion-ios-arrow-down:before{

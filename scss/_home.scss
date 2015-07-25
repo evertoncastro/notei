@@ -28,10 +28,12 @@ ion-content{
       display: inline-block;
       span{
         font-family: robotoregular;
-        //font-family: "Helvetica Neue", Roboto, "Segoe UI", sans-serif;
-        font-size: 30px;
+        font-size: 26px;
+        line-height: 26px;
         position: absolute;
-        top: 40%;
+        top: 50%;
+        margin: -13px 0px 0px 0px;
+        color: $mainFont;
       }
     }
   }

@@ -3,7 +3,7 @@
         <i class="ion-android-add-circle" ui-sref="app.subject-new"></i>
     </ion-nav-buttons>
     <ion-content>
-        <div class="wrapper-subject">
+        <div id="wrapper-subject">
             <div class="box-subject">
                 <div class="subjects-board">
                     <div class="subject-item">
@@ -13,36 +13,15 @@
                             <i class="ion-trash-a"></i>
                         </div>
                         <div class="subject-details" ng-show="showSubject">
-                            <div class="subject-info">
-                                <button class="title" ng-click="openLeftTab()">
-                                    <span>Detalhes</span>
-                                </button>
-                            </div>
-                            <!--<div class="subject-observation">
-                                <button class="title" ng-click="openRightTab()"
-                                        ng-disabled="showRightTab" ng-class="{'title-before-click': showLeftTab}">
-                                    <span>Observações</span>
-                                </button>
-                            </div>-->
                             <div class="board-detail">
-                                <!--<label class="item-board-detail item item-input item-stacked-label ion-ios-arrow-down">
-                                    <span class="display-label">Matéria:</span>
-                                    <select>
-                                        <option value="">Selecione uma opção</option>
-                                        <option value="Aniversário">Matemática</option>
-                                    </select>
-                                </label>-->
-                                <!--<label class="item-board-detail item item-input">
-                                    <span class="display-label">Data de entrega:</span><input type="date">
-                                </label>-->
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Professor: </span><input type="text">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">E-mail do professor:</span><input type="email">
+                                    <span class="display-label">E-mail profº:</span><input type="email">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Número máximo de faltas:</span><input type="number">
+                                    <span class="display-label">Máx. faltas:</span><input type="number">
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Faltas:</span><input type="number">

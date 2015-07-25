@@ -7702,9 +7702,12 @@ ion-content {
       display: inline-block; }
       .box-home .home-item .col-right span {
         font-family: robotoregular;
-        font-size: 30px;
+        font-size: 26px;
+        line-height: 26px;
         position: absolute;
-        top: 40%; }
+        top: 50%;
+        margin: -13px 0px 0px 0px;
+        color: #848484; }
 
 .bar.bar-stable {
   color: #FFFFFF;
@@ -7758,11 +7761,15 @@ ion-content {
       /* box-shadow: 1px 1px 20px 0px #888888; */
       border: solid 1px #00BFFF; }
       .box-dash-board .subjects-board .subject-item .subject-title .title {
-        margin-top: 15px;
         display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -10px 0px 0px -53px;
         font-size: 20px;
         font-weight: bold;
-        font-family: robotoregular; }
+        font-family: robotoregular;
+        color: #848484; }
 
 .ion-android-add-circle {
   font-size: 30px;
@@ -7792,19 +7799,22 @@ ion-content {
           margin-left: 15px;
           display: inline-block;
           font-size: 20px;
-          font-weight: bold; }
+          font-weight: bold;
+          color: #848484; }
         .box-subject .subjects-board .subject-item .subject-title .ion-edit {
           position: absolute;
           right: 75px;
           font-size: 25px;
           top: 0px;
-          padding: 13px 10px 13px 10px; }
+          padding: 13px 10px 13px 10px;
+          color: #848484; }
         .box-subject .subjects-board .subject-item .subject-title .ion-trash-a {
           position: absolute;
           right: 20px;
           font-size: 30px;
           top: 0px;
-          padding: 10px 10px 10px 10px; }
+          padding: 10px 10px 10px 10px;
+          color: #848484; }
       .box-subject .subjects-board .subject-item .subject-details {
         height: auto;
         border: solid 1px #888888;
@@ -7870,13 +7880,11 @@ ion-content {
             background-color: #FFFFFF;
             padding: 20px 6px 0px 6px;
             font-size: 20px;
-            font-weight: bold; }
-          .box-subject .subjects-board .subject-item .subject-details .subject-info .title-before-click {
-            background-color: #F2F2F2;
-            color: #888888; }
+            font-weight: bold;
+            color: #848484; }
         .box-subject .subjects-board .subject-item .subject-details .board-detail {
-          padding-left: 1px;
-          height: 205px;
+          height: auto;
+          padding: 15px 0px 15px 0px;
           /* .ion-ios-arrow-down:before{
             float: right;
             position: absolute;
@@ -7919,9 +7927,14 @@ ion-content {
               width: auto; }
             .box-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input {
               display: inline-block;
-              width: auto;
+              color: #848484;
+              font-family: robotoregular;
+              font-weight: 700;
               height: auto;
-              top: 4px; }
+              top: 4px;
+              width: 55%;
+              float: right;
+              padding: 3px 10px 0px 0px; }
             .box-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input[type=number] {
               left: 60px; }
             .box-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input[type=text] {
@@ -7942,7 +7955,8 @@ ion-content {
     border-radius: 10px;
     border: solid 1px #00BFFF; }
     .box-subject-new .subject-form .item .input-label {
-      font-size: 20px; }
+      font-size: 20px;
+      color: #848484; }
     .box-subject-new .subject-form .item .text {
       font-size: 16px; }
   .box-subject-new .subject-form .button {
@@ -7980,19 +7994,22 @@ ion-content {
           margin-left: 15px;
           display: inline-block;
           font-size: 20px;
-          font-weight: bold; }
+          font-weight: bold;
+          color: #848484; }
         .box-homework .homeworks-board .homework-item .homework-title .ion-edit {
           position: absolute;
           right: 75px;
           font-size: 25px;
           top: 0px;
-          padding: 13px 10px 13px 10px; }
+          padding: 13px 10px 13px 10px;
+          color: #848484; }
         .box-homework .homeworks-board .homework-item .homework-title .ion-trash-a {
           position: absolute;
           right: 20px;
           font-size: 30px;
           top: 0px;
-          padding: 10px 10px 10px 10px; }
+          padding: 10px 10px 10px 10px;
+          color: #848484; }
       .box-homework .homeworks-board .homework-item .homework-details {
         height: auto;
         border: solid 1px #888888;
@@ -8119,7 +8136,8 @@ ion-content {
     border-radius: 10px;
     border: solid 1px #00BFFF; }
     .box-homework-new .homework-form .item .input-label {
-      font-size: 20px; }
+      font-size: 20px;
+      color: #848484; }
     .box-homework-new .homework-form .item select {
       background: transparent;
       display: block;
@@ -8131,9 +8149,10 @@ ion-content {
       line-height: 1;
       border: 0;
       -webkit-appearance: none;
-      color: #666666; }
+      color: #848484; }
     .box-homework-new .homework-form .item .text {
-      font-size: 16px; }
+      font-size: 16px;
+      color: #848484; }
   .box-homework-new .homework-form .ion-ios-arrow-down:before {
     float: right;
     position: absolute;
@@ -8188,7 +8207,7 @@ ion-content {
       border-radius: 4px;
       background-color: #FFFFFF;
       margin: 0px 0px 2% 0px;
-      color: #00BFFF; }
+      color: #848484; }
       .wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 {
         position: relative;
         padding: 5px 0px 0px 0px;
@@ -8207,13 +8226,13 @@ ion-content {
           border-radius: 15px;
           text-align: center;
           font-weight: bold;
-          color: #00BFFF;
           font-size: 16px;
           position: absolute;
           left: 50%;
           top: 50%;
           margin: -7px 0px 0px -33px;
-          border: solid 1px #00BFFF; }
+          border: solid 1px #00BFFF;
+          color: #848484; }
         .wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 .attendance {
           width: 66px;
           margin: -7px 0px 0px -33px; }
@@ -8239,7 +8258,7 @@ ion-content {
           width: 75%;
           padding: 4px 0px 7px 0px;
           font-weight: bold;
-          color: #00BFFF; }
+          color: #848484; }
         .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group {
           padding: 0px 0px 0px 0px;
           border-radius: 10px;
@@ -8249,7 +8268,7 @@ ion-content {
           .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group .title-detail {
             display: inline-block;
             font-weight: bold;
-            color: #00BFFF; }
+            color: #848484; }
           .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group input[type=tel] {
             display: inline-block;
             height: 100%;
@@ -8259,7 +8278,7 @@ ion-content {
             border: solid 1px #00BFFF;
             border-radius: 10px;
             margin: 0px 10px 0px 6px;
-            color: #00BFFF; }
+            color: #848484; }
         .wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox {
           position: absolute;
           display: inline-block;
@@ -8357,7 +8376,8 @@ ion-content {
           width: 62%;
           display: block;
           font-size: 20px;
-          font-weight: bold; }
+          font-weight: bold;
+          color: #848484; }
         .box-exam .exams-board .exam-item .exam-title .title-min {
           font-size: 14px !important; }
         .box-exam .exams-board .exam-item .exam-title .ion-edit {
@@ -8365,13 +8385,15 @@ ion-content {
           right: 75px;
           font-size: 25px;
           top: 0px;
-          padding: 24px 10px 13px 10px; }
+          padding: 24px 10px 13px 10px;
+          color: #848484; }
         .box-exam .exams-board .exam-item .exam-title .ion-trash-a {
           position: absolute;
           right: 20px;
           font-size: 30px;
           top: 0px;
-          padding: 21px 10px 10px 10px; }
+          padding: 21px 10px 10px 10px;
+          color: #848484; }
       .box-exam .exams-board .exam-item .exam-details {
         height: auto;
         border: solid 1px #888888;
@@ -8498,7 +8520,8 @@ ion-content {
     border-radius: 10px;
     border: solid 1px #00BFFF; }
     .box-exam-new .exam-form .item .input-label {
-      font-size: 20px; }
+      font-size: 20px;
+      color: #848484; }
     .box-exam-new .exam-form .item select {
       background: transparent;
       display: block;
@@ -8512,7 +8535,8 @@ ion-content {
       -webkit-appearance: none;
       color: #666666; }
     .box-exam-new .exam-form .item .text {
-      font-size: 16px; }
+      font-size: 16px;
+      color: #848484; }
   .box-exam-new .exam-form .ion-ios-arrow-down:before {
     float: right;
     position: absolute;
@@ -8536,14 +8560,16 @@ ion-content {
     .box-settings .list-setting h2 {
       margin: 5px 0px 5px 0px;
       font-size: 32px;
-      font-weight: 800; }
+      font-weight: 800;
+      color: #848484; }
     .box-settings .list-setting .row {
       padding: 10px 0px; }
       .box-settings .list-setting .row .title {
         display: inline-block;
         padding: 7px 0px 8px 0px;
         margin: 0px 5px 0px 0px;
-        font-size: 20px; }
+        font-size: 20px;
+        color: #848484; }
       .box-settings .list-setting .row .item-input {
         margin: 0px 0px 15px 0px;
         border-radius: 5px;
@@ -8561,3 +8587,95 @@ ion-content {
           text-align: center;
           font-size: 20px;
           line-height: 22px; }
+
+@media screen and (min-width: 400px) and (max-width: 599px) {
+  /****MEDIA QUERY FOR HOME PAGE****/
+  #wrapper-home .col-right span {
+    font-size: 34px;
+    line-height: 34px;
+    margin: -17px 0px 0px 0px; }
+  /****MEDIA QUERY FOR DASH BOARD PAGE****/
+  #wrapper-dash-board .subjects-board .subject-item .subject-title {
+    height: 60px; }
+    #wrapper-dash-board .subjects-board .subject-item .subject-title .title {
+      margin: -12px 0px 0px -63px;
+      font-size: 24px;
+      line-height: 24px; }
+  /****MEDIA QUERY FOR SUBJECT PAGE****/
+  #wrapper-subject .subjects-board .subject-item .subject-title {
+    height: 60px; }
+    #wrapper-subject .subjects-board .subject-item .subject-title .title {
+      font-size: 24px;
+      line-height: 24px;
+      margin: 18px 0px 0px 15px; }
+    #wrapper-subject .subjects-board .subject-item .subject-title .ion-edit {
+      font-size: 28px;
+      padding: 19px 10px 13px 10px; }
+    #wrapper-subject .subjects-board .subject-item .subject-title .ion-trash-a {
+      font-size: 34px;
+      padding: 14px 10px 10px 10px; }
+  #wrapper-subject .subjects-board .subject-item .subject-details .board-detail {
+    height: auto;
+    padding: 20px 0px 20px 0px; }
+    #wrapper-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail {
+      border: none;
+      font-size: 18px;
+      padding: 15px 0px 15px 0px;
+      margin: 9px 5% 0% 5%; }
+      #wrapper-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input {
+        padding: 0px 10px 0px 0px;
+        font-size: 18px;
+        width: 65%; } }
+
+@media screen and (min-width: 600px) and (max-width: 799px) {
+  /****MEDIA QUERY FOR HOME PAGE****/
+  #wrapper-home .col-right span {
+    font-size: 44px;
+    line-height: 44px;
+    margin: -22px 0px 0px 0px; }
+  /****MEDIA QUERY FOR DASH BOARD PAGE****/
+  #wrapper-dash-board .subjects-board .subject-item .subject-title {
+    height: 70px; }
+    #wrapper-dash-board .subjects-board .subject-item .subject-title .title {
+      margin: -14px 0px 0px -75px;
+      font-size: 28px;
+      line-height: 28px; }
+  /****MEDIA QUERY FOR SUBJECT PAGE****/
+  #wrapper-subject .subjects-board .subject-item .subject-title {
+    height: 70px; }
+    #wrapper-subject .subjects-board .subject-item .subject-title .title {
+      font-size: 28px;
+      line-height: 28px;
+      margin: 21px 0px 0px 15px; }
+    #wrapper-subject .subjects-board .subject-item .subject-title .ion-edit {
+      font-size: 30px;
+      padding: 22px 10px 18px 10px; }
+    #wrapper-subject .subjects-board .subject-item .subject-title .ion-trash-a {
+      font-size: 36px;
+      padding: 20px 10px 14px 10px; }
+  #wrapper-subject .subjects-board .subject-item .subject-details .subject-info .title {
+    font-size: 24px; }
+  #wrapper-subject .subjects-board .subject-item .subject-details .board-detail {
+    height: 300px; }
+    #wrapper-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail {
+      border: none;
+      padding: 17px 0px 17px 0px;
+      margin: 9px 5% 0% 5%;
+      font-size: 20px; }
+      #wrapper-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input {
+        padding: 0px 0px 2px 0px;
+        font-size: 20px; } }
+
+@media screen and (min-width: 800px) and (max-width: 999px) {
+  /****MEDIA QUERY FOR HOME PAGE****/
+  #wrapper-home .col-right span {
+    font-size: 50px;
+    line-height: 50px;
+    margin: -25px 0px 0px 0px; }
+  /****MEDIA QUERY FOR DASH BOARD PAGE****/
+  #wrapper-dash-board .subjects-board .subject-item .subject-title {
+    height: 80px; }
+    #wrapper-dash-board .subjects-board .subject-item .subject-title .title {
+      margin: -16px 0px 0px -85px;
+      font-size: 32px;
+      line-height: 32px; } }

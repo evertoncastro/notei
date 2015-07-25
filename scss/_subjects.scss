@@ -27,6 +27,7 @@
           display: inline-block;
           font-size: 20px;
           font-weight: bold;
+          color: $mainFont;
         }
         .ion-edit{
           position: absolute;
@@ -34,6 +35,7 @@
           font-size: 25px;
           top: 0px;
           padding: 13px 10px 13px 10px;
+          color: $mainFont;
         }
         .ion-trash-a{
           position: absolute;
@@ -41,6 +43,7 @@
           font-size: 30px;
           top: 0px;
           padding: 10px 10px 10px 10px;
+          color: $mainFont;
         }
       }
       .subject-details{
@@ -68,10 +71,7 @@
             padding: 20px 6px 0px 6px;
             font-size: 20px;
             font-weight: bold;
-          }
-          .title-before-click{
-            background-color: $boxBackground;
-            color: #888888;
+            color: $mainFont;
           }
         }
         /*.subject-observation{
@@ -98,8 +98,8 @@
           }
         }*/
         .board-detail{
-          padding-left: 1px;
-          height: 205px;
+          height: auto;
+          padding: 15px 0px 15px 0px;
           .item-board-detail{
             width: 90%;
             position: relative;
@@ -124,9 +124,14 @@
             }*/
             input{
               display: inline-block;
-              width: auto;
+              color: $mainFont;
+              font-family: robotoregular;
+              font-weight: 700;
               height: auto;
               top: 4px;
+              width: 55%;
+              float: right;
+              padding: 3px 10px 0px 0px;
             }
             input[type=number]{
               left: 60px;
@@ -201,6 +206,7 @@
       .input-label{
         //font-family: action_manbold;
         font-size: 20px;
+        color: $mainFont;
       }
       .text{
         //font-family: action_manregular;
