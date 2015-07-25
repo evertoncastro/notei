@@ -3,7 +3,7 @@
   padding: 18px 10px 18px 18px;
 }
 .box-homework{
-  font-family: robotoregular;
+  font-family: $mainFontType;
   .homeworks-board{
     height: auto;
     margin: 5% 5%;
@@ -73,10 +73,13 @@
             padding: 6px 6px 0px 6px;
             font-size: 20px;
             font-weight: bold;
+            font-family: $mainFontType;
+            color: $mainFont;
           }
           .title-before-click{
             background-color: $boxBackground;
-            color: #888888;
+            font-family: $mainFontType;
+            color: $mainFont;
           }
         }
         .homework-observation{
@@ -96,10 +99,13 @@
             padding: 6px 6px 0px 6px;
             font-size: 20px;
             font-weight: bold;
+            font-family: $mainFontType;
+            color: $mainFont;
           }
           .title-before-click{
             background-color: $boxBackground;
-            color: #888888;
+            font-family: $mainFontType;
+            color: $mainFont;
           }
         }
         .board-detail{
@@ -121,6 +127,7 @@
               padding: 7px 0px 7px 7px;
             }
             input{
+              font-family: $mainFontType;
               color: $mainFont;
             }
             input[type=date]{
@@ -147,7 +154,8 @@
               line-height: 1;
               border: 0;
               -webkit-appearance: none;
-              color: #666666;
+              font-family: $mainFontType;
+              color: $mainFont;
             }
             .input-text {
               width: 60%;
@@ -181,6 +189,7 @@
               background-color: #F2F2F2;
               border-radius: 10px;
               padding: 2% 5%;
+              font-family: $mainFontType;
               color: $mainFont;
               line-height: inherit;
             }
@@ -193,7 +202,7 @@
 }
 
 .box-homework-new{
-  font-family: robotoregular;
+  font-family: $mainFontType;
   padding: 15px;
   .homework-form{
     .item{
@@ -216,12 +225,13 @@
         line-height: 1;
         border: 0;
         -webkit-appearance: none;
+        font-family: $mainFontType;
         color: $mainFont;
       }
       .text{
-        //font-family: action_manregular;
-        font-size: 16px;
+        font-family: $mainFontType;
         color: $mainFont;
+        font-size: 16px;
       }
     }
     .ion-ios-arrow-down:before{
@@ -232,7 +242,7 @@
     }
     .button{
       border-radius: 10px;
-      font-family: robotoregular;
+      font-family: $mainFontType;
       background-color: $mainColor;
       border: none;
       font-size: 22px;

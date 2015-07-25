@@ -18,6 +18,8 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+
+//COLORS
 $stable:                          #013ADF !default;
 $mainColor: #00BFFF;
 
@@ -27,6 +29,9 @@ $modalBox: #FFFFFF;
 $boxBackground: #F2F2F2;
 
 $mainFont: #848484;
+
+//FONTS
+$mainFontType: robotoregular;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";

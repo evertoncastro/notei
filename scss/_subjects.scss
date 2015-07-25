@@ -3,7 +3,7 @@
   padding: 18px 10px 18px 18px;
 }
 .box-subject{
-  font-family: robotoregular;
+  font-family: $mainFontType;
   .subjects-board{
     height: auto;
     margin: 5% 5%;
@@ -104,6 +104,7 @@
             width: 90%;
             position: relative;
             background-color: #F2F2F2;
+            color: $mainFont;
             border-radius: 10px;
             margin: 7px 5% 0% 5%;
             display: block;
@@ -126,7 +127,7 @@
             input{
               display: inline-block;
               color: $mainFont;
-              font-family: robotoregular;
+              font-family: $mainFontType;
               font-weight: 700;
               height: auto;
               top: 4px;
@@ -199,7 +200,7 @@
 
 .box-subject-new{
   padding: 15px;
-  font-family: robotoregular;
+  font-family: $mainFontType;
   .subject-form{
     .item{
       margin: 0px 0px 10px 0px;
@@ -213,11 +214,12 @@
       .text{
         //font-family: action_manregular;
         font-size: 16px;
+        color: $mainFont;
       }
     }
     .button{
       border-radius: 10px;
-      font-family: robotoregular;
+      font-family: $mainFontType;
       background-color: $mainColor;
       border: none;
       font-size: 22px;

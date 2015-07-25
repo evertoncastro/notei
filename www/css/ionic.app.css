@@ -7712,7 +7712,8 @@ ion-content {
 .bar.bar-stable {
   color: #FFFFFF;
   height: 75px;
-  background-color: #00BFFF; }
+  background-color: #00BFFF;
+  border: none; }
 
 .bar.bar-stable .title {
   color: #FFFFFF;
@@ -7721,16 +7722,19 @@ ion-content {
   font-size: 22px;
   font-weight: bold; }
 
-/*
-.bar .buttons-left span {
-  padding-top: 12px;
-}
-*/
 .bar-stable .button.button-clear {
   margin-top: 12px; }
 
 .bar-stable .button.button-clear {
   color: #ffffff; }
+
+.default-title {
+  display: none !important; }
+
+.bar.bar-stable .title {
+  margin: 16px 0px 0px 0px;
+  left: 40px;
+  right: 40px; }
 
 .platform-android .header-details .header-img {
   width: 150px;
@@ -7741,6 +7745,12 @@ ion-content {
 
 .has-header {
   top: 75px; }
+
+.wrapper-menu-left ion-item {
+  border-color: #00BFFF;
+  color: #848484;
+  font-size: 20px;
+  font-family: robotoregular; }
 
 .box-dash-board .subjects-board {
   height: auto;
@@ -7896,6 +7906,7 @@ ion-content {
             width: 90%;
             position: relative;
             background-color: #F2F2F2;
+            color: #848484;
             border-radius: 10px;
             margin: 7px 5% 0% 5%;
             display: block;
@@ -7960,7 +7971,8 @@ ion-content {
       font-size: 20px;
       color: #848484; }
     .box-subject-new .subject-form .item .text {
-      font-size: 16px; }
+      font-size: 16px;
+      color: #848484; }
   .box-subject-new .subject-form .button {
     border-radius: 10px;
     font-family: robotoregular;
@@ -8038,10 +8050,13 @@ ion-content {
             background-color: #FFFFFF;
             padding: 6px 6px 0px 6px;
             font-size: 20px;
-            font-weight: bold; }
+            font-weight: bold;
+            font-family: robotoregular;
+            color: #848484; }
           .box-homework .homeworks-board .homework-item .homework-details .homework-info .title-before-click {
             background-color: #F2F2F2;
-            color: #888888; }
+            font-family: robotoregular;
+            color: #848484; }
         .box-homework .homeworks-board .homework-item .homework-details .homework-observation {
           display: inline-block;
           width: 50%;
@@ -8058,10 +8073,13 @@ ion-content {
             background-color: #FFFFFF;
             padding: 6px 6px 0px 6px;
             font-size: 20px;
-            font-weight: bold; }
+            font-weight: bold;
+            font-family: robotoregular;
+            color: #848484; }
           .box-homework .homeworks-board .homework-item .homework-details .homework-observation .title-before-click {
             background-color: #F2F2F2;
-            color: #888888; }
+            font-family: robotoregular;
+            color: #848484; }
         .box-homework .homeworks-board .homework-item .homework-details .board-detail {
           padding-left: 1px;
           height: 220px; }
@@ -8080,6 +8098,7 @@ ion-content {
               width: 100%;
               padding: 7px 0px 7px 7px; }
             .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input {
+              font-family: robotoregular;
               color: #848484; }
             .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input[type=date] {
               display: inline-block;
@@ -8103,7 +8122,8 @@ ion-content {
               line-height: 1;
               border: 0;
               -webkit-appearance: none;
-              color: #666666; }
+              font-family: robotoregular;
+              color: #848484; }
             .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail .input-text {
               width: 60%;
               padding: 0px;
@@ -8132,6 +8152,7 @@ ion-content {
               background-color: #F2F2F2;
               border-radius: 10px;
               padding: 2% 5%;
+              font-family: robotoregular;
               color: #848484;
               line-height: inherit; }
 
@@ -8156,10 +8177,12 @@ ion-content {
       line-height: 1;
       border: 0;
       -webkit-appearance: none;
+      font-family: robotoregular;
       color: #848484; }
     .box-homework-new .homework-form .item .text {
-      font-size: 16px;
-      color: #848484; }
+      font-family: robotoregular;
+      color: #848484;
+      font-size: 16px; }
   .box-homework-new .homework-form .ion-ios-arrow-down:before {
     float: right;
     position: absolute;
@@ -8424,10 +8447,13 @@ ion-content {
             background-color: #FFFFFF;
             padding: 6px 6px 0px 6px;
             font-size: 20px;
-            font-weight: bold; }
+            font-weight: bold;
+            font-family: robotoregular;
+            color: #848484; }
           .box-exam .exams-board .exam-item .exam-details .exam-info .title-before-click {
             background-color: #F2F2F2;
-            color: #888888; }
+            font-family: robotoregular;
+            color: #848484; }
         .box-exam .exams-board .exam-item .exam-details .exam-observation {
           display: inline-block;
           width: 50%;
@@ -8444,10 +8470,13 @@ ion-content {
             background-color: #FFFFFF;
             padding: 6px 6px 0px 6px;
             font-size: 20px;
-            font-weight: bold; }
+            font-weight: bold;
+            font-family: robotoregular;
+            color: #848484; }
           .box-exam .exams-board .exam-item .exam-details .exam-observation .title-before-click {
             background-color: #F2F2F2;
-            color: #888888; }
+            font-family: robotoregular;
+            color: #848484; }
         .box-exam .exams-board .exam-item .exam-details .board-detail {
           height: 270px;
           padding: 0px 0px 15px 0px; }
@@ -8522,7 +8551,8 @@ ion-content {
               border-radius: 10px;
               padding: 2% 5%;
               color: #848484;
-              line-height: inherit; }
+              line-height: inherit;
+              font-family: robotoregular; }
 
 .box-exam-new {
   font-family: robotoregular;
@@ -8536,6 +8566,7 @@ ion-content {
       color: #848484; }
     .box-exam-new .exam-form .item select {
       background: transparent;
+      font-family: robotoregular;
       display: block;
       width: 100%;
       height: 34px;
@@ -8545,8 +8576,9 @@ ion-content {
       line-height: 1;
       border: 0;
       -webkit-appearance: none;
-      color: #666666; }
+      color: #848484; }
     .box-exam-new .exam-form .item .text {
+      font-family: robotoregular;
       font-size: 16px;
       color: #848484; }
   .box-exam-new .exam-form .ion-ios-arrow-down:before {
@@ -8571,6 +8603,7 @@ ion-content {
     padding: 0px 5px 5px 10px; }
     .box-settings .list-setting h2 {
       margin: 5px 0px 5px 0px;
+      font-family: robotoregular;
       font-size: 32px;
       font-weight: 800;
       color: #848484; }
@@ -8598,7 +8631,9 @@ ion-content {
           padding: 0px 0px 0px 0px;
           text-align: center;
           font-size: 20px;
-          line-height: 22px; }
+          line-height: 22px;
+          font-family: robotoregular;
+          color: #848484; }
 
 @media screen and (min-width: 400px) and (max-width: 599px) {
   /****MEDIA QUERY FOR HOME PAGE****/

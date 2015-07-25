@@ -2,6 +2,7 @@
   color: #FFFFFF;
   height: 75px;
   background-color: $mainColor;
+  border: none;
 }
 
 //Header logo area
@@ -13,13 +14,6 @@
   font-weight: bold;
 }
 
-//Making the menu button to be pull from top
-/*
-.bar .buttons-left span {
-  padding-top: 12px;
-}
-*/
-
 //Making the button back to be pull from top
 .bar-stable .button.button-clear {
   margin-top: 12px;
@@ -29,6 +23,17 @@
   color: #ffffff;
 }
 
+//MAKE TEXT BUTTON BACK TO BE DISABLED
+.default-title{
+  display: none !important;
+}
+
+//INCREMENT THE WIDTH FOR HEADER TITLE
+.bar.bar-stable .title {
+  margin: 16px 0px 0px 0px;
+  left: 40px;
+  right: 40px;
+}
 .platform-android{
   .header-details .header-img {
     width: 150px;
