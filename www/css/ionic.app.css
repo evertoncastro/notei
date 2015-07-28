@@ -8082,7 +8082,7 @@ ion-content {
             color: #848484; }
         .box-homework .homeworks-board .homework-item .homework-details .board-detail {
           padding-left: 1px;
-          height: 220px; }
+          height: 270px; }
           .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail {
             width: 90%;
             position: relative;
@@ -8139,10 +8139,10 @@ ion-content {
             margin-top: -14px; }
         .box-homework .homeworks-board .homework-item .homework-details .board-observation {
           padding-left: 1px;
-          height: 220px; }
+          height: 270px; }
           .box-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
             width: 90%;
-            height: 63%;
+            height: 70%;
             margin: 0% 5% 0% 5%;
             padding: 0%;
             border: none; }
@@ -8746,7 +8746,7 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .homework-observation .title {
       font-size: 22px; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail {
-    height: 260px;
+    height: 300px;
     padding: 0px 0px 25px 0px; }
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail {
       font-size: 18px;
@@ -8763,9 +8763,9 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .ion-ios-arrow-down:before {
       margin-top: -17px !important; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation {
-    height: 260px; }
+    height: 300px; }
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
-      height: 68%; }
+      height: 71%; }
       #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation textarea {
         font-size: 20px; } }
 
@@ -8883,7 +8883,7 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .homework-observation .title {
       font-size: 22px; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail {
-    height: 280px;
+    height: 345px;
     padding: 0px 0px 25px 0px; }
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail {
       font-size: 20px;
@@ -8902,9 +8902,9 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .ion-ios-arrow-down:before {
       margin-top: -17px !important; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation {
-    height: 280px; }
+    height: 345px; }
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
-      height: 63%; }
+      height: 68%; }
       #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation textarea {
         font-size: 20px; } }
 
@@ -9020,7 +9020,7 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .homework-observation .title {
       font-size: 22px; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail {
-    height: 280px;
+    height: 350px;
     padding: 0px 0px 25px 0px; }
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail {
       font-size: 20px;
@@ -9039,9 +9039,9 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .ion-ios-arrow-down:before {
       margin-top: -17px !important; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation {
-    height: 280px; }
+    height: 350px; }
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
-      height: 63%; }
+      height: 67%; }
       #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation textarea {
         font-size: 20px; } }
 
