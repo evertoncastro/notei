@@ -1,0 +1,19 @@
+insert into provas (descricao, data, observacoes, peso, nota, id_materia)
+values ('teste2', 'teste', 'teste', 2, 5, 1);
+
+
+select * from trabalhos;
+select * from materias;
+select * from provas;
+
+
+create table provas(
+	id integer primary key not null,
+	descricao text not null,
+	data text not null,
+	observacoes text not null,
+	peso numeric,
+	nota numeric,
+	id_materia integer not null,
+	foreign key (id_materia) references materias(id_materia)
+);
