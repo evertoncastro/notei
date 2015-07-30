@@ -3,7 +3,7 @@
  */
 var app = angular.module('anotei');
 
-app.factory('factoryDB', function($cordovaSQLite){
+app.factory('factoryDB', function($cordovaSQLite, $ionicLoading, $q){
 
     var currentDB = undefined;
     var DATABASE_NAME = 'anotei.db';
@@ -19,6 +19,24 @@ app.factory('factoryDB', function($cordovaSQLite){
             }
             return currentDB;
         },
+
+        executeQuery: function(deliveredQuery, fields){
+            var defer = $q.defer();
+            $ionicLoading.show();
+
+            var resp = $cordovaSQLite.execute(currentDB, deliveredQuery, fields);
+            resp.then(
+                function(execution){
+                    defer.resolve(execution);
+                    $ionicLoading.hide();
+                },
+                function(error){
+                    $ionicLoading.hide();
+                    defer.reject(error);
+                }
+            );
+            return defer.promise;
+        }
 
 
     }
