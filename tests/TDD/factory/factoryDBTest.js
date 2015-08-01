@@ -42,7 +42,7 @@ describe('Database - factory test', function(){
         'show and hide the loading', function(){
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
            return{
-             then: function(call, error){
+             then: function(call){
                  call();
              }
            };

@@ -18,7 +18,20 @@ describe('Service Subject Test', function(){
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
             return{
                 then: function(callback){
-                    var result = true;
+                    var result = {};
+                    result.rows = [
+                        {id_materia: 1,
+                            nome: 'Matemática',
+                            max_faltas: 20,
+                            professor: 'Silva',
+                            email_prof: 'silva@gmail.com',
+                            num_faltas: null}
+                    ];
+
+                    result.rows.item = function (index){
+                        return result.rows[index];
+                    };
+
 
                     return callback(result);
                 }
@@ -34,7 +47,7 @@ describe('Service Subject Test', function(){
 
     it('TDD - Should verify if the method getSubjects will ' +
         'get a list of subjects', function(){
-
+        debugger;
         var succesSpy = jasmine.createSpy('success'),
             failSpy   = jasmine.createSpy('failure');
 
@@ -43,7 +56,14 @@ describe('Service Subject Test', function(){
 
         $scope.$apply();
 
-        expect(succesSpy).toHaveBeenCalled();
-        expect(failSpy).toHaveBeenCalled();
+        expect(succesSpy).toHaveBeenCalledWith([
+            {id_materia: 1,
+                nome: 'Matemática',
+                max_faltas: 20,
+                professor: 'Silva',
+                email_prof: 'silva@gmail.com',
+                num_faltas: null}]
+        );
+        expect(failSpy).not.toHaveBeenCalled();
     });
 });

@@ -10,11 +10,25 @@ app.service('serviceSubject', function($q, factoryDB){
             var defer = $q.defer();
             var sqlQuery = 'select * from materias';
 
-            var resp = factoryDB.executeQuery(sqlQuery);
+            var resp = factoryDB.executeQuery(sqlQuery, undefined);
 
             resp.then(
                 function(resultSet){
+                    var listMateria = [];
 
+                    for(var i = 0; i < resultSet.rows.length; i++){
+                        var materia = {};
+
+                        materia.id_materia = resultSet.rows.item(i).id_materia;
+                        materia.nome = resultSet.rows.item(i).nome;
+                        materia.max_faltas = resultSet.rows.item(i).max_faltas;
+                        materia.professor = resultSet.rows.item(i).professor;
+                        materia.email_prof = resultSet.rows.item(i).email_prof;
+                        materia.num_faltas = resultSet.rows.item(i).num_faltas;
+
+                        listMateria.push(materia);
+                    }
+                    defer.resolve(listMateria);
                 },
                 function(error){
 
