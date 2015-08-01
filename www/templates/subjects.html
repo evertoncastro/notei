@@ -5,17 +5,18 @@
     <ion-content>
         <div id="wrapper-subject">
             <div class="box-subject">
+                <span>{{data.subjectList[0].professor}}</span>
                 <div class="subjects-board">
-                    <div class="subject-item">
+                    <div class="subject-item" ng-repeat="subject in data.subjectList">
                         <div class="subject-title" ng-click="openSubject()">
-                            <span class="title">Título</span>
+                            <span class="title">{{subject.nome}}</span>
                             <i class="ion-edit"></i>
                             <i class="ion-trash-a"></i>
                         </div>
                         <div class="subject-details" ng-show="showSubject">
                             <div class="board-detail">
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Professor: </span><input type="text">
+                                    <span class="display-label">{{subject.professor}}</span><input type="text">
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">E-mail profº:</span><input type="email">

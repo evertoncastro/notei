@@ -10,7 +10,7 @@ app.service('serviceSubject', function($q, factoryDB){
             var defer = $q.defer();
             var sqlQuery = 'select * from materias';
 
-            var resp = factoryDB.executeQuery(sqlQuery, undefined);
+            var resp = factoryDB.executeQuery('select * from materias');
 
             resp.then(
                 function(resultSet){

@@ -3,11 +3,16 @@
  */
 angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
 
-function SubjectCtrl($scope){
+function SubjectCtrl($scope, serviceSubject){
 
     $scope.showSubject = false;
-    $scope.init = function(){
 
+    $scope.init = function(){
+        var resp = serviceSubject.getSubjects();
+        resp.then(function(list){
+            $scope.data = {};
+            $scope.data.subjectList = list;
+        });
     };
 
     $scope.openSubject = function(){
