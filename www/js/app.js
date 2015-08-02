@@ -6,12 +6,12 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('anotei', ['ionic', 'ngCordova'])
 
-.run(function($ionicPlatform, factoryDB, $rootScope) {
+.run(function($ionicPlatform, factoryDatabase, $rootScope) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova) {
-      factoryDB.init();
+      factoryDatabase.init();
     }
 
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -20,11 +20,6 @@ angular.module('anotei', ['ionic', 'ngCordova'])
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
-    }
-
-    if (window.cordova){
-      // at this point database should send a broadcast to everyone....
-      $rootScope.$broadcast('factoryDB:initializedDB');
     }
   });
 })

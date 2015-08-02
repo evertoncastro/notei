@@ -3,14 +3,13 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceSubject', function($q, factoryDB){
+app.service('serviceSubject', function($q, factoryDatabase){
 
     return{
         getSubjects: function(){
             var defer = $q.defer();
-            var sqlQuery = 'select * from materias';
 
-            var resp = factoryDB.executeQuery('select * from materias');
+            var resp = factoryDatabase.executeQuery('select * from materias');
 
             resp.then(
                 function(resultSet){
@@ -31,7 +30,7 @@ app.service('serviceSubject', function($q, factoryDB){
                     defer.resolve(listMateria);
                 },
                 function(error){
-
+                    console.log(error);
                 }
             );
 

@@ -3,13 +3,13 @@
  */
 describe('Database - factory test', function(){
 
-    var factoryDB, $cordovaSQLite, $ionicLoading;
+    var factoryDatabase, $cordovaSQLite, $ionicLoading;
 
     beforeEach(module('anotei'));
 
     beforeEach(inject(function ($injector){
         $cordovaSQLite = $injector.get('$cordovaSQLite');
-        factoryDB = $injector.get('factoryDB');
+        factoryDatabase = $injector.get('factoryDatabase');
         $ionicLoading = $injector.get('$ionicLoading');
 
         window.sqlitePlugin = {
@@ -28,13 +28,13 @@ describe('Database - factory test', function(){
     }));
 
     it('TDD - verify all the definitions', function(){
-       expect(factoryDB).toBeDefined();
-       expect(factoryDB.init).toBeDefined();
-        expect(factoryDB.executeQuery).toBeDefined();
+       expect(factoryDatabase).toBeDefined();
+       expect(factoryDatabase.init).toBeDefined();
+        expect(factoryDatabase.executeQuery).toBeDefined();
     });
 
     it('TDD - should verify the start of database', function(){
-        expect(factoryDB.init()).not.toBeUndefined;
+        expect(factoryDatabase.init()).not.toBeUndefined;
         expect(window.sqlitePlugin.openDatabase).toHaveBeenCalled();
     });
 
@@ -53,7 +53,7 @@ describe('Database - factory test', function(){
             'values (?, ?, ?, ?, ?, ?)';
         var fields = ['Prova 1', '09-10-2015', null, 3.5, null, 1];
 
-        var resp = factoryDB.executeQuery(deliveredQuery, fields);
+        var resp = factoryDatabase.executeQuery(deliveredQuery, fields);
         expect($ionicLoading.show).toHaveBeenCalled();
         expect($ionicLoading.hide).toHaveBeenCalled();
         expect($cordovaSQLite.execute).toHaveBeenCalledWith(undefined, deliveredQuery, fields);

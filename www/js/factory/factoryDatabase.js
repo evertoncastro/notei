@@ -3,7 +3,7 @@
  */
 var app = angular.module('anotei');
 
-app.factory('factoryDB', function($cordovaSQLite, $ionicLoading, $q){
+app.factory('factoryDatabase', function($cordovaSQLite, $ionicLoading, $q){
 
     var currentDB = undefined;
     var DATABASE_NAME = 'anotei.db';
@@ -33,6 +33,7 @@ app.factory('factoryDB', function($cordovaSQLite, $ionicLoading, $q){
                 function(error){
                     $ionicLoading.hide();
                     defer.reject(error);
+                    console.log(error);
                 }
             );
             return defer.promise;
