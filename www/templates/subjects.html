@@ -5,7 +5,6 @@
     <ion-content>
         <div id="wrapper-subject">
             <div class="box-subject">
-                <span>{{data.subjectList[0].professor}}</span>
                 <div class="subjects-board">
                     <div class="subject-item" ng-repeat="subject in data.subjectList">
                         <div class="subject-title" ng-click="openSubject()">
@@ -16,16 +15,16 @@
                         <div class="subject-details" ng-show="showSubject">
                             <div class="board-detail">
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">{{subject.professor}}</span><input type="text">
+                                    <span class="display-label">Professor:</span><input value="{{subject.professor}}" type="text">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">E-mail profº:</span><input type="email">
+                                    <span class="display-label">E-mail profº:</span><input value="{{subject.email_prof}}" type="email">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Máx. faltas:</span><input type="number">
+                                    <span class="display-label">Máx. faltas:</span><input value="{{subject.max_faltas}}" type="number">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Faltas:</span><input type="number">
+                                    <span class="display-label">Faltas:</span><input value="{{subject.num_faltas}}" type="number">
                                 </label>
                             </div>
                             <!--<div class="board-observation" ng-show="showRightTab">
