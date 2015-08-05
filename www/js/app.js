@@ -58,8 +58,8 @@ angular.module('anotei', ['ionic', 'ngCordova'])
     url: "/subject-new",
     views: {
       'menuContent': {
-        templateUrl: "templates/subject-new.html"
-        //controller: 'SubjectNewCtrl'
+        templateUrl: "templates/subject-new.html",
+        controller: 'SubjectCtrl'
       }
     }
   })

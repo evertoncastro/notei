@@ -35,6 +35,26 @@ app.service('serviceSubject', function($q, factoryDatabase){
             );
 
             return defer.promise;
+        },
+
+        insertSubject: function(data){
+            var defer = $q.defer();
+            var sqlQuery = 'insert into materias ' +
+                '(nome, max_faltas, professor, email_prof, num_faltas) ' +
+                'values (?, ?, ?, ?, ?)';
+            var param = [data.nome, data.max_faltas, data.professor,
+                         data.email_prof, data.num_faltas];
+            var resp = factoryDatabase.executeQuery(sqlQuery, param);
+            resp.then(
+                function(result){
+                    defer.resolve(2);
+                },
+
+                function(error){
+                    defer.reject(error);
+                }
+            );
+            return defer.promise;
         }
     }
 
