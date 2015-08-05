@@ -14,7 +14,7 @@ app.factory('factoryDatabase', function($cordovaSQLite, $ionicLoading, $q){
             if(currentDB == undefined){
                 currentDB = window.sqlitePlugin.openDatabase({
                     name: DATABASE_NAME,
-                    createFromResources: PATH
+                    createFromResource: PATH
                 });
             }
             return currentDB;
