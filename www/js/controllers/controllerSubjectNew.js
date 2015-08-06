@@ -21,32 +21,33 @@ function SubjectNewCtrl($scope, $state, $ionicLoading, serviceSubject,
             $cordovaDialogs.alert(serviceConstants.MSG_INCOMPLETE_SUBJECT_NEW.MSG+'"'+validator+'"',
                                   serviceConstants.MSG_INCOMPLETE_SUBJECT_NEW.ALERT,
                                   serviceConstants.MSG_INCOMPLETE_SUBJECT_NEW.BUTTON);
-        }
-        $ionicLoading.show();
+        }else{
+            $ionicLoading.show();
 
-        serviceSubject.insertSubject(data).then(
-            function(valueExecution){
-                if(valueExecution==1){
-                    $cordovaDialogs.alert(serviceConstants.MSG_DATA_INVALID_SUBJECT_NEW.MSG,
-                                          serviceConstants.MSG_DATA_INVALID_SUBJECT_NEW.ALERT,
-                                          serviceConstants.MSG_DATA_INVALID_SUBJECT_NEW.BUTTON);
+            serviceSubject.insertSubject(data).then(
+                function(valueExecution){
+                    if(valueExecution==1){
+                        $cordovaDialogs.alert(serviceConstants.MSG_DATA_INVALID_SUBJECT_NEW.MSG,
+                                              serviceConstants.MSG_DATA_INVALID_SUBJECT_NEW.ALERT,
+                                              serviceConstants.MSG_DATA_INVALID_SUBJECT_NEW.BUTTON);
+                        $ionicLoading.hide();
+                    }else if(valueExecution==2){
+                        $cordovaDialogs.alert(serviceConstants.MSG_SUCCESS_SUBJECT_NEW.MSG,
+                                              serviceConstants.MSG_SUCCESS_SUBJECT_NEW.ALERT,
+                                              serviceConstants.MSG_SUCCESS_SUBJECT_NEW.BUTTON);
+                        $ionicLoading.hide();
+                        $state.go('app.subjects');
+                    }
+                },
+                function(){
                     $ionicLoading.hide();
-                }else if(valueExecution==2){
-                    $cordovaDialogs.alert(serviceConstants.MSG_SUCCESS_SUBJECT_NEW.MSG,
-                                          serviceConstants.MSG_SUCCESS_SUBJECT_NEW.ALERT,
-                                          serviceConstants.MSG_SUCCESS_SUBJECT_NEW.BUTTON);
-                    $ionicLoading.hide();
-                    $state.go('app.subjects');
+                    $cordovaDialogs.alert(serviceConstants.MSG_FAIL_SUBJECT_NEW.MSG,
+                                          serviceConstants.MSG_FAIL_SUBJECT_NEW.ALERT,
+                                          serviceConstants.MSG_FAIL_SUBJECT_NEW.BUTTON);
                 }
-            },
-            function(){
-                $ionicLoading.hide();
-                $cordovaDialogs.alert(serviceConstants.MSG_FAIL_SUBJECT_NEW.MSG,
-                                      serviceConstants.MSG_FAIL_SUBJECT_NEW.ALERT,
-                                      serviceConstants.MSG_FAIL_SUBJECT_NEW.BUTTON);
-            }
-        )
-    }
+            )
+        }
 
+    }
 
 }

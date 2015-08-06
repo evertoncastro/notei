@@ -5,21 +5,21 @@
                 <form class="subject-form">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Título</span>
-                        <input class="text" type="text" placeholder="Digite aqui">
+                        <input class="text" type="text" ng-model="data.nome" placeholder="Digite aqui">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Número máximo de faltas</span>
-                        <input class="text" type="number" placeholder="Digite aqui">
+                        <input class="text" type="number" ng-model="data.max_faltas" placeholder="Digite aqui">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Professor</span>
-                        <input class="text" type="text" placeholder="Digite aqui">
+                        <input class="text" type="text" ng-model="data.professor" placeholder="Digite aqui">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">E-mail do professor</span>
-                        <input class="text" type="email" placeholder="Digite aqui">
+                        <input class="text" type="email" ng-model="data.email_prof" placeholder="Digite aqui">
                     </label>
-                    <button class="button button-block button-positive">
+                    <button class="button button-block button-positive" ng-click="insertSubject(data)">
                         Gravar
                     </button>
                 </form>
