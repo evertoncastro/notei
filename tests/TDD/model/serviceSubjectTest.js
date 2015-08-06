@@ -15,10 +15,8 @@ describe('Service Subject Test', function(){
         $httpBackend.whenGET(/templates\/.*/).respond(200);
         $scope = rootScope.$new();
 
-
-
-
     }));
+
 
     it('TDD - Should verify if the service and methods exists', function(){
         expect(serviceSubject).toBeDefined();
@@ -38,7 +36,8 @@ describe('Service Subject Test', function(){
                             max_faltas: 20,
                             professor: 'Silva',
                             email_prof: 'silva@gmail.com',
-                            num_faltas: null}
+                            num_faltas: 5
+                        }
                     ];
 
                     result.rows.item = function (index){
@@ -50,7 +49,6 @@ describe('Service Subject Test', function(){
                 }
             };
         });
-        debugger;
         var succesSpy = jasmine.createSpy('success'),
             failSpy   = jasmine.createSpy('failure');
 
@@ -65,7 +63,8 @@ describe('Service Subject Test', function(){
                 max_faltas: 20,
                 professor: 'Silva',
                 email_prof: 'silva@gmail.com',
-                num_faltas: null}]
+                num_faltas: 5
+            }]
         );
         expect(failSpy).not.toHaveBeenCalled();
     });
@@ -89,8 +88,7 @@ describe('Service Subject Test', function(){
             nome: 'Programação 2',
             max_faltas: 20,
             professor: 'Everton de Castro',
-            email_prof: 'evertoncastro.sp@gmail.com',
-            num_faltas: 0
+            email_prof: 'evertoncastro.sp@gmail.com'
         };
 
         var resp = serviceSubject.insertSubject(data);
@@ -112,18 +110,39 @@ describe('Service Subject Test', function(){
                 }
             };
         });
+
         var data = {
             nome: 'Programação 2',
             max_faltas: 20,
             professor: 'Everton de Castro',
-            email_prof: 'evertoncastro.sp@gmail.com',
-            num_faltas: 0
+            email_prof: 'evertoncastro.sp@gmail.com'
         };
+
         serviceSubject.insertSubject(data);
         $scope.$apply();
         expect(factoryDatabase.executeQuery).toHaveBeenCalledWith(
             'insert into materias (nome, max_faltas, professor, email_prof, num_faltas) ' +
             'values (?, ?, ?, ?, ?)', ['Programação 2',
             20, 'Everton de Castro', 'evertoncastro.sp@gmail.com', 0]);
+    });
+
+    it('TDD - Should verify if the method inserSubjects' +
+        'will validate the data sent by the caller and return correctly', function(){
+
+        var succesSpy = jasmine.createSpy('success'),
+            failSpy   = jasmine.createSpy('failure');
+        debugger;
+        var data = {
+            nome: 'Programação 2',
+            max_faltas: null,
+            professor: 'Everton de Castro',
+            email_prof: 'evertoncastro.sp@gmail.com'
+        };
+
+        var resp = serviceSubject.insertSubject(data);
+        resp.then(succesSpy, failSpy);
+        $scope.$apply();
+        expect(succesSpy).toHaveBeenCalledWith(1);
+
     });
 });

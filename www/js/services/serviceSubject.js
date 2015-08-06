@@ -3,7 +3,7 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceSubject', function($q, factoryDatabase){
+app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
 
     return{
         getSubjects: function(){
@@ -39,21 +39,30 @@ app.service('serviceSubject', function($q, factoryDatabase){
 
         insertSubject: function(data){
             var defer = $q.defer();
-            var sqlQuery = 'insert into materias ' +
-                '(nome, max_faltas, professor, email_prof, num_faltas) ' +
-                'values (?, ?, ?, ?, ?)';
-            var param = [data.nome, data.max_faltas, data.professor,
-                         data.email_prof, data.num_faltas];
-            var resp = factoryDatabase.executeQuery(sqlQuery, param);
-            resp.then(
-                function(result){
-                    defer.resolve(2);
-                },
+            var validator = 0;
+            if(serviceUtil.isEmpty(data.nome)){validator = 1}
+            else if(serviceUtil.isEmpty(data.max_faltas)){validator = 1}
+            else if(serviceUtil.isEmpty(data.professor)){validator = 1}
 
-                function(error){
-                    defer.reject(error);
-                }
-            );
+            if(validator==1){
+                defer.resolve(1);
+            }else{
+                var sqlQuery = 'insert into materias ' +
+                    '(nome, max_faltas, professor, email_prof, num_faltas) ' +
+                    'values (?, ?, ?, ?, ?)';
+                var param = [data.nome, data.max_faltas, data.professor,
+                    data.email_prof, 0];
+                var resp = factoryDatabase.executeQuery(sqlQuery, param);
+                resp.then(
+                    function(result){
+                        defer.resolve(2);
+                    },
+
+                    function(error){
+                        defer.reject(error);
+                    }
+                );
+            }
             return defer.promise;
         }
     }
