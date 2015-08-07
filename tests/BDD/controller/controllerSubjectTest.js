@@ -61,6 +61,10 @@ describe('Subject controller', function () {
                 num_faltas: 5}
         ]);
     });
+
+    it('', function(){
+
+    })
 });
 
 

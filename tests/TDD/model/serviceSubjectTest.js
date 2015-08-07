@@ -22,8 +22,9 @@ describe('Service Subject Test', function(){
         expect(serviceSubject).toBeDefined();
         expect(serviceSubject.getSubjects).toBeDefined();
         expect(serviceSubject.insertSubject).toBeDefined();
+        expect(serviceSubject.updateSubject).toBeDefined();
     });
-
+    //GET SUBJECT
     it('TDD - Should verify if the method getSubjects will ' +
         'get a list of subjects', function(){
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
@@ -69,6 +70,7 @@ describe('Service Subject Test', function(){
         expect(failSpy).not.toHaveBeenCalled();
     });
 
+    //INSERT SUBJECT
     it('TDD - Should verify if the method insertSubject is able ' +
         'to insert a new subject', function(){
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
@@ -145,4 +147,34 @@ describe('Service Subject Test', function(){
         expect(succesSpy).toHaveBeenCalledWith(1);
 
     });
+
+    //UPDATE SUBJECT
+    it('TDD - Should verify if the method updateSubject ' +
+        'is able to update a Subject', function(){
+        spyOn($cordovaSQLite, 'execute').and.callFake(function(){
+            return{
+                then: function(callback){
+                   var result = 1;
+                   return callback(result);
+                }
+            };
+        });
+
+        var succesSpy = jasmine.createSpy('success'),
+            failSpy   = jasmine.createSpy('failure');
+
+        var data = {
+            nome: 'Programação 2',
+            max_faltas: 20,
+            professor: 'Everton de Castro',
+            email_prof: 'evertoncastro.sp@gmail.com'
+        };
+
+        var resp = serviceSubject.updateSubject(data);
+        resp.then(succesSpy, failSpy);
+
+        $scope.$apply();
+
+        expect(succesSpy).toHaveBeenCalledWith(1);
+    })
 });

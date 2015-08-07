@@ -64,6 +64,28 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
                 );
             }
             return defer.promise;
+        },
+
+        updateSubject: function(data){
+            var defer = $q.defer();
+
+            var sqlQuery = 'update materias set '+
+            'nome = ?, max_faltas = ?, ' +
+            'professor = ?, email_prof = ?, ' +
+            'num_faltas = ? where id_materia = ?';
+
+            var param = [data.nome, data.max_faltas, data.professor,
+                        data.email_prof, data.num_faltas, data.id_materia];
+
+            factoryDatabase.executeQuery(sqlQuery, param).then(
+                function(){
+                    defer.resolve(1);
+                },
+                function(error){
+                    defer.reject(error);
+                }
+            );
+            return defer.promise;
         }
     }
 

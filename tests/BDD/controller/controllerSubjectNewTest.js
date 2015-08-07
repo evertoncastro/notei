@@ -3,7 +3,8 @@
  */
 describe('SubjectNew controller', function () {
 
-    var SubjectNewCtrl, $scope, serviceSubject, $cordovaDialogs, serviceConstants, $state;
+    var SubjectNewCtrl, $scope, serviceSubject, $cordovaDialogs,
+        serviceConstants, $state;
 
     beforeEach(module('anotei'));
 
@@ -20,17 +21,18 @@ describe('SubjectNew controller', function () {
         $httpBackend.whenGET(/templates\/.*/).respond(200);
         spyOn($cordovaDialogs, 'alert');
         spyOn($state, 'go');
+        spyOn($scope, '$broadcast');
     }));
 
     it('TDD - Should define SubjectNewCtrl', function(){
        expect(SubjectNewCtrl).toBeDefined();
     });
 
-    it('BDD - Cenário: Inclusão de nova matéria;' +
-        'Dado que: o usuário preencheu todos os campos necessarios na tela de cadastro' +
-        'E: clicou no botão Gravar' +
-        'Então: um alerta de sucesso será exibido' +
-        'E: o usuário será redirecionado para a tela anterior', function(){
+    it('BDD - Cenário: Inclusão de nova matéria; ' +
+        'Dado que: o usuário preencheu todos os campos necessarios na tela de cadastro ' +
+        'E: clicou no botão Gravar ' +
+        'Então: um alerta de sucesso será exibido ' +
+        'E: o usuário será redirecionado para a tela anterior ', function(){
 
         var data = {
             nome: 'Programação 2',
@@ -108,8 +110,6 @@ describe('SubjectNew controller', function () {
             serviceConstants.MSG_INCOMPLETE_SUBJECT_NEW.BUTTON);
 
     });
-
-
 });
 
 
