@@ -15,16 +15,20 @@
                         <div class="subject-details" ng-if="showSubject && subject.id_materia==subject_id">
                             <div class="board-detail">
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Professor:</span><input value="{{subject.professor}}" type="text">
+                                    <span class="display-label">Professor:</span><input ng-model="subject.professor" type="text"
+                                                                                        ng-change="updateSubject(subject)">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">E-mail profº:</span><input value="{{subject.email_prof}}" type="email">
+                                    <span class="display-label">E-mail profº:</span><input ng-model="subject.email_prof" type="email"
+                                                                                           ng-change="updateSubject(subject)">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Máx. faltas:</span><input value="{{subject.max_faltas}}" type="number">
+                                    <span class="display-label">Máx. faltas:</span><input ng-model="subject.max_faltas" type="number"
+                                                                                          ng-change="updateSubject(subject)">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Faltas:</span><input value="{{subject.num_faltas}}" type="number">
+                                    <span class="display-label">Faltas:</span><input ng-model="subject.num_faltas" type="number"
+                                                                                     ng-change="updateSubject(subject)">
                                 </label>
                             </div>
                             <!--<div class="board-observation" ng-show="showRightTab">

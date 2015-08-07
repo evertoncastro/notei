@@ -21,6 +21,10 @@ angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
             });
         };
 
+        $scope.updateSubject = function(data){
+            serviceSubject.updateSubject(data);
+        };
+
         $scope.openSubject = function(id){
             $scope.subject_id = id;
             $scope.showSubject = !$scope.showSubject;

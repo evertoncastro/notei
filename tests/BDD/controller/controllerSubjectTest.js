@@ -62,7 +62,33 @@ describe('Subject controller', function () {
         ]);
     });
 
-    it('', function(){
+    it('BDD - Cenário: Atualização dos dados de uma Matéria ' +
+        'Dado que: O usuário alterou qualquer dado de uma matéria ' +
+        'E: fechou a aba da respectiva matéria ' +
+        'Então: os dados da matéria serão atualizados no banco de dados', function(){
+
+        var data = {
+            nome: 'Programação 2',
+            max_faltas: 20,
+            professor: 'Everton de Castro',
+            email_prof: 'evertoncastro.sp@gmail.com',
+            num_faltas: 4,
+            id_materia: 1
+        };
+
+        spyOn(serviceSubject, 'updateSubject').and.callFake(function(){
+            return {
+                then: function(callback){
+                    callback(1);
+                }
+            };
+        });
+
+
+        $scope.updateSubject(data);
+        $scope.$apply();
+
+        expect(serviceSubject.updateSubject).toHaveBeenCalled();
 
     })
 });
