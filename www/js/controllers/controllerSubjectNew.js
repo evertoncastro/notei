@@ -3,7 +3,7 @@
  */
 angular.module('anotei').controller('SubjectNewCtrl', SubjectNewCtrl);
 
-function SubjectNewCtrl($scope, $state, $ionicLoading, serviceSubject,
+function SubjectNewCtrl($scope, $state, $ionicLoading, serviceSubject, $rootScope,
                         serviceConstants, $cordovaDialogs, serviceUtil){
 
     $scope.insertSubject = function(data){
@@ -32,10 +32,12 @@ function SubjectNewCtrl($scope, $state, $ionicLoading, serviceSubject,
                                               serviceConstants.MSG_DATA_INVALID_SUBJECT_NEW.BUTTON);
                         $ionicLoading.hide();
                     }else if(valueExecution==2){
+                        $ionicLoading.hide();
                         $cordovaDialogs.alert(serviceConstants.MSG_SUCCESS_SUBJECT_NEW.MSG,
                                               serviceConstants.MSG_SUCCESS_SUBJECT_NEW.ALERT,
                                               serviceConstants.MSG_SUCCESS_SUBJECT_NEW.BUTTON);
-                        $ionicLoading.hide();
+
+                        $rootScope.$broadcast('serviceSubject:insertedSubject');
                         $state.go('app.subjects');
                     }
                 },
