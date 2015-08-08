@@ -16,19 +16,19 @@
                             <div class="board-detail">
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Professor:</span><input ng-model="subject.professor" type="text"
-                                                                                        ng-change="updateSubject(subject)">
+                                                                                        ng-blur="updateSubject(subject)">
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">E-mail profº:</span><input ng-model="subject.email_prof" type="email"
-                                                                                           ng-change="updateSubject(subject)">
+                                                                                           ng-blur="updateSubject(subject)">
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Máx. faltas:</span><input ng-model="subject.max_faltas" type="number"
-                                                                                          ng-change="updateSubject(subject)">
+                                                                                          ng-blur="updateSubject(subject)">
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Faltas:</span><input ng-model="subject.num_faltas" type="number"
-                                                                                     ng-change="updateSubject(subject)">
+                                                                                     ng-blur="updateSubject(subject)">
                                 </label>
                             </div>
                             <!--<div class="board-observation" ng-show="showRightTab">

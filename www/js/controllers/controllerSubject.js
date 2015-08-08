@@ -3,26 +3,29 @@
  */
 angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
 
-    function SubjectCtrl($scope, serviceSubject, $rootScope){
+    function SubjectCtrl($scope, serviceSubject, $rootScope,  $ionicLoading){
 
         $scope.showSubject = false;
         $scope.subject_id = null;
         $scope.data = {};
 
         $rootScope.$on('serviceSubject:insertedSubject', function() {
-            // call init....
             $scope.init();
         });
 
         $scope.init = function(){
+            $ionicLoading.show();
             var resp = serviceSubject.getSubjects();
             resp.then(function(list){
                 $scope.data.subjectList = list;
+                $ionicLoading.hide();
             });
         };
 
         $scope.updateSubject = function(data){
+            $ionicLoading.show();
             serviceSubject.updateSubject(data);
+            $ionicLoading.hide();
         };
 
         $scope.openSubject = function(id){

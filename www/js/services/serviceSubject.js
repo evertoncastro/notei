@@ -3,7 +3,7 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
+app.service('serviceSubject', function($q, factoryDatabase, serviceUtil, $ionicLoading){
 
     return{
         getSubjects: function(){

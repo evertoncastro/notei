@@ -3,7 +3,7 @@
  */
 describe('Database - factory test', function(){
 
-    var factoryDatabase, $cordovaSQLite, $ionicLoading;
+    var factoryDatabase, $cordovaSQLite;
 
     beforeEach(module('anotei'));
 
@@ -21,9 +21,6 @@ describe('Database - factory test', function(){
         spyOn(sqlitePlugin, 'openDatabase').and.callFake(function(){
            return {};
         });
-
-        spyOn($ionicLoading, 'show');
-        spyOn($ionicLoading, 'hide');
 
     }));
 
@@ -54,8 +51,6 @@ describe('Database - factory test', function(){
         var fields = ['Prova 1', '09-10-2015', null, 3.5, null, 1];
 
         var resp = factoryDatabase.executeQuery(deliveredQuery, fields);
-        expect($ionicLoading.show).toHaveBeenCalled();
-        expect($ionicLoading.hide).toHaveBeenCalled();
         expect($cordovaSQLite.execute).toHaveBeenCalledWith(undefined, deliveredQuery, fields);
         expect(resp).not.toBeUndefined();
     });

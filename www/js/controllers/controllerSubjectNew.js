@@ -7,7 +7,6 @@ function SubjectNewCtrl($scope, $state, $ionicLoading, serviceSubject, $rootScop
                         serviceConstants, $cordovaDialogs, serviceUtil){
 
     $scope.insertSubject = function(data){
-
         function validate(data){
             var validator = null;
             if(serviceUtil.isEmpty(data.nome)){validator='Nome'}
