@@ -49,7 +49,7 @@ describe('SubjectNew controller', function () {
             };
         });
 
-        $scope.insertSubject(data);
+        $scope.manipulateSubject(data);
         $scope.$apply();
 
         expect($cordovaDialogs.alert).toHaveBeenCalledWith(serviceConstants.MSG_SUCCESS_SUBJECT_NEW.MSG,
@@ -81,7 +81,7 @@ describe('SubjectNew controller', function () {
             };
         });
 
-        $scope.insertSubject(data);
+        $scope.manipulateSubject(data);
         $scope.$apply();
 
         expect($cordovaDialogs.alert).toHaveBeenCalledWith(serviceConstants.MSG_FAIL_SUBJECT_NEW.MSG,
@@ -103,7 +103,7 @@ describe('SubjectNew controller', function () {
             email_prof: 'evertoncastro.sp@gmail.com'
         };
 
-        $scope.insertSubject(data);
+        $scope.manipulateSubject(data);
 
         expect($cordovaDialogs.alert).toHaveBeenCalledWith(serviceConstants.MSG_INCOMPLETE_SUBJECT_NEW.MSG+'"Número máximo de faltas"',
             serviceConstants.MSG_INCOMPLETE_SUBJECT_NEW.ALERT,

@@ -1,4 +1,4 @@
-<ion-view view-title="Minhas Matérias">
+<ion-view view-title="Minhas Matérias" cache-view="false">
     <ion-nav-buttons class="button-add-subject" side="right">
         <i class="ion-android-add-circle" ui-sref="app.subject-new"></i>
     </ion-nav-buttons>
@@ -9,7 +9,7 @@
                     <div class="subject-item" ng-repeat="subject in data.subjectList">
                         <div class="subject-title">
                             <span class="title" ng-click="openSubject(subject.id_materia)">{{subject.nome}}</span>
-                            <i class="ion-edit" ng-click="updateSubjectText()"></i>
+                            <i class="ion-edit" ng-click="updateFullSubject(subject)"></i>
                             <i class="ion-trash-a"></i>
                         </div>
                         <div class="subject-details" ng-if="showSubject && subject.id_materia==subject_id">

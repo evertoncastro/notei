@@ -1,4 +1,4 @@
-<ion-view view-title="Nova Matéria" cache-view="false">
+<ion-view view-title="{{title}}" cache-view="false">
     <ion-content>
         <div class="wrapper-subject-new">
             <div class="box-subject-new">
@@ -19,7 +19,7 @@
                         <span class="input-label">E-mail do professor</span>
                         <input class="text" type="email" ng-model="data.email_prof" placeholder="Digite aqui">
                     </label>
-                    <button class="button button-block button-positive" ng-click="insertSubject(data)">
+                    <button class="button button-block button-positive" ng-click="manipulateSubject(data, wayForm)">
                         Gravar
                     </button>
                 </form>

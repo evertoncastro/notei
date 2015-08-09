@@ -12,7 +12,7 @@ app.service('serviceConstants', function() {
         MSG_FAIL_SUBJECT_NEW:               {MSG: 'Falha no banco de dados, tente novamente', ALERT: 'Aviso', BUTTON: 'OK'},
         MSG_INCOMPLETE_SUBJECT_NEW:         {MSG: 'Preencha o campo ', ALERT: 'Aviso', BUTTON: 'OK'},
 
-        MSG_UPDATE_TITLE_SUBJECT:           {MSG: 'Informe o novo título ', TITLE: 'Atualizar', BUTTON_SEND: 'Enviar', BUTTON_CANCEL: 'Cancelar', DEFAULT_TEXT: 'Digite aqui'}
+        MSG_UPDATE_TITLE_SUBJECT:           {MSG: 'Dados editados com sucesso ', ALERT: 'Atualizar', BUTTON: 'OK'}
 
 
     }

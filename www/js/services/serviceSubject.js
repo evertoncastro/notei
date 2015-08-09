@@ -5,6 +5,8 @@ var app = angular.module('anotei');
 
 app.service('serviceSubject', function($q, factoryDatabase, serviceUtil, $ionicLoading){
 
+    var currentSubject = null;
+
     return{
         getSubjects: function(){
             var defer = $q.defer();
@@ -79,7 +81,7 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil, $ionicL
 
             factoryDatabase.executeQuery(sqlQuery, param).then(
                 function(){
-                    defer.resolve(1);
+                    defer.resolve();
                 },
                 function(error){
                     defer.reject(error);
@@ -103,6 +105,14 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil, $ionicL
                 }
             );
             return defer.promise;
+        },
+
+        setCurrentSubject: function(data){
+            currentSubject = data;
+        },
+
+        getCurrentSubject: function(){
+            return currentSubject;
         }
     }
 
