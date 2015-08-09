@@ -28,6 +28,10 @@ angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
             $ionicLoading.hide();
         };
 
+        $scope.updateSubjectText = function(){
+
+        };
+
         $scope.openSubject = function(id){
             $scope.subject_id = id;
             $scope.showSubject = !$scope.showSubject;

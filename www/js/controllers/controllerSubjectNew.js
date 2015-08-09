@@ -6,6 +6,8 @@ angular.module('anotei').controller('SubjectNewCtrl', SubjectNewCtrl);
 function SubjectNewCtrl($scope, $state, $ionicLoading, serviceSubject, $rootScope,
                         serviceConstants, $cordovaDialogs, serviceUtil){
 
+    //$scope.init = function
+
     $scope.insertSubject = function(data){
         function validate(data){
             var validator = null;

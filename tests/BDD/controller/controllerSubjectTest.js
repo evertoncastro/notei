@@ -3,7 +3,8 @@
  */
 describe('Subject controller', function () {
 
-    var SubjectCtrl, $scope, serviceSubject, $cordovaSQLite;
+    var SubjectCtrl, $scope, serviceSubject, $cordovaSQLite,
+        $cordovaDialogs, serviceConstants;
 
     beforeEach(module('anotei'));
 
@@ -11,9 +12,12 @@ describe('Subject controller', function () {
         var $rootScope = $injector.get('$rootScope');
         $scope = $rootScope.$new();
         serviceSubject = $injector.get('serviceSubject');
+        serviceConstants = $injector.get('serviceConstants');
         $cordovaSQLite = $injector.get('$cordovaSQLite');
+        $cordovaDialogs = $injector.get('$cordovaDialogs');
 
         $httpBackend.whenGET(/templates\/.*/).respond(200);
+        spyOn($cordovaDialogs, 'prompt');
 
         spyOn($cordovaSQLite, 'execute') .and.callFake(function(){
             return{
@@ -90,7 +94,31 @@ describe('Subject controller', function () {
 
         expect(serviceSubject.updateSubject).toHaveBeenCalled();
 
-    })
+    });
+
+    /*it('BDD - Cenário: Edição do nome da matéria ' +
+        'Dado que: o usuário clicou no ícone Editar Matéria ' +
+        'Então: Uma caixa de diálogo aparecerá com um campo para ' +
+        'adicionar o nome da matéria ', function(){
+
+        $scope.updateSubjectText();
+
+       /!* expect($cordovaDialogs.prompt).toHaveBeenCalledWith(
+                                serviceConstants.MSG_UPDATE_TITLE_SUBJECT.MSG,
+                                serviceConstants.MSG_UPDATE_TITLE_SUBJECT.TITLE,
+                                [serviceConstants.MSG_UPDATE_TITLE_SUBJECT.BUTTON_SEND,
+                                 serviceConstants.MSG_UPDATE_TITLE_SUBJECT.BUTTON_CANCEL],
+                                serviceConstants.MSG_UPDATE_TITLE_SUBJECT.DEFAULT_TEXT);*!/
+
+    });
+
+    it('BDD - Cenário: Alterção do nome da matéria ' +
+        'Dado que: o usuário preencheu o novo título da matéria ' +
+        'E: clicou no botão enviar ' +
+        'Então: o título da matéria será atualizado', function(){
+
+
+    })*/
 });
 
 

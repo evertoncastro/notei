@@ -7,9 +7,9 @@
             <div class="box-subject">
                 <div class="subjects-board">
                     <div class="subject-item" ng-repeat="subject in data.subjectList">
-                        <div class="subject-title" ng-click="openSubject(subject.id_materia)">
-                            <span class="title">{{subject.nome}}</span>
-                            <i class="ion-edit"></i>
+                        <div class="subject-title">
+                            <span class="title" ng-click="openSubject(subject.id_materia)">{{subject.nome}}</span>
+                            <i class="ion-edit" ng-click="updateSubjectText()"></i>
                             <i class="ion-trash-a"></i>
                         </div>
                         <div class="subject-details" ng-if="showSubject && subject.id_materia==subject_id">

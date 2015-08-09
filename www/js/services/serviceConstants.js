@@ -10,7 +10,9 @@ app.service('serviceConstants', function() {
         MSG_SUCCESS_SUBJECT_NEW:            {MSG: 'Dados cadastrado com sucesso!', ALERT: 'Aviso', BUTTON: 'OK'},
         MSG_DATA_INVALID_SUBJECT_NEW:       {MSG: 'Dados preenchidos incorretamente', ALERT: 'Aviso', BUTTON: 'OK'},
         MSG_FAIL_SUBJECT_NEW:               {MSG: 'Falha no banco de dados, tente novamente', ALERT: 'Aviso', BUTTON: 'OK'},
-        MSG_INCOMPLETE_SUBJECT_NEW:         {MSG: 'Preencha o campo ', ALERT: 'Aviso', BUTTON: 'OK'}
+        MSG_INCOMPLETE_SUBJECT_NEW:         {MSG: 'Preencha o campo ', ALERT: 'Aviso', BUTTON: 'OK'},
+
+        MSG_UPDATE_TITLE_SUBJECT:           {MSG: 'Informe o novo título ', TITLE: 'Atualizar', BUTTON_SEND: 'Enviar', BUTTON_CANCEL: 'Cancelar', DEFAULT_TEXT: 'Digite aqui'}
 
 
     }

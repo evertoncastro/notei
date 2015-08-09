@@ -7805,22 +7805,25 @@ ion-content {
         /* box-shadow: 1px 1px 20px 0px #888888; */
         border: solid 1px #00BFFF; }
         .box-subject .subjects-board .subject-item .subject-title .title {
-          margin-top: 15px;
-          margin-left: 15px;
+          margin: 15px 0px 15px 15px;
           display: inline-block;
           font-size: 20px;
           font-weight: bold;
-          color: #848484; }
+          color: #848484;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 60%; }
         .box-subject .subjects-board .subject-item .subject-title .ion-edit {
           position: absolute;
-          right: 75px;
+          right: 55px;
           font-size: 25px;
           top: 0px;
           padding: 13px 10px 13px 10px;
           color: #848484; }
         .box-subject .subjects-board .subject-item .subject-title .ion-trash-a {
           position: absolute;
-          right: 20px;
+          right: 10px;
           font-size: 30px;
           top: 0px;
           padding: 10px 10px 10px 10px;
