@@ -90,22 +90,7 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil, $ionicL
             return defer.promise;
         },
 
-        updateSubjectTitle: function(id, nome){
-            var defer = $q.defer();
 
-            var sqlQuery = 'update materias set nome = ? where id_materia = ?';
-            var param = [nome, id];
-
-            factoryDatabase.executeQuery(sqlQuery, param).then(
-                function(execution){
-                    defer.resolve(execution);
-                },
-                function(error){
-                    defer.reject(error);
-                }
-            );
-            return defer.promise;
-        },
 
         setCurrentSubject: function(data){
             currentSubject = data;

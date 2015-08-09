@@ -95,30 +95,6 @@ describe('Subject controller', function () {
         expect(serviceSubject.updateSubject).toHaveBeenCalled();
 
     });
-
-    /*it('BDD - Cenário: Edição do nome da matéria ' +
-        'Dado que: o usuário clicou no ícone Editar Matéria ' +
-        'Então: Uma caixa de diálogo aparecerá com um campo para ' +
-        'adicionar o nome da matéria ', function(){
-
-        $scope.updateSubjectText();
-
-       /!* expect($cordovaDialogs.prompt).toHaveBeenCalledWith(
-                                serviceConstants.MSG_UPDATE_TITLE_SUBJECT.MSG,
-                                serviceConstants.MSG_UPDATE_TITLE_SUBJECT.TITLE,
-                                [serviceConstants.MSG_UPDATE_TITLE_SUBJECT.BUTTON_SEND,
-                                 serviceConstants.MSG_UPDATE_TITLE_SUBJECT.BUTTON_CANCEL],
-                                serviceConstants.MSG_UPDATE_TITLE_SUBJECT.DEFAULT_TEXT);*!/
-
-    });
-
-    it('BDD - Cenário: Alterção do nome da matéria ' +
-        'Dado que: o usuário preencheu o novo título da matéria ' +
-        'E: clicou no botão enviar ' +
-        'Então: o título da matéria será atualizado', function(){
-
-
-    })*/
 });
 
 

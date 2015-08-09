@@ -28,8 +28,42 @@ describe('SubjectNew controller', function () {
        expect(SubjectNewCtrl).toBeDefined();
     });
 
+    it('BDD - Cenário: Carregamento do formulário de Criação de Matéria ' +
+        'Dado que: solicitou a página de inclusao de matéria ' +
+        'Então: um formulário para adicionar uma nova matéria será exibido', function(){
+
+        spyOn(serviceSubject, 'getCurrentSubject').and.callFake(function(){
+           return undefined;
+        });
+
+        $scope.loadForm();
+        expect($scope.title).toBe('Nova Matéria');
+        expect($scope.wayForm).toBe('add');
+    });
+
+    it('BDD - Cenário: Carregamento do formulário de Edição de Matéria ' +
+        'Dado que: solicitou a página de edição de matéria ' +
+        'Então: um formulário para edição de uma matéria será exibido ' +
+        'E: o formulario será carregado com a matéria a ser editada', function(){
+
+        spyOn(serviceSubject, 'getCurrentSubject').and.callFake(function(){
+            return {
+                id_materia: 1,
+                nome: 'Programação 2',
+                max_faltas: 20,
+                professor: 'Everton de Castro',
+                email_prof: 'evertoncastro.sp@gmail.com',
+                nota: 8
+            }
+        });
+
+        $scope.loadForm();
+        expect($scope.title).toBe('Editar Matéria');
+        expect($scope.wayForm).toBe('edit');
+    });
+
     it('BDD - Cenário: Inclusão de nova matéria; ' +
-        'Dado que: o usuário preencheu todos os campos necessarios na tela de cadastro ' +
+        'Dado que: o usuário preencheu todos os campos necessários na tela de cadastro ' +
         'E: clicou no botão Gravar ' +
         'Então: um alerta de sucesso será exibido ' +
         'E: o usuário será redirecionado para a tela anterior ', function(){
@@ -112,6 +146,36 @@ describe('SubjectNew controller', function () {
     });
 
     //Tests for update
+    it('BDD - Cenário: Edição dos dados de uma matéria; ' +
+        'Dado que: o usuário preencheu todos os campos necessários na tela de edição ' +
+        'E: clicou no botão Gravar ' +
+        'Então: um alerta de sucesso será exibido ' +
+        'E: o usuário será redirecionado para a tela anterior ', function(){
+
+        var data = {
+            nome: 'Programação 2',
+            max_faltas: 20,
+            professor: 'Everton de Castro',
+            email_prof: 'evertoncastro.sp@gmail.com'
+        };
+
+        spyOn(serviceSubject, 'updateSubject').and.callFake(function(){
+            return {
+                then: function(callback){
+                    callback();
+                }
+            };
+        });
+        var wayForm = 'edit';
+        $scope.manipulateSubject(data, wayForm);
+        $scope.$apply();
+
+        expect($cordovaDialogs.alert).toHaveBeenCalledWith(serviceConstants.MSG_UPDATE_TITLE_SUBJECT.MSG,
+            serviceConstants.MSG_UPDATE_TITLE_SUBJECT.ALERT,
+            serviceConstants.MSG_UPDATE_TITLE_SUBJECT.BUTTON);
+
+        expect($state.go).toHaveBeenCalledWith('app.subjects');
+    });
 });
 
 

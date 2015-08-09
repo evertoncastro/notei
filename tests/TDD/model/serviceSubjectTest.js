@@ -23,7 +23,6 @@ describe('Service Subject Test', function(){
         expect(serviceSubject.getSubjects).toBeDefined();
         expect(serviceSubject.insertSubject).toBeDefined();
         expect(serviceSubject.updateSubject).toBeDefined();
-        expect(serviceSubject.updateSubjectTitle).toBeDefined();
     });
     //GET SUBJECT
     it('TDD - Should verify if the method getSubjects will ' +
@@ -178,49 +177,5 @@ describe('Service Subject Test', function(){
         expect(succesSpy).toHaveBeenCalled();
     });
 
-    //UPDATE SUBJECT TITLE
-    it('TDD - Should verify if the method updateSubjectTitle ' +
-        'is able to update a Subject Title', function(){
-        spyOn($cordovaSQLite, 'execute').and.callFake(function(){
-            return{
-                then: function(callback){
-                    var result = 1;
-                    return callback(result);
-                }
-            };
-        });
 
-        var succesSpy = jasmine.createSpy('success'),
-            failSpy   = jasmine.createSpy('failure');
-
-        var id = 1;
-        var nome = 'Matemática Aplicada';
-
-        serviceSubject.updateSubjectTitle(id, nome).then(succesSpy, failSpy);
-        $scope.$apply();
-
-        expect(succesSpy).toHaveBeenCalledWith(1);
-        expect(failSpy).not.toHaveBeenCalled();
-    });
-
-    it('TDD - Should verify if the method updateSubjectTitle ' +
-        'calls the factory with the correct query and param', function(){
-        spyOn(factoryDatabase, 'executeQuery').and.callFake(function(){
-            return{
-                then: function(callback){
-                    var result = 1;
-                    return callback(result);
-                }
-            };
-        });
-
-        var id = 1;
-        var nome = 'Matemática Aplicada';
-
-        serviceSubject.updateSubjectTitle(id, nome);
-        $scope.$apply();
-
-        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith(
-            'update materias set nome = ? where id_materia = ?', [nome, id]);
-    })
 });

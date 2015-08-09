@@ -86,6 +86,4 @@ function SubjectNewCtrl($scope, $state, $ionicLoading, serviceSubject, $rootScop
     };
 
     $scope.loadForm();
-
-
 }
