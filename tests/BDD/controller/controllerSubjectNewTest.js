@@ -48,8 +48,8 @@ describe('SubjectNew controller', function () {
                 }
             };
         });
-
-        $scope.manipulateSubject(data);
+        var wayForm = 'add';
+        $scope.manipulateSubject(data, wayForm);
         $scope.$apply();
 
         expect($cordovaDialogs.alert).toHaveBeenCalledWith(serviceConstants.MSG_SUCCESS_SUBJECT_NEW.MSG,
@@ -80,8 +80,8 @@ describe('SubjectNew controller', function () {
                 }
             };
         });
-
-        $scope.manipulateSubject(data);
+        var wayForm = 'add';
+        $scope.manipulateSubject(data, wayForm);
         $scope.$apply();
 
         expect($cordovaDialogs.alert).toHaveBeenCalledWith(serviceConstants.MSG_FAIL_SUBJECT_NEW.MSG,
@@ -110,6 +110,8 @@ describe('SubjectNew controller', function () {
             serviceConstants.MSG_INCOMPLETE_SUBJECT_NEW.BUTTON);
 
     });
+
+    //Tests for update
 });
 
 

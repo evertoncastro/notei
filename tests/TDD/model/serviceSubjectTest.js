@@ -155,8 +155,7 @@ describe('Service Subject Test', function(){
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
             return{
                 then: function(callback){
-                   var result = 1;
-                   return callback(result);
+                   return callback();
                 }
             };
         });
@@ -176,7 +175,7 @@ describe('Service Subject Test', function(){
 
         $scope.$apply();
 
-        expect(succesSpy).toHaveBeenCalledWith(1);
+        expect(succesSpy).toHaveBeenCalled();
     });
 
     //UPDATE SUBJECT TITLE
