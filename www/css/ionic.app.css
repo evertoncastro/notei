@@ -7785,6 +7785,27 @@ ion-content {
   font-size: 30px;
   padding: 18px 10px 18px 18px; }
 
+/*.button-sort-area{
+  top: 75px !important;
+  background-color: transparent !important;
+  display: inline-block;
+  width: 44px;
+  height: 0px;
+  padding: 0px 0px 0px 0px;
+  .button-sort{
+    position: relative;
+    height: 44px;
+    .ion-loop{
+      font-size: 35px;
+      padding: -2px 4px 3px 0px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: -17px 0px 0px -12px;
+      color: $mainFont;
+    }
+  }
+}*/
 .box-subject {
   font-family: robotoregular; }
   .box-subject .subjects-board {
@@ -7982,6 +8003,27 @@ ion-content {
     background-color: #00BFFF;
     border: none;
     font-size: 22px; }
+
+.has-footer {
+  bottom: 0px; }
+
+.footer-button-sort-area {
+  height: 0px;
+  border: none;
+  padding: 0px; }
+  .footer-button-sort-area .button-sort {
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    top: -45px; }
+    .footer-button-sort-area .button-sort .ion-loop {
+      font-size: 35px;
+      padding: -2px 4px 3px 0px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: -17px 0px 0px -12px;
+      color: #848484; }
 
 .ion-android-add-circle {
   font-size: 30px;

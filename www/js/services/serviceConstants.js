@@ -12,11 +12,10 @@ app.service('serviceConstants', function() {
         MSG_FAIL_SUBJECT_NEW:               {MSG: 'Falha no banco de dados, tente novamente', ALERT: 'Aviso', BUTTON: 'OK'},
         MSG_INCOMPLETE_SUBJECT_NEW:         {MSG: 'Preencha o campo ', ALERT: 'Aviso', BUTTON: 'OK'},
 
-        MSG_UPDATE_TITLE_SUBJECT:           {MSG: 'Dados editados com sucesso ', ALERT: 'Atualizar', BUTTON: 'OK'},
+        MSG_UPDATE_TITLE_SUBJECT:           {MSG: 'Dados editados com sucesso! ', ALERT: 'Atualizar', BUTTON: 'OK'},
         MSG_CONFIRM_DELETE_SUBJECT:         {MSG: 'Excluir matéria', ALERT: 'Confirmar', BUTTON_OK: 'OK', BUTTON_CANCEL: 'Cancelar'},
-        MSG_SUCCESS_DELETE_SUBJECT:         {MSG: 'Matéria excluída com sucesso', ALERT: 'Aviso', BUTTON: 'OK'},
+        MSG_SUCCESS_DELETE_SUBJECT:         {MSG: 'Matéria excluída com sucesso!', ALERT: 'Aviso', BUTTON: 'OK'},
         MSG_FAIL_DELETE_SUBJECT:            {MSG: 'Erro ao excluir matéria', ALERT: 'Aviso', BUTTON: 'OK'}
-
 
     }
 });
