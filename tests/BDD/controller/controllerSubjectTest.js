@@ -17,7 +17,7 @@ describe('Subject controller', function () {
         $cordovaDialogs = $injector.get('$cordovaDialogs');
 
         $httpBackend.whenGET(/templates\/.*/).respond(200);
-        spyOn($cordovaDialogs, 'prompt');
+        spyOn($cordovaDialogs, 'alert');
 
         spyOn($cordovaSQLite, 'execute') .and.callFake(function(){
             return{
@@ -88,13 +88,96 @@ describe('Subject controller', function () {
             };
         });
 
-
         $scope.updateSubject(data);
-        $scope.$apply();
 
         expect(serviceSubject.updateSubject).toHaveBeenCalled();
 
     });
+
+    it('BDD - Cenário: Exclusão de matéria ' +
+        'Dado que: o usuário clicou no ícone de exclusão em alguma matéria ' +
+        'E: confirmou a exclusão na caixa de diálogo que surgiu ' +
+        'Então: a matéria será excluída ' +
+        'E: um alerta será exibido informando sucesso na exclusão', function(){
+
+        spyOn(serviceSubject, 'deleteSubject').and.callFake(function(){
+           return{
+               then: function(callBack){
+                    callBack();
+               }
+           }
+        });
+
+        spyOn($cordovaDialogs, 'confirm').and.callFake(function(){
+            return{
+                then: function(callBack){
+                    callBack(1);
+                }
+            }
+        });
+
+        $scope.deleteSubject(1);
+        $scope.$apply();
+        expect(serviceSubject.deleteSubject).toHaveBeenCalled();
+        expect($cordovaDialogs.alert).toHaveBeenCalledWith(
+            serviceConstants.MSG_SUCCESS_DELETE_SUBJECT.MSG,
+            serviceConstants.MSG_SUCCESS_DELETE_SUBJECT.ALERT,
+            serviceConstants.MSG_SUCCESS_DELETE_SUBJECT.BUTTON
+        );
+    });
+
+    it('BDD - Cenário: Exclusão de matéria ' +
+        'Dado que: o usuário clicou no ícone de exclusão em alguma matéria ' +
+        'E: confirmou a exclusão na caixa de diálogo que surgiu ' +
+        'E: houve um erro na exclusão ' +
+        'Então: um alerta será exibido informando falha na exclusão', function(){
+
+        spyOn(serviceSubject, 'deleteSubject').and.callFake(function(){
+            return{
+                then: function(callBack, callFail){
+                    callFail();
+                }
+            }
+        });
+
+        spyOn($cordovaDialogs, 'confirm').and.callFake(function(){
+            return{
+                then: function(callBack){
+                    callBack(1);
+                }
+            }
+        });
+
+        $scope.deleteSubject(1);
+        $scope.$apply();
+        expect(serviceSubject.deleteSubject).toHaveBeenCalled();
+        expect($cordovaDialogs.alert).toHaveBeenCalledWith(
+            serviceConstants.MSG_FAIL_DELETE_SUBJECT.MSG,
+            serviceConstants.MSG_FAIL_DELETE_SUBJECT.ALERT,
+            serviceConstants.MSG_FAIL_DELETE_SUBJECT.BUTTON
+        );
+    });
+
+
+    it('BDD - Cenário: Exclusão de matéria ' +
+        'Dado que: o usuário clicou no ícone de exclusão em alguma matéria ' +
+        'E: não confirmou a exclusão na caixa de diálogo que surgiu ' +
+        'Então: a matéria não será excluída ', function(){
+
+        spyOn(serviceSubject, 'deleteSubject');
+
+        spyOn($cordovaDialogs, 'confirm').and.callFake(function(){
+            return{
+                then: function(callBack){
+                    callBack(2);
+                }
+            }
+        });
+
+        $scope.deleteSubject(1);
+        expect(serviceSubject.deleteSubject).not.toHaveBeenCalled();
+    });
+
 });
 
 

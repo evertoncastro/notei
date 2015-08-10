@@ -10,7 +10,7 @@
                         <div class="subject-title">
                             <span class="title" ng-click="openSubject(subject.id_materia)">{{subject.nome}}</span>
                             <i class="ion-edit" ng-click="updateFullSubject(subject)"></i>
-                            <i class="ion-trash-a"></i>
+                            <i class="ion-trash-a" ng-click="deleteSubject(subject)"></i>
                         </div>
                         <div class="subject-details" ng-if="showSubject && subject.id_materia==subject_id">
                             <div class="board-detail">

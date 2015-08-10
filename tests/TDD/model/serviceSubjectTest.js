@@ -23,6 +23,7 @@ describe('Service Subject Test', function(){
         expect(serviceSubject.getSubjects).toBeDefined();
         expect(serviceSubject.insertSubject).toBeDefined();
         expect(serviceSubject.updateSubject).toBeDefined();
+        expect(serviceSubject.deleteSubject).toBeDefined();
     });
     //GET SUBJECT
     it('TDD - Should verify if the method getSubjects will ' +
@@ -177,5 +178,47 @@ describe('Service Subject Test', function(){
         expect(succesSpy).toHaveBeenCalled();
     });
 
+    it('TDD - Should verify if the method deleteSubject is ' +
+        'able to delete some chosen subject', function(){
+
+        spyOn($cordovaSQLite, 'execute').and.callFake(function(){
+           return{
+               then: function(callBack){
+                   return callBack();
+               }
+           }
+        });
+
+        var successSpy = jasmine.createSpy('success'),
+            failSpy = jasmine.createSpy('failure');
+
+        serviceSubject.deleteSubject(1).then(successSpy, failSpy);
+        $scope.$apply();
+
+        expect(successSpy).toHaveBeenCalled();
+        expect(failSpy).not.toHaveBeenCalled();
+    });
+
+
+    it('TDD - Should verify if the method deleteSubject is ' +
+        'able to identify an error after the execution', function(){
+
+        spyOn($cordovaSQLite, 'execute').and.callFake(function(){
+            return{
+                then: function(callBack, callFail){
+                    return callFail();
+                }
+            }
+        });
+
+        var successSpy = jasmine.createSpy('success'),
+            failSpy = jasmine.createSpy('failure');
+
+        serviceSubject.deleteSubject(1).then(successSpy, failSpy);
+        $scope.$apply();
+
+        expect(successSpy).not.toHaveBeenCalled();
+        expect(failSpy).toHaveBeenCalled();
+    })
 
 });

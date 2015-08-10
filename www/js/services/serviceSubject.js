@@ -90,7 +90,22 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil, $ionicL
             return defer.promise;
         },
 
+        deleteSubject: function(id){
+            var defer = $q.defer();
+            var sqlQuery = 'delete from materias where id_materia = ?';
+            var param = [id];
 
+            factoryDatabase.executeQuery(sqlQuery, param)
+                .then(
+                function(){
+                    defer.resolve();
+                },
+                function(error){
+                    defer.reject(error);
+                }
+            );
+            return defer.promise;
+        },
 
         setCurrentSubject: function(data){
             currentSubject = data;
