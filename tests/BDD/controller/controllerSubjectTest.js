@@ -183,7 +183,7 @@ describe('Subject controller', function () {
     it('BDD - Cenário: Ordenação da lista de matérias ' +
         'Dado que: o usuário clicou no ícone ordenar ASCENDENTE ' +
         'Então: a lista de matérias será exibida em ordem alfabética ASCENDENTE  ', function(){
-
+        spyOn(serviceSubject, 'setCurrentSortSubject');
         spyOn(serviceSubject, 'getSubjects').and.callFake(function(){
             return{
                 then: function(callBack){
@@ -195,6 +195,7 @@ describe('Subject controller', function () {
         $scope.sortSubjectList('asc');
         expect(serviceSubject.getSubjects).toHaveBeenCalledWith('asc');
         expect($scope.sort).toBe('asc');
+        expect(serviceSubject.setCurrentSortSubject).toHaveBeenCalledWith('asc');
     });
 
 
@@ -202,6 +203,7 @@ describe('Subject controller', function () {
         'Dado que: o usuário clicou no ícone ordenar DECRESCENTE ' +
         'Então: a lista de matérias será exibida em ordem alfabética DECRESCENTE  ', function(){
 
+        spyOn(serviceSubject, 'setCurrentSortSubject');
         spyOn(serviceSubject, 'getSubjects').and.callFake(function(){
             return{
                 then: function(callBack){
@@ -213,6 +215,7 @@ describe('Subject controller', function () {
         $scope.sortSubjectList('desc');
         expect(serviceSubject.getSubjects).toHaveBeenCalledWith('desc');
         expect($scope.sort).toBe('desc');
+        expect(serviceSubject.setCurrentSortSubject).toHaveBeenCalledWith('desc');
     });
 
 
