@@ -8,6 +8,7 @@ angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
 
         $scope.showSubject = false;
         $scope.subject_id = null;
+        $scope.sort = undefined;
         $scope.data = {};
 
         $rootScope.$on('serviceSubject:manipulatedSubject', function() {
@@ -66,6 +67,17 @@ angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
         $scope.openSubject = function(id){
             $scope.subject_id = id;
             $scope.showSubject = !$scope.showSubject;
+        };
+
+        $scope.sortSubjectList = function(sort){
+
+            $ionicLoading.show();
+            var resp = serviceSubject.getSubjects(sort);
+            resp.then(function(list){
+                $scope.data.subjectList = list;
+                $scope.sort = sort;
+                $ionicLoading.hide();
+            });
         };
 
         $scope.init();

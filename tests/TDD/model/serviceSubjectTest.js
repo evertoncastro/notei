@@ -58,7 +58,6 @@ describe('Service Subject Test', function(){
         resp.then(succesSpy, failSpy);
 
         $scope.$apply();
-
         expect(succesSpy).toHaveBeenCalledWith([
             {id_materia: 1,
                 nome: 'Matemática',
@@ -69,6 +68,49 @@ describe('Service Subject Test', function(){
             }]
         );
         expect(failSpy).not.toHaveBeenCalled();
+    });
+
+    it('TDD - Should verify if the method getSubject will call the factory ' +
+        'with select * from materias', function(){
+        spyOn(factoryDatabase, 'executeQuery').and.callFake(function(){
+            return{
+                then: function(callback){
+
+                }
+            };
+        });
+
+        serviceSubject.getSubjects();
+        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select * from materias');
+    });
+
+    it('TDD - Should verify if the method getSubject will call the factory ' +
+        'with select * from materias order by nome ASC', function(){
+        spyOn(factoryDatabase, 'executeQuery').and.callFake(function(){
+            return{
+                then: function(callback){
+
+                }
+            };
+        });
+
+        serviceSubject.getSubjects('asc');
+        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select * from materias order by nome ASC');
+    });
+
+
+    it('TDD - Should verify if the method getSubject will call the factory ' +
+        'with select * from materias order by nome DESC', function(){
+        spyOn(factoryDatabase, 'executeQuery').and.callFake(function(){
+            return{
+                then: function(callback){
+
+                }
+            };
+        });
+
+        serviceSubject.getSubjects('desc');
+        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select * from materias order by nome DESC');
     });
 
     //INSERT SUBJECT

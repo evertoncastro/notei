@@ -66,6 +66,8 @@ describe('Subject controller', function () {
         ]);
     });
 
+
+
     it('BDD - Cenário: Atualização dos dados de uma Matéria ' +
         'Dado que: O usuário alterou qualquer dado de uma matéria ' +
         'E: fechou a aba da respectiva matéria ' +
@@ -177,6 +179,43 @@ describe('Subject controller', function () {
         $scope.deleteSubject(1);
         expect(serviceSubject.deleteSubject).not.toHaveBeenCalled();
     });
+
+    it('BDD - Cenário: Ordenação da lista de matérias ' +
+        'Dado que: o usuário clicou no ícone ordenar ASCENDENTE ' +
+        'Então: a lista de matérias será exibida em ordem alfabética ASCENDENTE  ', function(){
+
+        spyOn(serviceSubject, 'getSubjects').and.callFake(function(){
+            return{
+                then: function(callBack){
+                    callBack();
+                }
+            }
+        });
+
+        $scope.sortSubjectList('asc');
+        expect(serviceSubject.getSubjects).toHaveBeenCalledWith('asc');
+        expect($scope.sort).toBe('asc');
+    });
+
+
+    it('BDD - Cenário: Ordenação da lista de matérias ' +
+        'Dado que: o usuário clicou no ícone ordenar DECRESCENTE ' +
+        'Então: a lista de matérias será exibida em ordem alfabética DECRESCENTE  ', function(){
+
+        spyOn(serviceSubject, 'getSubjects').and.callFake(function(){
+            return{
+                then: function(callBack){
+                    callBack();
+                }
+            }
+        });
+
+        $scope.sortSubjectList('desc');
+        expect(serviceSubject.getSubjects).toHaveBeenCalledWith('desc');
+        expect($scope.sort).toBe('desc');
+    });
+
+
 
 });
 

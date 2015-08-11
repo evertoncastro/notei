@@ -8024,6 +8024,44 @@ ion-content {
       top: 50%;
       margin: -17px 0px 0px -12px;
       color: #848484; }
+  .footer-button-sort-area .button-asc {
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    top: -45px; }
+    .footer-button-sort-area .button-asc span {
+      font-size: 22px;
+      position: absolute;
+      top: 50%;
+      margin: -7px 0px 0px 6px;
+      color: #848484; }
+    .footer-button-sort-area .button-asc .ion-ios-arrow-thin-down {
+      font-size: 35px;
+      padding: -2px 4px 3px 0px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: -15px 0px 0px 0px;
+      color: #848484; }
+  .footer-button-sort-area .button-desc {
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    top: -45px; }
+    .footer-button-sort-area .button-desc span {
+      font-size: 22px;
+      position: absolute;
+      top: 50%;
+      margin: -7px 0px 0px 6px;
+      color: #848484; }
+    .footer-button-sort-area .button-desc .ion-ios-arrow-thin-up {
+      font-size: 35px;
+      padding: -2px 4px 3px 0px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: -17px 0px 0px 0px;
+      color: #848484; }
 
 .ion-android-add-circle {
   font-size: 30px;

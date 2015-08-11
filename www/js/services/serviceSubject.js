@@ -3,15 +3,26 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceSubject', function($q, factoryDatabase, serviceUtil, $ionicLoading){
+app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
 
     var currentSubject = null;
 
     return{
-        getSubjects: function(){
+        getSubjects: function(typeSort){
             var defer = $q.defer();
+            var sqlQuery = null;
+            switch(typeSort){
+                case 'asc':
+                    sqlQuery = 'select * from materias order by nome ASC';
+                    break;
+                case 'desc':
+                    sqlQuery = 'select * from materias order by nome DESC';
+                    break;
+                default:
+                    sqlQuery = 'select * from materias';
+            }
 
-            var resp = factoryDatabase.executeQuery('select * from materias');
+            var resp = factoryDatabase.executeQuery(sqlQuery);
 
             resp.then(
                 function(resultSet){
