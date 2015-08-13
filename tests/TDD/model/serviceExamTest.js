@@ -1,13 +1,13 @@
 /**
- * Created by everton on 30/07/15.
+ * Created by everton on 11/08/15.
  */
-describe('Service Subject Test', function(){
-    var serviceSubject, factoryDatabase, $cordovaSQLite, $scope;
+describe('Service Exam Test', function(){
+    var serviceExam, factoryDatabase, $cordovaSQLite, $scope;
 
     beforeEach(module('anotei'));
 
     beforeEach(inject(function($injector, $httpBackend){
-        serviceSubject = $injector.get('serviceSubject');
+        serviceExam = $injector.get('serviceExam');
         factoryDatabase = $injector.get('factoryDatabase');
         $cordovaSQLite = $injector.get('$cordovaSQLite');
         var rootScope = $injector.get('$rootScope');
@@ -19,26 +19,28 @@ describe('Service Subject Test', function(){
 
 
     it('TDD - Should verify if the service and methods exists', function(){
-        expect(serviceSubject).toBeDefined();
-        expect(serviceSubject.getSubjects).toBeDefined();
-        expect(serviceSubject.insertSubject).toBeDefined();
-        expect(serviceSubject.updateSubject).toBeDefined();
-        expect(serviceSubject.deleteSubject).toBeDefined();
+        expect(serviceExam).toBeDefined();
+        //expect(serviceSubject.getSubjects).toBeDefined();
+        //expect(serviceSubject.insertSubject).toBeDefined();
+        //expect(serviceSubject.updateSubject).toBeDefined();
+        //expect(serviceSubject.deleteSubject).toBeDefined();
     });
-    //GET SUBJECT
-    it('TDD - Should verify if the method getSubjects will ' +
-        'get a list of subjects', function(){
+    //GET EXAM
+    it('TDD - Should verify if the method getExams will ' +
+        'get a list of exams', function(){
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
             return{
                 then: function(callback){
                     var result = {};
                     result.rows = [
                         {id: 1,
-                            nome: 'Matemática',
-                            max_faltas: 20,
-                            professor: 'Silva',
-                            email_prof: 'silva@gmail.com',
-                            num_faltas: 5
+                            titulo: 'P1',
+                            data: 'Tue Aug 30 2015 00:00:00 GMT-0300 (BRT)',
+                            observacoes: 'nothing',
+                            peso: 2,
+                            nota: 7,
+                            id_materia: 1,
+                            nome: 'Matemática'
                         }
                     ];
 
@@ -54,24 +56,26 @@ describe('Service Subject Test', function(){
         var succesSpy = jasmine.createSpy('success'),
             failSpy   = jasmine.createSpy('failure');
 
-        var resp = serviceSubject.getSubjects();
+        var resp = serviceExam.getExams();
         resp.then(succesSpy, failSpy);
 
         $scope.$apply();
         expect(succesSpy).toHaveBeenCalledWith([
             {id: 1,
-                nome: 'Matemática',
-                max_faltas: 20,
-                professor: 'Silva',
-                email_prof: 'silva@gmail.com',
-                num_faltas: 5
+                titulo: 'P1',
+                data: 'Tue Aug 30 2015 00:00:00 GMT-0300 (BRT)',
+                observacoes: 'nothing',
+                peso: 2,
+                nota: 7,
+                id_materia: 1,
+                nome: 'Matemática'
             }]
         );
         expect(failSpy).not.toHaveBeenCalled();
     });
 
-    it('TDD - Should verify if the method getSubject will call the factory ' +
-        'with select * from materias', function(){
+    it('TDD - Should verify if the method getExams will call the factory ' +
+        'with the correct query', function(){
         spyOn(factoryDatabase, 'executeQuery').and.callFake(function(){
             return{
                 then: function(callback){
@@ -80,12 +84,15 @@ describe('Service Subject Test', function(){
             };
         });
 
-        serviceSubject.getSubjects();
-        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select * from materias');
+        serviceExam.getExams();
+        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select ' +
+            'p.id, p.titulo, p.data, p.observacoes, p.peso, p.nota, p.id_materia, m.nome ' +
+            'from provas as p inner join materias as m ' +
+            'on p.id_materia = m.id group by m.nome, p.titulo');
     });
 
-    it('TDD - Should verify if the method getSubject will call the factory ' +
-        'with select * from materias order by nome ASC', function(){
+    it('TDD - Should verify if the method getExams will call the factory ' +
+        'with the correct query with order by DESC', function(){
         spyOn(factoryDatabase, 'executeQuery').and.callFake(function(){
             return{
                 then: function(callback){
@@ -94,27 +101,16 @@ describe('Service Subject Test', function(){
             };
         });
 
-        serviceSubject.getSubjects('asc');
-        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select * from materias order by nome ASC');
-    });
-
-
-    it('TDD - Should verify if the method getSubject will call the factory ' +
-        'with select * from materias order by nome DESC', function(){
-        spyOn(factoryDatabase, 'executeQuery').and.callFake(function(){
-            return{
-                then: function(callback){
-
-                }
-            };
-        });
-
-        serviceSubject.getSubjects('desc');
-        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select * from materias order by nome DESC');
+        serviceExam.getExams('desc');
+        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select ' +
+            'p.id, p.titulo, p.data, p.observacoes, p.peso, p.nota, p.id_materia, m.nome ' +
+            'from provas as p inner join materias as m ' +
+            'on p.id_materia = m.id group by m.nome, p.titulo ' +
+            'order by nome desc');
     });
 
     //INSERT SUBJECT
-    it('TDD - Should verify if the method insertSubject is able ' +
+    /*it('TDD - Should verify if the method insertSubject is able ' +
         'to insert a new subject', function(){
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
             return{
@@ -144,9 +140,9 @@ describe('Service Subject Test', function(){
         expect(succesSpy).toHaveBeenCalledWith(2);
         expect(failSpy).not.toHaveBeenCalled();
 
-    });
+    });*/
 
-    it('TDD - Should verify if the factoryDatabase.executeQuery ' +
+    /*it('TDD - Should verify if the factoryDatabase.executeQuery ' +
         'will be called with the correct query and params', function(){
         spyOn(factoryDatabase, 'executeQuery').and.callFake(function(){
             return{
@@ -169,9 +165,9 @@ describe('Service Subject Test', function(){
             'insert into materias (nome, max_faltas, professor, email_prof, num_faltas) ' +
             'values (?, ?, ?, ?, ?)', ['Programação 2',
             20, 'Everton de Castro', 'evertoncastro.sp@gmail.com', 0]);
-    });
+    });*/
 
-    it('TDD - Should verify if the method inserSubjects' +
+    /*it('TDD - Should verify if the method inserSubjects' +
         'will validate the data sent by the caller and return correctly', function(){
 
         var succesSpy = jasmine.createSpy('success'),
@@ -189,10 +185,10 @@ describe('Service Subject Test', function(){
         $scope.$apply();
         expect(succesSpy).toHaveBeenCalledWith(1);
 
-    });
+    });*/
 
     //UPDATE SUBJECT
-    it('TDD - Should verify if the method updateSubject ' +
+    /*it('TDD - Should verify if the method updateSubject ' +
         'is able to update a Subject', function(){
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
             return{
@@ -218,9 +214,9 @@ describe('Service Subject Test', function(){
         $scope.$apply();
 
         expect(succesSpy).toHaveBeenCalled();
-    });
+    });*/
 
-    it('TDD - Should verify if the method deleteSubject is ' +
+    /*it('TDD - Should verify if the method deleteSubject is ' +
         'able to delete some chosen subject', function(){
 
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
@@ -240,9 +236,9 @@ describe('Service Subject Test', function(){
         expect(successSpy).toHaveBeenCalled();
         expect(failSpy).not.toHaveBeenCalled();
     });
+*/
 
-
-    it('TDD - Should verify if the method deleteSubject is ' +
+    /*it('TDD - Should verify if the method deleteSubject is ' +
         'able to identify an error after the execution', function(){
 
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
@@ -261,6 +257,6 @@ describe('Service Subject Test', function(){
 
         expect(successSpy).not.toHaveBeenCalled();
         expect(failSpy).toHaveBeenCalled();
-    })
+    })*/
 
 });

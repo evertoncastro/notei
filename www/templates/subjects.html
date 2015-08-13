@@ -13,11 +13,11 @@
                 <div class="subjects-board">
                     <div class="subject-item" ng-repeat="subject in data.subjectList">
                         <div class="subject-title">
-                            <span class="title" ng-click="openSubject(subject.id_materia)">{{subject.nome}}</span>
+                            <span class="title" ng-click="openSubject(subject.id)">{{subject.nome}}</span>
                             <i class="ion-edit" ng-click="updateFullSubject(subject)"></i>
                             <i class="ion-trash-a" ng-click="deleteSubject(subject)"></i>
                         </div>
-                        <div class="subject-details" ng-if="showSubject && subject.id_materia==subject_id">
+                        <div class="subject-details" ng-if="showSubject && subject.id==subject_id">
                             <div class="board-detail">
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Professor:</span><input ng-model="subject.professor" type="text"

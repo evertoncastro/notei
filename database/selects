@@ -1,0 +1,4 @@
+select
+p.id, p.titulo, p.data, p.observacoes, p.peso, p.nota, p.id_materia, m.id, m.nome
+from provas as p inner join materias as m
+on p.id_materia = m.id

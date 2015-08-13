@@ -48,7 +48,7 @@ describe('SubjectNew controller', function () {
 
         spyOn(serviceSubject, 'getCurrentSubject').and.callFake(function(){
             return {
-                id_materia: 1,
+                id: 1,
                 nome: 'Programação 2',
                 max_faltas: 20,
                 professor: 'Everton de Castro',

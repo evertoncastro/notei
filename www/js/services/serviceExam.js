@@ -1,47 +1,53 @@
 /**
- * Created by everton on 30/07/15.
+ * Created by everton on 11/08/15.
  */
 var app = angular.module('anotei');
 
-app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
+app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
 
     var currentSubject = null;
     var currentSortSubject = undefined;
 
     return{
-        getSubjects: function(typeSort){
+        getExams: function(typeSort){
             var defer = $q.defer();
             var sqlQuery = null;
             switch(typeSort){
-                case 'asc':
-                    sqlQuery = 'select * from materias order by nome ASC';
-                    break;
                 case 'desc':
-                    sqlQuery = 'select * from materias order by nome DESC';
+                    sqlQuery = 'select ' +
+                        'p.id, p.titulo, p.data, p.observacoes, p.peso, p.nota, p.id_materia, m.nome ' +
+                        'from provas as p inner join materias as m ' +
+                        'on p.id_materia = m.id group by m.nome, p.titulo ' +
+                        'order by nome desc';
                     break;
                 default:
-                    sqlQuery = 'select * from materias';
+                    sqlQuery = 'select ' +
+                        'p.id, p.titulo, p.data, p.observacoes, p.peso, p.nota, p.id_materia, m.nome ' +
+                        'from provas as p inner join materias as m ' +
+                        'on p.id_materia = m.id group by m.nome, p.titulo';
             }
 
             var resp = factoryDatabase.executeQuery(sqlQuery);
 
             resp.then(
                 function(resultSet){
-                    var listMateria = [];
+                    var listProva = [];
 
                     for(var i = 0; i < resultSet.rows.length; i++){
-                        var materia = {};
+                        var prova = {};
 
-                        materia.id = resultSet.rows.item(i).id;
-                        materia.nome = resultSet.rows.item(i).nome;
-                        materia.max_faltas = resultSet.rows.item(i).max_faltas;
-                        materia.professor = resultSet.rows.item(i).professor;
-                        materia.email_prof = resultSet.rows.item(i).email_prof;
-                        materia.num_faltas = resultSet.rows.item(i).num_faltas;
+                        prova.id = resultSet.rows.item(i).id;
+                        prova.titulo = resultSet.rows.item(i).titulo;
+                        prova.data = resultSet.rows.item(i).data;
+                        prova.observacoes = resultSet.rows.item(i).observacoes;
+                        prova.peso = resultSet.rows.item(i).peso;
+                        prova.nota = resultSet.rows.item(i).nota;
+                        prova.id_materia = resultSet.rows.item(i).id_materia;
+                        prova.nome = resultSet.rows.item(i).nome;
 
-                        listMateria.push(materia);
+                        listProva.push(prova);
                     }
-                    defer.resolve(listMateria);
+                    defer.resolve(listProva);
                 },
                 function(error){
                     console.log(error);
@@ -86,10 +92,10 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
             var sqlQuery = 'update materias set '+
             'nome = ?, max_faltas = ?, ' +
             'professor = ?, email_prof = ?, ' +
-            'num_faltas = ? where id = ?';
+            'num_faltas = ? where id_materia = ?';
 
             var param = [data.nome, data.max_faltas, data.professor,
-                        data.email_prof, data.num_faltas, data.id];
+                        data.email_prof, data.num_faltas, data.id_materia];
 
             factoryDatabase.executeQuery(sqlQuery, param).then(
                 function(){
@@ -104,7 +110,7 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
 
         deleteSubject: function(id){
             var defer = $q.defer();
-            var sqlQuery = 'delete from materias where id = ?';
+            var sqlQuery = 'delete from materias where id_materia = ?';
             var param = [id];
 
             factoryDatabase.executeQuery(sqlQuery, param)

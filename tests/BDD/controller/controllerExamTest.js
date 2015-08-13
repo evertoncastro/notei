@@ -1,9 +1,9 @@
 /**
- * Created by everton on 06/08/15.
+ * Created by everton on 11/08/15.
  */
-describe('Subject controller', function () {
+describe('Exam controller', function () {
 
-    var SubjectCtrl, $scope, serviceSubject, $cordovaSQLite,
+    var ExamCtrl, $scope, serviceSubject, $cordovaSQLite,
         $cordovaDialogs, serviceConstants;
 
     beforeEach(module('anotei'));
@@ -25,11 +25,13 @@ describe('Subject controller', function () {
                     var result = {};
                     result.rows = [
                         {id: 1,
-                            nome: 'Matemática',
-                            max_faltas: 20,
-                            professor: 'Everton de Castro',
-                            email_prof: 'evertoncastro.sp@gmail.com',
-                            num_faltas: 5}
+                            titulo: 'P1',
+                            data: 'Tue Aug 30 2015 00:00:00 GMT-0300 (BRT)',
+                            observacoes: 'nothing',
+                            peso: 2,
+                            nota: 7,
+                            id_materia: 1,
+                            nome: 'Matemática'}
                     ];
 
                     result.rows.item = function (index){
@@ -42,12 +44,12 @@ describe('Subject controller', function () {
             };
         });
 
-        SubjectCtrl = $controller('SubjectCtrl', {'$scope': $scope});
+        ExamCtrl = $controller('ExamCtrl', {'$scope': $scope});
 
     }));
 
     it('TDD - Should define SubjectNewCtrl', function(){
-       expect(SubjectCtrl).toBeDefined();
+       expect(ExamCtrl).toBeDefined();
     });
 
     it('BDD - Cenário: Exibição das matérias na tela ' +
@@ -56,19 +58,21 @@ describe('Subject controller', function () {
 
         $scope.$apply();
 
-        expect($scope.data.subjectList).toEqual([
+        expect($scope.data.examList).toEqual([
             {id: 1,
-                nome: 'Matemática',
-                max_faltas: 20,
-                professor: 'Everton de Castro',
-                email_prof: 'evertoncastro.sp@gmail.com',
-                num_faltas: 5}
+                titulo: 'P1',
+                data: 'Tue Aug 30 2015 00:00:00 GMT-0300 (BRT)',
+                observacoes: 'nothing',
+                peso: 2,
+                nota: 7,
+                id_materia: 1,
+                nome: 'Matemática'}
         ]);
     });
 
 
 
-    it('BDD - Cenário: Atualização dos dados de uma Matéria ' +
+    /*it('BDD - Cenário: Atualização dos dados de uma Matéria ' +
         'Dado que: O usuário alterou qualquer dado de uma matéria ' +
         'E: fechou a aba da respectiva matéria ' +
         'Então: os dados da matéria serão atualizados no banco de dados', function(){
@@ -94,9 +98,9 @@ describe('Subject controller', function () {
 
         expect(serviceSubject.updateSubject).toHaveBeenCalled();
 
-    });
+    });*/
 
-    it('BDD - Cenário: Exclusão de matéria ' +
+   /* it('BDD - Cenário: Exclusão de matéria ' +
         'Dado que: o usuário clicou no ícone de exclusão em alguma matéria ' +
         'E: confirmou a exclusão na caixa de diálogo que surgiu ' +
         'Então: a matéria será excluída ' +
@@ -126,9 +130,9 @@ describe('Subject controller', function () {
             serviceConstants.MSG_SUCCESS_DELETE_SUBJECT.ALERT,
             serviceConstants.MSG_SUCCESS_DELETE_SUBJECT.BUTTON
         );
-    });
+    });*/
 
-    it('BDD - Cenário: Exclusão de matéria ' +
+   /* it('BDD - Cenário: Exclusão de matéria ' +
         'Dado que: o usuário clicou no ícone de exclusão em alguma matéria ' +
         'E: confirmou a exclusão na caixa de diálogo que surgiu ' +
         'E: houve um erro na exclusão ' +
@@ -158,10 +162,10 @@ describe('Subject controller', function () {
             serviceConstants.MSG_FAIL_DELETE_SUBJECT.ALERT,
             serviceConstants.MSG_FAIL_DELETE_SUBJECT.BUTTON
         );
-    });
+    });*/
 
 
-    it('BDD - Cenário: Exclusão de matéria ' +
+    /*it('BDD - Cenário: Exclusão de matéria ' +
         'Dado que: o usuário clicou no ícone de exclusão em alguma matéria ' +
         'E: não confirmou a exclusão na caixa de diálogo que surgiu ' +
         'Então: a matéria não será excluída ', function(){
@@ -178,9 +182,9 @@ describe('Subject controller', function () {
 
         $scope.deleteSubject(1);
         expect(serviceSubject.deleteSubject).not.toHaveBeenCalled();
-    });
+    });*/
 
-    it('BDD - Cenário: Ordenação da lista de matérias ' +
+    /*it('BDD - Cenário: Ordenação da lista de matérias ' +
         'Dado que: o usuário clicou no ícone ordenar ASCENDENTE ' +
         'Então: a lista de matérias será exibida em ordem alfabética ASCENDENTE  ', function(){
         spyOn(serviceSubject, 'setCurrentSortSubject');
@@ -196,10 +200,10 @@ describe('Subject controller', function () {
         expect(serviceSubject.getSubjects).toHaveBeenCalledWith('asc');
         expect($scope.sort).toBe('asc');
         expect(serviceSubject.setCurrentSortSubject).toHaveBeenCalledWith('asc');
-    });
+    });*/
 
 
-    it('BDD - Cenário: Ordenação da lista de matérias ' +
+    /*it('BDD - Cenário: Ordenação da lista de matérias ' +
         'Dado que: o usuário clicou no ícone ordenar DECRESCENTE ' +
         'Então: a lista de matérias será exibida em ordem alfabética DECRESCENTE  ', function(){
 
@@ -216,7 +220,7 @@ describe('Subject controller', function () {
         expect(serviceSubject.getSubjects).toHaveBeenCalledWith('desc');
         expect($scope.sort).toBe('desc');
         expect(serviceSubject.setCurrentSortSubject).toHaveBeenCalledWith('desc');
-    });
+    });*/
 
 
 

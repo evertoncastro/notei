@@ -6,14 +6,14 @@
         <div id="wrapper-exam">
             <div class="box-exam">
                 <div class="exams-board">
-                    <div class="exam-item">
+                    <div class="exam-item" ng-repeat="exam in data.examList">
                         <div class="exam-title">
-                            <span class="title" ng-click="openExam()">Título</span>
-                            <span class="title title-min" ng-click="openExam()">Matéria</span>
+                            <span class="title" ng-click="openExam(exam.id)">{{exam.titulo}}</span>
+                            <span class="title title-min" ng-click="openExam(exam.id)">{{exam.nome}}</span>
                             <i class="ion-edit"></i>
                             <i class="ion-trash-a"></i>
                         </div>
-                        <div class="exam-details" ng-show="showExam">
+                        <div class="exam-details" ng-show="showExam && exam.id==exam_id">
                             <div class="exam-info">
                                 <button class="title" ng-click="openLeftTab()"
                                         ng-disabled="showLeftTab" ng-class="{'title-before-click': showRightTab}">
@@ -35,18 +35,18 @@
                                     </select>
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Data:</span><input type="date">
+                                    <span class="display-label">Data:</span><input ng-model="exam.data" type="date" ng-blur="setData(data)">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Peso: </span><input type="number">
+                                    <span class="display-label">Peso: </span><input ng-model="exam.peso" type="number">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Nota: </span><input type="number">
+                                    <span class="display-label">Nota: </span><input ng-model="exam.nota" type="number">
                                 </label>
                             </div>
                             <div class="board-observation" ng-show="showRightTab">
                                 <label class="item-board-observation item item-input">
-                                    <textarea>
+                                    <textarea ng-model="exam.observacoes">
 
                                     </textarea>
                                 </label>

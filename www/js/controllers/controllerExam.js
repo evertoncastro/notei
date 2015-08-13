@@ -3,17 +3,31 @@
  */
 angular.module('anotei').controller('ExamCtrl', ExamCtrl);
 
-function ExamCtrl($scope){
+function ExamCtrl($scope, serviceUtil, $ionicLoading, serviceExam){
 
     $scope.showExam = false;
+    $scope.exam_id = null;
     $scope.showLeftTab = true;
     $scope.showRightTab = false;
-    $scope.init = function(){
+    $scope.data = {};
 
+    $scope.init = function(){
+        $ionicLoading.show();
+        var resp = serviceExam.getExams($scope.sort);
+        resp.then(function(list){
+            $scope.data.examList = list;
+            $ionicLoading.hide();
+            $scope.showExam = false;
+        });
     };
 
-    $scope.openExam = function(){
-      $scope.showExam = !$scope.showExam;
+    $scope.openExam = function(id){
+        $scope.exam_id = id;
+        $scope.showExam = !$scope.showExam;
+        if($scope.showExam==true){
+            $scope.showLeftTab = true;
+            $scope.showRightTab = false;
+        }
     };
 
     $scope.openLeftTab = function(){
@@ -26,6 +40,11 @@ function ExamCtrl($scope){
         $scope.showRightTab = !$scope.showRightTab;
         $scope.showLeftTab = !$scope.showLeftTab;
         console.log('Right');
+    };
+
+    $scope.setData = function(data){
+       $scope.dataString = data.toString();
+       $scope.dataOut = '2016-05-10';
     };
 
 

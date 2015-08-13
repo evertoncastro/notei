@@ -44,7 +44,7 @@ angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
                 function(buttonIndex) {
                 // no button = 0, 'OK' = 1, 'Cancel' = 2
                 if(buttonIndex == 1){
-                    serviceSubject.deleteSubject(data.id_materia).then(
+                    serviceSubject.deleteSubject(data.id).then(
                         function(){
                             $cordovaDialogs.alert(
                                 serviceConstants.MSG_SUCCESS_DELETE_SUBJECT.MSG,
