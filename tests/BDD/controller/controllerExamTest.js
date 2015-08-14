@@ -4,7 +4,7 @@
 describe('Exam controller', function () {
 
     var ExamCtrl, $scope, serviceSubject, $cordovaSQLite,
-        $cordovaDialogs, serviceConstants;
+        $cordovaDialogs, serviceConstants, factoryDatabase;
 
     beforeEach(module('anotei'));
 
@@ -12,6 +12,7 @@ describe('Exam controller', function () {
         var $rootScope = $injector.get('$rootScope');
         $scope = $rootScope.$new();
         serviceSubject = $injector.get('serviceSubject');
+        factoryDatabase = $injector.get('factoryDatabase');
         serviceConstants = $injector.get('serviceConstants');
         $cordovaSQLite = $injector.get('$cordovaSQLite');
         $cordovaDialogs = $injector.get('$cordovaDialogs');
@@ -53,8 +54,8 @@ describe('Exam controller', function () {
     });
 
     it('BDD - Cenário: Exibição das matérias na tela ' +
-        'Dado que: o usuário entrou na tela Matérias ' +
-        'Então: a matéria Matemática será exibida na tela', function(){
+        'Dado que: o usuário entrou na tela Provas ' +
+        'Então: a Prova 1 da matéria Matemática será exibida na tela', function(){
 
         $scope.$apply();
 

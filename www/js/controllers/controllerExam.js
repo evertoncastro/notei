@@ -3,7 +3,7 @@
  */
 angular.module('anotei').controller('ExamCtrl', ExamCtrl);
 
-function ExamCtrl($scope, serviceUtil, $ionicLoading, serviceExam){
+function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject){
 
     $scope.showExam = false;
     $scope.exam_id = null;
@@ -18,6 +18,10 @@ function ExamCtrl($scope, serviceUtil, $ionicLoading, serviceExam){
             $scope.data.examList = list;
             $ionicLoading.hide();
             $scope.showExam = false;
+        });
+        var respSubject = serviceSubject.getSubjects('asc');
+        respSubject.then(function(list){
+            $scope.data.subjectList = list;
         });
     };
 

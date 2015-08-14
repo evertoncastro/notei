@@ -29,9 +29,9 @@
                             <div class="board-detail" ng-show="showLeftTab">
                                 <label class="item-board-detail item item-input item-stacked-label ion-ios-arrow-down">
                                     <span class="display-label">Matéria:</span>
-                                    <select>
-                                        <option value="">Selecione uma opção</option>
-                                        <option value="Aniversário">Matemática</option>
+                                    <select ng-model="exam.id_materia"
+                                            ng-options="e.id as e.nome for e in data.subjectList">
+                                        <option value='' selected>Selecione</option>
                                     </select>
                                 </label>
                                 <label class="item-board-detail item item-input">
