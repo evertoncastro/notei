@@ -8165,7 +8165,7 @@ ion-content {
             color: #848484; }
         .box-homework .homeworks-board .homework-item .homework-details .board-detail {
           padding-left: 1px;
-          height: 270px; }
+          height: 220px; }
           .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail {
             width: 90%;
             position: relative;
@@ -8195,18 +8195,6 @@ ion-content {
               position: absolute;
               top: 3px;
               left: 60px; }
-            .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail select {
-              background: transparent;
-              display: inline-block;
-              width: 100%;
-              font-size: 14px;
-              margin-left: 15px;
-              margin-top: 0px;
-              line-height: 1;
-              border: 0;
-              -webkit-appearance: none;
-              font-family: robotoregular;
-              color: #848484; }
             .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail .input-text {
               width: 60%;
               padding: 0px;
@@ -8214,18 +8202,12 @@ ion-content {
               margin-left: 20%;
               border: solid 1px;
               border-radius: 10px; }
-          .box-homework .homeworks-board .homework-item .homework-details .board-detail .ion-ios-arrow-down:before {
-            float: right;
-            position: absolute;
-            right: 17px;
-            top: 70%;
-            margin-top: -14px; }
         .box-homework .homeworks-board .homework-item .homework-details .board-observation {
           padding-left: 1px;
-          height: 270px; }
+          height: 220px; }
           .box-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
             width: 90%;
-            height: 70%;
+            height: 65%;
             margin: 0% 5% 0% 5%;
             padding: 0%;
             border: none; }
@@ -8561,7 +8543,7 @@ ion-content {
             font-family: robotoregular;
             color: #848484; }
         .box-exam .exams-board .exam-item .exam-details .board-detail {
-          height: 270px;
+          height: 220px;
           padding: 0px 0px 15px 0px; }
           .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail {
             width: 90%;
@@ -8593,18 +8575,6 @@ ion-content {
               position: absolute;
               top: 4px;
               left: 60px; }
-            .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail select {
-              background: transparent;
-              display: inline-block;
-              color: #848484;
-              font-family: robotoregular;
-              width: 100%;
-              font-size: 14px;
-              margin-left: 15px;
-              margin-top: 0px;
-              line-height: 1;
-              border: 0;
-              -webkit-appearance: none; }
             .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail .input-text {
               width: 60%;
               padding: 0px;
@@ -8612,18 +8582,12 @@ ion-content {
               margin-left: 20%;
               border: solid 1px;
               border-radius: 10px; }
-          .box-exam .exams-board .exam-item .exam-details .board-detail .ion-ios-arrow-down:before {
-            float: right;
-            position: absolute;
-            right: 17px;
-            top: 70%;
-            margin-top: -14px; }
         .box-exam .exams-board .exam-item .exam-details .board-observation {
           padding-left: 1px;
-          height: 270px; }
+          height: 220px; }
           .box-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation {
             width: 90%;
-            height: 70%;
+            height: 65%;
             margin: 0% 5% 0% 5%;
             padding: 0%;
             border: none; }
@@ -8783,7 +8747,7 @@ ion-content {
     #wrapper-exam .exams-board .exam-item .exam-details .exam-observation .title {
       font-size: 22px; }
   #wrapper-exam .exams-board .exam-item .exam-details .board-detail {
-    height: 315px;
+    height: 260px;
     padding: 0px 0px 25px 0px; }
     #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail {
       font-size: 18px;
@@ -8801,9 +8765,9 @@ ion-content {
     #wrapper-exam .exams-board .exam-item .exam-details .board-detail .ion-ios-arrow-down:before {
       margin-top: -17px !important; }
   #wrapper-exam .exams-board .exam-item .exam-details .board-observation {
-    height: 315px; }
+    height: 260px; }
     #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation {
-      height: 68%; }
+      height: 63%; }
       #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation textarea {
         font-size: 20px; }
   /****MEDIA QUERY FOR HOMEWORK PAGE****/
@@ -8829,7 +8793,7 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .homework-observation .title {
       font-size: 22px; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail {
-    height: 300px;
+    height: 245px;
     padding: 0px 0px 25px 0px; }
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail {
       font-size: 18px;
@@ -8846,9 +8810,9 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .ion-ios-arrow-down:before {
       margin-top: -17px !important; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation {
-    height: 300px; }
+    height: 245px; }
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
-      height: 71%; }
+      height: 64%; }
       #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation textarea {
         font-size: 20px; } }
 
@@ -8920,7 +8884,7 @@ ion-content {
       font-size: 23px; }
   #wrapper-exam .exams-board .exam-item .exam-details .board-detail {
     padding: 0px 0px 25px 0px;
-    height: 345px; }
+    height: 285px; }
     #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail {
       font-size: 20px;
       margin: 14px 5% 0% 5%; }
@@ -8938,9 +8902,9 @@ ion-content {
       margin-top: -22px !important;
       font-size: 25px; }
   #wrapper-exam .exams-board .exam-item .exam-details .board-observation {
-    height: 345px; }
+    height: 285px; }
     #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation {
-      height: 68%; }
+      height: 63%; }
       #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation textarea {
         font-size: 24px; }
   /****MEDIA QUERY FOR HOMEWORK PAGE****/
@@ -8966,7 +8930,7 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .homework-observation .title {
       font-size: 22px; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail {
-    height: 345px;
+    height: 285px;
     padding: 0px 0px 25px 0px; }
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail {
       font-size: 20px;
@@ -8985,9 +8949,9 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .ion-ios-arrow-down:before {
       margin-top: -17px !important; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation {
-    height: 345px; }
+    height: 285px; }
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
-      height: 68%; }
+      height: 63%; }
       #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation textarea {
         font-size: 20px; } }
 
@@ -9057,7 +9021,7 @@ ion-content {
       font-size: 23px; }
   #wrapper-exam .exams-board .exam-item .exam-details .board-detail {
     padding: 0px 0px 25px 0px;
-    height: 345px; }
+    height: 290px; }
     #wrapper-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail {
       font-size: 20px;
       margin: 14px 5% 0% 5%; }
@@ -9075,9 +9039,9 @@ ion-content {
       margin-top: -22px !important;
       font-size: 25px; }
   #wrapper-exam .exams-board .exam-item .exam-details .board-observation {
-    height: 345px; }
+    height: 290px; }
     #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation {
-      height: 68%; }
+      height: 64%; }
       #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation textarea {
         font-size: 24px; }
   /****MEDIA QUERY FOR HOMEWORK PAGE****/
@@ -9103,7 +9067,7 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .homework-observation .title {
       font-size: 22px; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail {
-    height: 350px;
+    height: 290px;
     padding: 0px 0px 25px 0px; }
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail {
       font-size: 20px;
@@ -9122,9 +9086,9 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-detail .ion-ios-arrow-down:before {
       margin-top: -17px !important; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation {
-    height: 350px; }
+    height: 290px; }
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
-      height: 67%; }
+      height: 64%; }
       #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation textarea {
         font-size: 20px; } }
 

@@ -110,7 +110,7 @@
         }
         .board-detail{
           padding-left: 1px;
-          height: 270px;
+          height: 220px;
           .item-board-detail{
             width: 90%;
             position: relative;
@@ -144,19 +144,6 @@
               top: 3px;
               left: 60px;
             }
-            select{
-              background: transparent;
-              display: inline-block;
-              width: 100%;
-              font-size: 14px;
-              margin-left: 15px;
-              margin-top: 0px;
-              line-height: 1;
-              border: 0;
-              -webkit-appearance: none;
-              font-family: $mainFontType;
-              color: $mainFont;
-            }
             .input-text {
               width: 60%;
               padding: 0px;
@@ -166,20 +153,13 @@
               border-radius: 10px;
             }
           }
-          .ion-ios-arrow-down:before{
-            float: right;
-            position: absolute;
-            right: 17px;
-            top: 70%;
-            margin-top: -14px;
-          }
         }
         .board-observation{
           padding-left: 1px;
-          height: 270px;
+          height: 220px;
           .item-board-observation{
             width: 90%;
-            height: 70%;
+            height: 65%;
             margin: 0% 5% 0% 5%;
             padding: 0%;
             border: none;

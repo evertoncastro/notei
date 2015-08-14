@@ -27,13 +27,6 @@
                                 </button>
                             </div>
                             <div class="board-detail" ng-show="showLeftTab">
-                                <label class="item-board-detail item item-input item-stacked-label ion-ios-arrow-down">
-                                    <span class="display-label">Matéria:</span>
-                                    <select ng-model="exam.id_materia"
-                                            ng-options="e.id as e.nome for e in data.subjectList">
-                                        <option value='' selected>Selecione</option>
-                                    </select>
-                                </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Data:</span><input ng-model="exam.data" type="date" ng-blur="setData(data)">
                                 </label>
