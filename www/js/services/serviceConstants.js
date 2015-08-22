@@ -15,7 +15,12 @@ app.service('serviceConstants', function() {
         MSG_UPDATE_TITLE_SUBJECT:           {MSG: 'Dados editados com sucesso! ', ALERT: 'Atualizar', BUTTON: 'OK'},
         MSG_CONFIRM_DELETE_SUBJECT:         {MSG: 'Excluir matéria', ALERT: 'Confirmar', BUTTON_OK: 'OK', BUTTON_CANCEL: 'Cancelar'},
         MSG_SUCCESS_DELETE_SUBJECT:         {MSG: 'Matéria excluída com sucesso!', ALERT: 'Aviso', BUTTON: 'OK'},
-        MSG_FAIL_DELETE_SUBJECT:            {MSG: 'Erro ao excluir matéria', ALERT: 'Aviso', BUTTON: 'OK'}
+        MSG_FAIL_DELETE_SUBJECT:            {MSG: 'Erro ao excluir matéria', ALERT: 'Aviso', BUTTON: 'OK'},
+
+        MSG_UPDATE_TITLE_EXAM:              {MSG: 'Dados editados com sucesso! ', ALERT: 'Atualizar', BUTTON: 'OK'},
+        MSG_CONFIRM_DELETE_EXAM:            {MSG: 'Excluir prova', ALERT: 'Confirmar', BUTTON_OK: 'OK', BUTTON_CANCEL: 'Cancelar'},
+        MSG_SUCCESS_DELETE_EXAM:            {MSG: 'Prova excluída com sucesso!', ALERT: 'Aviso', BUTTON: 'OK'},
+        MSG_FAIL_DELETE_EXAM:               {MSG: 'Erro ao excluir prova', ALERT: 'Aviso', BUTTON: 'OK'}
 
     }
 });

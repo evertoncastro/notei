@@ -3,7 +3,8 @@
  */
 angular.module('anotei').controller('ExamCtrl', ExamCtrl);
 
-function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject){
+function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
+                  serviceConstants, $cordovaDialogs, $rootScope){
 
     $scope.showExam = false;
     $scope.exam_id = null;
@@ -23,6 +24,39 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject){
         respSubject.then(function(list){
             $scope.data.subjectList = list;
         });
+    };
+
+    $scope.deleteExam = function(data){
+        $cordovaDialogs.confirm(serviceConstants.MSG_CONFIRM_DELETE_EXAM.MSG+' "'+data.nome+'"?',
+            serviceConstants.MSG_CONFIRM_DELETE_EXAM.ALERT,
+            [serviceConstants.MSG_CONFIRM_DELETE_EXAM.BUTTON_OK,
+                serviceConstants.MSG_CONFIRM_DELETE_EXAM.BUTTON_CANCEL]).then(
+            function(buttonIndex) {
+                // no button = 0, 'OK' = 1, 'Cancel' = 2
+                if(buttonIndex == 1){
+                    serviceExam.deleteExam(data.id).then(
+                        function(){
+                            $cordovaDialogs.alert(
+                                serviceConstants.MSG_SUCCESS_DELETE_EXAM.MSG,
+                                serviceConstants.MSG_SUCCESS_DELETE_EXAM.ALERT,
+                                serviceConstants.MSG_SUCCESS_DELETE_EXAM.BUTTON);
+                            $rootScope.$broadcast('serviceSubject:manipulatedExam');
+                        },
+                        function(){
+                            $cordovaDialogs.alert(
+                                serviceConstants.MSG_FAIL_DELETE_EXAM.MSG,
+                                serviceConstants.MSG_FAIL_DELETE_EXAM.ALERT,
+                                serviceConstants.MSG_FAIL_DELETE_EXAM.BUTTON);
+                        }
+                    )
+                }
+            });
+    };
+
+    $scope.updateExam = function(data){
+        $ionicLoading.show();
+        serviceExam.updateExam(data);
+        $ionicLoading.hide();
     };
 
     $scope.openExam = function(id){

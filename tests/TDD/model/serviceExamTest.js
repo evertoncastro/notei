@@ -39,8 +39,7 @@ describe('Service Exam Test', function(){
                             observacoes: 'nothing',
                             peso: 2,
                             nota: 7,
-                            id_materia: 1,
-                            nome: 'Matemática'
+                            id_materia: 1
                         }
                     ];
 
@@ -67,8 +66,7 @@ describe('Service Exam Test', function(){
                 observacoes: 'nothing',
                 peso: 2,
                 nota: 7,
-                id_materia: 1,
-                nome: 'Matemática'
+                id_materia: 1
             }]
         );
         expect(failSpy).not.toHaveBeenCalled();

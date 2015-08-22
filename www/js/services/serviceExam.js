@@ -38,14 +38,12 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
 
                         prova.id = resultSet.rows.item(i).id;
                         prova.titulo = resultSet.rows.item(i).titulo;
-                        //TODO: verify this
                         prova.data = new Date(resultSet.rows.item(i).data);
                         prova.data.setDate(prova.data.getDate() + 1);
                         prova.observacoes = resultSet.rows.item(i).observacoes;
                         prova.peso = resultSet.rows.item(i).peso;
                         prova.nota = resultSet.rows.item(i).nota;
                         prova.id_materia = resultSet.rows.item(i).id_materia;
-                        prova.nome = resultSet.rows.item(i).nome;
 
                         listProva.push(prova);
                     }
@@ -73,6 +71,8 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
                     '(titulo, data, observacoes, peso, nota, id_materia) ' +
                     'values (?, ?, ?, ?, ?, ?)';
 
+                data.data = serviceUtil.formatDate(data.data);
+
                 var param = [data.titulo, data.data, data.observacoes,
                     data.peso, data.nota, data.id_materia];
 
@@ -97,6 +97,8 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
                 'titulo = ?, data = ?, ' +
                 'observacoes = ?, peso = ?, nota = ?, ' +
                 'id_materia = ? where id = ?';
+
+            data.data = serviceUtil.formatDate(data.data);
 
             var param = [data.titulo, data.data, data.observacoes,
                         data.peso, data.nota, data.id_materia, data.id];

@@ -3,7 +3,7 @@
  */
 describe('Exam controller', function () {
 
-    var ExamCtrl, $scope, serviceSubject, $cordovaSQLite,
+    var ExamCtrl, $scope, serviceExam, $cordovaSQLite,
         $cordovaDialogs, serviceConstants, factoryDatabase;
 
     beforeEach(module('anotei'));
@@ -11,7 +11,7 @@ describe('Exam controller', function () {
     beforeEach(inject(function ($injector, $controller, $httpBackend) {
         var $rootScope = $injector.get('$rootScope');
         $scope = $rootScope.$new();
-        serviceSubject = $injector.get('serviceSubject');
+        serviceExam = $injector.get('serviceExam');
         factoryDatabase = $injector.get('factoryDatabase');
         serviceConstants = $injector.get('serviceConstants');
         $cordovaSQLite = $injector.get('$cordovaSQLite');
@@ -31,8 +31,7 @@ describe('Exam controller', function () {
                             observacoes: 'nothing',
                             peso: 2,
                             nota: 7,
-                            id_materia: 1,
-                            nome: 'Matemática'}
+                            id_materia: 1}
                     ];
 
                     result.rows.item = function (index){
@@ -49,11 +48,11 @@ describe('Exam controller', function () {
 
     }));
 
-    it('TDD - Should define SubjectNewCtrl', function(){
+    it('TDD - Should define ExamNewCtrl', function(){
        expect(ExamCtrl).toBeDefined();
     });
 
-    it('BDD - Cenário: Exibição das matérias na tela ' +
+    it('BDD - Cenário: Exibição das Provas na tela ' +
         'Dado que: o usuário entrou na tela Provas ' +
         'Então: a Prova 1 da matéria Matemática será exibida na tela', function(){
 
@@ -66,28 +65,26 @@ describe('Exam controller', function () {
                 observacoes: 'nothing',
                 peso: 2,
                 nota: 7,
-                id_materia: 1,
-                nome: 'Matemática'}
+                id_materia: 1}
         ]);
     });
 
-
-
-    /*it('BDD - Cenário: Atualização dos dados de uma Matéria ' +
-        'Dado que: O usuário alterou qualquer dado de uma matéria ' +
-        'E: fechou a aba da respectiva matéria ' +
-        'Então: os dados da matéria serão atualizados no banco de dados', function(){
+    it('BDD - Cenário: Atualização dos dados de uma Prova ' +
+        'Dado que: O usuário alterou qualquer dado de uma Prova ' +
+        'E: fechou a aba da respectiva prova ' +
+        'Então: os dados da prova serão atualizados no banco de dados', function(){
 
         var data = {
-            nome: 'Programação 2',
-            max_faltas: 20,
-            professor: 'Everton de Castro',
-            email_prof: 'evertoncastro.sp@gmail.com',
-            num_faltas: 4,
-            id: 1
+            id: 1,
+            titulo: 'P1',
+            data: new Date('2014-10-11'),
+            observacoes: 'nothing',
+            peso: 2,
+            nota: 7,
+            id_materia: 1
         };
 
-        spyOn(serviceSubject, 'updateSubject').and.callFake(function(){
+        spyOn(serviceExam, 'updateExam').and.callFake(function(){
             return {
                 then: function(callback){
                     callback(1);
@@ -95,19 +92,19 @@ describe('Exam controller', function () {
             };
         });
 
-        $scope.updateSubject(data);
+        $scope.updateExam(data);
 
-        expect(serviceSubject.updateSubject).toHaveBeenCalled();
+        expect(serviceExam.updateExam).toHaveBeenCalled();
 
-    });*/
+    });
 
-   /* it('BDD - Cenário: Exclusão de matéria ' +
-        'Dado que: o usuário clicou no ícone de exclusão em alguma matéria ' +
+    it('BDD - Cenário: Exclusão de prova ' +
+        'Dado que: o usuário clicou no ícone de exclusão em alguma prova ' +
         'E: confirmou a exclusão na caixa de diálogo que surgiu ' +
-        'Então: a matéria será excluída ' +
+        'Então: a prova será excluída ' +
         'E: um alerta será exibido informando sucesso na exclusão', function(){
 
-        spyOn(serviceSubject, 'deleteSubject').and.callFake(function(){
+        spyOn(serviceExam, 'deleteExam').and.callFake(function(){
            return{
                then: function(callBack){
                     callBack();
@@ -123,23 +120,23 @@ describe('Exam controller', function () {
             }
         });
 
-        $scope.deleteSubject(1);
+        $scope.deleteExam(1);
         $scope.$apply();
-        expect(serviceSubject.deleteSubject).toHaveBeenCalled();
+        expect(serviceExam.deleteExam).toHaveBeenCalled();
         expect($cordovaDialogs.alert).toHaveBeenCalledWith(
-            serviceConstants.MSG_SUCCESS_DELETE_SUBJECT.MSG,
-            serviceConstants.MSG_SUCCESS_DELETE_SUBJECT.ALERT,
-            serviceConstants.MSG_SUCCESS_DELETE_SUBJECT.BUTTON
+            serviceConstants.MSG_SUCCESS_DELETE_EXAM.MSG,
+            serviceConstants.MSG_SUCCESS_DELETE_EXAM.ALERT,
+            serviceConstants.MSG_SUCCESS_DELETE_EXAM.BUTTON
         );
-    });*/
+    });
 
-   /* it('BDD - Cenário: Exclusão de matéria ' +
-        'Dado que: o usuário clicou no ícone de exclusão em alguma matéria ' +
+    it('BDD - Cenário: Exclusão de prova ' +
+        'Dado que: o usuário clicou no ícone de exclusão em alguma prova ' +
         'E: confirmou a exclusão na caixa de diálogo que surgiu ' +
         'E: houve um erro na exclusão ' +
         'Então: um alerta será exibido informando falha na exclusão', function(){
 
-        spyOn(serviceSubject, 'deleteSubject').and.callFake(function(){
+        spyOn(serviceExam, 'deleteExam').and.callFake(function(){
             return{
                 then: function(callBack, callFail){
                     callFail();
@@ -155,23 +152,23 @@ describe('Exam controller', function () {
             }
         });
 
-        $scope.deleteSubject(1);
+        $scope.deleteExam(1);
         $scope.$apply();
-        expect(serviceSubject.deleteSubject).toHaveBeenCalled();
+        expect(serviceExam.deleteExam).toHaveBeenCalled();
         expect($cordovaDialogs.alert).toHaveBeenCalledWith(
-            serviceConstants.MSG_FAIL_DELETE_SUBJECT.MSG,
-            serviceConstants.MSG_FAIL_DELETE_SUBJECT.ALERT,
-            serviceConstants.MSG_FAIL_DELETE_SUBJECT.BUTTON
+            serviceConstants.MSG_FAIL_DELETE_EXAM.MSG,
+            serviceConstants.MSG_FAIL_DELETE_EXAM.ALERT,
+            serviceConstants.MSG_FAIL_DELETE_EXAM.BUTTON
         );
-    });*/
+    });
 
 
-    /*it('BDD - Cenário: Exclusão de matéria ' +
-        'Dado que: o usuário clicou no ícone de exclusão em alguma matéria ' +
+    it('BDD - Cenário: Exclusão de prova ' +
+        'Dado que: o usuário clicou no ícone de exclusão em alguma prova ' +
         'E: não confirmou a exclusão na caixa de diálogo que surgiu ' +
-        'Então: a matéria não será excluída ', function(){
+        'Então: a prova não será excluída ', function(){
 
-        spyOn(serviceSubject, 'deleteSubject');
+        spyOn(serviceExam, 'deleteExam');
 
         spyOn($cordovaDialogs, 'confirm').and.callFake(function(){
             return{
@@ -181,15 +178,15 @@ describe('Exam controller', function () {
             }
         });
 
-        $scope.deleteSubject(1);
-        expect(serviceSubject.deleteSubject).not.toHaveBeenCalled();
-    });*/
+        $scope.deleteExam(1);
+        expect(serviceExam.deleteExam).not.toHaveBeenCalled();
+    });
 
     /*it('BDD - Cenário: Ordenação da lista de matérias ' +
         'Dado que: o usuário clicou no ícone ordenar ASCENDENTE ' +
         'Então: a lista de matérias será exibida em ordem alfabética ASCENDENTE  ', function(){
-        spyOn(serviceSubject, 'setCurrentSortSubject');
-        spyOn(serviceSubject, 'getSubjects').and.callFake(function(){
+        spyOn(serviceExam, 'setCurrentSortExam');
+        spyOn(serviceExam, 'getExams').and.callFake(function(){
             return{
                 then: function(callBack){
                     callBack();
@@ -197,10 +194,10 @@ describe('Exam controller', function () {
             }
         });
 
-        $scope.sortSubjectList('asc');
-        expect(serviceSubject.getSubjects).toHaveBeenCalledWith('asc');
+        $scope.sortExamList('asc');
+        expect(serviceExam.getExams).toHaveBeenCalledWith('asc');
         expect($scope.sort).toBe('asc');
-        expect(serviceSubject.setCurrentSortSubject).toHaveBeenCalledWith('asc');
+        expect(serviceExam.setCurrentSortExam).toHaveBeenCalledWith('asc');
     });*/
 
 
@@ -208,8 +205,8 @@ describe('Exam controller', function () {
         'Dado que: o usuário clicou no ícone ordenar DECRESCENTE ' +
         'Então: a lista de matérias será exibida em ordem alfabética DECRESCENTE  ', function(){
 
-        spyOn(serviceSubject, 'setCurrentSortSubject');
-        spyOn(serviceSubject, 'getSubjects').and.callFake(function(){
+        spyOn(serviceExam, 'setCurrentSortExam');
+        spyOn(serviceExam, 'getExams').and.callFake(function(){
             return{
                 then: function(callBack){
                     callBack();
@@ -217,10 +214,10 @@ describe('Exam controller', function () {
             }
         });
 
-        $scope.sortSubjectList('desc');
-        expect(serviceSubject.getSubjects).toHaveBeenCalledWith('desc');
+        $scope.sortExamList('desc');
+        expect(serviceExam.getExams).toHaveBeenCalledWith('desc');
         expect($scope.sort).toBe('desc');
-        expect(serviceSubject.setCurrentSortSubject).toHaveBeenCalledWith('desc');
+        expect(serviceExam.setCurrentSortExam).toHaveBeenCalledWith('desc');
     });*/
 
 
