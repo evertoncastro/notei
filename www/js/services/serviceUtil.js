@@ -16,6 +16,14 @@ app.service('serviceUtil', function(){
             }
         },
 
+        formatDate: function(usedDate){
+            var date =  new Date(usedDate);
+            var year = date.getFullYear().toString();
+            var month = (date.getMonth()+1).toString();
+            var day = date.getDate().toString();
+            return year +'-'+ (month[1]?month:"0"+month[0]) +'-'+ (day[1]?day:"0"+day[0]);
+        },
+
         parseToString: function (valDate, options) {
             if (!valDate) return valDate; // skip...
 
@@ -108,9 +116,7 @@ app.service('serviceUtil', function(){
             }
 
             return result;
-        }
-
-
+        },
 
 
     }

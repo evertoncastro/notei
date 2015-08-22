@@ -5,8 +5,8 @@ var app = angular.module('anotei');
 
 app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
 
-    var currentSubject = null;
-    var currentSortSubject = undefined;
+    var currentExam = null;
+    var currentSortExam = undefined;
 
     return{
         getExams: function(typeSort){
@@ -38,7 +38,9 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
 
                         prova.id = resultSet.rows.item(i).id;
                         prova.titulo = resultSet.rows.item(i).titulo;
-                        prova.data = resultSet.rows.item(i).data;
+                        //TODO: verify this
+                        prova.data = new Date(resultSet.rows.item(i).data);
+                        prova.data.setDate(prova.data.getDate() + 1);
                         prova.observacoes = resultSet.rows.item(i).observacoes;
                         prova.peso = resultSet.rows.item(i).peso;
                         prova.nota = resultSet.rows.item(i).nota;
@@ -57,24 +59,26 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
             return defer.promise;
         },
 
-        insertSubject: function(data){
+        insertExam: function(data){
             var defer = $q.defer();
             var validator = 0;
-            if(serviceUtil.isEmpty(data.nome)){validator = 1}
-            else if(serviceUtil.isEmpty(data.max_faltas)){validator = 1}
-            else if(serviceUtil.isEmpty(data.professor)){validator = 1}
+            if(serviceUtil.isEmpty(data.titulo)){validator = 1}
+            else if(serviceUtil.isEmpty(data.data)){validator = 1}
+            else if(serviceUtil.isEmpty(data.id_materia)){validator = 1}
 
             if(validator==1){
                 defer.resolve(1);
             }else{
-                var sqlQuery = 'insert into materias ' +
-                    '(nome, max_faltas, professor, email_prof, num_faltas) ' +
-                    'values (?, ?, ?, ?, ?)';
-                var param = [data.nome, data.max_faltas, data.professor,
-                    data.email_prof, 0];
+                var sqlQuery = 'insert into provas ' +
+                    '(titulo, data, observacoes, peso, nota, id_materia) ' +
+                    'values (?, ?, ?, ?, ?, ?)';
+
+                var param = [data.titulo, data.data, data.observacoes,
+                    data.peso, data.nota, data.id_materia];
+
                 var resp = factoryDatabase.executeQuery(sqlQuery, param);
                 resp.then(
-                    function(result){
+                    function(){
                         defer.resolve(2);
                     },
 
@@ -86,16 +90,16 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
             return defer.promise;
         },
 
-        updateSubject: function(data){
+        updateExam: function(data){
             var defer = $q.defer();
 
-            var sqlQuery = 'update materias set '+
-            'nome = ?, max_faltas = ?, ' +
-            'professor = ?, email_prof = ?, ' +
-            'num_faltas = ? where id_materia = ?';
+            var sqlQuery = 'update provas set ' +
+                'titulo = ?, data = ?, ' +
+                'observacoes = ?, peso = ?, nota = ?, ' +
+                'id_materia = ? where id = ?';
 
-            var param = [data.nome, data.max_faltas, data.professor,
-                        data.email_prof, data.num_faltas, data.id_materia];
+            var param = [data.titulo, data.data, data.observacoes,
+                        data.peso, data.nota, data.id_materia, data.id];
 
             factoryDatabase.executeQuery(sqlQuery, param).then(
                 function(){
@@ -108,9 +112,9 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
             return defer.promise;
         },
 
-        deleteSubject: function(id){
+        deleteExam: function(id){
             var defer = $q.defer();
-            var sqlQuery = 'delete from materias where id_materia = ?';
+            var sqlQuery = 'delete from provas where id = ?';
             var param = [id];
 
             factoryDatabase.executeQuery(sqlQuery, param)
@@ -125,20 +129,20 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
             return defer.promise;
         },
 
-        setCurrentSubject: function(data){
-            currentSubject = data;
+        setCurrentExam: function(data){
+            currentExam = data;
         },
 
-        getCurrentSubject: function(){
-            return currentSubject;
+        getCurrentExam: function(){
+            return currentExam;
         },
 
-        setCurrentSortSubject: function(data){
-            currentSortSubject = data;
+        setCurrentSortExam: function(data){
+            currentSortExam = data;
         },
 
-        getCurrentSortSubject: function(){
-            return currentSortSubject;
+        getCurrentSortExam: function(){
+            return currentSortExam;
         }
 
 

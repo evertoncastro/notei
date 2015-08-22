@@ -27,7 +27,7 @@ describe('Exam controller', function () {
                     result.rows = [
                         {id: 1,
                             titulo: 'P1',
-                            data: 'Tue Aug 30 2015 00:00:00 GMT-0300 (BRT)',
+                            data: new Date('2014-10-10'),
                             observacoes: 'nothing',
                             peso: 2,
                             nota: 7,
@@ -62,7 +62,7 @@ describe('Exam controller', function () {
         expect($scope.data.examList).toEqual([
             {id: 1,
                 titulo: 'P1',
-                data: 'Tue Aug 30 2015 00:00:00 GMT-0300 (BRT)',
+                data: new Date('2014-10-11'),
                 observacoes: 'nothing',
                 peso: 2,
                 nota: 7,

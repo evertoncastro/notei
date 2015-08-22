@@ -35,7 +35,7 @@ describe('Service Exam Test', function(){
                     result.rows = [
                         {id: 1,
                             titulo: 'P1',
-                            data: 'Tue Aug 30 2015 00:00:00 GMT-0300 (BRT)',
+                            data: '2015-10-10',
                             observacoes: 'nothing',
                             peso: 2,
                             nota: 7,
@@ -55,7 +55,7 @@ describe('Service Exam Test', function(){
         });
         var succesSpy = jasmine.createSpy('success'),
             failSpy   = jasmine.createSpy('failure');
-
+        debugger;
         var resp = serviceExam.getExams();
         resp.then(succesSpy, failSpy);
 
@@ -63,7 +63,7 @@ describe('Service Exam Test', function(){
         expect(succesSpy).toHaveBeenCalledWith([
             {id: 1,
                 titulo: 'P1',
-                data: 'Tue Aug 30 2015 00:00:00 GMT-0300 (BRT)',
+                data: new Date('2015-10-11'),
                 observacoes: 'nothing',
                 peso: 2,
                 nota: 7,
@@ -110,8 +110,8 @@ describe('Service Exam Test', function(){
     });
 
     //INSERT SUBJECT
-    /*it('TDD - Should verify if the method insertSubject is able ' +
-        'to insert a new subject', function(){
+    it('TDD - Should verify if the method insertExam is able ' +
+        'to insert a new exam', function(){
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
             return{
                 then: function(callback){
@@ -126,13 +126,15 @@ describe('Service Exam Test', function(){
             failSpy   = jasmine.createSpy('failure');
 
         var data = {
-            nome: 'Programação 2',
-            max_faltas: 20,
-            professor: 'Everton de Castro',
-            email_prof: 'evertoncastro.sp@gmail.com'
+            titulo: 'Prova 1',
+            data: '2015-10-04',
+            observacoes: 'nothing',
+            peso: 2,
+            nota: 10,
+            id_materia: 1
         };
 
-        var resp = serviceSubject.insertSubject(data);
+        var resp = serviceExam.insertExam(data);
         resp.then(succesSpy, failSpy);
 
         $scope.$apply();
@@ -140,9 +142,9 @@ describe('Service Exam Test', function(){
         expect(succesSpy).toHaveBeenCalledWith(2);
         expect(failSpy).not.toHaveBeenCalled();
 
-    });*/
+    });
 
-    /*it('TDD - Should verify if the factoryDatabase.executeQuery ' +
+    it('TDD - Should verify if the factoryDatabase.executeQuery ' +
         'will be called with the correct query and params', function(){
         spyOn(factoryDatabase, 'executeQuery').and.callFake(function(){
             return{
@@ -153,43 +155,48 @@ describe('Service Exam Test', function(){
         });
 
         var data = {
-            nome: 'Programação 2',
-            max_faltas: 20,
-            professor: 'Everton de Castro',
-            email_prof: 'evertoncastro.sp@gmail.com'
+            titulo: 'Prova 1',
+            data: '2015-10-04',
+            observacoes: 'nothing',
+            peso: 2,
+            nota: 10,
+            id_materia: 1
         };
 
-        serviceSubject.insertSubject(data);
+        serviceExam.insertExam(data);
         $scope.$apply();
         expect(factoryDatabase.executeQuery).toHaveBeenCalledWith(
-            'insert into materias (nome, max_faltas, professor, email_prof, num_faltas) ' +
-            'values (?, ?, ?, ?, ?)', ['Programação 2',
-            20, 'Everton de Castro', 'evertoncastro.sp@gmail.com', 0]);
-    });*/
+            'insert into provas ' +
+            '(titulo, data, observacoes, peso, nota, id_materia) ' +
+            'values (?, ?, ?, ?, ?, ?)', [data.titulo, data.data, data.observacoes,
+                data.peso, data.nota, data.id_materia]);
+    });
 
-    /*it('TDD - Should verify if the method inserSubjects' +
+    it('TDD - Should verify if the method inserExam' +
         'will validate the data sent by the caller and return correctly', function(){
 
         var succesSpy = jasmine.createSpy('success'),
             failSpy   = jasmine.createSpy('failure');
-        debugger;
+
         var data = {
-            nome: 'Programação 2',
-            max_faltas: null,
-            professor: 'Everton de Castro',
-            email_prof: 'evertoncastro.sp@gmail.com'
+            titulo: null,
+            data: '2015-10-04',
+            observacoes: 'nothing',
+            peso: 2,
+            nota: 10,
+            id_materia: 1
         };
 
-        var resp = serviceSubject.insertSubject(data);
+        var resp = serviceExam.insertExam(data);
         resp.then(succesSpy, failSpy);
         $scope.$apply();
         expect(succesSpy).toHaveBeenCalledWith(1);
 
-    });*/
+    });
 
     //UPDATE SUBJECT
-    /*it('TDD - Should verify if the method updateSubject ' +
-        'is able to update a Subject', function(){
+    it('TDD - Should verify if the method updateExam ' +
+        'is able to update an exam', function(){
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
             return{
                 then: function(callback){
@@ -202,22 +209,24 @@ describe('Service Exam Test', function(){
             failSpy   = jasmine.createSpy('failure');
 
         var data = {
-            nome: 'Programação 2',
-            max_faltas: 20,
-            professor: 'Everton de Castro',
-            email_prof: 'evertoncastro.sp@gmail.com'
+            titulo: 'Prova 4',
+            data: '2015-10-04',
+            observacoes: 'nothing',
+            peso: 2,
+            nota: 10,
+            id_materia: 1
         };
 
-        var resp = serviceSubject.updateSubject(data);
+        var resp = serviceExam.updateExam(data);
         resp.then(succesSpy, failSpy);
 
         $scope.$apply();
 
         expect(succesSpy).toHaveBeenCalled();
-    });*/
+    });
 
-    /*it('TDD - Should verify if the method deleteSubject is ' +
-        'able to delete some chosen subject', function(){
+    it('TDD - Should verify if the method deleteExam is ' +
+        'able to delete some chosen exam', function(){
 
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
            return{
@@ -230,15 +239,14 @@ describe('Service Exam Test', function(){
         var successSpy = jasmine.createSpy('success'),
             failSpy = jasmine.createSpy('failure');
 
-        serviceSubject.deleteSubject(1).then(successSpy, failSpy);
+        serviceExam.deleteExam(1).then(successSpy, failSpy);
         $scope.$apply();
 
         expect(successSpy).toHaveBeenCalled();
         expect(failSpy).not.toHaveBeenCalled();
     });
-*/
 
-    /*it('TDD - Should verify if the method deleteSubject is ' +
+    it('TDD - Should verify if the method deleteExam is ' +
         'able to identify an error after the execution', function(){
 
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
@@ -252,11 +260,11 @@ describe('Service Exam Test', function(){
         var successSpy = jasmine.createSpy('success'),
             failSpy = jasmine.createSpy('failure');
 
-        serviceSubject.deleteSubject(1).then(successSpy, failSpy);
+        serviceExam.deleteExam(1).then(successSpy, failSpy);
         $scope.$apply();
 
         expect(successSpy).not.toHaveBeenCalled();
         expect(failSpy).toHaveBeenCalled();
-    })*/
+    })
 
 });
