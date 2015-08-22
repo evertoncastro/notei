@@ -6,7 +6,7 @@ var app = angular.module('anotei');
 app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
 
     var currentSubject = null;
-    var currentSortSubject = undefined;
+    var currentSortSubject = 'asc';
 
     return{
         getSubjects: function(typeSort){

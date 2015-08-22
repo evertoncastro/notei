@@ -31,7 +31,8 @@ describe('Exam controller', function () {
                             observacoes: 'nothing',
                             peso: 2,
                             nota: 7,
-                            id_materia: 1}
+                            id_materia: 1,
+                            nome: 'matematica'}
                     ];
 
                     result.rows.item = function (index){
@@ -65,7 +66,8 @@ describe('Exam controller', function () {
                 observacoes: 'nothing',
                 peso: 2,
                 nota: 7,
-                id_materia: 1}
+                id_materia: 1,
+                nome: 'matematica'}
         ]);
     });
 
@@ -182,8 +184,8 @@ describe('Exam controller', function () {
         expect(serviceExam.deleteExam).not.toHaveBeenCalled();
     });
 
-    /*it('BDD - Cenário: Ordenação da lista de matérias ' +
-        'Dado que: o usuário clicou no ícone ordenar ASCENDENTE ' +
+    it('BDD - Cenário: Ordenação da lista de provas ' +
+        'Dado que: o usuário clicou no ícone ordenar A-Z ' +
         'Então: a lista de matérias será exibida em ordem alfabética ASCENDENTE  ', function(){
         spyOn(serviceExam, 'setCurrentSortExam');
         spyOn(serviceExam, 'getExams').and.callFake(function(){
@@ -198,12 +200,12 @@ describe('Exam controller', function () {
         expect(serviceExam.getExams).toHaveBeenCalledWith('asc');
         expect($scope.sort).toBe('asc');
         expect(serviceExam.setCurrentSortExam).toHaveBeenCalledWith('asc');
-    });*/
+    });
 
 
-    /*it('BDD - Cenário: Ordenação da lista de matérias ' +
-        'Dado que: o usuário clicou no ícone ordenar DECRESCENTE ' +
-        'Então: a lista de matérias será exibida em ordem alfabética DECRESCENTE  ', function(){
+    it('BDD - Cenário: Ordenação da lista de provas ' +
+        'Dado que: o usuário clicou no ícone ordenar Z-A ' +
+        'Então: a lista de provas será exibida em ordem alfabética DECRESCENTE  ', function(){
 
         spyOn(serviceExam, 'setCurrentSortExam');
         spyOn(serviceExam, 'getExams').and.callFake(function(){
@@ -218,10 +220,7 @@ describe('Exam controller', function () {
         expect(serviceExam.getExams).toHaveBeenCalledWith('desc');
         expect($scope.sort).toBe('desc');
         expect(serviceExam.setCurrentSortExam).toHaveBeenCalledWith('desc');
-    });*/
-
-
-
+    });
 });
 
 

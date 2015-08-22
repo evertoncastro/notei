@@ -6,7 +6,7 @@ var app = angular.module('anotei');
 app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
 
     var currentExam = null;
-    var currentSortExam = undefined;
+    var currentSortExam = 'asc';
 
     return{
         getExams: function(typeSort){
@@ -20,11 +20,13 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
                         'on p.id_materia = m.id group by m.nome, p.titulo ' +
                         'order by nome desc';
                     break;
-                default:
+                case 'asc':
                     sqlQuery = 'select ' +
                         'p.id, p.titulo, p.data, p.observacoes, p.peso, p.nota, p.id_materia, m.nome ' +
                         'from provas as p inner join materias as m ' +
-                        'on p.id_materia = m.id group by m.nome, p.titulo';
+                        'on p.id_materia = m.id group by m.nome, p.titulo ' +
+                        'order by nome asc';
+                    break;
             }
 
             var resp = factoryDatabase.executeQuery(sqlQuery);
@@ -44,6 +46,7 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
                         prova.peso = resultSet.rows.item(i).peso;
                         prova.nota = resultSet.rows.item(i).nota;
                         prova.id_materia = resultSet.rows.item(i).id_materia;
+                        prova.nome = resultSet.rows.item(i).nome;
 
                         listProva.push(prova);
                     }
@@ -71,11 +74,8 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
                     '(titulo, data, observacoes, peso, nota, id_materia) ' +
                     'values (?, ?, ?, ?, ?, ?)';
 
-                data.data = serviceUtil.formatDate(data.data);
-
                 var param = [data.titulo, data.data, data.observacoes,
-                    data.peso, data.nota, data.id_materia];
-
+                    0, 0, data.id_materia];
                 var resp = factoryDatabase.executeQuery(sqlQuery, param);
                 resp.then(
                     function(){
@@ -90,24 +90,22 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
             return defer.promise;
         },
 
-        updateExam: function(data){
+        updateExam: function(data) {
             var defer = $q.defer();
 
             var sqlQuery = 'update provas set ' +
                 'titulo = ?, data = ?, ' +
-                'observacoes = ?, peso = ?, nota = ?, ' +
-                'id_materia = ? where id = ?';
-
-            data.data = serviceUtil.formatDate(data.data);
+                'observacoes = ?, peso = ?, ' +
+                'nota = ? where id = ?';
 
             var param = [data.titulo, data.data, data.observacoes,
-                        data.peso, data.nota, data.id_materia, data.id];
+                data.peso, data.nota, data.id];
 
             factoryDatabase.executeQuery(sqlQuery, param).then(
-                function(){
+                function () {
                     defer.resolve();
                 },
-                function(error){
+                function (error) {
                     defer.reject(error);
                 }
             );
@@ -116,7 +114,7 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
 
         deleteExam: function(id){
             var defer = $q.defer();
-            var sqlQuery = 'delete from provas where id = ?';
+            var sqlQuery = 'delete * from provas where id = ?';
             var param = [id];
 
             factoryDatabase.executeQuery(sqlQuery, param)
@@ -129,6 +127,7 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
                 }
             );
             return defer.promise;
+
         },
 
         setCurrentExam: function(data){
@@ -146,7 +145,6 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
         getCurrentSortExam: function(){
             return currentSortExam;
         }
-
 
     }
 

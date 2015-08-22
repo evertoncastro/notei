@@ -50,19 +50,13 @@
         </div>
     </ion-content>
     <ion-footer-bar class="footer-button-sort-area">
-        <div class="button-sort" ng-click="sortSubjectList('asc')"
-                ng-if="sort == undefined">
-            <i class="ion-loop"></i>
-        </div>
         <div class="button-asc" ng-click="sortSubjectList('desc')"
              ng-if="sort == 'asc'">
-            <span>A</span>
-            <i class="ion-ios-arrow-thin-down"></i>
+            <span>A-Z</span>
         </div>
-        <div class="button-desc" ng-click="sortSubjectList(undefined)"
+        <div class="button-desc" ng-click="sortSubjectList('asc')"
              ng-if="sort == 'desc'">
-            <span>A</span>
-            <i class="ion-ios-arrow-thin-up"></i>
+            <span>Z-A</span>
         </div>
     </ion-footer-bar>
 </ion-view>

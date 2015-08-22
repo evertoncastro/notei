@@ -20,10 +20,10 @@ describe('Service Exam Test', function(){
 
     it('TDD - Should verify if the service and methods exists', function(){
         expect(serviceExam).toBeDefined();
-        //expect(serviceSubject.getSubjects).toBeDefined();
-        //expect(serviceSubject.insertSubject).toBeDefined();
-        //expect(serviceSubject.updateSubject).toBeDefined();
-        //expect(serviceSubject.deleteSubject).toBeDefined();
+        expect(serviceExam.getExams).toBeDefined();
+        expect(serviceExam.insertExam).toBeDefined();
+        expect(serviceExam.updateExam).toBeDefined();
+        expect(serviceExam.deleteExam).toBeDefined();
     });
     //GET EXAM
     it('TDD - Should verify if the method getExams will ' +
@@ -39,7 +39,8 @@ describe('Service Exam Test', function(){
                             observacoes: 'nothing',
                             peso: 2,
                             nota: 7,
-                            id_materia: 1
+                            id_materia: 1,
+                            nome: 'Matemática'
                         }
                     ];
 
@@ -66,7 +67,8 @@ describe('Service Exam Test', function(){
                 observacoes: 'nothing',
                 peso: 2,
                 nota: 7,
-                id_materia: 1
+                id_materia: 1,
+                nome: 'Matemática'
             }]
         );
         expect(failSpy).not.toHaveBeenCalled();
@@ -82,11 +84,11 @@ describe('Service Exam Test', function(){
             };
         });
 
-        serviceExam.getExams();
+        serviceExam.getExams('asc');
         expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select ' +
             'p.id, p.titulo, p.data, p.observacoes, p.peso, p.nota, p.id_materia, m.nome ' +
             'from provas as p inner join materias as m ' +
-            'on p.id_materia = m.id group by m.nome, p.titulo');
+            'on p.id_materia = m.id group by m.nome, p.titulo order by nome asc');
     });
 
     it('TDD - Should verify if the method getExams will call the factory ' +
@@ -107,7 +109,7 @@ describe('Service Exam Test', function(){
             'order by nome desc');
     });
 
-    //INSERT SUBJECT
+    //INSERT EXAM
     it('TDD - Should verify if the method insertExam is able ' +
         'to insert a new exam', function(){
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
@@ -127,8 +129,8 @@ describe('Service Exam Test', function(){
             titulo: 'Prova 1',
             data: '2015-10-04',
             observacoes: 'nothing',
-            peso: 2,
-            nota: 10,
+            peso: null,
+            nota: null,
             id_materia: 1
         };
 
@@ -156,8 +158,8 @@ describe('Service Exam Test', function(){
             titulo: 'Prova 1',
             data: '2015-10-04',
             observacoes: 'nothing',
-            peso: 2,
-            nota: 10,
+            peso: 0,
+            nota: 0,
             id_materia: 1
         };
 
@@ -170,7 +172,7 @@ describe('Service Exam Test', function(){
                 data.peso, data.nota, data.id_materia]);
     });
 
-    it('TDD - Should verify if the method inserExam' +
+    it('TDD - Should verify if the method insertExam' +
         'will validate the data sent by the caller and return correctly', function(){
 
         var succesSpy = jasmine.createSpy('success'),

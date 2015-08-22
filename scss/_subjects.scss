@@ -2,27 +2,6 @@
   font-size: 30px;
   padding: 18px 10px 18px 18px;
 }
-/*.button-sort-area{
-  top: 75px !important;
-  background-color: transparent !important;
-  display: inline-block;
-  width: 44px;
-  height: 0px;
-  padding: 0px 0px 0px 0px;
-  .button-sort{
-    position: relative;
-    height: 44px;
-    .ion-loop{
-      font-size: 35px;
-      padding: -2px 4px 3px 0px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin: -17px 0px 0px -12px;
-      color: $mainFont;
-    }
-  }
-}*/
 .box-subject{
   font-family: $mainFontType;
   .subjects-board{
@@ -257,21 +236,6 @@
   height: 0px;
   border: none;
   padding: 0px;
-  .button-sort{
-    position: absolute;
-    height: 44px;
-    width: 44px;
-    top: -45px;
-    .ion-loop{
-      font-size: 35px;
-      padding: -2px 4px 3px 0px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin: -17px 0px 0px -12px;
-      color: $mainFont;
-    }
-  }
   .button-asc{
     position: absolute;
     height: 44px;
@@ -284,17 +248,7 @@
       margin: -7px 0px 0px 6px;
       color: $mainFont;
     }
-    .ion-ios-arrow-thin-down{
-      font-size: 35px;
-      padding: -2px 4px 3px 0px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin: -15px 0px 0px 0px;
-      color: $mainFont;
-    }
   }
-
   .button-desc{
     position: absolute;
     height: 44px;
@@ -305,15 +259,6 @@
       position: absolute;
       top: 50%;
       margin: -7px 0px 0px 6px;
-      color: $mainFont;
-    }
-    .ion-ios-arrow-thin-up{
-      font-size: 35px;
-      padding: -2px 4px 3px 0px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin: -17px 0px 0px 0px;
       color: $mainFont;
     }
   }

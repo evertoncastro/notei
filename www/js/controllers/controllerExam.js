@@ -8,6 +8,7 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
 
     $scope.showExam = false;
     $scope.exam_id = null;
+    $scope.sort = serviceExam.getCurrentSortExam();
     $scope.showLeftTab = true;
     $scope.showRightTab = false;
     $scope.data = {};
@@ -57,6 +58,18 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
         $ionicLoading.show();
         serviceExam.updateExam(data);
         $ionicLoading.hide();
+    };
+
+    $scope.sortExamList = function(sort){
+
+        $ionicLoading.show();
+        var resp = serviceExam.getExams(sort);
+        resp.then(function(list){
+            $scope.data.examList = list;
+            $scope.sort = sort;
+            serviceExam.setCurrentSortExam(sort);
+            $ionicLoading.hide();
+        });
     };
 
     $scope.openExam = function(id){
