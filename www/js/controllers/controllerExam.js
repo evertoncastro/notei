@@ -4,7 +4,7 @@
 angular.module('anotei').controller('ExamCtrl', ExamCtrl);
 
 function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
-                  serviceConstants, $cordovaDialogs, $rootScope){
+                  serviceConstants, $cordovaDialogs, $rootScope, $state){
 
     $scope.showExam = false;
     $scope.exam_id = null;
@@ -13,6 +13,10 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
     $scope.showRightTab = false;
     $scope.data = {};
 
+    $rootScope.$on('serviceExam:manipulatedExam', function() {
+        $scope.init();
+    });
+
     $scope.init = function(){
         $ionicLoading.show();
         var resp = serviceExam.getExams($scope.sort);
@@ -20,10 +24,6 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
             $scope.data.examList = list;
             $ionicLoading.hide();
             $scope.showExam = false;
-        });
-        var respSubject = serviceSubject.getSubjects('asc');
-        respSubject.then(function(list){
-            $scope.data.subjectList = list;
         });
     };
 
@@ -41,7 +41,7 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
                                 serviceConstants.MSG_SUCCESS_DELETE_EXAM.MSG,
                                 serviceConstants.MSG_SUCCESS_DELETE_EXAM.ALERT,
                                 serviceConstants.MSG_SUCCESS_DELETE_EXAM.BUTTON);
-                            $rootScope.$broadcast('serviceSubject:manipulatedExam');
+                            $rootScope.$broadcast('serviceExam:manipulatedExam');
                         },
                         function(){
                             $cordovaDialogs.alert(
@@ -58,6 +58,11 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
         $ionicLoading.show();
         serviceExam.updateExam(data);
         $ionicLoading.hide();
+    };
+
+    $scope.updateFullExam = function(data){
+        serviceExam.setCurrentExam(data);
+        $state.go('app.exam-new');
     };
 
     $scope.sortExamList = function(sort){

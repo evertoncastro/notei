@@ -114,7 +114,7 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
 
         deleteExam: function(id){
             var defer = $q.defer();
-            var sqlQuery = 'delete * from provas where id = ?';
+            var sqlQuery = 'delete from provas where id = ?';
             var param = [id];
 
             factoryDatabase.executeQuery(sqlQuery, param)

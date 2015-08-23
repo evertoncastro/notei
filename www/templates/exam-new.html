@@ -1,11 +1,11 @@
-<ion-view view-title="Nova Prova">
+<ion-view view-title="{{title}}">
     <ion-content>
         <div class="wrapper-exam-new">
             <div class="box-exam-new">
                 <form class="exam-form">
                     <label class="item item-input item-stacked-label ion-ios-arrow-down">
                         <span class="input-label">Título</span>
-                        <select>
+                        <select ng-model="data.titulo">
                             <option value="">Selecione uma opção</option>
                             <option value="Prova 1">Prova 1</option>
                             <option value="Prova 2">Prova 2</option>
@@ -16,18 +16,19 @@
                     </label>
                     <label class="item item-input item-stacked-label ion-ios-arrow-down">
                         <span class="input-label">Matéria</span>
-                        <select>
-                            <option value="">Selecione uma opção</option>
-                            <option value="">Matemática</option>
+                        <select ng-model="data.id_materia"
+                                ng-options="s.id as s.nome for s in subjectList">
+                            <option value='' selected>Selecione uma matéria</option>
                         </select>
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Data</span>
-                        <input class="text" type="date" placeholder="Digite aqui">
+                        <input class="text" type="date" placeholder="Digite aqui"
+                                ng-model="data.data">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Observações</span>
-                        <textarea class="text">
+                        <textarea class="text" ng-model="data.observacoes">
                         </textarea>
                     </label>
                     <button class="button button-block button-positive">

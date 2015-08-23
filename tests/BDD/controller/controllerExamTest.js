@@ -16,7 +16,6 @@ describe('Exam controller', function () {
         serviceConstants = $injector.get('serviceConstants');
         $cordovaSQLite = $injector.get('$cordovaSQLite');
         $cordovaDialogs = $injector.get('$cordovaDialogs');
-
         $httpBackend.whenGET(/templates\/.*/).respond(200);
         spyOn($cordovaDialogs, 'alert');
 

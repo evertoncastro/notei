@@ -10,8 +10,8 @@
                         <div class="exam-title">
                             <span class="title" ng-click="openExam(exam.id)">{{exam.titulo}}</span>
                             <span class="title title-min" ng-click="openExam(exam.id)">{{exam.nome}}</span>
-                            <i class="ion-edit"></i>
-                            <i class="ion-trash-a"></i>
+                            <i class="ion-edit" ng-click="updateFullExam(exam)"></i>
+                            <i class="ion-trash-a" ng-click="deleteExam(exam)"></i>
                         </div>
                         <div class="exam-details" ng-show="showExam && exam.id==exam_id">
                             <div class="exam-info">
