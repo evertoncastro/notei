@@ -7,6 +7,7 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDi
 
     var currentExam = null;
     var currentSortExam = 'asc';
+    var currentExamList = [];
 
     return{
         getExams: function(typeSort){
@@ -139,6 +140,30 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDi
 
         },
 
+        validDuplicatedAddExam: function(list, id_materia, exam){
+            var validator = false;
+            if(list.length){
+                for(var i = 0; i<list.length; i++){
+                    if(list[i].id_materia==id_materia && list[i].titulo==exam){
+                        validator = true;
+                    }
+                }
+            }
+            return validator;
+        },
+
+        validDuplicatedEditExam: function(list, id_materia, exam, id){
+            var validator = false;
+            if(list.length){
+                for(var i = 0; i<list.length; i++){
+                    if(list[i].id_materia==id_materia && list[i].titulo==exam && list[i].id!=id){
+                        validator = true;
+                    }
+                }
+            }
+            return validator;
+        },
+
         setCurrentExam: function(data){
             currentExam = data;
         },
@@ -153,8 +178,14 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDi
 
         getCurrentSortExam: function(){
             return currentSortExam;
+        },
+
+        setCurrentExamList: function(list){
+            currentExamList = list;
+        },
+
+        getCurrentExamList: function(){
+            return currentExamList;
         }
-
     }
-
 });

@@ -57,6 +57,8 @@ describe('ExamNew controller', function () {
         'Dado que: solicitou a página de inclusao de Prova ' +
         'Então: um formulário para adicionar uma nova Prova será exibido', function(){
 
+        spyOn(serviceExam, 'getCurrentExamList');
+
         spyOn(serviceExam, 'getCurrentExam').and.callFake(function(){
            return undefined;
         });
@@ -64,6 +66,7 @@ describe('ExamNew controller', function () {
         $scope.loadForm();
         expect($scope.title).toBe('Nova Prova');
         expect($scope.wayForm).toBe('add');
+        expect(serviceExam.getCurrentExamList).toHaveBeenCalled();
     });
 
     it('BDD - Cenário: Carregamento do formulário de Edição de Prova ' +
@@ -71,6 +74,7 @@ describe('ExamNew controller', function () {
         'Então: um formulário para edição de uma Prova será exibido ' +
         'E: o formulario será carregado com a Prova a ser editada', function(){
 
+        spyOn(serviceExam, 'getCurrentExamList');
         spyOn(serviceExam, 'getCurrentExam').and.callFake(function(){
             return {
                 titulo: 'Prova 1',
@@ -85,6 +89,7 @@ describe('ExamNew controller', function () {
         $scope.loadForm();
         expect($scope.title).toBe('Editar Prova');
         expect($scope.wayForm).toBe('edit');
+        expect(serviceExam.getCurrentExamList).toHaveBeenCalled();
     });
 
     it('BDD - Cenário: Inclusão de nova Prova; ' +

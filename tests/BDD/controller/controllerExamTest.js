@@ -68,6 +68,17 @@ describe('Exam controller', function () {
                 id_materia: 1,
                 nome: 'matematica'}
         ]);
+        var listExam = serviceExam.getCurrentExamList();
+        expect(listExam).toEqual([
+            {id: 1,
+                titulo: 'P1',
+                data: new Date('2014-10-10'),
+                observacoes: 'nothing',
+                peso: 2,
+                nota: 7,
+                id_materia: 1,
+                nome: 'matematica'}
+        ]);
     });
 
     it('BDD - Cenário: Atualização dos dados de uma Prova ' +

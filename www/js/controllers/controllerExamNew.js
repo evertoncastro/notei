@@ -8,6 +8,7 @@ function ExamNewCtrl($scope, $state, $ionicLoading, serviceExam, serviceSubject,
     $scope.title = null;
     $scope.wayForm = null;
     $scope.data = {};
+    $scope.currentExamList = null;
 
     $scope.manipulateExam = function(data, wayForm){
         function validate(data){
@@ -24,50 +25,65 @@ function ExamNewCtrl($scope, $state, $ionicLoading, serviceExam, serviceSubject,
                                   serviceConstants.MSG_INCOMPLETE_EXAM_NEW.ALERT,
                                   serviceConstants.MSG_INCOMPLETE_EXAM_NEW.BUTTON);
         }else{
-            $ionicLoading.show();
             if(wayForm == 'add'){
-                serviceExam.insertExam(data).then(
-                    function(valueExecution){
-                        if(valueExecution==1){
-                            $cordovaDialogs.alert(serviceConstants.MSG_DATA_INVALID_EXAM_NEW.MSG,
-                                serviceConstants.MSG_DATA_INVALID_EXAM_NEW.ALERT,
-                                serviceConstants.MSG_DATA_INVALID_EXAM_NEW.BUTTON);
+                var noDuplicatedAddExam = serviceExam.validDuplicatedAddExam($scope.currentExamList, data.id_materia, data.titulo);
+                if(noDuplicatedAddExam) {
+                    $cordovaDialogs.alert(serviceConstants.MSG_DUPLICATE_EXAM.MSG + '"' + data.titulo + '"' + ' para esta matéria!',
+                        serviceConstants.MSG_DUPLICATE_EXAM.ALERT,
+                        serviceConstants.MSG_DUPLICATE_EXAM.BUTTON);
+                }else if(!noDuplicatedAddExam){
+                    $ionicLoading.show();
+                    serviceExam.insertExam(data).then(
+                        function(valueExecution){
+                            if(valueExecution==1){
+                                $cordovaDialogs.alert(serviceConstants.MSG_DATA_INVALID_EXAM_NEW.MSG,
+                                    serviceConstants.MSG_DATA_INVALID_EXAM_NEW.ALERT,
+                                    serviceConstants.MSG_DATA_INVALID_EXAM_NEW.BUTTON);
+                                $ionicLoading.hide();
+                            }else if(valueExecution==2){
+                                $ionicLoading.hide();
+                                $cordovaDialogs.alert(serviceConstants.MSG_SUCCESS_EXAM_NEW.MSG,
+                                    serviceConstants.MSG_SUCCESS_EXAM_NEW.ALERT,
+                                    serviceConstants.MSG_SUCCESS_EXAM_NEW.BUTTON);
+
+                                $rootScope.$broadcast('serviceExam:manipulatedExam');
+                                $state.go('app.exam');
+                            }
+                        },
+                        function(){
                             $ionicLoading.hide();
-                        }else if(valueExecution==2){
+                            $cordovaDialogs.alert(serviceConstants.MSG_FAIL_EXAM_NEW.MSG,
+                                serviceConstants.MSG_FAIL_EXAM_NEW.ALERT,
+                                serviceConstants.MSG_FAIL_EXAM_NEW.BUTTON);
+                        }
+                    )
+                }
+            }else if(wayForm == 'edit'){
+                var noDuplicatedEditExam = serviceExam.validDuplicatedEditExam($scope.currentExamList, data.id_materia, data.titulo, data.id);
+                if(noDuplicatedEditExam) {
+                    $cordovaDialogs.alert(serviceConstants.MSG_DUPLICATE_EXAM.MSG + '"' + data.titulo + '"' + ' para esta matéria!',
+                        serviceConstants.MSG_DUPLICATE_EXAM.ALERT,
+                        serviceConstants.MSG_DUPLICATE_EXAM.BUTTON);
+                }else if(!noDuplicatedEditExam){
+                    $ionicLoading.show();
+                    serviceExam.updateExam(data).then(
+                        function(){
                             $ionicLoading.hide();
-                            $cordovaDialogs.alert(serviceConstants.MSG_SUCCESS_EXAM_NEW.MSG,
-                                serviceConstants.MSG_SUCCESS_EXAM_NEW.ALERT,
-                                serviceConstants.MSG_SUCCESS_EXAM_NEW.BUTTON);
+                            $cordovaDialogs.alert(serviceConstants.MSG_UPDATE_TITLE_EXAM.MSG,
+                                serviceConstants.MSG_UPDATE_TITLE_EXAM.ALERT,
+                                serviceConstants.MSG_UPDATE_TITLE_EXAM.BUTTON);
 
                             $rootScope.$broadcast('serviceExam:manipulatedExam');
                             $state.go('app.exam');
+                        },
+                        function(){
+                            $ionicLoading.hide();
+                            $cordovaDialogs.alert(serviceConstants.MSG_FAIL_EXAM_NEW.MSG,
+                                serviceConstants.MSG_FAIL_EXAM_NEW.ALERT,
+                                serviceConstants.MSG_FAIL_EXAM_NEW.BUTTON);
                         }
-                    },
-                    function(){
-                        $ionicLoading.hide();
-                        $cordovaDialogs.alert(serviceConstants.MSG_FAIL_EXAM_NEW.MSG,
-                            serviceConstants.MSG_FAIL_EXAM_NEW.ALERT,
-                            serviceConstants.MSG_FAIL_EXAM_NEW.BUTTON);
-                    }
-                )
-            }else if(wayForm == 'edit'){
-                serviceExam.updateExam(data).then(
-                    function(){
-                        $ionicLoading.hide();
-                        $cordovaDialogs.alert(serviceConstants.MSG_UPDATE_TITLE_EXAM.MSG,
-                            serviceConstants.MSG_UPDATE_TITLE_EXAM.ALERT,
-                            serviceConstants.MSG_UPDATE_TITLE_EXAM.BUTTON);
-
-                        $rootScope.$broadcast('serviceExam:manipulatedExam');
-                        $state.go('app.exam');
-                    },
-                    function(){
-                        $ionicLoading.hide();
-                        $cordovaDialogs.alert(serviceConstants.MSG_FAIL_EXAM_NEW.MSG,
-                            serviceConstants.MSG_FAIL_EXAM_NEW.ALERT,
-                            serviceConstants.MSG_FAIL_EXAM_NEW.BUTTON);
-                    }
-                )
+                    )
+                }
             }
         }
     };
@@ -77,6 +93,7 @@ function ExamNewCtrl($scope, $state, $ionicLoading, serviceExam, serviceSubject,
         respSubject.then(function(list){
             $scope.subjectList = list;
         });
+        $scope.currentExamList  = serviceExam.getCurrentExamList();
         var data = serviceExam.getCurrentExam();
         if(!data){
            $scope.title = 'Nova Prova';

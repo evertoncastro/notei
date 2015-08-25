@@ -22,6 +22,7 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
         var resp = serviceExam.getExams($scope.sort);
         resp.then(function(list){
             $scope.data.examList = list;
+            serviceExam.setCurrentExamList(list);
             $ionicLoading.hide();
             $scope.showExam = false;
         });

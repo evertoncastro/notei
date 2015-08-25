@@ -27,7 +27,8 @@ app.service('serviceConstants', function() {
         MSG_SUCCESS_DELETE_EXAM:            {MSG: 'Prova excluída com sucesso!', ALERT: 'Aviso', BUTTON: 'OK'},
         MSG_FAIL_DELETE_EXAM:               {MSG: 'Erro ao excluir prova', ALERT: 'Aviso', BUTTON: 'OK'},
 
-        MSG_UPDATE_DATE_EMPTY:              {MSG: 'Campo data não pode ficar vazio! ', ALERT: 'Aviso', BUTTON: 'OK'}
+        MSG_UPDATE_DATE_EMPTY:              {MSG: 'Campo data não pode ficar vazio! ', ALERT: 'Aviso', BUTTON: 'OK'},
+        MSG_DUPLICATE_EXAM:                 {MSG: 'Já existe uma ', ALERT: 'Aviso', BUTTON: 'OK'}
 
     }
 });
