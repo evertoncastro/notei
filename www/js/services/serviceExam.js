@@ -3,7 +3,7 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
+app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDialogs, serviceConstants){
 
     var currentExam = null;
     var currentSortExam = 'asc';
@@ -41,7 +41,7 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
                         prova.id = resultSet.rows.item(i).id;
                         prova.titulo = resultSet.rows.item(i).titulo;
                         prova.data = new Date(resultSet.rows.item(i).data);
-                        prova.data.setDate(prova.data.getDate() + 1);
+                        //prova.data.setDate(prova.data.getDate() + 1);
                         prova.observacoes = resultSet.rows.item(i).observacoes;
                         prova.peso = resultSet.rows.item(i).peso;
                         prova.nota = resultSet.rows.item(i).nota;
@@ -91,25 +91,34 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil){
         },
 
         updateExam: function(data) {
+            var validator = 0;
+            if(serviceUtil.isEmpty(data.data)){validator = 1}
             var defer = $q.defer();
+            if(validator==1){
+                $cordovaDialogs.alert(
+                    serviceConstants.MSG_UPDATE_DATE_EMPTY.MSG,
+                    serviceConstants.MSG_UPDATE_DATE_EMPTY.ALERT,
+                    serviceConstants.MSG_UPDATE_DATE_EMPTY.BUTTON);
+            }else if(validator==0){
+                var sqlQuery = 'update provas set ' +
+                    'titulo = ?, data = ?, ' +
+                    'observacoes = ?, peso = ?, ' +
+                    'nota = ? where id = ?';
 
-            var sqlQuery = 'update provas set ' +
-                'titulo = ?, data = ?, ' +
-                'observacoes = ?, peso = ?, ' +
-                'nota = ? where id = ?';
+                var param = [data.titulo, data.data, data.observacoes,
+                    data.peso, data.nota, data.id];
 
-            var param = [data.titulo, data.data, data.observacoes,
-                data.peso, data.nota, data.id];
+                factoryDatabase.executeQuery(sqlQuery, param).then(
+                    function () {
+                        defer.resolve();
+                    },
+                    function (error) {
+                        defer.reject(error);
+                    }
+                );
+                return defer.promise;
+            }
 
-            factoryDatabase.executeQuery(sqlQuery, param).then(
-                function () {
-                    defer.resolve();
-                },
-                function (error) {
-                    defer.reject(error);
-                }
-            );
-            return defer.promise;
         },
 
         deleteExam: function(id){

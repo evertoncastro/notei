@@ -13,7 +13,7 @@ function ExamNewCtrl($scope, $state, $ionicLoading, serviceExam, serviceSubject,
         function validate(data){
             var validator = null;
             if(serviceUtil.isEmpty(data.titulo)){validator='Título'}
-            else if(serviceUtil.isEmpty(data.id_materia)){validator='a Matéria'}
+            else if(serviceUtil.isEmpty(data.id_materia)){validator='Matéria'}
             else if(serviceUtil.isEmpty(data.data)){validator='data'}
 
             return validator;

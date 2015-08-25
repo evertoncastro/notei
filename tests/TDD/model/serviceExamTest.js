@@ -63,7 +63,7 @@ describe('Service Exam Test', function(){
         expect(succesSpy).toHaveBeenCalledWith([
             {id: 1,
                 titulo: 'P1',
-                data: new Date('2015-10-11'),
+                data: new Date('2015-10-10'),
                 observacoes: 'nothing',
                 peso: 2,
                 nota: 7,

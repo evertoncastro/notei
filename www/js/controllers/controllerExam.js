@@ -28,7 +28,7 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
     };
 
     $scope.deleteExam = function(data){
-        $cordovaDialogs.confirm(serviceConstants.MSG_CONFIRM_DELETE_EXAM.MSG+' "'+data.nome+'"?',
+        $cordovaDialogs.confirm(serviceConstants.MSG_CONFIRM_DELETE_EXAM.MSG+data.titulo+' "'+data.nome+'"?',
             serviceConstants.MSG_CONFIRM_DELETE_EXAM.ALERT,
             [serviceConstants.MSG_CONFIRM_DELETE_EXAM.BUTTON_OK,
                 serviceConstants.MSG_CONFIRM_DELETE_EXAM.BUTTON_CANCEL]).then(

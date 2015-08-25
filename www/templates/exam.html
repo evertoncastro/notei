@@ -28,13 +28,16 @@
                             </div>
                             <div class="board-detail" ng-show="showLeftTab">
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Data:</span><input ng-model="exam.data" type="date" ng-blur="setData(data)">
+                                    <span class="display-label">Data:</span><input ng-model="exam.data" type="date"
+                                                                                   ng-change="updateExam(exam)">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Peso: </span><input ng-model="exam.peso" type="number">
+                                    <span class="display-label">Peso: </span><input ng-model="exam.peso" type="number"
+                                                                                    ng-blur="updateExam(exam)">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Nota: </span><input ng-model="exam.nota" type="number">
+                                    <span class="display-label">Nota: </span><input ng-model="exam.nota" type="number"
+                                                                                    ng-blur="updateExam(exam)">
                                 </label>
                             </div>
                             <div class="board-observation" ng-show="showRightTab">

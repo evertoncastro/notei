@@ -61,7 +61,7 @@ describe('Exam controller', function () {
         expect($scope.data.examList).toEqual([
             {id: 1,
                 titulo: 'P1',
-                data: new Date('2014-10-11'),
+                data: new Date('2014-10-10'),
                 observacoes: 'nothing',
                 peso: 2,
                 nota: 7,
