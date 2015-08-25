@@ -8394,6 +8394,9 @@ ion-content {
   font-size: 30px;
   padding: 18px 10px 18px 18px; }
 
+.content-exam {
+  bottom: 0px; }
+
 .box-exam {
   font-family: robotoregular; }
   .box-exam .exams-board {
@@ -8589,6 +8592,33 @@ ion-content {
     background-color: #00BFFF;
     border: none;
     font-size: 22px; }
+
+.footer-button-sort-area {
+  height: 0px;
+  border: none;
+  padding: 0px; }
+  .footer-button-sort-area .button-asc {
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    top: -45px; }
+    .footer-button-sort-area .button-asc span {
+      font-size: 22px;
+      position: absolute;
+      top: 50%;
+      margin: -7px 0px 0px 6px;
+      color: #848484; }
+  .footer-button-sort-area .button-desc {
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    top: -45px; }
+    .footer-button-sort-area .button-desc span {
+      font-size: 22px;
+      position: absolute;
+      top: 50%;
+      margin: -7px 0px 0px 6px;
+      color: #848484; }
 
 .box-settings {
   font-family: robotoregular; }

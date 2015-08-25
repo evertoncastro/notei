@@ -2,7 +2,7 @@
     <ion-nav-buttons class="button-add-exam" side="right">
         <i class="ion-android-add-circle" ui-sref="app.exam-new"></i>
     </ion-nav-buttons>
-    <ion-content>
+    <ion-content class="content-exam">
         <div id="wrapper-exam">
             <div class="box-exam">
                 <div class="exams-board">
@@ -50,4 +50,14 @@
             </div>
         </div>
     </ion-content>
+    <ion-footer-bar class="footer-button-sort-area">
+        <div class="button-asc" ng-click="sortExamList('desc')"
+             ng-if="sort == 'asc'">
+            <span>A-Z</span>
+        </div>
+        <div class="button-desc" ng-click="sortExamList('asc')"
+             ng-if="sort == 'desc'">
+            <span>Z-A</span>
+        </div>
+    </ion-footer-bar>
 </ion-view>

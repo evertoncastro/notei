@@ -103,6 +103,18 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
        $scope.dataOut = '2016-05-10';
     };
 
+    $scope.sortExamList = function(sort){
+
+        $ionicLoading.show();
+        var resp = serviceExam.getExams(sort);
+        resp.then(function(list){
+            $scope.data.examList = list;
+            $scope.sort = sort;
+            serviceExam.setCurrentSortExam(sort);
+            $ionicLoading.hide();
+        });
+    };
+
 
     $scope.init();
 
