@@ -120,7 +120,6 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
         $rootScope.$broadcast('serviceExam:manipulatedExam');
     };*/
 
-
     $scope.init();
 
 }
