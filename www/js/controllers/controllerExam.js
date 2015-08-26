@@ -116,6 +116,10 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
         });
     };
 
+   /* $scope.reLoadPage = function(){
+        $rootScope.$broadcast('serviceExam:manipulatedExam');
+    };*/
+
 
     $scope.init();
 

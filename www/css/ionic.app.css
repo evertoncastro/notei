@@ -7709,6 +7709,35 @@ ion-content {
         margin: -13px 0px 0px 0px;
         color: #848484; }
 
+.header-default {
+  background-color: #00BFFF;
+  height: 75px;
+  color: #ffffff; }
+  .header-default .title {
+    left: 41px !important;
+    right: 72px;
+    margin: 16px 0px 0px 0px;
+    color: #FFFFFF;
+    font-family: robotoblack;
+    font-size: 22px !important;
+    font-weight: bold;
+    line-height: 44px !important;
+    text-align: left !important; }
+  .header-default .button.button-clear {
+    color: #ffffff;
+    margin-top: 12px;
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    font-size: 17px;
+    display: block;
+    margin-right: 5px;
+    padding: 0;
+    white-space: nowrap;
+    font-weight: 400; }
+    .header-default .button.button-clear .ion-android-arrow-back {
+      font-size: 24px !important; }
+
 .bar.bar-stable {
   color: #FFFFFF;
   height: 75px;
