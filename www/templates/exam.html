@@ -42,7 +42,7 @@
                             </div>
                             <div class="board-observation" ng-show="showRightTab">
                                 <label class="item-board-observation item item-input">
-                                    <textarea ng-model="exam.observacoes">
+                                    <textarea ng-model="exam.observacoes" ng-blur="updateExam(exam)">
 
                                     </textarea>
                                 </label>

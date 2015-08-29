@@ -58,7 +58,7 @@ describe('Homework controller', function () {
 
         $scope.$apply();
 
-        expect($scope.data.HomeworkList).toEqual([
+        expect($scope.data.homeworkList).toEqual([
             {id: 1,
                 trabalho: 'P1',
                 data_entrega: new Date('2014-10-10'),

@@ -8,7 +8,7 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
                   serviceConstants, $cordovaDialogs, $rootScope, $state){
 
     $scope.showHomework = false;
-    $scope.Homework_id = null;
+    $scope.homework_id = null;
     $scope.sort = serviceHomework.getCurrentSortHomework();
     $scope.showLeftTab = true;
     $scope.showRightTab = false;
@@ -22,7 +22,7 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
         $ionicLoading.show();
         var resp = serviceHomework.getHomeworks($scope.sort);
         resp.then(function(list){
-            $scope.data.HomeworkList = list;
+            $scope.data.homeworkList = list;
             serviceHomework.setCurrentHomeworkList(list);
             $ionicLoading.hide();
             $scope.showHomework = false;
@@ -64,7 +64,7 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
 
     $scope.updateFullHomework = function(data){
         serviceHomework.setCurrentHomework(data);
-        $state.go('app.Homework-new');
+        $state.go('app.homework-new');
     };
 
     $scope.sortHomeworkList = function(sort){
@@ -72,7 +72,7 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
         $ionicLoading.show();
         var resp = serviceHomework.getHomeworks(sort);
         resp.then(function(list){
-            $scope.data.HomeworkList = list;
+            $scope.data.homeworkList = list;
             $scope.sort = sort;
             serviceHomework.setCurrentSortHomework(sort);
             $ionicLoading.hide();
@@ -80,7 +80,7 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
     };
 
     $scope.openHomework = function(id){
-        $scope.Homework_id = id;
+        $scope.homework_id = id;
         $scope.showHomework = !$scope.showHomework;
         if($scope.showHomework==true){
             $scope.showLeftTab = true;
@@ -110,7 +110,7 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
         $ionicLoading.show();
         var resp = serviceHomework.getHomeworks(sort);
         resp.then(function(list){
-            $scope.data.HomeworkList = list;
+            $scope.data.homeworkList = list;
             $scope.sort = sort;
             serviceHomework.setCurrentSortHomework(sort);
             $ionicLoading.hide();
