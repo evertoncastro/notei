@@ -104,7 +104,7 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
                 var sqlQuery = 'update provas set ' +
                     'titulo = ?, data = ?, ' +
                     'observacoes = ?, peso = ?, ' +
-                    'nota = ? where id = ?';
+                    'nota = ?, id_materia = ? where id = ?';
 
                 var param = [data.titulo, data.data, data.observacoes,
                     data.peso, data.nota, data.id];

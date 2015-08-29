@@ -194,7 +194,7 @@ describe('Service Homework Test', function(){
 
     });
 
-    //UPDATE SUBJECT
+    //UPDATE Homework
     it('TDD - Should verify if the method updateHomework ' +
         'is able to update an Homework', function(){
         spyOn($cordovaSQLite, 'execute').and.callFake(function(){
@@ -214,7 +214,8 @@ describe('Service Homework Test', function(){
             observacoes: 'nothing',
             peso: 2,
             nota: 10,
-            id_materia: 1
+            id_materia: 1,
+            id: 7
         };
 
         var resp = serviceHomework.updateHomework(data);
@@ -223,6 +224,50 @@ describe('Service Homework Test', function(){
         $scope.$apply();
 
         expect(succesSpy).toHaveBeenCalled();
+    });
+
+    it('TDD - Should verify if the method updateExam ' +
+        'calls the factory with the correctly query ', function(){
+        spyOn($cordovaSQLite, 'execute').and.callFake(function(){
+            return{
+                then: function(callback){
+                    return callback();
+                }
+            };
+        });
+
+        spyOn(factoryDatabase, 'executeQuery').and.callFake(function(){
+            return{
+                then: function(callback){
+                    return callback();
+                }
+            };
+        });
+
+        var succesSpy = jasmine.createSpy('success'),
+            failSpy   = jasmine.createSpy('failure');
+
+        var data = {
+            titulo: 'Prova 4',
+            data: '2015-10-04',
+            observacoes: 'nothing',
+            peso: 2,
+            nota: 10,
+            id_materia: 1,
+            id: 7
+        };
+
+        var resp = serviceHomework.updateHomework(data);
+        resp.then(succesSpy, failSpy);
+
+        $scope.$apply();
+        expect(succesSpy).toHaveBeenCalled();
+        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith(
+            'update provas set ' +
+            'titulo = ?, data = ?, observacoes = ?, ' +
+            'peso = ?, nota = ?, id_materia = ? where id = ?',
+            [ 'Prova 4', '2015-10-04', 'nothing', 2, 10, 7 ]
+        );
     });
 
     it('TDD - Should verify if the method deleteHomework is ' +

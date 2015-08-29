@@ -104,10 +104,10 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDi
                 var sqlQuery = 'update provas set ' +
                     'titulo = ?, data = ?, ' +
                     'observacoes = ?, peso = ?, ' +
-                    'nota = ? where id = ?';
+                    'nota = ?, id_materia = ? where id = ?';
 
                 var param = [data.titulo, data.data, data.observacoes,
-                    data.peso, data.nota, data.id];
+                    data.peso, data.nota, data.id_materia, data.id];
 
                 factoryDatabase.executeQuery(sqlQuery, param).then(
                     function () {
