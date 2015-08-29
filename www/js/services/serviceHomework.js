@@ -15,18 +15,14 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
             var sqlQuery = null;
             switch(typeSort){
                 case 'desc':
-                    sqlQuery = 'select ' +
-                        'p.id, p.titulo, p.data, p.observacoes, p.peso, p.nota, p.id_materia, m.nome ' +
-                        'from provas as p inner join materias as m ' +
-                        'on p.id_materia = m.id group by m.nome, p.titulo ' +
-                        'order by nome desc';
+                    sqlQuery = 'select t.id, t.trabalho, t.data_entrega, t.observacoes, t.peso, t.nota,t.id_materia, m.nome '+
+                    'from trabalhos as t inner join materias as m on t.id_materia = m.id ' +
+                        'group by m.nome, t.trabalho order by nome desc';
                     break;
                 case 'asc':
-                    sqlQuery = 'select ' +
-                        'p.id, p.titulo, p.data, p.observacoes, p.peso, p.nota, p.id_materia, m.nome ' +
-                        'from provas as p inner join materias as m ' +
-                        'on p.id_materia = m.id group by m.nome, p.titulo ' +
-                        'order by nome asc';
+                    sqlQuery = 'select t.id, t.trabalho, t.data_entrega, t.observacoes, t.peso, t.nota,t.id_materia, m.nome '+
+                        'from trabalhos as t inner join materias as m on t.id_materia = m.id ' +
+                        'group by m.nome, t.trabalho order by nome asc';
                     break;
             }
 
@@ -34,24 +30,23 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
 
             resp.then(
                 function(resultSet){
-                    var listProva = [];
+                    var listTrabalho = [];
 
                     for(var i = 0; i < resultSet.rows.length; i++){
-                        var prova = {};
+                        var trabalho = {};
 
-                        prova.id = resultSet.rows.item(i).id;
-                        prova.titulo = resultSet.rows.item(i).titulo;
-                        prova.data = new Date(resultSet.rows.item(i).data);
-                        //prova.data.setDate(prova.data.getDate() + 1);
-                        prova.observacoes = resultSet.rows.item(i).observacoes;
-                        prova.peso = resultSet.rows.item(i).peso;
-                        prova.nota = resultSet.rows.item(i).nota;
-                        prova.id_materia = resultSet.rows.item(i).id_materia;
-                        prova.nome = resultSet.rows.item(i).nome;
+                        trabalho.id = resultSet.rows.item(i).id;
+                        trabalho.trabalho = resultSet.rows.item(i).trabalho;
+                        trabalho.data_entrega = new Date(resultSet.rows.item(i).data_entrega);
+                        trabalho.observacoes = resultSet.rows.item(i).observacoes;
+                        trabalho.peso = resultSet.rows.item(i).peso;
+                        trabalho.nota = resultSet.rows.item(i).nota;
+                        trabalho.id_materia = resultSet.rows.item(i).id_materia;
+                        trabalho.nome = resultSet.rows.item(i).nome;
 
-                        listProva.push(prova);
+                        listTrabalho.push(trabalho);
                     }
-                    defer.resolve(listProva);
+                    defer.resolve(listTrabalho);
                 },
                 function(error){
                     console.log(error);
@@ -93,7 +88,7 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
 
         updateHomework: function(data) {
             var validator = 0;
-            if(serviceUtil.isEmpty(data.data)){validator = 1}
+            if(serviceUtil.isEmpty(data.data_entrega)){validator = 1}
             var defer = $q.defer();
             if(validator==1){
                 $cordovaDialogs.alert(
@@ -101,13 +96,13 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
                     serviceConstants.MSG_UPDATE_DATE_EMPTY.ALERT,
                     serviceConstants.MSG_UPDATE_DATE_EMPTY.BUTTON);
             }else if(validator==0){
-                var sqlQuery = 'update provas set ' +
-                    'titulo = ?, data = ?, ' +
+                var sqlQuery = 'update trabalhos set ' +
+                    'trabalho = ?, data_entrega = ?, ' +
                     'observacoes = ?, peso = ?, ' +
                     'nota = ?, id_materia = ? where id = ?';
 
-                var param = [data.titulo, data.data, data.observacoes,
-                    data.peso, data.nota, data.id];
+                var param = [data.trabalho, data.data_entrega, data.observacoes,
+                    data.peso, data.nota, data.id_materia, data.id];
 
                 factoryDatabase.executeQuery(sqlQuery, param).then(
                     function () {
@@ -124,7 +119,7 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
 
         deleteHomework: function(id){
             var defer = $q.defer();
-            var sqlQuery = 'delete from provas where id = ?';
+            var sqlQuery = 'delete from trabalhos where id = ?';
             var param = [id];
 
             factoryDatabase.executeQuery(sqlQuery, param)
@@ -140,11 +135,11 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
 
         },
 
-        validDuplicatedAddHomework: function(list, id_materia, Homework){
+        validDuplicatedAddHomework: function(list, id_materia, homework){
             var validator = false;
             if(list.length){
                 for(var i = 0; i<list.length; i++){
-                    if(list[i].id_materia==id_materia && list[i].titulo==Homework){
+                    if(list[i].id_materia==id_materia && list[i].trabalho==homework){
                         validator = true;
                     }
                 }
@@ -152,11 +147,11 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
             return validator;
         },
 
-        validDuplicatedEditHomework: function(list, id_materia, Homework, id){
+        validDuplicatedEditHomework: function(list, id_materia, homework, id){
             var validator = false;
             if(list.length){
                 for(var i = 0; i<list.length; i++){
-                    if(list[i].id_materia==id_materia && list[i].titulo==Homework && list[i].id!=id){
+                    if(list[i].id_materia==id_materia && list[i].trabalho==homework && list[i].id!=id){
                         validator = true;
                     }
                 }

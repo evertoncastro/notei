@@ -34,8 +34,8 @@ describe('Service Homework Test', function(){
                     var result = {};
                     result.rows = [
                         {id: 1,
-                            titulo: 'P1',
-                            data: '2015-10-10',
+                            trabalho: 'P1',
+                            data_entrega: '2015-10-10',
                             observacoes: 'nothing',
                             peso: 2,
                             nota: 7,
@@ -62,8 +62,8 @@ describe('Service Homework Test', function(){
         $scope.$apply();
         expect(succesSpy).toHaveBeenCalledWith([
             {id: 1,
-                titulo: 'P1',
-                data: new Date('2015-10-10'),
+                trabalho: 'P1',
+                data_entrega: new Date('2015-10-10'),
                 observacoes: 'nothing',
                 peso: 2,
                 nota: 7,
@@ -85,10 +85,9 @@ describe('Service Homework Test', function(){
         });
 
         serviceHomework.getHomeworks('asc');
-        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select ' +
-            'p.id, p.titulo, p.data, p.observacoes, p.peso, p.nota, p.id_materia, m.nome ' +
-            'from provas as p inner join materias as m ' +
-            'on p.id_materia = m.id group by m.nome, p.titulo order by nome asc');
+        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select t.id, t.trabalho, t.data_entrega, t.observacoes, t.peso, t.nota,t.id_materia, m.nome '+
+            'from trabalhos as t inner join materias as m on t.id_materia = m.id ' +
+            'group by m.nome, t.trabalho order by nome asc');
     });
 
     it('TDD - Should verify if the method getHomeworks will call the factory ' +
@@ -102,11 +101,9 @@ describe('Service Homework Test', function(){
         });
 
         serviceHomework.getHomeworks('desc');
-        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select ' +
-            'p.id, p.titulo, p.data, p.observacoes, p.peso, p.nota, p.id_materia, m.nome ' +
-            'from provas as p inner join materias as m ' +
-            'on p.id_materia = m.id group by m.nome, p.titulo ' +
-            'order by nome desc');
+        expect(factoryDatabase.executeQuery).toHaveBeenCalledWith('select t.id, t.trabalho, t.data_entrega, t.observacoes, t.peso, t.nota,t.id_materia, m.nome '+
+            'from trabalhos as t inner join materias as m on t.id_materia = m.id ' +
+            'group by m.nome, t.trabalho order by nome desc');
     });
 
     //INSERT Homework
@@ -126,7 +123,7 @@ describe('Service Homework Test', function(){
             failSpy   = jasmine.createSpy('failure');
 
         var data = {
-            trabalho: 'Prova 1',
+            trabalho: 'Trabalho 1',
             data_entrega: '2015-10-04',
             observacoes: 'nothing',
             peso: null,
@@ -155,7 +152,7 @@ describe('Service Homework Test', function(){
         });
 
         var data = {
-            trabalho: 'Prova 1',
+            trabalho: 'Trabalho 1',
             data_entrega: '2015-10-04',
             observacoes: 'nothing',
             peso: 0,
@@ -179,8 +176,8 @@ describe('Service Homework Test', function(){
             failSpy   = jasmine.createSpy('failure');
 
         var data = {
-            titulo: null,
-            data: '2015-10-04',
+            trabalho: null,
+            data_entrega: '2015-10-04',
             observacoes: 'nothing',
             peso: 2,
             nota: 10,
@@ -209,8 +206,8 @@ describe('Service Homework Test', function(){
             failSpy   = jasmine.createSpy('failure');
 
         var data = {
-            titulo: 'Prova 4',
-            data: '2015-10-04',
+            trabalho: 'Trabalho 4',
+            data_entrega: '2015-10-04',
             observacoes: 'nothing',
             peso: 2,
             nota: 10,
@@ -248,8 +245,8 @@ describe('Service Homework Test', function(){
             failSpy   = jasmine.createSpy('failure');
 
         var data = {
-            titulo: 'Prova 4',
-            data: '2015-10-04',
+            trabalho: 'Trabalho 4',
+            data_entrega: '2015-10-04',
             observacoes: 'nothing',
             peso: 2,
             nota: 10,
@@ -263,10 +260,10 @@ describe('Service Homework Test', function(){
         $scope.$apply();
         expect(succesSpy).toHaveBeenCalled();
         expect(factoryDatabase.executeQuery).toHaveBeenCalledWith(
-            'update provas set ' +
-            'titulo = ?, data = ?, observacoes = ?, ' +
+            'update trabalhos set ' +
+            'trabalho = ?, data_entrega = ?, observacoes = ?, ' +
             'peso = ?, nota = ?, id_materia = ? where id = ?',
-            [ 'Prova 4', '2015-10-04', 'nothing', 2, 10, 7 ]
+            [ 'Trabalho 4', '2015-10-04', 'nothing', 2, 10, 1, 7 ]
         );
     });
 
