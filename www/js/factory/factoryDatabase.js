@@ -31,7 +31,6 @@ app.factory('factoryDatabase', function($cordovaSQLite, $q){
                 },
                 function(error){
                     defer.reject(error);
-                    console.log(error);
                 }
             );
             return defer.promise;

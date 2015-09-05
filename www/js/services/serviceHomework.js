@@ -49,7 +49,6 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
                     defer.resolve(listTrabalho);
                 },
                 function(error){
-                    console.log(error);
                 }
             );
 

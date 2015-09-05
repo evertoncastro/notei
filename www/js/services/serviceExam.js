@@ -54,7 +54,6 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDi
                     defer.resolve(listProva);
                 },
                 function(error){
-                    console.log(error);
                 }
             );
 

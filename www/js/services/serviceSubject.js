@@ -44,7 +44,6 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
                     defer.resolve(listMateria);
                 },
                 function(error){
-                    console.log(error);
                 }
             );
 

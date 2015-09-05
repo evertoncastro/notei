@@ -121,8 +121,8 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova']).config(function(
     url: "/settings",
     views: {
       'menuContent': {
-        templateUrl: "templates/settings.html"
-        //controller: 'SetttingsCtrl'
+        templateUrl: "templates/settings.html",
+        controller: 'SettingsCtrl'
       }
     }
   });

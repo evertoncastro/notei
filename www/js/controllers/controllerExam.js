@@ -90,13 +90,11 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
     $scope.openLeftTab = function(){
         $scope.showLeftTab = !$scope.showLeftTab;
         $scope.showRightTab = !$scope.showRightTab;
-        console.log('Left');
     };
 
     $scope.openRightTab = function(){
         $scope.showRightTab = !$scope.showRightTab;
         $scope.showLeftTab = !$scope.showLeftTab;
-        console.log('Right');
     };
 
     $scope.setData = function(data){

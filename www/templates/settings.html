@@ -8,17 +8,20 @@
                         <span class="title">Intervalo:</span>
                         <span class="title">de</span>
                         <label class="item item-input label-number">
-                            <input type="tel" maxlength="3">
+                            <input type="tel" maxlength="3" ng-model="configNotes.intervalo_de"
+                                    ng-blur="updateConfigNotes(configNotes)">
                         </label>
                         <span class="title">a</span>
                         <label class="item item-input label-number">
-                            <input type="tel" maxlength="3">
+                            <input type="tel" maxlength="3" ng-model="configNotes.intervalo_para"
+                                   ng-blur="updateConfigNotes(configNotes)">
                         </label>
                     </div>
                     <div class="row">
                         <span class="title">Média: mínima</span>
                         <label class="item item-input label-number">
-                            <input type="tel" maxlength="3">
+                            <input type="tel" maxlength="3" ng-model="configNotes.media_minima"
+                                   ng-blur="updateConfigNotes(configNotes)">
                         </label>
                     </div>
                 </div>
