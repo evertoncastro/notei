@@ -39,7 +39,9 @@ app.service('serviceConstants', function() {
 
         MSG_UPDATE_DATE_EMPTY:              {MSG: 'Campo data não pode ficar vazio! ', ALERT: 'Aviso', BUTTON: 'OK'},
         MSG_DUPLICATE_EXAM:                 {MSG: 'Já existe uma ', ALERT: 'Aviso', BUTTON: 'OK'},
-        MSG_DUPLICATE_HOMEWORK:             {MSG: 'Esta matéria já possui um trabalho com o nome: ', ALERT: 'Aviso', BUTTON: 'OK'}
+        MSG_DUPLICATE_HOMEWORK:             {MSG: 'Esta matéria já possui um trabalho com o nome: ', ALERT: 'Aviso', BUTTON: 'OK'},
+
+        MSG_EMPTY_CONFIG_NOTES:             {MSG: 'Nenhum campo pode ser vazio', ALERT: 'Aviso', BUTTON: 'OK'}
 
     }
 });

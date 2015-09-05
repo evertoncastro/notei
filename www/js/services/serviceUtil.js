@@ -116,7 +116,7 @@ app.service('serviceUtil', function(){
             }
 
             return result;
-        },
+        }
 
 
     }

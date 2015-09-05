@@ -175,7 +175,7 @@ describe('HomeworkNew controller', function () {
 
         $scope.manipulateHomework(data);
 
-        expect($cordovaDialogs.alert).toHaveBeenCalledWith(serviceConstants.MSG_INCOMPLETE_HOMEWORK_NEW.MSG+'"Trabalho"',
+        expect($cordovaDialogs.alert).toHaveBeenCalledWith(serviceConstants.MSG_INCOMPLETE_HOMEWORK_NEW.MSG+'"Nome"',
             serviceConstants.MSG_INCOMPLETE_HOMEWORK_NEW.ALERT,
             serviceConstants.MSG_INCOMPLETE_HOMEWORK_NEW.BUTTON);
 

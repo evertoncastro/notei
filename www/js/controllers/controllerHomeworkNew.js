@@ -13,7 +13,7 @@ function HomeworkNewCtrl($scope, $state, $ionicLoading, serviceHomework, service
     $scope.manipulateHomework = function(data, wayForm){
         function validate(data){
             var validator = null;
-            if(serviceUtil.isEmpty(data.trabalho)){validator='Trabalho'}
+            if(serviceUtil.isEmpty(data.trabalho)){validator='Nome'}
             else if(serviceUtil.isEmpty(data.id_materia)){validator='Matéria'}
             else if(serviceUtil.isEmpty(data.data_entrega)){validator='Data de entrega'}
 
