@@ -4,7 +4,7 @@
             <div class="box-homework-new">
                 <form class="homework-form">
                     <label class="item item-input item-stacked-label">
-                        <span class="input-label">Título</span>
+                        <span class="input-label">Nome</span>
                         <input class="text" type="text" placeholder="Digite aqui"
                                 ng-model="data.trabalho">
                     </label>
@@ -12,7 +12,7 @@
                         <span class="input-label">Matéria</span>
                         <select ng-model="data.id_materia"
                                 ng-options="s.id as s.nome for s in subjectList">
-                            <option value="">Selecione uma opção</option>
+                            <option value="">Selecione uma matéria</option>
                         </select>
                     </label>
                     <label class="item item-input item-stacked-label">

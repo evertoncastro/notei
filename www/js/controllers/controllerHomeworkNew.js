@@ -28,7 +28,7 @@ function HomeworkNewCtrl($scope, $state, $ionicLoading, serviceHomework, service
             if(wayForm == 'add'){
                 var noDuplicatedAddHomework = serviceHomework.validDuplicatedAddHomework($scope.currentHomeworkList, data.id_materia, data.trabalho);
                 if(noDuplicatedAddHomework) {
-                    $cordovaDialogs.alert(serviceConstants.MSG_DUPLICATE_HOMEWORK.MSG + '"' + data.trabalho + '"' + ' para este Trabalho!',
+                    $cordovaDialogs.alert(serviceConstants.MSG_DUPLICATE_HOMEWORK.MSG + '"' + data.trabalho + '"',
                         serviceConstants.MSG_DUPLICATE_HOMEWORK.ALERT,
                         serviceConstants.MSG_DUPLICATE_HOMEWORK.BUTTON);
                 }else if(!noDuplicatedAddHomework){

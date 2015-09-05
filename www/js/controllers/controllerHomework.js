@@ -30,7 +30,7 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
     };
 
     $scope.deleteHomework = function(data){
-        $cordovaDialogs.confirm(serviceConstants.MSG_CONFIRM_DELETE_HOMEWORK.MSG+data.titulo+' "'+data.nome+'"?',
+        $cordovaDialogs.confirm(serviceConstants.MSG_CONFIRM_DELETE_HOMEWORK.MSG+'"'+data.trabalho+'"?',
             serviceConstants.MSG_CONFIRM_DELETE_HOMEWORK.ALERT,
             [serviceConstants.MSG_CONFIRM_DELETE_HOMEWORK.BUTTON_OK,
                 serviceConstants.MSG_CONFIRM_DELETE_HOMEWORK.BUTTON_CANCEL]).then(
