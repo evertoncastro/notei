@@ -64,7 +64,7 @@ describe('HomeworkNew controller', function () {
         });
 
         $scope.loadForm();
-        expect($scope.title).toBe('Nova Trabalho');
+        expect($scope.title).toBe('Novo Trabalho');
         expect($scope.wayForm).toBe('add');
         expect(serviceHomework.getCurrentHomeworkList).toHaveBeenCalled();
     });
@@ -100,7 +100,7 @@ describe('HomeworkNew controller', function () {
 
         var data = {
             trabalho: 'Trabalho 1',
-            data: '2015-10-10',
+            data_entrega: '2015-10-10',
             observacoes: 'nothing',
             peso: null,
             nota: null,
@@ -122,7 +122,7 @@ describe('HomeworkNew controller', function () {
                                                         serviceConstants.MSG_SUCCESS_HOMEWORK_NEW.ALERT,
                                                         serviceConstants.MSG_SUCCESS_HOMEWORK_NEW.BUTTON);
 
-        expect($state.go).toHaveBeenCalledWith('app.Homework');
+        expect($state.go).toHaveBeenCalledWith('app.homework');
     });
 
     it('BDD - Cenário: Erro em inclusão de nova Trabalho;' +
@@ -134,7 +134,7 @@ describe('HomeworkNew controller', function () {
 
         var data = {
             trabalho: 'Trabalho 1',
-            data: '2015-10-10',
+            data_entrega: '2015-10-10',
             observacoes: 'nothing',
             peso: null,
             nota: null,
@@ -190,7 +190,7 @@ describe('HomeworkNew controller', function () {
 
         var data = {
             trabalho: 'Trabalho 1',
-            data: '2015-10-10',
+            data_entrega: '2015-10-10',
             observacoes: 'nothing',
             peso: null,
             nota: null,
@@ -212,7 +212,7 @@ describe('HomeworkNew controller', function () {
             serviceConstants.MSG_UPDATE_TITLE_HOMEWORK.ALERT,
             serviceConstants.MSG_UPDATE_TITLE_HOMEWORK.BUTTON);
 
-        expect($state.go).toHaveBeenCalledWith('app.Homework');
+        expect($state.go).toHaveBeenCalledWith('app.homework');
     });
 });
 

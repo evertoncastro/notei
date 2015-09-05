@@ -91,8 +91,8 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova']).config(function(
     url: "/homework-new",
     views: {
       'menuContent': {
-        templateUrl: "templates/homework-new.html"
-        //controller: 'HomeworkNewCtrl'
+        templateUrl: "templates/homework-new.html",
+        controller: 'HomeworkNewCtrl'
       }
     }
   })

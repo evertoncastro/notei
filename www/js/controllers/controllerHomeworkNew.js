@@ -15,7 +15,7 @@ function HomeworkNewCtrl($scope, $state, $ionicLoading, serviceHomework, service
             var validator = null;
             if(serviceUtil.isEmpty(data.trabalho)){validator='Trabalho'}
             else if(serviceUtil.isEmpty(data.id_materia)){validator='Matéria'}
-            else if(serviceUtil.isEmpty(data.data)){validator='Data de entrega'}
+            else if(serviceUtil.isEmpty(data.data_entrega)){validator='Data de entrega'}
 
             return validator;
         }
@@ -47,7 +47,7 @@ function HomeworkNewCtrl($scope, $state, $ionicLoading, serviceHomework, service
                                     serviceConstants.MSG_SUCCESS_HOMEWORK_NEW.BUTTON);
 
                                 $rootScope.$broadcast('serviceHomework:manipulatedHomework');
-                                $state.go('app.Homework');
+                                $state.go('app.homework');
                             }
                         },
                         function(){
@@ -74,7 +74,7 @@ function HomeworkNewCtrl($scope, $state, $ionicLoading, serviceHomework, service
                                 serviceConstants.MSG_UPDATE_TITLE_HOMEWORK.BUTTON);
 
                             $rootScope.$broadcast('serviceHomework:manipulatedHomework');
-                            $state.go('app.Homework');
+                            $state.go('app.homework');
                         },
                         function(){
                             $ionicLoading.hide();
@@ -96,7 +96,7 @@ function HomeworkNewCtrl($scope, $state, $ionicLoading, serviceHomework, service
         $scope.currentHomeworkList  = serviceHomework.getCurrentHomeworkList();
         var data = serviceHomework.getCurrentHomework();
         if(!data){
-           $scope.title = 'Nova Trabalho';
+           $scope.title = 'Novo Trabalho';
             $scope.wayForm = 'add';
         }else if(data){
             $scope.title = 'Editar Trabalho';
