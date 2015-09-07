@@ -8,7 +8,7 @@
     <div class="bar bar-subheader">
         <div class="col col-50">
             <span class="title-grade-media">Média: </span>
-            <span class="value-grade notes">9,25</span>
+            <span class="value-grade notes">{{data.average}}</span>
         </div>
         <div class="col col-50">
             <span class="title-grade-media">Faltas: </span>
@@ -30,7 +30,8 @@
                        <input type="tel" ng-model="activity.nota">
                    </label>
                    <label class="checkbox">
-                       <input type="checkbox">
+                       <input type="checkbox" ng-model="activity.ativo"
+                               ng-change="changeShowActivity()">
                    </label>
                </label>
            </div>

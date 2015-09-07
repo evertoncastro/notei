@@ -82,15 +82,17 @@ describe('Área de anotação controller', function () {
                 then: function(callback){
                     var result = [
                         {id: 1, nome: 'P1', peso: 2,
-                         nota: 7, id_materia: 1, ativo: 1},
+                         nota: 7, id_materia: 1, ativo: true},
                         {id: 1, nome: 'Teste', peso: 2,
-                         nota: 7, id_materia: 1, ativo: 1}
+                         nota: 7, id_materia: 1, ativo: true}
                     ];
 
                     return callback(result);
                 }
             };
         });
+
+        spyOn(serviceDashBoard, 'calcAverage').and.callThrough();
 
         expect($scope.loadActivities).toBeDefined();
         var subject = {
@@ -103,9 +105,9 @@ describe('Área de anotação controller', function () {
         expect(serviceDashBoard.mountList).toHaveBeenCalled();
         expect($scope.data.listActivities).toEqual([
                 {id: 1, nome: 'P1', peso: 2,
-                    nota: 7, id_materia: 1, ativo: 1},
+                    nota: 7, id_materia: 1, ativo: true},
                 {id: 1, nome: 'Teste', peso: 2,
-                    nota: 7, id_materia: 1, ativo: 1}
+                    nota: 7, id_materia: 1, ativo: true}
             ]
         );
         expect($scope.data.subject).toEqual({
@@ -114,7 +116,36 @@ describe('Área de anotação controller', function () {
             num_faltas: 5
         });
 
+        expect(serviceDashBoard.calcAverage).toHaveBeenCalledWith([
+            {id: 1, nome: 'P1', peso: 2,
+                nota: 7, id_materia: 1, ativo: true},
+            {id: 1, nome: 'Teste', peso: 2,
+                nota: 7, id_materia: 1, ativo: true}
+        ]);
+
     });
+
+    it('BDD - Cenário: Excluir atividade do cálculo ' +
+        'Dado que: o usuário desativou o chackbox de uma atividade ' +
+        'Então: a atividade será desconsiderada do cálculo da média', function(){
+        expect($scope.changeShowActivity).toBeDefined();
+        spyOn(serviceDashBoard, 'calcAverage').and.callThrough();
+        $scope.data.listActivities = [
+            {id: 1, nome: 'P1', peso: 2,
+                nota: 7, id_materia: 1, ativo: true},
+            {id: 1, nome: 'Teste', peso: 2,
+                nota: 7, id_materia: 1, ativo: true}
+        ];
+        $scope.changeShowActivity();
+        expect(serviceDashBoard.calcAverage).toHaveBeenCalledWith([
+            {id: 1, nome: 'P1', peso: 2,
+                nota: 7, id_materia: 1, ativo: true},
+            {id: 1, nome: 'Teste', peso: 2,
+                nota: 7, id_materia: 1, ativo: true}
+        ]);
+
+    });
+
 
 
     /*it('BDD - Cenário: Ordenação da lista de matérias ' +

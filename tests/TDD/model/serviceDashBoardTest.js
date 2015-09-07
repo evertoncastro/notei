@@ -3,7 +3,7 @@
  */
 describe('Service DashBoard Test', function(){
     var serviceExam, factoryDatabase, $scope, serviceDashBoard,
-        $cordovaSQLite;
+        $cordovaSQLite, serviceConfig;
 
     beforeEach(module('anotei'));
 
@@ -12,6 +12,7 @@ describe('Service DashBoard Test', function(){
         factoryDatabase = $injector.get('factoryDatabase');
         serviceDashBoard = $injector.get('serviceDashBoard');
         $cordovaSQLite = $injector.get('$cordovaSQLite');
+        serviceConfig = $injector.get('serviceConfig');
         var rootScope = $injector.get('$rootScope');
 
         $httpBackend.whenGET(/templates\/.*/).respond(200);
@@ -25,6 +26,7 @@ describe('Service DashBoard Test', function(){
         expect(serviceDashBoard.getListExams).toBeDefined();
         expect(serviceDashBoard.getListHomework).toBeDefined();
         expect(serviceDashBoard.mountList).toBeDefined();
+        expect(serviceDashBoard.calcAverage).toBeDefined();
     });
 
     it('TDD - Should verify if the method getListExams loads a list ' +
@@ -66,7 +68,7 @@ describe('Service DashBoard Test', function(){
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
-                ativo: 1
+                ativo: true
             }]
         );
         expect(failSpy).not.toHaveBeenCalled();
@@ -110,7 +112,7 @@ describe('Service DashBoard Test', function(){
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
-                ativo: 1
+                ativo: true
             }]
         );
         expect(failSpy).not.toHaveBeenCalled();
@@ -127,7 +129,7 @@ describe('Service DashBoard Test', function(){
                             peso: 2,
                             nota: 7,
                             id_materia: 1,
-                            ativo: 1
+                            ativo: true
                         }
                     ];
                     return callback(result);
@@ -144,7 +146,7 @@ describe('Service DashBoard Test', function(){
                             peso: 2,
                             nota: 7,
                             id_materia: 1,
-                            ativo: 1
+                            ativo: true
                         }];
                     return callback(result);
                 }
@@ -165,18 +167,46 @@ describe('Service DashBoard Test', function(){
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
-                ativo: 1
+                ativo: true
             },
             {id: 1,
                 nome: 'Teste',
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
-                ativo: 1
+                ativo: true
             }
         ]);
         expect(failSpy).not.toHaveBeenCalled();
         expect(serviceDashBoard.getListExams).toHaveBeenCalled();
         expect(serviceDashBoard.getListHomework).toHaveBeenCalled();
+    });
+
+    it('TDD - Should verify if the method calcAverage returns a ' +
+        'calculated average from a list of activities', function(){
+        spyOn(serviceConfig, 'getObjNotes').and.callFake(function(){
+           return {
+               intervalo_de: 0,
+               intervalo_para: 10,
+               media_minima: 7
+           };
+        });
+
+        var activities = [
+            {id: 1, nome: 'P1', peso: 3.5, nota: 7, id_materia: 1, ativo: true},
+            {id: 2, nome: 'P2', peso: 4.5, nota: 4, id_materia: 1, ativo: false},
+            {id: 3, nome: 'P3', peso: 4.5, nota: 7, id_materia: 1, ativo: true},
+            {id: 5, nome: 'Trabalho 1', peso: 1, nota: 7, id_materia: 1, ativo: true},
+            {id: 6, nome: 'Trabalho 2', peso: 1, nota: 9, id_materia: 1, ativo: true}];
+
+        var average = serviceDashBoard.calcAverage(activities);
+
+        expect(average).toEqual((7.2).toFixed(2));
+        /*
+        * 2.45
+        * 3.15
+        * 0.7
+        * 0.9
+        * */
     });
 });

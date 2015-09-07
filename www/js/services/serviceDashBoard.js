@@ -3,7 +3,7 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceDashBoard', function($q, factoryDatabase){
+app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig){
 
     return{
 
@@ -23,8 +23,11 @@ app.service('serviceDashBoard', function($q, factoryDatabase){
                         prova.peso = resultSet.rows.item(i).peso;
                         prova.nota = resultSet.rows.item(i).nota;
                         prova.id_materia = resultSet.rows.item(i).id_materia;
-                        prova.ativo = resultSet.rows.item(i).ativo;
-
+                        if(resultSet.rows.item(i).ativo==1){
+                            prova.ativo = true;
+                        }else if(resultSet.rows.item(i).ativo==0){
+                            prova.ativo = false;
+                        }
                         listProva.push(prova);
                     }
                     defer.resolve(listProva);
@@ -52,8 +55,11 @@ app.service('serviceDashBoard', function($q, factoryDatabase){
                         prova.peso = resultSet.rows.item(i).peso;
                         prova.nota = resultSet.rows.item(i).nota;
                         prova.id_materia = resultSet.rows.item(i).id_materia;
-                        prova.ativo = resultSet.rows.item(i).ativo;
-
+                        if(resultSet.rows.item(i).ativo==1){
+                            prova.ativo = true;
+                        }else if(resultSet.rows.item(i).ativo==0){
+                            prova.ativo = false;
+                        }
                         listProva.push(prova);
                     }
                     defer.resolve(listProva);
@@ -87,13 +93,27 @@ app.service('serviceDashBoard', function($q, factoryDatabase){
                             defer.reject(error);
                         }
                     )
-
                 },
                 function(error){
                     defer.reject(error);
                 }
             );
             return defer.promise;
+        },
+
+        calcAverage: function(list){
+            var average = null;
+            var configNotes = serviceConfig.getObjNotes();
+            var maxNote = configNotes.intervalo_para;
+            if(list.constructor==Array){
+                for(var i=0; i<list.length; i++){
+                    var activity = list[i];
+                    if(activity.ativo==true && activity.peso>0){
+                        average = average + (activity.peso/maxNote)*activity.nota;
+                    }
+                }
+            }
+            return average.toFixed(2);
         }
     }
 });

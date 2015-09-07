@@ -22,9 +22,15 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
             function(result){
                 $scope.data.listActivities = result;
                 $scope.data.subject = subject;
+                $scope.data.average = serviceDashBoard.calcAverage(result);
                 $scope.openModal();
             }
         )
+    };
+
+    $scope.changeShowActivity = function(){
+        var list = $scope.data.listActivities;
+        $scope.data.average = serviceDashBoard.calcAverage(list);
     };
 
     $ionicModal.fromTemplateUrl('templates/modal/modal-subject.html', {
