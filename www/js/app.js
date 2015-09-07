@@ -41,8 +41,8 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova']).config(function(
     url: "/home",
     views: {
       'menuContent': {
-        templateUrl: "templates/home.html"
-        //controller: 'HomeCtrl'
+        templateUrl: "templates/home.html",
+        controller: 'HomeCtrl'
       }
     }
   })

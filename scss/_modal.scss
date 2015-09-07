@@ -8,14 +8,14 @@
   box-shadow: 0px 0px 20px 3px #888888;
   padding: 3%;
   .scroll-content{
-    margin-top: -32px;
+    //margin-top: -32px;
   }
   ion-header-bar{
     border-radius: 10px 10px 0px 0px;
-    background-color: $modalColor;
+    background-image: none;
     h1{
       font-size: 25px !important;
-      color: #FFFFFF;
+      color: $mainFont;
       font-weight: bold !important;
       width: 80%;
       text-align: left !important;
@@ -26,26 +26,58 @@
       position: absolute;
       right: 5px;
       top: 5px;
-      width: 35px;
+      width: 70px;
       height: 35px;
       border-radius: 20px;
       border: none;
       background: #FFFFFF;
-      font-size: 22px;
-      color: $modalColor;
+      font-size: 15px;
+      color: $mainFont;
       font-weight: bold;
     }
   }
+  .has-header{
+    top: 90px;
+  }
+  .bar-subheader{
+    border-bottom: solid 1px #ddd;
+    .col-50{
+      position: relative;
+      padding: 8px 0px 0px 0px;
+      display: inline-block;
+      max-width: 49.3%;
+      height: 100%;
+      font-weight: bold;
+      text-align: center;
+      .title-grade-media{
+        text-align: center;
+        display: inline-block;
+        font-size: 18px;
+        color: $mainFont;
+      }
+      .value-grade{
+        width: 65px;
+        display: inline-block;
+        border-radius: 15px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      .notes{
+        color: red;
+      }
+      .attendance{
+        color: blue;
+      }
+    }
+  }
   .box-modal-subject{
-    padding: 2%;
     .area-for-grade{
       height: 80px;
-      border: solid 1px $modalColor;
-      border-radius: 10px;
-      background-color: $modalBox;
-      margin: 0px 0px 2% 0px;
+      border-bottom: solid 1px #ddd;
+      background-color: #FFFFFF;
+      margin: 0px 0px 0% 0px;
       color: $mainFont;
-      .col-50{
+      /*.col-50{
         position: relative;
         padding: 12px 0px 0px 0px;
         display: inline-block;
@@ -76,7 +108,7 @@
           width: 66px;
           margin: 0px 0px 0px -33px;
         }
-      }
+      }*/
       .item-for-grade{
         display: block;
         background-color: transparent;

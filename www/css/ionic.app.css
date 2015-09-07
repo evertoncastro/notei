@@ -7807,7 +7807,7 @@ ion-content {
         position: absolute;
         left: 50%;
         top: 50%;
-        margin: -10px 0px 0px -53px;
+        margin: -10px 0px 0px -125px;
         font-size: 20px;
         font-weight: bold;
         font-family: robotoregular;
@@ -8278,14 +8278,12 @@ ion-content {
   border: solid 1px #888888;
   box-shadow: 0px 0px 20px 3px #888888;
   padding: 3%; }
-  #wrapper-modal-subject .scroll-content {
-    margin-top: -32px; }
   #wrapper-modal-subject ion-header-bar {
     border-radius: 10px 10px 0px 0px;
-    background-color: #00BFFF; }
+    background-image: none; }
     #wrapper-modal-subject ion-header-bar h1 {
       font-size: 25px !important;
-      color: #FFFFFF;
+      color: #848484;
       font-weight: bold !important;
       width: 80%;
       text-align: left !important;
@@ -8295,35 +8293,60 @@ ion-content {
       position: absolute;
       right: 5px;
       top: 5px;
-      width: 35px;
+      width: 70px;
       height: 35px;
       border-radius: 20px;
       border: none;
       background: #FFFFFF;
-      font-size: 22px;
-      color: #00BFFF;
+      font-size: 15px;
+      color: #848484;
       font-weight: bold; }
-  #wrapper-modal-subject .box-modal-subject {
-    padding: 2%; }
-    #wrapper-modal-subject .box-modal-subject .area-for-grade {
-      height: 80px;
-      border: solid 1px #00BFFF;
-      border-radius: 10px;
-      background-color: #FFFFFF;
-      margin: 0px 0px 2% 0px;
-      color: #848484; }
-      #wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 {
+  #wrapper-modal-subject .has-header {
+    top: 90px; }
+  #wrapper-modal-subject .bar-subheader {
+    border-bottom: solid 1px #ddd; }
+    #wrapper-modal-subject .bar-subheader .col-50 {
+      position: relative;
+      padding: 8px 0px 0px 0px;
+      display: inline-block;
+      max-width: 49.3%;
+      height: 100%;
+      font-weight: bold;
+      text-align: center; }
+      #wrapper-modal-subject .bar-subheader .col-50 .title-grade-media {
+        text-align: center;
+        display: inline-block;
+        font-size: 18px;
+        color: #848484; }
+      #wrapper-modal-subject .bar-subheader .col-50 .value-grade {
+        width: 65px;
+        display: inline-block;
+        border-radius: 15px;
+        font-weight: bold;
+        font-size: 16px; }
+      #wrapper-modal-subject .bar-subheader .col-50 .notes {
+        color: red; }
+      #wrapper-modal-subject .bar-subheader .col-50 .attendance {
+        color: blue; }
+  #wrapper-modal-subject .box-modal-subject .area-for-grade {
+    height: 80px;
+    border-bottom: solid 1px #ddd;
+    background-color: #FFFFFF;
+    margin: 0px 0px 0% 0px;
+    color: #848484;
+    /*.col-50{
         position: relative;
         padding: 12px 0px 0px 0px;
         display: inline-block;
         max-width: 49.3%;
         height: 100%;
-        font-weight: bold; }
-        #wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 .title-grade-media {
+        font-weight: bold;
+        .title-grade-media{
           text-align: center;
           display: block;
-          font-size: 18px; }
-        #wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 .value-grade {
+          font-size: 18px;
+        }
+        .value-grade{
           width: 65px;
           height: 36px;
           display: inline-block;
@@ -8336,16 +8359,19 @@ ion-content {
           left: 50%;
           top: 50%;
           margin: 0px 0px 0px -33px;
-          color: #848484; }
-        #wrapper-modal-subject .box-modal-subject .area-for-grade .col-50 .attendance {
+          color: $mainFont;
+        }
+        .attendance{
           width: 66px;
-          margin: 0px 0px 0px -33px; }
-      #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade {
-        display: block;
-        background-color: transparent;
-        border: none;
-        padding: 6px 0 5px 10px;
-        /*  .toggle{
+          margin: 0px 0px 0px -33px;
+        }
+      }*/ }
+    #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade {
+      display: block;
+      background-color: transparent;
+      border: none;
+      padding: 6px 0 5px 10px;
+      /*  .toggle{
           position: absolute;
           display: inline-block;
           pointer-events: auto;
@@ -8357,59 +8383,59 @@ ion-content {
             background-color: #F3E2A9;
           }
         }*/ }
-        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .display-label {
-          display: block;
-          width: 75%;
-          padding: 4px 0px 7px 0px;
+      #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .display-label {
+        display: block;
+        width: 75%;
+        padding: 4px 0px 7px 0px;
+        font-weight: bold;
+        color: #848484; }
+      #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group {
+        padding: 0px 0px 0px 0px;
+        border-radius: 10px;
+        height: 30px;
+        display: inline-block;
+        margin-bottom: 2px; }
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group .title-detail {
+          display: inline-block;
           font-weight: bold;
           color: #848484; }
-        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group {
-          padding: 0px 0px 0px 0px;
-          border-radius: 10px;
-          height: 30px;
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group input[type=tel] {
           display: inline-block;
-          margin-bottom: 2px; }
-          #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group .title-detail {
-            display: inline-block;
-            font-weight: bold;
-            color: #848484; }
-          #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group input[type=tel] {
-            display: inline-block;
-            height: 100%;
-            width: 50px;
-            padding: 0px;
-            text-align: center;
-            border: solid 1px #00BFFF;
-            border-radius: 10px;
-            margin: 0px 10px 0px 6px;
-            color: #848484; }
-        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox {
-          position: absolute;
-          display: inline-block;
-          padding: 0px 0px;
-          cursor: pointer;
-          top: 50%;
-          margin: -20px -6px 0px 0px;
-          right: 10px; }
-          #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input {
-            position: relative;
-            width: 45px;
-            height: 45px;
-            display: block;
-            border: 0;
-            background: transparent;
-            cursor: pointer;
-            -webkit-appearance: none;
-            padding: 8px; }
-        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:checked:before, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:checked + .checkbox-icon:before {
-          background: #00BFFF;
-          border-color: #00BFFF; }
-        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:before, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox-icon:before {
+          height: 100%;
+          width: 50px;
+          padding: 0px;
+          text-align: center;
           border: solid 1px #00BFFF;
-          background: #FFFFFF; }
-        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:after, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox-icon:after {
-          top: 39%;
-          left: 35%; }
+          border-radius: 10px;
+          margin: 0px 10px 0px 6px;
+          color: #848484; }
+      #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox {
+        position: absolute;
+        display: inline-block;
+        padding: 0px 0px;
+        cursor: pointer;
+        top: 50%;
+        margin: -20px -6px 0px 0px;
+        right: 10px; }
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input {
+          position: relative;
+          width: 45px;
+          height: 45px;
+          display: block;
+          border: 0;
+          background: transparent;
+          cursor: pointer;
+          -webkit-appearance: none;
+          padding: 8px; }
+      #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:checked:before, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:checked + .checkbox-icon:before {
+        background: #00BFFF;
+        border-color: #00BFFF; }
+      #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:before, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox-icon:before {
+        border: solid 1px #00BFFF;
+        background: #FFFFFF; }
+      #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:after, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox-icon:after {
+        top: 39%;
+        left: 35%; }
 
 /* Generated by Font Squirrel (http://www.fontsquirrel.com) on July 21, 2015 */
 @font-face {

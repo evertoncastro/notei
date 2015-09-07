@@ -3,8 +3,18 @@
  */
 angular.module('anotei').controller('DashBoardCtrl', DashBoardCtrl);
 
-function DashBoardCtrl($scope, $ionicModal){
+function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading){
+    $scope.data = {};
 
+    $scope.init = function(){
+        $ionicLoading.show();
+        var resp = serviceSubject.getSubjects($scope.sort);
+        resp.then(function(list){
+            $scope.data.subjectList = list;
+            $ionicLoading.hide();
+            $scope.showSubject = false;
+        });
+    };
 
     $ionicModal.fromTemplateUrl('templates/modal/modal-subject.html', {
         scope: $scope,
@@ -30,6 +40,8 @@ function DashBoardCtrl($scope, $ionicModal){
     $scope.$on('modal.removed', function() {
         // Execute action
     });
+
+    $scope.init();
 
 
 }

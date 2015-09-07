@@ -21,7 +21,6 @@ angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
             resp.then(function(list){
                 $scope.data.subjectList = list;
                 $ionicLoading.hide();
-                $scope.showSubject = false;
             });
         };
 
