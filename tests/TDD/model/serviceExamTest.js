@@ -55,7 +55,6 @@ describe('Service Exam Test', function(){
         });
         var succesSpy = jasmine.createSpy('success'),
             failSpy   = jasmine.createSpy('failure');
-        debugger;
         var resp = serviceExam.getExams();
         resp.then(succesSpy, failSpy);
 

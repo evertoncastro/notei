@@ -55,7 +55,6 @@ describe('Service Homework Test', function(){
         });
         var succesSpy = jasmine.createSpy('success'),
             failSpy   = jasmine.createSpy('failure');
-        debugger;
         var resp = serviceHomework.getHomeworks();
         resp.then(succesSpy, failSpy);
 

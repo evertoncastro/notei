@@ -176,7 +176,7 @@ describe('Service Subject Test', function(){
 
         var succesSpy = jasmine.createSpy('success'),
             failSpy   = jasmine.createSpy('failure');
-        debugger;
+
         var data = {
             nome: 'Programação 2',
             max_faltas: null,
