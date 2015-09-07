@@ -4,7 +4,7 @@
             <div class="box-dash-board">
                 <div class="subjects-board">
                     <div class="subject-item" ng-repeat="subject in data.subjectList">
-                        <div class="subject-title" ng-click="openModal(subject.id)">
+                        <div class="subject-title" ng-click="loadActivities(subject)">
                             <span class="title">{{subject.nome}}</span>
                         </div>
                     </div>

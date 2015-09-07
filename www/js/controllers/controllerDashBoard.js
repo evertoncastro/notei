@@ -17,10 +17,12 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
         });
     };
 
-    $scope.loadActivities = function(id_materia){
-        serviceDashBoard.mountList(id_materia).then(
+    $scope.loadActivities = function(subject){
+        serviceDashBoard.mountList(subject.id).then(
             function(result){
                 $scope.data.listActivities = result;
+                $scope.data.subject = subject;
+                $scope.openModal();
             }
         )
     };
@@ -31,8 +33,7 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
     }).then(function(modal) {
         $scope.modal = modal;
     });
-    $scope.openModal = function(id_materia) {
-        $scope.loadActivities(id_materia);
+    $scope.openModal = function() {
         $scope.modal.show();
     };
     $scope.closeModal = function() {

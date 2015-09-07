@@ -43,7 +43,13 @@ describe('Área de anotação controller', function () {
             };
         });
 
+        var Modal = function() {void(0);};
+        Modal.prototype.show = function() {void(0);};
+        Modal.prototype.hide = function() {void(0);};
+        $scope.modal = new Modal();
+
         DashBoardCtrl = $controller('DashBoardCtrl', {'$scope': $scope});
+
 
     }));
 
@@ -87,17 +93,26 @@ describe('Área de anotação controller', function () {
         });
 
         expect($scope.loadActivities).toBeDefined();
-
-        $scope.loadActivities();
+        var subject = {
+            id: 1, nome: 'Matemática', max_faltas: 20,
+            professor: 'Everton de Castro', email_prof: 'evertoncastro.sp@gmail.com',
+            num_faltas: 5
+        };
+        $scope.loadActivities(subject);
         $scope.$apply();
         expect(serviceDashBoard.mountList).toHaveBeenCalled();
         expect($scope.data.listActivities).toEqual([
                 {id: 1, nome: 'P1', peso: 2,
                     nota: 7, id_materia: 1, ativo: 1},
                 {id: 1, nome: 'Teste', peso: 2,
-                    nota: 7, id_materia: 1, ativo: 1},
+                    nota: 7, id_materia: 1, ativo: 1}
             ]
-        )
+        );
+        expect($scope.data.subject).toEqual({
+            id: 1, nome: 'Matemática', max_faltas: 20,
+            professor: 'Everton de Castro', email_prof: 'evertoncastro.sp@gmail.com',
+            num_faltas: 5
+        });
 
     });
 
