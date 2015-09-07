@@ -23,6 +23,8 @@ describe('Service Exam Test', function() {
     it('TDD - Should define all methods', function(){
         expect(serviceConfig.getConfigNotes).toBeDefined();
         expect(serviceConfig.updateConfigNotes).toBeDefined();
+        expect(serviceConfig.setObjNotes).toBeDefined();
+        expect(serviceConfig.getObjNotes).toBeDefined();
     });
 
     it('TDD - Should verify that the method getConfigNotes ' +

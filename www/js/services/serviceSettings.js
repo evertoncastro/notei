@@ -5,6 +5,7 @@ var app = angular.module('anotei');
 
 app.service('serviceConfig', function($q, factoryDatabase, serviceUtil,
                                         $cordovaDialogs, serviceConstants){
+    var objNotes = {};
 
     return{
         getConfigNotes: function(){
@@ -57,6 +58,14 @@ app.service('serviceConfig', function($q, factoryDatabase, serviceUtil,
                 );
             }
             return defer.promise;
+        },
+
+        setObjNotes: function(obj){
+            objNotes = obj;
+        },
+
+        getObjNotes: function(){
+            return objNotes;
         }
     }
 });
