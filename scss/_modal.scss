@@ -37,7 +37,7 @@
     }
   }
   .has-header{
-    top: 90px;
+    top: 88px;
   }
   .bar-subheader{
     border-bottom: solid 1px #ddd;
@@ -72,10 +72,9 @@
   }
   .box-modal-subject{
     .area-for-grade{
-      height: 80px;
-      border-bottom: solid 1px #ddd;
       background-color: #FFFFFF;
-      margin: 0px 0px 0% 0px;
+      margin: 0px 0px 60px 0px;
+      border-color: #ffffff !important;
       color: $mainFont;
       /*.col-50{
         position: relative;
@@ -112,7 +111,6 @@
       .item-for-grade{
         display: block;
         background-color: transparent;
-        border: none;
         padding: 6px 0 5px 10px;
         .display-label{
           display: block;

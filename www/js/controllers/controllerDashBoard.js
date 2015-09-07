@@ -3,7 +3,8 @@
  */
 angular.module('anotei').controller('DashBoardCtrl', DashBoardCtrl);
 
-function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading){
+function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
+                       serviceDashBoard){
     $scope.data = {};
 
     $scope.init = function(){
@@ -16,13 +17,22 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading){
         });
     };
 
+    $scope.loadActivities = function(id_materia){
+        serviceDashBoard.mountList(id_materia).then(
+            function(result){
+                $scope.data.listActivities = result;
+            }
+        )
+    };
+
     $ionicModal.fromTemplateUrl('templates/modal/modal-subject.html', {
         scope: $scope,
         animation: 'slide-in-up'
     }).then(function(modal) {
         $scope.modal = modal;
     });
-    $scope.openModal = function() {
+    $scope.openModal = function(id_materia) {
+        $scope.loadActivities(id_materia);
         $scope.modal.show();
     };
     $scope.closeModal = function() {

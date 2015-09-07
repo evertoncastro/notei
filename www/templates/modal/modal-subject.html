@@ -17,34 +17,20 @@
     </div>
     <ion-content >
         <div class="box-modal-subject">
-            <!--<div class="area-for-grade">
-                <div class="col col-50">
-                    <span class="title-grade-media">Media</span>
-                    <span class="value-grade">9,25</span>
-                </div>
-                <div class="col col-50">
-                    <span class="title-grade-media">Faltas</span>
-                    <span class="value-grade attendance">10 / 20</span>
-                </div>
-            </div>-->
            <div class="area-for-grade">
-               <label class="item-for-grade item item-input">
-                   <span class="display-label">Atividade </span>
+               <label class="item-for-grade item item-input" ng-repeat="activity in data.listActivities">
+                   <span class="display-label">{{activity.nome}}</span>
                    <label class="group">
-                       <span class="title-detail">Peso:</span><input type="tel" value="10">
+                       <span class="title-detail">Peso:</span>
+                       <input type="tel" ng-model="activity.peso">
                    </label>
                    <label class="group">
-                       <span class="title-detail">Nota:</span><input type="tel" value="10">
+                       <span class="title-detail">Nota:</span>
+                       <input type="tel" ng-model="activity.nota">
                    </label>
                    <label class="checkbox">
                        <input type="checkbox">
                    </label>
-                   <!--<label class="toggle">
-                       <input type="checkbox">
-                       <div class="track">
-                           <div class="handle"></div>
-                       </div>
-                   </label>-->
                </label>
            </div>
         </div>

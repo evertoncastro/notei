@@ -24,6 +24,7 @@ describe('Service DashBoard Test', function(){
         expect(serviceDashBoard).toBeDefined();
         expect(serviceDashBoard.getListExams).toBeDefined();
         expect(serviceDashBoard.getListHomework).toBeDefined();
+        expect(serviceDashBoard.mountList).toBeDefined();
     });
 
     it('TDD - Should verify if the method getListExams loads a list ' +
@@ -61,7 +62,7 @@ describe('Service DashBoard Test', function(){
 
         expect(successSpy).toHaveBeenCalledWith([{
                 id: 1,
-                titulo: 'P1',
+                nome: 'P1',
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
@@ -105,7 +106,7 @@ describe('Service DashBoard Test', function(){
 
         expect(successSpy).toHaveBeenCalledWith([{
                 id: 1,
-                trabalho: 'Teste',
+                nome: 'Teste',
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
@@ -113,5 +114,69 @@ describe('Service DashBoard Test', function(){
             }]
         );
         expect(failSpy).not.toHaveBeenCalled();
+    });
+
+    it('TDD - Should verify if the method mountList is able to concat ' +
+        'exam and homework lists' ,function(){
+        spyOn(serviceDashBoard, 'getListExams').and.callFake(function(){
+            return{
+                then: function(callback){
+                    var result = [
+                        {id: 1,
+                            nome: 'P1',
+                            peso: 2,
+                            nota: 7,
+                            id_materia: 1,
+                            ativo: 1
+                        }
+                    ];
+                    return callback(result);
+                }
+            };
+        });
+
+        spyOn(serviceDashBoard, 'getListHomework').and.callFake(function(){
+            return{
+                then: function(callback){
+                    var result = [
+                        {id: 1,
+                            nome: 'Teste',
+                            peso: 2,
+                            nota: 7,
+                            id_materia: 1,
+                            ativo: 1
+                        }];
+                    return callback(result);
+                }
+            };
+        });
+
+        var successSpy = jasmine.createSpy('success'),
+            failSpy    = jasmine.createSpy('failure');
+
+        serviceDashBoard.mountList(1).then(
+            successSpy, failSpy
+        );
+        $scope.$apply();
+
+        expect(successSpy).toHaveBeenCalledWith([
+            {id: 1,
+                nome: 'P1',
+                peso: 2,
+                nota: 7,
+                id_materia: 1,
+                ativo: 1
+            },
+            {id: 1,
+                nome: 'Teste',
+                peso: 2,
+                nota: 7,
+                id_materia: 1,
+                ativo: 1
+            }
+        ]);
+        expect(failSpy).not.toHaveBeenCalled();
+        expect(serviceDashBoard.getListExams).toHaveBeenCalled();
+        expect(serviceDashBoard.getListHomework).toHaveBeenCalled();
     });
 });

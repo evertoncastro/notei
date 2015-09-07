@@ -8302,7 +8302,7 @@ ion-content {
       color: #848484;
       font-weight: bold; }
   #wrapper-modal-subject .has-header {
-    top: 90px; }
+    top: 88px; }
   #wrapper-modal-subject .bar-subheader {
     border-bottom: solid 1px #ddd; }
     #wrapper-modal-subject .bar-subheader .col-50 {
@@ -8329,10 +8329,9 @@ ion-content {
       #wrapper-modal-subject .bar-subheader .col-50 .attendance {
         color: blue; }
   #wrapper-modal-subject .box-modal-subject .area-for-grade {
-    height: 80px;
-    border-bottom: solid 1px #ddd;
     background-color: #FFFFFF;
-    margin: 0px 0px 0% 0px;
+    margin: 0px 0px 60px 0px;
+    border-color: #ffffff !important;
     color: #848484;
     /*.col-50{
         position: relative;
@@ -8369,7 +8368,6 @@ ion-content {
     #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade {
       display: block;
       background-color: transparent;
-      border: none;
       padding: 6px 0 5px 10px;
       /*  .toggle{
           position: absolute;

@@ -4,7 +4,7 @@
 describe('Área de anotação controller', function () {
 
     var DashBoardCtrl, $scope, serviceSubject, $cordovaSQLite,
-        $cordovaDialogs, serviceConstants;
+        $cordovaDialogs, serviceConstants, serviceDashBoard;
 
     beforeEach(module('anotei'));
 
@@ -14,6 +14,7 @@ describe('Área de anotação controller', function () {
         serviceSubject = $injector.get('serviceSubject');
         serviceConstants = $injector.get('serviceConstants');
         $cordovaSQLite = $injector.get('$cordovaSQLite');
+        serviceDashBoard = $injector.get('serviceDashBoard');
         $cordovaDialogs = $injector.get('$cordovaDialogs');
 
         $httpBackend.whenGET(/templates\/.*/).respond(200);
@@ -64,6 +65,40 @@ describe('Área de anotação controller', function () {
                 email_prof: 'evertoncastro.sp@gmail.com',
                 num_faltas: 5}
         ]);
+    });
+
+    it('BDD - Cenário: Exibição das atividades no detalhe da matéria ' +
+        'Dado que: o usuário clicou em uma matéria ' +
+        'E: que o modal surgiu na tela ' +
+        'Então: todas as provas e trabalhos daquela matéria serão exibidos no modal', function(){
+        spyOn(serviceDashBoard, 'mountList').and.callFake(function(){
+            return{
+                then: function(callback){
+                    var result = [
+                        {id: 1, nome: 'P1', peso: 2,
+                         nota: 7, id_materia: 1, ativo: 1},
+                        {id: 1, nome: 'Teste', peso: 2,
+                         nota: 7, id_materia: 1, ativo: 1}
+                    ];
+
+                    return callback(result);
+                }
+            };
+        });
+
+        expect($scope.loadActivities).toBeDefined();
+
+        $scope.loadActivities();
+        $scope.$apply();
+        expect(serviceDashBoard.mountList).toHaveBeenCalled();
+        expect($scope.data.listActivities).toEqual([
+                {id: 1, nome: 'P1', peso: 2,
+                    nota: 7, id_materia: 1, ativo: 1},
+                {id: 1, nome: 'Teste', peso: 2,
+                    nota: 7, id_materia: 1, ativo: 1},
+            ]
+        )
+
     });
 
 
