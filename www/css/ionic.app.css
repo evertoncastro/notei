@@ -8330,6 +8330,8 @@ ion-content {
         color: green !important; }
       #wrapper-modal-subject .bar-subheader .col-50 .attendance {
         color: blue; }
+      #wrapper-modal-subject .bar-subheader .col-50 .attendance-status {
+        color: red !important; }
   #wrapper-modal-subject .box-modal-subject .area-for-grade {
     background-color: #FFFFFF;
     margin: 0px 0px 60px 0px;

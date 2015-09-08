@@ -13,7 +13,7 @@
         </div>
         <div class="col col-50">
             <span class="title-grade-media">Faltas:</span>
-            <span class="value-grade attendance">
+            <span class="value-grade attendance" ng-class="{'attendance-status': data.statusAttendance}">
                 {{data.subject.num_faltas}} / {{data.subject.max_faltas}}</span>
         </div>
     </div>

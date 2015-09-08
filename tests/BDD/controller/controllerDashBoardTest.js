@@ -195,6 +195,18 @@ describe('Área de anotação controller', function () {
         expect(serviceConfig.getObjNotes).toHaveBeenCalled();
     });
 
+    it('BDD - Cenário: Alteração da cor do texto da quantidade de faltas ' +
+        'Dado que: a qunatidade de faltas atingiu 75% do máximo ' +
+        'Então: a cor do texto será vermelho', function(){
+        expect($scope.statusAttendance).toBeDefined();
+        $scope.data.subject = {
+            num_faltas: 15,
+            max_faltas: 20
+        };
+        $scope.statusAttendance();
+        expect($scope.data.statusAttendance).toEqual(true);
+    });
+
 
 
     /*it('BDD - Cenário: Ordenação da lista de matérias ' +

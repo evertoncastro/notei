@@ -25,6 +25,7 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
                 $scope.data.subject = subject;
                 $scope.data.average = serviceDashBoard.calcAverage(result);
                 $scope.statusAverage();
+                $scope.statusAttendance();
                 $scope.openModal();
             }
         )
@@ -36,6 +37,16 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
             $scope.data.statusAverage = true;
         }else{
             $scope.data.statusAverage = false;
+        }
+    };
+
+    $scope.statusAttendance = function(){
+        var subject = $scope.data.subject;
+        var percent = subject.num_faltas/subject.max_faltas;
+        if(percent>=0.75){
+            $scope.data.statusAttendance = true;
+        }else{
+            $scope.data.statusAttendance = false;
         }
     };
 
