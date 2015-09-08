@@ -6,6 +6,7 @@ angular.module('anotei').controller('DashBoardCtrl', DashBoardCtrl);
 function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
                        serviceDashBoard, serviceConfig){
     $scope.data = {};
+    $scope.sort = serviceSubject.getCurrentSortSubject();
 
     $scope.init = function(){
         $ionicLoading.show();
@@ -61,6 +62,18 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
         var list = $scope.data.listActivities;
         $scope.data.average = serviceDashBoard.calcAverage(list);
         $scope.statusAverage();
+    };
+
+    $scope.sortSubjectList = function(sort){
+
+        $ionicLoading.show();
+        var resp = serviceSubject.getSubjects(sort);
+        resp.then(function(list){
+            $scope.data.subjectList = list;
+            $scope.sort = sort;
+            serviceSubject.setCurrentSortSubject(sort);
+            $ionicLoading.hide();
+        });
     };
 
     $ionicModal.fromTemplateUrl('templates/modal/modal-subject.html', {

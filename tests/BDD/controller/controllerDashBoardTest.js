@@ -207,9 +207,7 @@ describe('Área de anotação controller', function () {
         expect($scope.data.statusAttendance).toEqual(true);
     });
 
-
-
-    /*it('BDD - Cenário: Ordenação da lista de matérias ' +
+    it('BDD - Cenário: Ordenação da lista de matérias ' +
         'Dado que: o usuário clicou no ícone ordenar ASCENDENTE ' +
         'Então: a lista de matérias será exibida em ordem alfabética ASCENDENTE  ', function(){
         spyOn(serviceSubject, 'setCurrentSortSubject');
@@ -245,10 +243,7 @@ describe('Área de anotação controller', function () {
         expect(serviceSubject.getSubjects).toHaveBeenCalledWith('desc');
         expect($scope.sort).toBe('desc');
         expect(serviceSubject.setCurrentSortSubject).toHaveBeenCalledWith('desc');
-    });*/
-
-
-
+    });
 });
 
 

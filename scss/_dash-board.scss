@@ -32,3 +32,37 @@
     }
   }
 }
+.content{
+  bottom: 0px;
+}
+.footer-button-sort-area{
+  height: 0px;
+  border: none;
+  padding: 0px;
+  .button-asc{
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    top: -45px;
+    span{
+      font-size: 22px;
+      position: absolute;
+      top: 50%;
+      margin: -7px 0px 0px 6px;
+      color: $mainFont;
+    }
+  }
+  .button-desc{
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    top: -45px;
+    span{
+      font-size: 22px;
+      position: absolute;
+      top: 50%;
+      margin: -7px 0px 0px 6px;
+      color: $mainFont;
+    }
+  }
+}
