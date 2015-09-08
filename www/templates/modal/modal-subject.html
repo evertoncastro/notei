@@ -8,7 +8,8 @@
     <div class="bar bar-subheader">
         <div class="col col-50">
             <span class="title-grade-media">Média:</span>
-            <span class="value-grade notes">{{data.average}}</span>
+            <span class="value-grade notes"
+                    ng-class="{'notes-status': data.statusAverage}">{{data.average}}</span>
         </div>
         <div class="col col-50">
             <span class="title-grade-media">Faltas:</span>

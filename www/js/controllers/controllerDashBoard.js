@@ -4,7 +4,7 @@
 angular.module('anotei').controller('DashBoardCtrl', DashBoardCtrl);
 
 function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
-                       serviceDashBoard){
+                       serviceDashBoard, serviceConfig){
     $scope.data = {};
 
     $scope.init = function(){
@@ -15,6 +15,7 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
             $ionicLoading.hide();
             $scope.showSubject = false;
         });
+
     };
 
     $scope.loadActivities = function(subject){
@@ -23,20 +24,32 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
                 $scope.data.listActivities = result;
                 $scope.data.subject = subject;
                 $scope.data.average = serviceDashBoard.calcAverage(result);
+                $scope.statusAverage();
                 $scope.openModal();
             }
         )
+    };
+
+    $scope.statusAverage = function(){
+        var configNotes = serviceConfig.getObjNotes();
+        if($scope.data.average>=configNotes.media_minima){
+            $scope.data.statusAverage = true;
+        }else{
+            $scope.data.statusAverage = false;
+        }
     };
 
     $scope.changeShowActivity = function(activity){
         serviceDashBoard.changeShowActivity(activity);
         var list = $scope.data.listActivities;
         $scope.data.average = serviceDashBoard.calcAverage(list);
+        $scope.statusAverage();
     };
 
     $scope.refreshAverage = function(){
         var list = $scope.data.listActivities;
         $scope.data.average = serviceDashBoard.calcAverage(list);
+        $scope.statusAverage();
     };
 
     $ionicModal.fromTemplateUrl('templates/modal/modal-subject.html', {

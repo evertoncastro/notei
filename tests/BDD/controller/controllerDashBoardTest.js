@@ -4,7 +4,8 @@
 describe('Área de anotação controller', function () {
 
     var DashBoardCtrl, $scope, serviceSubject, $cordovaSQLite,
-        $cordovaDialogs, serviceConstants, serviceDashBoard;
+        $cordovaDialogs, serviceConstants, serviceDashBoard,
+        serviceConfig;
 
     beforeEach(module('anotei'));
 
@@ -16,7 +17,7 @@ describe('Área de anotação controller', function () {
         $cordovaSQLite = $injector.get('$cordovaSQLite');
         serviceDashBoard = $injector.get('serviceDashBoard');
         $cordovaDialogs = $injector.get('$cordovaDialogs');
-
+        serviceConfig = $injector.get('serviceConfig');
 
         $httpBackend.whenGET(/templates\/.*/).respond(200);
         spyOn($cordovaDialogs, 'alert');
@@ -176,6 +177,22 @@ describe('Área de anotação controller', function () {
         ];
         $scope.refreshAverage();
         expect(serviceDashBoard.calcAverage).toHaveBeenCalled();
+    });
+
+    it('BDD - Cenário: Alteração da cor do texto da média ' +
+        'Dado que: a média é maior ou igual a média mínima ' +
+        'definida na sessão de configurações ' +
+        'Então: a cor do texto será verde', function(){
+        expect($scope.statusAverage).toBeDefined();
+        spyOn(serviceConfig, 'getObjNotes').and.callFake(function(){
+           return {
+               intervalo_de: 0,
+               intervalo_para: 10,
+               media_minima: 7
+           }
+        });
+        $scope.statusAverage();
+        expect(serviceConfig.getObjNotes).toHaveBeenCalled();
     });
 
 

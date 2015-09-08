@@ -8326,6 +8326,8 @@ ion-content {
         font-size: 16px; }
       #wrapper-modal-subject .bar-subheader .col-50 .notes {
         color: red; }
+      #wrapper-modal-subject .bar-subheader .col-50 .notes-status {
+        color: green !important; }
       #wrapper-modal-subject .bar-subheader .col-50 .attendance {
         color: blue; }
   #wrapper-modal-subject .box-modal-subject .area-for-grade {
