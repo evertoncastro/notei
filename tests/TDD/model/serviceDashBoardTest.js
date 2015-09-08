@@ -27,6 +27,7 @@ describe('Service DashBoard Test', function(){
         expect(serviceDashBoard.getListHomework).toBeDefined();
         expect(serviceDashBoard.mountList).toBeDefined();
         expect(serviceDashBoard.calcAverage).toBeDefined();
+        expect(serviceDashBoard.changeShowActivity).toBeDefined();
     });
 
     it('TDD - Should verify if the method getListExams loads a list ' +
@@ -68,6 +69,7 @@ describe('Service DashBoard Test', function(){
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
+                tipo: 'prova',
                 ativo: true
             }]
         );
@@ -112,6 +114,7 @@ describe('Service DashBoard Test', function(){
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
+                tipo: 'trabalho',
                 ativo: true
             }]
         );
@@ -129,6 +132,7 @@ describe('Service DashBoard Test', function(){
                             peso: 2,
                             nota: 7,
                             id_materia: 1,
+                            tipo: 'prova',
                             ativo: true
                         }
                     ];
@@ -146,6 +150,7 @@ describe('Service DashBoard Test', function(){
                             peso: 2,
                             nota: 7,
                             id_materia: 1,
+                            tipo: 'trabalho',
                             ativo: true
                         }];
                     return callback(result);
@@ -167,6 +172,7 @@ describe('Service DashBoard Test', function(){
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
+                tipo: 'prova',
                 ativo: true
             },
             {id: 1,
@@ -174,6 +180,7 @@ describe('Service DashBoard Test', function(){
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
+                tipo: 'trabalho',
                 ativo: true
             }
         ]);
@@ -202,11 +209,38 @@ describe('Service DashBoard Test', function(){
         var average = serviceDashBoard.calcAverage(activities);
 
         expect(average).toEqual((7.2).toFixed(2));
-        /*
-        * 2.45
-        * 3.15
-        * 0.7
-        * 0.9
-        * */
     });
+
+    it('TDD - Should update the field ativo in table provas or ' +
+        'trabalhos', function(){
+        spyOn(factoryDatabase, 'executeQuery').and.callFake(function(){
+            return{
+                then: function(callback){
+                    var result = {
+                       rowsAffected: 1
+                    };
+                    return callback(result);
+                }
+            }
+        });
+
+        var successSpy = jasmine.createSpy('success'),
+            failSpy    = jasmine.createSpy('failure');
+
+        data = {
+            id: 1, nome: 'P1', peso: 2, nota: 7,
+            id_materia: 1, tipo: 'prova', ativo: true
+        };
+
+        serviceDashBoard.changeShowActivity(data).then(
+            successSpy, failSpy
+        );
+        $scope.$apply();
+        expect(successSpy).toHaveBeenCalledWith({
+            rowsAffected: 1
+        });
+        expect(failSpy).not.toHaveBeenCalled();
+
+    });
+
 });

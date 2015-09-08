@@ -17,6 +17,7 @@ describe('Área de anotação controller', function () {
         serviceDashBoard = $injector.get('serviceDashBoard');
         $cordovaDialogs = $injector.get('$cordovaDialogs');
 
+
         $httpBackend.whenGET(/templates\/.*/).respond(200);
         spyOn($cordovaDialogs, 'alert');
 
@@ -125,10 +126,21 @@ describe('Área de anotação controller', function () {
 
     });
 
-    it('BDD - Cenário: Excluir atividade do cálculo ' +
+    it('BDD - Cenário: Desconsiderar atividade do cálculo ' +
         'Dado que: o usuário desativou o chackbox de uma atividade ' +
-        'Então: a atividade será desconsiderada do cálculo da média', function(){
+        'Então: a atividade será desconsiderada do cálculo da média ' +
+        'E: a ação será gravada no banco de dados', function(){
         expect($scope.changeShowActivity).toBeDefined();
+        spyOn(serviceDashBoard, 'changeShowActivity').and.callFake(function(){
+            return{
+                then: function(callback){
+                    var result = {
+                        rowsAffected: 1
+                    };
+                    return callback(result);
+                }
+            }
+        });
         spyOn(serviceDashBoard, 'calcAverage').and.callThrough();
         $scope.data.listActivities = [
             {id: 1, nome: 'P1', peso: 2,
@@ -136,7 +148,12 @@ describe('Área de anotação controller', function () {
             {id: 1, nome: 'Teste', peso: 2,
                 nota: 7, id_materia: 1, ativo: true}
         ];
-        $scope.changeShowActivity();
+        data = {
+            id: 1, nome: 'P1', peso: 2,
+            nota: 7, id_materia: 1, ativo: true
+        };
+        $scope.changeShowActivity(data);
+        expect(serviceDashBoard.changeShowActivity).toHaveBeenCalledWith(data);
         expect(serviceDashBoard.calcAverage).toHaveBeenCalledWith([
             {id: 1, nome: 'P1', peso: 2,
                 nota: 7, id_materia: 1, ativo: true},
@@ -144,6 +161,21 @@ describe('Área de anotação controller', function () {
                 nota: 7, id_materia: 1, ativo: true}
         ]);
 
+    });
+
+    it('BDD - Cenário: Atualização do cálculo da média ' +
+        'Dado que: o usuário fez uma simulação alterando o campo peso e/ou nota ' +
+        'Então: a média será calculada novamente', function(){
+        expect($scope.refreshAverage).toBeDefined();
+        spyOn(serviceDashBoard, 'calcAverage').and.callThrough();
+        $scope.data.listActivities = [
+            {id: 1, nome: 'P1', peso: 2,
+                nota: 7, id_materia: 1, ativo: true},
+            {id: 1, nome: 'Teste', peso: 2,
+                nota: 7, id_materia: 1, ativo: true}
+        ];
+        $scope.refreshAverage();
+        expect(serviceDashBoard.calcAverage).toHaveBeenCalled();
     });
 
 

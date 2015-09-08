@@ -23,6 +23,7 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig){
                         prova.peso = resultSet.rows.item(i).peso;
                         prova.nota = resultSet.rows.item(i).nota;
                         prova.id_materia = resultSet.rows.item(i).id_materia;
+                        prova.tipo = 'prova';
                         if(resultSet.rows.item(i).ativo==1){
                             prova.ativo = true;
                         }else if(resultSet.rows.item(i).ativo==0){
@@ -46,23 +47,24 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig){
 
             factoryDatabase.executeQuery(sqlQuery, param).then(
                 function(resultSet){
-                    var listProva = [];
+                    var listTrbalho = [];
 
                     for(var i = 0; i < resultSet.rows.length; i++){
-                        var prova = {};
-                        prova.id = resultSet.rows.item(i).id;
-                        prova.nome = resultSet.rows.item(i).trabalho;
-                        prova.peso = resultSet.rows.item(i).peso;
-                        prova.nota = resultSet.rows.item(i).nota;
-                        prova.id_materia = resultSet.rows.item(i).id_materia;
+                        var trabalho = {};
+                        trabalho.id = resultSet.rows.item(i).id;
+                        trabalho.nome = resultSet.rows.item(i).trabalho;
+                        trabalho.peso = resultSet.rows.item(i).peso;
+                        trabalho.nota = resultSet.rows.item(i).nota;
+                        trabalho.id_materia = resultSet.rows.item(i).id_materia;
+                        trabalho.tipo = 'trabalho';
                         if(resultSet.rows.item(i).ativo==1){
-                            prova.ativo = true;
+                            trabalho.ativo = true;
                         }else if(resultSet.rows.item(i).ativo==0){
-                            prova.ativo = false;
+                            trabalho.ativo = false;
                         }
-                        listProva.push(prova);
+                        listTrbalho.push(trabalho);
                     }
-                    defer.resolve(listProva);
+                    defer.resolve(listTrbalho);
                 },
                 function(error){
                     defer.reject(error);
@@ -113,7 +115,37 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig){
                     }
                 }
             }
+            if(average==null){
+                average = 0;
+            }
             return average.toFixed(2);
+        },
+
+        changeShowActivity: function(data){
+            var defer = $q.defer();
+            var sqlQuery = '';
+            var params = [];
+            if(data.tipo=='prova'){
+                sqlQuery = 'update provas set ativo = ? where id = ?';
+            }else if(data.tipo=='trabalho'){
+                sqlQuery = 'update trabalhos set ativo = ? where id = ?';
+            }
+            if(data.ativo==true){
+                params.push(1);
+            }else if(data.ativo==false){
+                params.push(0);
+            }
+            params.push(data.id);
+
+            factoryDatabase.executeQuery(sqlQuery, params).then(
+                function(result){
+                    defer.resolve(result);
+                },
+                function(error){
+                    defer.reject(error);
+                }
+            );
+            return defer.promise;
         }
     }
 });

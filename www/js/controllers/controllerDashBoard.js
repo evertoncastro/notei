@@ -28,7 +28,13 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
         )
     };
 
-    $scope.changeShowActivity = function(){
+    $scope.changeShowActivity = function(activity){
+        serviceDashBoard.changeShowActivity(activity);
+        var list = $scope.data.listActivities;
+        $scope.data.average = serviceDashBoard.calcAverage(list);
+    };
+
+    $scope.refreshAverage = function(){
         var list = $scope.data.listActivities;
         $scope.data.average = serviceDashBoard.calcAverage(list);
     };

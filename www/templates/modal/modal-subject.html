@@ -1,17 +1,17 @@
 <ion-modal-view id="wrapper-modal-subject">
     <ion-header-bar>
         <h1 class="title">{{data.subject.nome}}</h1>
-        <button class="close-modal">
+        <button class="close-modal" ng-click="closeModal()">
             Fechar
         </button>
     </ion-header-bar>
     <div class="bar bar-subheader">
         <div class="col col-50">
-            <span class="title-grade-media">Média: </span>
+            <span class="title-grade-media">Média:</span>
             <span class="value-grade notes">{{data.average}}</span>
         </div>
         <div class="col col-50">
-            <span class="title-grade-media">Faltas: </span>
+            <span class="title-grade-media">Faltas:</span>
             <span class="value-grade attendance">
                 {{data.subject.num_faltas}} / {{data.subject.max_faltas}}</span>
         </div>
@@ -23,15 +23,17 @@
                    <span class="display-label">{{activity.nome}}</span>
                    <label class="group">
                        <span class="title-detail">Peso:</span>
-                       <input type="tel" ng-model="activity.peso">
+                       <input type="tel" ng-model="activity.peso"
+                               ng-change="refreshAverage()">
                    </label>
                    <label class="group">
                        <span class="title-detail">Nota:</span>
-                       <input type="tel" ng-model="activity.nota">
+                       <input type="tel" ng-model="activity.nota"
+                               ng-change="refreshAverage()">
                    </label>
                    <label class="checkbox">
                        <input type="checkbox" ng-model="activity.ativo"
-                               ng-change="changeShowActivity()">
+                               ng-change="changeShowActivity(activity)">
                    </label>
                </label>
            </div>
