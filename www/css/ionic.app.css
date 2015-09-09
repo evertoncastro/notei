@@ -8096,31 +8096,39 @@ ion-content {
         display: block;
         background-color: #FFFFFF;
         color: #000000;
-        height: 50px;
+        height: 61px;
         border-radius: 10px 10px 10px 10px;
         margin: 5% 0% 0% 0%;
         /* box-shadow: 1px 1px 20px 0px #888888; */
         border: solid 1px #00BFFF; }
         .box-homework .homeworks-board .homework-item .homework-title .title {
-          margin-top: 15px;
+          padding: 5px 0px 5px 10px;
+          width: 62%;
+          display: block;
+          font-size: 20px;
+          font-weight: bold;
+          color: #848484;
+          /*margin-top: 15px;
           margin-left: 15px;
           display: inline-block;
           font-size: 20px;
           font-weight: bold;
-          color: #848484; }
+          color: $mainFont;*/ }
+        .box-homework .homeworks-board .homework-item .homework-title .title-min {
+          font-size: 14px !important; }
         .box-homework .homeworks-board .homework-item .homework-title .ion-edit {
           position: absolute;
           right: 75px;
           font-size: 25px;
           top: 0px;
-          padding: 13px 10px 13px 10px;
+          padding: 20px 10px 16px 10px;
           color: #848484; }
         .box-homework .homeworks-board .homework-item .homework-title .ion-trash-a {
           position: absolute;
           right: 20px;
           font-size: 30px;
           top: 0px;
-          padding: 10px 10px 10px 10px;
+          padding: 17px 10px 13px 10px;
           color: #848484; }
       .box-homework .homeworks-board .homework-item .homework-details {
         height: auto;
@@ -8872,11 +8880,15 @@ ion-content {
         font-size: 20px; }
   /****MEDIA QUERY FOR HOMEWORK PAGE****/
   #wrapper-homework .homeworks-board .homework-item .homework-title {
-    height: 60px; }
+    height: 70px; }
     #wrapper-homework .homeworks-board .homework-item .homework-title .title {
       font-size: 24px;
       line-height: 24px;
-      margin: 18px 0px 0px 10px; }
+      margin: 1px 0px 0px 10px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .title-min {
+      font-size: 15px !important;
+      line-height: 15px !important;
+      margin: 4px 0px 0px 10px !important; }
     #wrapper-homework .homeworks-board .homework-item .homework-title .ion-edit {
       font-size: 26px;
       padding: 18px 10px 16px 10px; }
@@ -9009,14 +9021,15 @@ ion-content {
         font-size: 24px; }
   /****MEDIA QUERY FOR HOMEWORK PAGE****/
   #wrapper-homework .homeworks-board .homework-item .homework-title {
-    height: 70px; }
+    height: 80px; }
     #wrapper-homework .homeworks-board .homework-item .homework-title .title {
       font-size: 26px;
       line-height: 26px;
-      margin: 22px 0px 0px 10px; }
-    #wrapper-homework .homeworks-board .homework-item .homework-title .ion-edit {
-      font-size: 30px;
-      padding: 22px 10px 18px 10px; }
+      margin: 2px 0px 0px 10px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .title-min {
+      font-size: 16px !important;
+      line-height: 16px !important;
+      margin: 8px 0px 0px 10px !important; }
     #wrapper-homework .homeworks-board .homework-item .homework-title .ion-trash-a {
       font-size: 36px;
       padding: 19px 10px 15px 10px; }
@@ -9146,14 +9159,15 @@ ion-content {
         font-size: 24px; }
   /****MEDIA QUERY FOR HOMEWORK PAGE****/
   #wrapper-homework .homeworks-board .homework-item .homework-title {
-    height: 70px; }
+    height: 80px; }
     #wrapper-homework .homeworks-board .homework-item .homework-title .title {
       font-size: 26px;
       line-height: 26px;
-      margin: 22px 0px 0px 10px; }
-    #wrapper-homework .homeworks-board .homework-item .homework-title .ion-edit {
-      font-size: 30px;
-      padding: 22px 10px 18px 10px; }
+      margin: 2px 0px 0px 10px; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .title-min {
+      font-size: 16px !important;
+      line-height: 16px !important;
+      margin: 8px 0px 0px 10px !important; }
     #wrapper-homework .homeworks-board .homework-item .homework-title .ion-trash-a {
       font-size: 36px;
       padding: 19px 10px 15px 10px; }

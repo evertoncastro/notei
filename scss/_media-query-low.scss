@@ -166,11 +166,16 @@
     .homeworks-board {
       .homework-item {
         .homework-title {
-          height: 60px;
+          height: 70px;
           .title {
             font-size: 24px;
             line-height: 24px;
-            margin: 18px 0px 0px 10px;
+            margin: 1px 0px 0px 10px;
+          }
+          .title-min{
+            font-size: 15px !important;
+            line-height: 15px !important;
+            margin: 4px 0px 0px 10px !important;
           }
           .ion-edit{
             font-size: 26px;

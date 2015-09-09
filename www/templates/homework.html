@@ -9,6 +9,7 @@
                     <div class="homework-item" ng-repeat="homework in data.homeworkList">
                         <div class="homework-title">
                             <span class="title" ng-click="openHomework(homework.id)">{{homework.trabalho}}</span>
+                            <span class="title title-min" ng-click="openHomework(homework.id)">{{homework.nome}}</span>
                             <i class="ion-edit" ng-click="updateFullHomework(homework)"></i>
                             <i class="ion-trash-a" ng-click="deleteHomework(homework)"></i>
                         </div>

@@ -162,15 +162,16 @@
     .homeworks-board {
       .homework-item {
         .homework-title {
-          height: 70px;
+          height: 80px;
           .title {
             font-size: 26px;
             line-height: 26px;
-            margin: 22px 0px 0px 10px;
+            margin: 2px 0px 0px 10px;
           }
-          .ion-edit{
-            font-size: 30px;
-            padding: 22px 10px 18px 10px;
+          .title-min{
+            font-size: 16px !important;
+            line-height: 16px !important;
+            margin: 8px 0px 0px 10px !important;
           }
           .ion-trash-a{
             font-size: 36px;
@@ -389,15 +390,16 @@
     .homeworks-board {
       .homework-item {
         .homework-title {
-          height: 70px;
+          height: 80px;
           .title {
             font-size: 26px;
             line-height: 26px;
-            margin: 22px 0px 0px 10px;
+            margin: 2px 0px 0px 10px;
           }
-          .ion-edit{
-            font-size: 30px;
-            padding: 22px 10px 18px 10px;
+          .title-min{
+            font-size: 16px !important;
+            line-height: 16px !important;
+            margin: 8px 0px 0px 10px !important;
           }
           .ion-trash-a{
             font-size: 36px;
