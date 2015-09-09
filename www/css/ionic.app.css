@@ -8024,6 +8024,12 @@ ion-content {
               margin-left: 20%;
               border: solid 1px;
               border-radius: 10px; }
+  .box-subject .no-subjects {
+    color: #848484;
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 50%; }
 
 .box-subject-new {
   padding: 15px;
@@ -8243,6 +8249,12 @@ ion-content {
               font-family: robotoregular;
               color: #848484;
               line-height: inherit; }
+  .box-homework .no-homeworks {
+    color: #848484;
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 50%; }
 
 .box-homework-new {
   font-family: robotoregular;
@@ -8681,6 +8693,12 @@ ion-content {
               color: #848484;
               line-height: inherit;
               font-family: robotoregular; }
+  .box-exam .no-exams {
+    color: #848484;
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 50%; }
 
 .box-exam-new {
   font-family: robotoregular;
@@ -8968,6 +8986,8 @@ ion-content {
         padding: 0px 0px 2px 0px;
         font-size: 20px;
         width: 70%; }
+  #wrapper-subject .no-subjects {
+    font-size: 26px; }
   /****MEDIA QUERY FOR EXAM PAGE****/
   #wrapper-exam .exams-board .exam-item .exam-title {
     height: 80px; }
@@ -9019,6 +9039,8 @@ ion-content {
       height: 63%; }
       #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation textarea {
         font-size: 24px; }
+  #wrapper-exam .no-exams {
+    font-size: 26px; }
   /****MEDIA QUERY FOR HOMEWORK PAGE****/
   #wrapper-homework .homeworks-board .homework-item .homework-title {
     height: 80px; }
@@ -9066,7 +9088,9 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
       height: 63%; }
       #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation textarea {
-        font-size: 20px; } }
+        font-size: 20px; }
+  #wrapper-homework .no-homeworks {
+    font-size: 26px; } }
 
 @media screen and (min-width: 800px) and (max-width: 999px) {
   /****MEDIA QUERY FOR HOME PAGE****/
@@ -9106,6 +9130,8 @@ ion-content {
         padding: 0px 0px 2px 0px;
         font-size: 24px;
         width: 70%; }
+  #wrapper-subject .no-subjects {
+    font-size: 26px; }
   /****MEDIA QUERY FOR EXAM PAGE****/
   #wrapper-exam .exams-board .exam-item .exam-title {
     height: 80px; }
@@ -9157,6 +9183,8 @@ ion-content {
       height: 64%; }
       #wrapper-exam .exams-board .exam-item .exam-details .board-observation .item-board-observation textarea {
         font-size: 24px; }
+  #wrapper-exam .no-exams {
+    font-size: 26px; }
   /****MEDIA QUERY FOR HOMEWORK PAGE****/
   #wrapper-homework .homeworks-board .homework-item .homework-title {
     height: 80px; }
@@ -9204,7 +9232,9 @@ ion-content {
     #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation {
       height: 64%; }
       #wrapper-homework .homeworks-board .homework-item .homework-details .board-observation .item-board-observation textarea {
-        font-size: 20px; } }
+        font-size: 20px; }
+  #wrapper-homework .no-homeworks {
+    font-size: 26px; } }
 
 /**** MEDIA QUERY FOR MODAL SIZE ****/
 @media (max-width: 680px) {
