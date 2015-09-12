@@ -3,7 +3,7 @@
  */
 describe('Service DashBoard Test', function(){
     var serviceExam, factoryDatabase, $scope, serviceDashBoard,
-        $cordovaSQLite, serviceConfig;
+        $cordovaSQLite, serviceConfig, serviceHomework;
 
     beforeEach(module('anotei'));
 
@@ -13,6 +13,7 @@ describe('Service DashBoard Test', function(){
         serviceDashBoard = $injector.get('serviceDashBoard');
         $cordovaSQLite = $injector.get('$cordovaSQLite');
         serviceConfig = $injector.get('serviceConfig');
+        serviceHomework = $injector.get('serviceHomework');
         var rootScope = $injector.get('$rootScope');
 
         $httpBackend.whenGET(/templates\/.*/).respond(200);
@@ -243,4 +244,35 @@ describe('Service DashBoard Test', function(){
 
     });
 
+    it('TDD - Should update all exams and homeworks in the same ' +
+        'time for a subject', function(){
+        spyOn(serviceExam, 'updateExam').and.callFake(function(){
+            return {
+                then: function(callback){
+                    return callback();
+                }
+            }
+        });
+
+        spyOn(serviceHomework, 'updateHomework').and.callFake(function(){
+            return {
+                then: function(callback){
+                    return callback();
+                }
+            }
+        });
+
+        expect(serviceDashBoard.multipleUpdate).toBeDefined();
+        var listActivities = [{id: 1, nome: 'Prova 1', peso: 3, nota: 7, id_materia: 2, tipo: 'prova', ativo: true},
+                         {id: 2, nome: 'Exercicios Teste', peso: 3, nota: 10, id_materia: 1, tipo: 'trabalho', ativo: true}];
+        debugger;
+        serviceDashBoard.multipleUpdate(listActivities);
+        $scope.$apply();
+        expect(serviceExam.updateExam).toHaveBeenCalledWith(
+            {id: 1, nome: 'Prova 1', peso: 3, nota: 7, id_materia: 2, tipo: 'prova', ativo: true}
+        );
+        expect(serviceHomework.updateHomework).toHaveBeenCalledWith(
+            {id: 2, nome: 'Exercicios Teste', peso: 3, nota: 10, id_materia: 1, tipo: 'trabalho', ativo: true}
+        );
+    });
 });

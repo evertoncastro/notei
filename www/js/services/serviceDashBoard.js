@@ -3,7 +3,7 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig){
+app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, serviceExam, serviceHomework){
 
     return{
 
@@ -146,6 +146,18 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig){
                 }
             );
             return defer.promise;
+        },
+
+        multipleUpdate: function(listActivities){
+
+            for(var i=0; i<listActivities.length; i++){
+                var activity = listActivities[i];
+                if(activity.tipo=='prova'){
+                    serviceExam.updateExam(activity);
+                }else if(activity.tipo=='trabalho'){
+                    serviceHomework.updateHomework(activity);
+                }
+            }
         }
     }
 });

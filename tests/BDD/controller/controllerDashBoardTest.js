@@ -244,6 +244,37 @@ describe('Área de anotação controller', function () {
         expect($scope.sort).toBe('desc');
         expect(serviceSubject.setCurrentSortSubject).toHaveBeenCalledWith('desc');
     });
+
+    it('BDD - Cenário: Gravação das manipulações realizadas na área de controle ' +
+        'Dado que: o usuário confirmou a gravação das alterações na caixa de diálogo ' +
+        'Então: as alterações serão gravadas no banco', function(){
+        spyOn($cordovaDialogs, 'confirm').and.callFake(function(){
+            return {
+                then: function(callBack){
+                    return callBack(1);
+                }
+            }
+        });
+
+        spyOn(serviceDashBoard, 'multipleUpdate').and.callThrough();
+
+        $scope.data.listActivities = [{id: 1, nome: 'Prova 1', peso: 3, nota: 7, id_materia: 2, tipo: 'prova', ativo: true},
+            {id: 2, nome: 'Exercicios Teste', peso: 3, nota: 10, id_materia: 1, tipo: 'trabalho', ativo: true}];
+
+
+
+        $scope.multipleUpdate();
+        expect($scope.multipleUpdate).toBeDefined();
+        expect($cordovaDialogs.confirm).toHaveBeenCalledWith(
+            serviceConstants.MSG_DASHBOARD_CHANGES.MSG,
+            serviceConstants.MSG_DASHBOARD_CHANGES.CONFIRM,
+            [serviceConstants.MSG_DASHBOARD_CHANGES.BUTTON_YES,
+             serviceConstants.MSG_DASHBOARD_CHANGES.BUTTON_NO]
+        );
+
+        expect(serviceDashBoard.multipleUpdate).toHaveBeenCalled();
+
+    });
 });
 
 

@@ -4,7 +4,8 @@
 angular.module('anotei').controller('DashBoardCtrl', DashBoardCtrl);
 
 function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
-                       serviceDashBoard, serviceConfig){
+                       serviceDashBoard, serviceConfig, $cordovaDialogs,
+                       serviceConstants){
     $scope.data = {};
     $scope.sort = serviceSubject.getCurrentSortSubject();
 
@@ -16,7 +17,6 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
             $ionicLoading.hide();
             $scope.showSubject = false;
         });
-
     };
 
     $scope.loadActivities = function(subject){
@@ -65,7 +65,6 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
     };
 
     $scope.sortSubjectList = function(sort){
-
         $ionicLoading.show();
         var resp = serviceSubject.getSubjects(sort);
         resp.then(function(list){
@@ -74,6 +73,19 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
             serviceSubject.setCurrentSortSubject(sort);
             $ionicLoading.hide();
         });
+    };
+
+    $scope.multipleUpdate = function(){
+        $cordovaDialogs.confirm(serviceConstants.MSG_DASHBOARD_CHANGES.MSG,
+                    serviceConstants.MSG_DASHBOARD_CHANGES.CONFIRM,
+                    [serviceConstants.MSG_DASHBOARD_CHANGES.BUTTON_YES,
+                    serviceConstants.MSG_DASHBOARD_CHANGES.BUTTON_NO]).then(
+            function(buttonIndex){
+                if(buttonIndex==1){
+                    serviceDashBoard.multipleUpdate($scope.data.listActivities);
+                }
+            }
+        );
     };
 
     $ionicModal.fromTemplateUrl('templates/modal/modal-subject.html', {
