@@ -3,7 +3,7 @@
  */
 describe('Service DashBoard Test', function(){
     var serviceExam, factoryDatabase, $scope, serviceDashBoard,
-        $cordovaSQLite, serviceConfig, serviceHomework;
+        $cordovaSQLite, serviceConfig, serviceHomework, $cordovaDialogs;
 
     beforeEach(module('anotei'));
 
@@ -14,6 +14,7 @@ describe('Service DashBoard Test', function(){
         $cordovaSQLite = $injector.get('$cordovaSQLite');
         serviceConfig = $injector.get('serviceConfig');
         serviceHomework = $injector.get('serviceHomework');
+        $cordovaDialogs = $injector.get('$cordovaDialogs');
         var rootScope = $injector.get('$rootScope');
 
         $httpBackend.whenGET(/templates\/.*/).respond(200);
@@ -40,6 +41,7 @@ describe('Service DashBoard Test', function(){
                     result.rows = [
                         {id: 1,
                             titulo: 'P1',
+                            data: 'Sat Sep 12 2015 12:20:04 GMT-0300 (BRT)',
                             peso: 2,
                             nota: 7,
                             id_materia: 1,
@@ -67,6 +69,7 @@ describe('Service DashBoard Test', function(){
         expect(successSpy).toHaveBeenCalledWith([{
                 id: 1,
                 nome: 'P1',
+                data: new Date('Sat Sep 12 2015 12:20:04 GMT-0300 (BRT)'),
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
@@ -86,6 +89,7 @@ describe('Service DashBoard Test', function(){
                     result.rows = [
                         {id: 1,
                             trabalho: 'Teste',
+                            data_entrega: 'Sat Sep 12 2015 12:20:04 GMT-0300 (BRT)',
                             peso: 2,
                             nota: 7,
                             id_materia: 1,
@@ -112,6 +116,7 @@ describe('Service DashBoard Test', function(){
         expect(successSpy).toHaveBeenCalledWith([{
                 id: 1,
                 nome: 'Teste',
+                data_entrega: new Date('Sat Sep 12 2015 12:20:04 GMT-0300 (BRT)'),
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
@@ -246,6 +251,14 @@ describe('Service DashBoard Test', function(){
 
     it('TDD - Should update all exams and homeworks in the same ' +
         'time for a subject', function(){
+        spyOn($cordovaDialogs, 'confirm').and.callFake(function(){
+            return {
+                then: function(callback){
+                    return callback(1);
+                }
+            }
+        });
+
         spyOn(serviceExam, 'updateExam').and.callFake(function(){
             return {
                 then: function(callback){
@@ -262,17 +275,18 @@ describe('Service DashBoard Test', function(){
             }
         });
 
+
         expect(serviceDashBoard.multipleUpdate).toBeDefined();
         var listActivities = [{id: 1, nome: 'Prova 1', peso: 3, nota: 7, id_materia: 2, tipo: 'prova', ativo: true},
                          {id: 2, nome: 'Exercicios Teste', peso: 3, nota: 10, id_materia: 1, tipo: 'trabalho', ativo: true}];
-        debugger;
+
         serviceDashBoard.multipleUpdate(listActivities);
         $scope.$apply();
         expect(serviceExam.updateExam).toHaveBeenCalledWith(
-            {id: 1, nome: 'Prova 1', peso: 3, nota: 7, id_materia: 2, tipo: 'prova', ativo: true}
+            {id: 1, nome: 'Prova 1', peso: 3, nota: 7, id_materia: 2, tipo: 'prova', ativo: true, titulo: 'Prova 1'}
         );
         expect(serviceHomework.updateHomework).toHaveBeenCalledWith(
-            {id: 2, nome: 'Exercicios Teste', peso: 3, nota: 10, id_materia: 1, tipo: 'trabalho', ativo: true}
+            {id: 2, nome: 'Exercicios Teste', peso: 3, nota: 10, id_materia: 1, tipo: 'trabalho', ativo: true, trabalho: 'Exercicios Teste'}
         );
     });
 });

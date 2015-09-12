@@ -3,7 +3,8 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, serviceExam, serviceHomework){
+app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, serviceExam, serviceHomework,
+                                         $cordovaDialogs, serviceConstants){
 
     return{
 
@@ -20,6 +21,7 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, ser
                         var prova = {};
                         prova.id = resultSet.rows.item(i).id;
                         prova.nome = resultSet.rows.item(i).titulo;
+                        prova.data = new Date(resultSet.rows.item(i).data);
                         prova.peso = resultSet.rows.item(i).peso;
                         prova.nota = resultSet.rows.item(i).nota;
                         prova.id_materia = resultSet.rows.item(i).id_materia;
@@ -53,6 +55,7 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, ser
                         var trabalho = {};
                         trabalho.id = resultSet.rows.item(i).id;
                         trabalho.nome = resultSet.rows.item(i).trabalho;
+                        trabalho.data_entrega = new Date(resultSet.rows.item(i).data_entrega);
                         trabalho.peso = resultSet.rows.item(i).peso;
                         trabalho.nota = resultSet.rows.item(i).nota;
                         trabalho.id_materia = resultSet.rows.item(i).id_materia;
@@ -149,15 +152,28 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, ser
         },
 
         multipleUpdate: function(listActivities){
-
-            for(var i=0; i<listActivities.length; i++){
-                var activity = listActivities[i];
-                if(activity.tipo=='prova'){
-                    serviceExam.updateExam(activity);
-                }else if(activity.tipo=='trabalho'){
-                    serviceHomework.updateHomework(activity);
+            var defer = $q.defer();
+            $cordovaDialogs.confirm(serviceConstants.MSG_DASHBOARD_CHANGES.MSG,
+                serviceConstants.MSG_DASHBOARD_CHANGES.CONFIRM,
+                [serviceConstants.MSG_DASHBOARD_CHANGES.BUTTON_YES,
+                 serviceConstants.MSG_DASHBOARD_CHANGES.BUTTON_NO]).then(
+                function(buttonIndex){
+                    if(buttonIndex==1){
+                        defer.resolve();
+                        for(var i=0; i<listActivities.length; i++){
+                            var activity = listActivities[i];
+                            if(activity.tipo=='prova'){
+                                activity.titulo = activity.nome;
+                                serviceExam.updateExam(activity);
+                            }else if(activity.tipo=='trabalho'){
+                                activity.trabalho = activity.nome;
+                                serviceHomework.updateHomework(activity);
+                            }
+                        }
+                    }
                 }
-            }
+            );
+            return defer.promise;
         }
     }
 });

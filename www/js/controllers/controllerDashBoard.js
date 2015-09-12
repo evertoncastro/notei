@@ -75,15 +75,10 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
         });
     };
 
-    $scope.multipleUpdate = function(){
-        $cordovaDialogs.confirm(serviceConstants.MSG_DASHBOARD_CHANGES.MSG,
-                    serviceConstants.MSG_DASHBOARD_CHANGES.CONFIRM,
-                    [serviceConstants.MSG_DASHBOARD_CHANGES.BUTTON_YES,
-                    serviceConstants.MSG_DASHBOARD_CHANGES.BUTTON_NO]).then(
-            function(buttonIndex){
-                if(buttonIndex==1){
-                    serviceDashBoard.multipleUpdate($scope.data.listActivities);
-                }
+    $scope.finishDashBoard = function(){
+        serviceDashBoard.multipleUpdate($scope.data.listActivities).then(
+            function(){
+                $scope.closeModal();
             }
         );
     };
@@ -106,10 +101,13 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
     });
     // Execute action on hide modal
     $scope.$on('modal.hidden', function() {
+        //$scope.finishDashBoard();
         // Execute action
+        //serviceDashBoard.multipleUpdate($scope.data.listActivities);
     });
     // Execute action on remove modal
     $scope.$on('modal.removed', function() {
+        //$scope.finishDashBoard();
         // Execute action
     });
 

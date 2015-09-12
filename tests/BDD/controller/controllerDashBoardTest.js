@@ -50,6 +50,7 @@ describe('Área de anotação controller', function () {
         Modal.prototype.hide = function() {void(0);};
         $scope.modal = new Modal();
 
+
         DashBoardCtrl = $controller('DashBoardCtrl', {'$scope': $scope});
 
 
@@ -261,17 +262,8 @@ describe('Área de anotação controller', function () {
         $scope.data.listActivities = [{id: 1, nome: 'Prova 1', peso: 3, nota: 7, id_materia: 2, tipo: 'prova', ativo: true},
             {id: 2, nome: 'Exercicios Teste', peso: 3, nota: 10, id_materia: 1, tipo: 'trabalho', ativo: true}];
 
-
-
-        $scope.multipleUpdate();
-        expect($scope.multipleUpdate).toBeDefined();
-        expect($cordovaDialogs.confirm).toHaveBeenCalledWith(
-            serviceConstants.MSG_DASHBOARD_CHANGES.MSG,
-            serviceConstants.MSG_DASHBOARD_CHANGES.CONFIRM,
-            [serviceConstants.MSG_DASHBOARD_CHANGES.BUTTON_YES,
-             serviceConstants.MSG_DASHBOARD_CHANGES.BUTTON_NO]
-        );
-
+        $scope.finishDashBoard();
+        expect($scope.finishDashBoard).toBeDefined();
         expect(serviceDashBoard.multipleUpdate).toHaveBeenCalled();
 
     });
