@@ -4,9 +4,10 @@
 angular.module('anotei').controller('DashBoardCtrl', DashBoardCtrl);
 
 function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
-                       serviceDashBoard, serviceConfig, $cordovaDialogs,
-                       serviceConstants){
+                       serviceDashBoard, serviceConfig, serviceValidation){
     $scope.data = {};
+    $scope.data.manipulate = false;
+    //$scope.listActivities = [];
     $scope.sort = serviceSubject.getCurrentSortSubject();
 
     $scope.init = function(){
@@ -30,6 +31,21 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
                 $scope.openModal();
             }
         )
+    };
+
+    $scope.setOldValue = function(value){
+        $scope.oldValue = value;
+    };
+
+    //TODO: should be tested
+    $scope.validateInput = function(value, index, type){
+        var obj = {newValue: value, oldValue: $scope.oldValue};
+        if(type=='nota'){
+            $scope.data.listActivities[index].nota = serviceValidation.validateInput(obj);
+        }else if(type=='peso'){
+            $scope.data.listActivities[index].peso = serviceValidation.validateInput(obj);
+        }
+        $scope.refreshAverage();
     };
 
     $scope.statusAverage = function(){
@@ -62,6 +78,7 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
         var list = $scope.data.listActivities;
         $scope.data.average = serviceDashBoard.calcAverage(list);
         $scope.statusAverage();
+        $scope.activeManipulate();
     };
 
     $scope.sortSubjectList = function(sort){
@@ -76,11 +93,19 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
     };
 
     $scope.finishDashBoard = function(){
-        serviceDashBoard.multipleUpdate($scope.data.listActivities).then(
-            function(){
-                $scope.closeModal();
-            }
-        );
+        if($scope.data.manipulate==true){
+            serviceDashBoard.multipleUpdate($scope.data.listActivities).then(
+                function(){
+                    $scope.closeModal();
+                }
+            );
+        }else{
+            $scope.closeModal();
+        }
+    };
+
+    $scope.activeManipulate = function(){
+        $scope.data.manipulate = true;
     };
 
     $ionicModal.fromTemplateUrl('templates/modal/modal-subject.html', {
@@ -93,6 +118,7 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
         $scope.modal.show();
     };
     $scope.closeModal = function() {
+        $scope.data.manipulate = false;
         $scope.modal.hide();
     };
     //Cleanup the modal when we're done with it!

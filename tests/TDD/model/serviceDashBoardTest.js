@@ -289,4 +289,5 @@ describe('Service DashBoard Test', function(){
             {id: 2, nome: 'Exercicios Teste', peso: 3, nota: 10, id_materia: 1, tipo: 'trabalho', ativo: true, trabalho: 'Exercicios Teste'}
         );
     });
+
 });

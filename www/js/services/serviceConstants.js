@@ -43,7 +43,11 @@ app.service('serviceConstants', function() {
 
         MSG_EMPTY_CONFIG_NOTES:             {MSG: 'Nenhum campo pode ser vazio', ALERT: 'Aviso', BUTTON: 'OK'},
 
-        MSG_DASHBOARD_CHANGES:              {MSG: 'Deseja gravar as alterações realizadas?', CONFIRM: 'Confirmar', BUTTON_YES: 'OK', BUTTON_NO: 'Cancel'}
+        MSG_DASHBOARD_CHANGES:              {MSG: 'Deseja gravar as alterações realizadas?', CONFIRM: 'Confirmar', BUTTON_YES: 'OK', BUTTON_NO: 'Cancel'},
+
+        MSG_ALERT_FOR_INPUT_NOTES:          {MSG: 'O valor informado está fora do intervalo permitido. \nInforme um valor entre ', ALERT: 'Alerta', BUTTON: 'OK'},
+
+        MSG_ALERT_INVALID_INPUTS:           {MSG: 'O valor informado possui caracteres não permitidos e/ou espaços. \nSepare números reais com . (ponto)', ALERT: 'Alerta', BUTTON: 'OK'}
 
     }
 });

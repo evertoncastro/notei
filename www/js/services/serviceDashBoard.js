@@ -159,7 +159,6 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, ser
                  serviceConstants.MSG_DASHBOARD_CHANGES.BUTTON_NO]).then(
                 function(buttonIndex){
                     if(buttonIndex==1){
-                        defer.resolve();
                         for(var i=0; i<listActivities.length; i++){
                             var activity = listActivities[i];
                             if(activity.tipo=='prova'){
@@ -171,6 +170,7 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, ser
                             }
                         }
                     }
+                    defer.resolve();
                 }
             );
             return defer.promise;

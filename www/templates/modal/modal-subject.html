@@ -20,17 +20,17 @@
     <ion-content >
         <div class="box-modal-subject">
            <div class="area-for-grade">
-               <label class="item-for-grade item item-input" ng-repeat="activity in data.listActivities">
+               <label class="item-for-grade item item-input" ng-repeat="activity in data.listActivities track by $index">
                    <span class="display-label">{{activity.nome}}</span>
                    <label class="group">
                        <span class="title-detail">Peso:</span>
-                       <input type="tel" ng-model="activity.peso"
-                               ng-change="refreshAverage()">
+                       <input type="tel" ng-model="activity.peso" ng-blur="validateInput(activity.peso, $index, 'peso')"
+                               ng-change="refreshAverage()" ng-focus="setOldValue(activity.peso)">
                    </label>
                    <label class="group">
                        <span class="title-detail">Nota:</span>
-                       <input type="tel" ng-model="activity.nota"
-                               ng-change="refreshAverage()">
+                       <input type="tel" ng-model="activity.nota" ng-blur="validateInput(activity.nota, $index, 'nota')"
+                               ng-change="refreshAverage()" ng-focus="setOldValue(activity.nota)">
                    </label>
                    <label class="checkbox">
                        <input type="checkbox" ng-model="activity.ativo"
