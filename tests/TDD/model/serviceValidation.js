@@ -96,6 +96,55 @@ describe('Service Util Test', function(){
         expect(serviceValidation.setStatusValidation).toHaveBeenCalled();
     });
 
+    it('TDD - Should validate the data input for attendance ' +
+        'and return the newValue when the input is ok', function(){
+        var note = {
+            newValue: 20,
+            oldValue: 7
+        };
+        var validation = serviceValidation.validateInputNotes(note);
+        expect(serviceValidation.validateInputAttendance).toBeDefined();
+        expect(validation).toBe(20);
+        expect(serviceValidation.setStatusValidation).toHaveBeenCalledWith(true);
+    });
+
+    it('TDD - Should validate the data input for attendance and display ' +
+        'a dialog informing invalid character', function(){
+        spyOn($cordovaDialogs, 'alert');
+
+        var note = {
+            newValue: '20$$',
+            oldValue: 7
+        };
+        var validation = serviceValidation.validateInputAttendance(note);
+        expect(serviceValidation.validateInputAttendance).toBeDefined();
+        expect($cordovaDialogs.alert).toHaveBeenCalledWith(
+            serviceConstants.MSG_ALERT_INVALID_INPUTS.MSG,
+            serviceConstants.MSG_ALERT_INVALID_INPUTS.ALERT,
+            serviceConstants.MSG_ALERT_INVALID_INPUTS.BUTTON);
+        expect(validation).toBe(7);
+        expect(serviceValidation.setStatusValidation).toHaveBeenCalledWith(false);
+    });
+
+    it('TDD - Should validate the data input for attendance and display ' +
+        'a dialog informing value greater than 100', function(){
+        spyOn($cordovaDialogs, 'alert');
+
+        var note = {
+            newValue: 100,
+            oldValue: 7
+        };
+        debugger;
+        var validation = serviceValidation.validateInputAttendance(note);
+        expect(serviceValidation.validateInputAttendance).toBeDefined();
+        expect($cordovaDialogs.alert).toHaveBeenCalledWith(
+            serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.MSG,
+            serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.ALERT,
+            serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.BUTTON);
+        expect(validation).toBe(7);
+        expect(serviceValidation.setStatusValidation).toHaveBeenCalledWith(false);
+    });
+
     it('TDD - Should define getters and setters for statusValidation', function(){
         expect(serviceValidation.setStatusValidation).toBeDefined();
         expect(serviceValidation.getStatusValidation).toBeDefined();

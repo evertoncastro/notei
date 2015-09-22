@@ -28,11 +28,11 @@
                                                                                            ng-blur="updateSubject(subject)">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Máx. faltas:</span><input ng-model="subject.max_faltas" type="number"
+                                    <span class="display-label">Máx. faltas:</span><input ng-model="subject.max_faltas" type="tel"
                                                                      ng-change="setOldValue(subject.max_faltas)" ng-blur="updateSubject(subject, $index, 'max_faltas')">
                                 </label>
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Faltas:</span><input ng-model="subject.num_faltas" type="number"
+                                    <span class="display-label">Faltas:</span><input ng-model="subject.num_faltas" type="tel"
                                                                     ng-change="setOldValue(subject.num_faltas)" ng-blur="updateSubject(subject, $index, 'num_faltas')">
                                 </label>
                             </div>
