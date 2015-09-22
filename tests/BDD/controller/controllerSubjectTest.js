@@ -219,26 +219,82 @@ describe('Subject controller', function () {
         expect(serviceSubject.setCurrentSortSubject).toHaveBeenCalledWith('desc');
     });
 
-    /*it('BDD - Cenário: Inserção de dados nos inputs ' +
-        'Dado que: o usuário inseriru um valor menor que o limite mínimo ' +
-        'E: um valor maior que o limite máximo ' +
+    it('BDD - Cenário: Alteração dos valores no inputs de faltas e máximo de faltas' +
+        'Dado que: o usuário inseriru o valor 25' +
+        'Então: o dado será atualizado no banco de dados',function(){
+
+        spyOn(serviceValidation, 'validateInputAttendance').and.callThrough();
+        spyOn(serviceSubject, 'updateSubject');
+        $scope.oldValue = 20;
+        $scope.data.subjectList = [
+            {max_faltas: 20, num_faltas: 40},
+            {max_faltas: 20, num_faltas: 10}
+        ];
+
+        expect($scope.validateInputAttendance).toBeDefined();
+        $scope.validateInputAttendance({max_faltas: 25, num_faltas: 40}, 0, 'max_faltas');
+        expect(serviceValidation.validateInputAttendance).toHaveBeenCalledWith(
+            {newValue: 25, oldValue: 20}
+        );
+        expect($scope.data.subjectList).toEqual([
+            {max_faltas: 25, num_faltas: 40},
+            {max_faltas: 20, num_faltas: 10}
+        ]);
+
+        expect(serviceSubject.updateSubject).toHaveBeenCalled();
+    });
+
+    it('BDD - Cenário: Alteração dos valores no inputs de faltas e máximo de faltas' +
+        'Dado que: o usuário inseriru um valor com caractere inválido ou espaço' +
         'Então: uma mensagem surgirá na tela informando inconsistência',function(){
 
-        spyOn(serviceValidation, 'validateInputNotes').and.callThrough();
-        $scope.oldValue = 5;
+        spyOn(serviceValidation, 'validateInputAttendance').and.callThrough();
+        spyOn(serviceSubject, 'updateSubject');
+        $scope.oldValue = 20;
         $scope.data.subjectList = [
             {max_faltas: 20, num_faltas: 5},
             {max_faltas: 20, num_faltas: 10}
         ];
 
-        expect($scope.validateInputNotes).toBeDefined();
-        $scope.validateInputNotes({max_faltas: 8, num_faltas: 7}, 1, 'max_faltas');
-        expect(serviceValidation.validateInputNotes).toHaveBeenCalledWith(
-            {newValue: 8, oldValue: 5}
+        expect($scope.validateInputAttendance).toBeDefined();
+        $scope.validateInputAttendance({max_faltas: '$$', num_faltas: 7}, 0, 'max_faltas');
+        expect(serviceValidation.validateInputAttendance).toHaveBeenCalledWith(
+            {newValue: '$$', oldValue: 20}
         );
-    })*/
+        expect($cordovaDialogs.alert).toHaveBeenCalled();
+        expect($scope.data.subjectList).toEqual([
+            {max_faltas: 20, num_faltas: 5},
+            {max_faltas: 20, num_faltas: 10}
+        ]);
 
+        expect(serviceSubject.updateSubject).not.toHaveBeenCalled();
+    });
 
+    it('BDD - Cenário: Alteração dos valores no inputs de faltas e máximo de faltas' +
+        'Dado que: o usuário inseriru um valor maior que 99' +
+        'Então: uma mensagem surgirá na tela informando inconsistência',function(){
+
+        spyOn(serviceValidation, 'validateInputAttendance').and.callThrough();
+        spyOn(serviceSubject, 'updateSubject');
+        $scope.oldValue = 40;
+        $scope.data.subjectList = [
+            {max_faltas: 20, num_faltas: 40},
+            {max_faltas: 20, num_faltas: 10}
+        ];
+
+        expect($scope.validateInputAttendance).toBeDefined();
+        $scope.validateInputAttendance({max_faltas: 20, num_faltas: 100}, 0, 'num_faltas');
+        expect(serviceValidation.validateInputAttendance).toHaveBeenCalledWith(
+            {newValue: 100, oldValue: 40}
+        );
+        expect($cordovaDialogs.alert).toHaveBeenCalled();
+        expect($scope.data.subjectList).toEqual([
+            {max_faltas: 20, num_faltas: 40},
+            {max_faltas: 20, num_faltas: 10}
+        ]);
+
+        expect(serviceSubject.updateSubject).not.toHaveBeenCalled();
+    })
 
 });
 

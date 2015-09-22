@@ -49,7 +49,7 @@ app.service('serviceValidation', function(serviceConfig, $cordovaDialogs, servic
                     serviceConstants.MSG_ALERT_INVALID_INPUTS.BUTTON);
                 this.setStatusValidation(false);
                 return data.oldValue;
-            }if(newData>=100){
+            }if(newData>=100 || newData<0){
                 $cordovaDialogs.alert(
                     serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.MSG,
                     serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.ALERT,

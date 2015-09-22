@@ -84,22 +84,29 @@ angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
             $scope.oldValue = value;
         };
 
-        /*$scope.validateInputNotes = function(dataSubject, index, type){
+        $scope.validateInputAttendance = function(dataSubject, index, type){
             var obj = {};
+            var oldValue = $scope.oldValue;
+            var upData = null;
+            var upSubject = {};
             if(type=='max_faltas'){
-                obj = {newValue: dataSubject.max_faltas, oldValue: $scope.oldValue};
-                $scope.data.subjectList[index].max_faltas = serviceValidation.validateInputNotes(obj);
+                obj = {newValue: dataSubject.max_faltas, oldValue: oldValue};
+                upData = serviceValidation.validateInputAttendance(obj);
+                $scope.data.subjectList[index].max_faltas = upData;
                 if(serviceValidation.getStatusValidation()==true){
-                    $scope.updateSubject(dataSubject);
+                    upSubject = $scope.data.subjectList[index];
+                    $scope.updateSubject(upSubject);
                 }
             }else if(type=='num_faltas'){
-                obj = {newValue: dataSubject.num_faltas, oldValue: $scope.oldValue};
-                $scope.data.subjectList[index].num_faltas = serviceValidation.validateInputNotes(obj);
+                obj = {newValue: dataSubject.num_faltas, oldValue: oldValue};
+                upData = serviceValidation.validateInputAttendance(obj);
+                $scope.data.subjectList[index].num_faltas = upData;
                 if(serviceValidation.getStatusValidation()==true){
-                    $scope.updateSubject(dataSubject);
+                    upSubject = $scope.data.subjectList[index];
+                    $scope.updateSubject(upSubject);
                 }
             }
-        };*/
+        };
 
         $scope.init();
 
