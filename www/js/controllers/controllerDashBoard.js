@@ -38,12 +38,12 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
     };
 
     //TODO: should be tested
-    $scope.validateInput = function(value, index, type){
+    $scope.validateInputNotes = function(value, index, type){
         var obj = {newValue: value, oldValue: $scope.oldValue};
         if(type=='nota'){
-            $scope.data.listActivities[index].nota = serviceValidation.validateInput(obj);
+            $scope.data.listActivities[index].nota = serviceValidation.validateInputNotes(obj);
         }else if(type=='peso'){
-            $scope.data.listActivities[index].peso = serviceValidation.validateInput(obj);
+            $scope.data.listActivities[index].peso = serviceValidation.validateInputNotes(obj);
         }
         $scope.refreshAverage();
     };

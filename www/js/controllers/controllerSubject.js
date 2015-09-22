@@ -4,7 +4,7 @@
 angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
 
     function SubjectCtrl($scope, serviceSubject, $rootScope, serviceConstants,
-                         $ionicLoading, $state, $cordovaDialogs){
+                         $ionicLoading, $state, $cordovaDialogs, serviceValidation){
 
         $scope.showSubject = false;
         $scope.subject_id = null;
@@ -78,6 +78,27 @@ angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
                 serviceSubject.setCurrentSortSubject(sort);
                 $ionicLoading.hide();
             });
+        };
+
+        $scope.setOldValue = function(value){
+            $scope.oldValue = value;
+        };
+
+        $scope.validateInputNotes = function(dataSubject, index, type){
+            var obj = {};
+            if(type=='max_faltas'){
+                obj = {newValue: dataSubject.max_faltas, oldValue: $scope.oldValue};
+                $scope.data.subjectList[index].max_faltas = serviceValidation.validateInputNotes(obj);
+                if(serviceValidation.getStatusValidation()==true){
+                    $scope.updateSubject(dataSubject);
+                }
+            }else if(type=='num_faltas'){
+                obj = {newValue: dataSubject.num_faltas, oldValue: $scope.oldValue};
+                $scope.data.subjectList[index].num_faltas = serviceValidation.validateInputNotes(obj);
+                if(serviceValidation.getStatusValidation()==true){
+                    $scope.updateSubject(dataSubject);
+                }
+            }
         };
 
         $scope.init();

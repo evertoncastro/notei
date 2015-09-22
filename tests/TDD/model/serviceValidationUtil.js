@@ -16,6 +16,8 @@ describe('Service Util Test', function(){
         $httpBackend.whenGET(/templates\/.*/).respond(200);
         $scope = rootScope.$new();
 
+        spyOn(serviceValidation,'setStatusValidation');
+
     }));
 
     it('TDD - Should compare the parameter for notes with the data ' +
@@ -35,13 +37,14 @@ describe('Service Util Test', function(){
             newValue: '11rewre',
             oldValue: 7
         };
-        var validation = serviceValidation.validateInput(note);
-        expect(serviceValidation.validateInput).toBeDefined();
+        var validation = serviceValidation.validateInputNotes(note);
+        expect(serviceValidation.validateInputNotes).toBeDefined();
         expect($cordovaDialogs.alert).toHaveBeenCalledWith(
             serviceConstants.MSG_ALERT_INVALID_INPUTS.MSG,
             serviceConstants.MSG_ALERT_INVALID_INPUTS.ALERT,
             serviceConstants.MSG_ALERT_INVALID_INPUTS.BUTTON);
         expect(validation).toBe(7);
+        expect(serviceValidation.setStatusValidation).toHaveBeenCalled();
     });
 
     it('TDD - Should compare the parameter for notes with the data ' +
@@ -61,14 +64,15 @@ describe('Service Util Test', function(){
             newValue: 11,
             oldValue: 7
         };
-        var validation = serviceValidation.validateInput(note);
-        expect(serviceValidation.validateInput).toBeDefined();
+        var validation = serviceValidation.validateInputNotes(note);
+        expect(serviceValidation.validateInputNotes).toBeDefined();
         expect(serviceConfig.getObjNotes).toHaveBeenCalled();
         expect($cordovaDialogs.alert).toHaveBeenCalledWith(
             serviceConstants.MSG_ALERT_FOR_INPUT_NOTES.MSG+0+' e '+10,
             serviceConstants.MSG_ALERT_FOR_INPUT_NOTES.ALERT,
             serviceConstants.MSG_ALERT_FOR_INPUT_NOTES.BUTTON);
         expect(validation).toBe(7);
+        expect(serviceValidation.setStatusValidation).toHaveBeenCalled();
     });
 
     it('TDD - Should compare the parameter for notes with the data ' +
@@ -85,9 +89,15 @@ describe('Service Util Test', function(){
             newValue: 8,
             oldValue: 7
         };
-        var validation = serviceValidation.validateInput(note);
-        expect(serviceValidation.validateInput).toBeDefined();
+        var validation = serviceValidation.validateInputNotes(note);
+        expect(serviceValidation.validateInputNotes).toBeDefined();
         expect(serviceConfig.getObjNotes).toHaveBeenCalled();
         expect(validation).toBe(8);
+        expect(serviceValidation.setStatusValidation).toHaveBeenCalled();
+    });
+
+    it('TDD - Should define getters and setters for statusValidation', function(){
+        expect(serviceValidation.setStatusValidation).toBeDefined();
+        expect(serviceValidation.getStatusValidation).toBeDefined();
     });
 });

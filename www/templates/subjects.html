@@ -11,7 +11,7 @@
         <div id="wrapper-subject">
             <div class="box-subject">
                 <div class="subjects-board">
-                    <div class="subject-item" ng-repeat="subject in data.subjectList">
+                    <div class="subject-item" ng-repeat="subject in data.subjectList track by $index">
                         <div class="subject-title">
                             <span class="title" ng-click="openSubject(subject.id)">{{subject.nome}}</span>
                             <i class="ion-edit" ng-click="updateFullSubject(subject)"></i>
@@ -29,11 +29,11 @@
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Máx. faltas:</span><input ng-model="subject.max_faltas" type="number"
-                                                                                          ng-blur="updateSubject(subject)">
+                                                                     ng-change="setOldValue(subject.max_faltas)" ng-blur="updateSubject(subject, $index, 'max_faltas')">
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Faltas:</span><input ng-model="subject.num_faltas" type="number"
-                                                                                     ng-blur="updateSubject(subject)">
+                                                                    ng-change="setOldValue(subject.num_faltas)" ng-blur="updateSubject(subject, $index, 'num_faltas')">
                                 </label>
                             </div>
                             <!--<div class="board-observation" ng-show="showRightTab">
