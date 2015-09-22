@@ -84,7 +84,7 @@ angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
             $scope.oldValue = value;
         };
 
-        $scope.validateInputNotes = function(dataSubject, index, type){
+        /*$scope.validateInputNotes = function(dataSubject, index, type){
             var obj = {};
             if(type=='max_faltas'){
                 obj = {newValue: dataSubject.max_faltas, oldValue: $scope.oldValue};
@@ -99,7 +99,7 @@ angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
                     $scope.updateSubject(dataSubject);
                 }
             }
-        };
+        };*/
 
         $scope.init();
 

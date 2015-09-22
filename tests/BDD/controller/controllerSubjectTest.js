@@ -219,7 +219,7 @@ describe('Subject controller', function () {
         expect(serviceSubject.setCurrentSortSubject).toHaveBeenCalledWith('desc');
     });
 
-    it('BDD - Cenário: Inserção de dados nos inputs ' +
+    /*it('BDD - Cenário: Inserção de dados nos inputs ' +
         'Dado que: o usuário inseriru um valor menor que o limite mínimo ' +
         'E: um valor maior que o limite máximo ' +
         'Então: uma mensagem surgirá na tela informando inconsistência',function(){
@@ -236,7 +236,7 @@ describe('Subject controller', function () {
         expect(serviceValidation.validateInputNotes).toHaveBeenCalledWith(
             {newValue: 8, oldValue: 5}
         );
-    })
+    })*/
 
 
 
