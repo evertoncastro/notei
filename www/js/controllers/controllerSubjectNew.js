@@ -4,7 +4,7 @@
 angular.module('anotei').controller('SubjectNewCtrl', SubjectNewCtrl);
 
 function SubjectNewCtrl($scope, $state, $ionicLoading, serviceSubject, $rootScope,
-                        serviceConstants, $cordovaDialogs, serviceUtil){
+                        serviceConstants, $cordovaDialogs, serviceUtil, serviceValidation){
     $scope.title = null;
     $scope.wayForm = null;
     $scope.data = {};
@@ -83,6 +83,19 @@ function SubjectNewCtrl($scope, $state, $ionicLoading, serviceSubject, $rootScop
             $scope.data = data;
             serviceSubject.setCurrentSubject(null);
         }
+    };
+
+    $scope.setOldValue = function(value){
+        $scope.oldValue = value;
+    };
+
+    $scope.validateInputAttendance = function(value){
+        var obj = {};
+        var oldValue = $scope.oldValue;
+        var upData = null;
+        obj = {newValue: value, oldValue: oldValue};
+        upData = serviceValidation.validateInputAttendance(obj);
+        $scope.data.max_faltas = upData;
     };
 
     $scope.loadForm();

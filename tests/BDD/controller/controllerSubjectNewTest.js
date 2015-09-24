@@ -4,7 +4,7 @@
 describe('SubjectNew controller', function () {
 
     var SubjectNewCtrl, $scope, serviceSubject, $cordovaDialogs,
-        serviceConstants, $state;
+        serviceConstants, $state, serviceValidation;
 
     beforeEach(module('anotei'));
 
@@ -16,7 +16,8 @@ describe('SubjectNew controller', function () {
         serviceConstants = $injector.get('serviceConstants');
         $cordovaDialogs = $injector.get('$cordovaDialogs');
         $state = $injector.get('$state');
-        SubjectNewCtrl = $controller('SubjectNewCtrl', {'$scope': $scope})
+        serviceValidation = $injector.get('serviceValidation');
+        SubjectNewCtrl = $controller('SubjectNewCtrl', {'$scope': $scope});
 
         $httpBackend.whenGET(/templates\/.*/).respond(200);
         spyOn($cordovaDialogs, 'alert');
@@ -176,6 +177,58 @@ describe('SubjectNew controller', function () {
 
         expect($state.go).toHaveBeenCalledWith('app.subjects');
     });
+
+    it('BDD - Cenário: Inserção do número de faltas' +
+        'Dado que: o usuário inseriru um valor maior que 99' +
+        'Então: uma mensagem surgirá na tela informando inconsistência',function(){
+
+        spyOn(serviceValidation, 'validateInputAttendance').and.callThrough();
+        $scope.oldValue = 30;
+        $scope.data = {max_faltas: 10};
+
+        expect($scope.validateInputAttendance).toBeDefined();
+        $scope.validateInputAttendance(101);
+        expect(serviceValidation.validateInputAttendance).toHaveBeenCalledWith(
+            {newValue: 101, oldValue: 30}
+        );
+        expect($cordovaDialogs.alert).toHaveBeenCalled();
+        expect($scope.data.max_faltas).toEqual(30);
+    });
+
+    it('BDD - Cenário: Inserção do número de faltas' +
+        'Dado que: o usuário inseriru um valor com caractere especial' +
+        'Então: uma mensagem surgirá na tela informando inconsistência',function(){
+
+        spyOn(serviceValidation, 'validateInputAttendance').and.callThrough();
+        $scope.oldValue = 30;
+        $scope.data = {max_faltas: 10};
+
+        expect($scope.validateInputAttendance).toBeDefined();
+        $scope.validateInputAttendance('10@@');
+        expect(serviceValidation.validateInputAttendance).toHaveBeenCalledWith(
+            {newValue: '10@@', oldValue: 30}
+        );
+        expect($cordovaDialogs.alert).toHaveBeenCalled();
+        expect($scope.data.max_faltas).toEqual(30);
+    });
+
+
+    it('BDD - Cenário: Inserção do número de faltas' +
+        'Dado que: o usuário inseriru um valor maior que 0 e menor que 99' +
+        'Então: uma mensagem não surgirá',function(){
+
+        spyOn(serviceValidation, 'validateInputAttendance').and.callThrough();
+        $scope.oldValue = 30;
+        $scope.data = {max_faltas: 10};
+
+        expect($scope.validateInputAttendance).toBeDefined();
+        $scope.validateInputAttendance(25);
+        expect(serviceValidation.validateInputAttendance).toHaveBeenCalledWith(
+            {newValue: 25, oldValue: 30}
+        );
+        expect($cordovaDialogs.alert).not.toHaveBeenCalled();
+        expect($scope.data.max_faltas).toEqual(25);
+    })
 });
 
 

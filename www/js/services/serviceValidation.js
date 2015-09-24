@@ -41,25 +41,30 @@ app.service('serviceValidation', function(serviceConfig, $cordovaDialogs, servic
         },
 
         validateInputAttendance: function(data){
-            var newData = data.newValue.toString().replace(/[^0-9.]+/g,'');
-            if(newData != data.newValue){
-                $cordovaDialogs.alert(
-                    serviceConstants.MSG_ALERT_INVALID_INPUTS.MSG,
-                    serviceConstants.MSG_ALERT_INVALID_INPUTS.ALERT,
-                    serviceConstants.MSG_ALERT_INVALID_INPUTS.BUTTON);
-                this.setStatusValidation(false);
-                return data.oldValue;
-            }if(newData>=100 || newData<0){
-                $cordovaDialogs.alert(
-                    serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.MSG,
-                    serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.ALERT,
-                    serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.BUTTON);
-                this.setStatusValidation(false);
-                return data.oldValue;
+            if(data.newValue && data.oldValue){
+                var newData = data.newValue.toString().replace(/[^0-9.]+/g,'');
+                if(newData != data.newValue){
+                    $cordovaDialogs.alert(
+                        serviceConstants.MSG_ALERT_INVALID_INPUTS.MSG,
+                        serviceConstants.MSG_ALERT_INVALID_INPUTS.ALERT,
+                        serviceConstants.MSG_ALERT_INVALID_INPUTS.BUTTON);
+                    this.setStatusValidation(false);
+                    return data.oldValue;
+                }if(newData>=100 || newData<0){
+                    $cordovaDialogs.alert(
+                        serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.MSG,
+                        serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.ALERT,
+                        serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.BUTTON);
+                    this.setStatusValidation(false);
+                    return data.oldValue;
+                }else{
+                    this.setStatusValidation(true);
+                    return Number(newData);
+                }
             }else{
-                this.setStatusValidation(true);
-                return Number(newData);
+                return data.oldValue;
             }
+
         }
     }
 });
