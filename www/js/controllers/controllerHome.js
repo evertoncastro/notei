@@ -6,13 +6,14 @@ angular.module('anotei').controller('HomeCtrl', HomeCtrl);
 function HomeCtrl($scope, serviceConfig){
 
     $scope.init = function(){
-        serviceConfig.getConfigNotes().then(
+        //TODO: I think it wont be used
+        /*serviceConfig.getConfigNotes().then(
             function(obj){
                 serviceConfig.setObjNotes(obj);
             }
-        );
+        );*/
     };
 
-    $scope.init();
+    //$scope.init();
 
 }

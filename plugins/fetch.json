@@ -40,19 +40,19 @@
         "is_top_level": true,
         "variables": {}
     },
-    "io.litehelpers.cordova.sqlite": {
+    "cordova-plugin-dialogs": {
         "source": {
             "type": "git",
-            "url": "https://github.com/litehelpers/Cordova-sqlite-storage.git",
+            "url": "https://github.com/apache/cordova-plugin-dialogs.git",
             "subdir": "."
         },
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-dialogs": {
+    "cordova-sqlite-storage": {
         "source": {
             "type": "git",
-            "url": "https://github.com/apache/cordova-plugin-dialogs.git",
+            "url": "https://github.com/litehelpers/Cordova-sqlite-storage.git",
             "subdir": "."
         },
         "is_top_level": true,

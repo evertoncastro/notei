@@ -9,12 +9,16 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova']).config(function(
 })
 
 
-.run(function($ionicPlatform, factoryDatabase, $rootScope) {
+.run(function($ionicPlatform, factoryDatabase,serviceConfig) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
     if (window.cordova) {
       factoryDatabase.init();
+      //TODO: test
+      serviceConfig.getConfigNotes().then(
+          function(obj){
+            serviceConfig.setObjNotes(obj);
+          }
+      );
     }
 
     if (window.cordova && window.cordova.plugins.Keyboard) {

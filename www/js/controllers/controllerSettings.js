@@ -19,5 +19,15 @@ angular.module('anotei').controller('SettingsCtrl', SettingsCtrl);
             serviceConfig.updateConfigNotes(data);
         };
 
+
+        //TODO: test
+        $scope.$on('$ionicView.afterLeave', function(){
+            serviceConfig.getConfigNotes().then(
+                function(obj){
+                    serviceConfig.setObjNotes(obj);
+                }
+            );
+        });
+
         $scope.init();
     }
