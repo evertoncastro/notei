@@ -85,7 +85,6 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
             return defer.promise;
         },
 
-        //TODO: test
         verifySubjectExistence: function(list){
             if(list && list.length>0){
                 $state.go('app.homework-new');

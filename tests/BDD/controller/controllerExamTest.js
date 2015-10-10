@@ -4,7 +4,7 @@
 describe('Exam controller', function () {
 
     var ExamCtrl, $scope, serviceExam, $cordovaSQLite,
-        $cordovaDialogs, serviceConstants, factoryDatabase;
+        $cordovaDialogs, serviceConstants, factoryDatabase, $state;
 
     beforeEach(module('anotei'));
 
@@ -16,6 +16,7 @@ describe('Exam controller', function () {
         serviceConstants = $injector.get('serviceConstants');
         $cordovaSQLite = $injector.get('$cordovaSQLite');
         $cordovaDialogs = $injector.get('$cordovaDialogs');
+        $state = $injector.get('$state');
         $httpBackend.whenGET(/templates\/.*/).respond(200);
         spyOn($cordovaDialogs, 'alert');
 
@@ -43,6 +44,8 @@ describe('Exam controller', function () {
                 }
             };
         });
+
+        spyOn($state, 'go');
 
         ExamCtrl = $controller('ExamCtrl', {'$scope': $scope});
 
@@ -231,6 +234,30 @@ describe('Exam controller', function () {
         expect($scope.sort).toBe('desc');
         expect(serviceExam.setCurrentSortExam).toHaveBeenCalledWith('desc');
     });
+
+    it('BDD - Cenário: Acesso à pagina de criação de provas ' +
+        'Dado que: o usuário clicou no botão adicionar ' +
+        'E: não possui matérias cadastradas ' +
+        'Então: um alerta surgirá na tela com essa informação', function(){
+
+        expect($scope.goToNewExam).toBeDefined();
+        spyOn(serviceExam, 'verifySubjectExistence').and.callThrough();
+        $scope.data.subjectList = [];
+        $scope.goToNewExam();
+        expect($cordovaDialogs.alert).toHaveBeenCalled();
+    });
+
+    it('BDD - Cenário: Acesso à pagina de criação de provas ' +
+        'Dado que: o usuário clicou no botão adicionar ' +
+        'E: possui pelo menos uma matéria cadastrada ' +
+        'Então: será redirecionado para a tela de cadastro de trabalho', function(){
+
+        expect($scope.goToNewExam).toBeDefined();
+        spyOn(serviceExam, 'verifySubjectExistence').and.callThrough();
+        $scope.data.subjectList = [{}];
+        $scope.goToNewExam();
+        expect($state.go).toHaveBeenCalledWith('app.exam-new');
+    })
 });
 
 

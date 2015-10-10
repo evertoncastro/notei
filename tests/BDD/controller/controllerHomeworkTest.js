@@ -4,7 +4,7 @@
 describe('Homework controller', function () {
 
     var HomeworkCtrl, $scope, serviceHomework, $cordovaSQLite,
-        $cordovaDialogs, serviceConstants, factoryDatabase;
+        $cordovaDialogs, serviceConstants, factoryDatabase, $state;
 
     beforeEach(module('anotei'));
 
@@ -16,6 +16,7 @@ describe('Homework controller', function () {
         serviceConstants = $injector.get('serviceConstants');
         $cordovaSQLite = $injector.get('$cordovaSQLite');
         $cordovaDialogs = $injector.get('$cordovaDialogs');
+        $state = $injector.get('$state');
         $httpBackend.whenGET(/templates\/.*/).respond(200);
         spyOn($cordovaDialogs, 'alert');
 
@@ -43,7 +44,7 @@ describe('Homework controller', function () {
                 }
             };
         });
-
+        spyOn($state, 'go');
         HomeworkCtrl = $controller('HomeworkCtrl', {'$scope': $scope});
 
     }));
@@ -231,6 +232,30 @@ describe('Homework controller', function () {
         expect($scope.sort).toBe('desc');
         expect(serviceHomework.setCurrentSortHomework).toHaveBeenCalledWith('desc');
     });
+
+    it('BDD - Cenário: Acesso à pagina de criação de trabalhos ' +
+        'Dado que: o usuário clicou no botão adicionar ' +
+        'E: não possui matérias cadastradas ' +
+        'Então: um alerta surgirá na tela com essa informação', function(){
+
+        expect($scope.goToNewHomework).toBeDefined();
+        spyOn(serviceHomework, 'verifySubjectExistence').and.callThrough();
+        $scope.data.subjectList = [];
+        $scope.goToNewHomework();
+        expect($cordovaDialogs.alert).toHaveBeenCalled();
+    });
+
+    it('BDD - Cenário: Acesso à pagina de criação de trabalhos ' +
+        'Dado que: o usuário clicou no botão adicionar ' +
+        'E: possui pelo menos uma matéria cadastrada ' +
+        'Então: será redirecionado para a tela de cadastro de trabalho', function(){
+
+        expect($scope.goToNewHomework).toBeDefined();
+        spyOn(serviceHomework, 'verifySubjectExistence').and.callThrough();
+        $scope.data.subjectList = [{}];
+        $scope.goToNewHomework();
+        expect($state.go).toHaveBeenCalledWith('app.homework-new');
+    })
 });
 
 

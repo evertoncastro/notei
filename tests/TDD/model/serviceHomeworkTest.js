@@ -2,7 +2,8 @@
  * Created by everton on 11/08/15.
  */
 describe('Service Homework Test', function(){
-    var serviceHomework, factoryDatabase, $cordovaSQLite, $scope;
+    var serviceHomework, factoryDatabase, $cordovaSQLite, $scope, $state,
+        $cordovaDialogs, serviceConstants;
 
     beforeEach(module('anotei'));
 
@@ -10,11 +11,16 @@ describe('Service Homework Test', function(){
         serviceHomework = $injector.get('serviceHomework');
         factoryDatabase = $injector.get('factoryDatabase');
         $cordovaSQLite = $injector.get('$cordovaSQLite');
+        $cordovaDialogs = $injector.get('$cordovaDialogs');
+        serviceConstants = $injector.get('serviceConstants');
+        $state = $injector.get('$state');
         var rootScope = $injector.get('$rootScope');
 
         $httpBackend.whenGET(/templates\/.*/).respond(200);
         $scope = rootScope.$new();
 
+        spyOn($state, 'go');
+        spyOn($cordovaDialogs, 'alert');
     }));
 
 
@@ -306,6 +312,24 @@ describe('Service Homework Test', function(){
 
         expect(successSpy).not.toHaveBeenCalled();
         expect(failSpy).toHaveBeenCalled();
+    });
+
+    it('TDD - should redirect user to app.homework-new when there is ' +
+        'at least one item in list', function(){
+        expect(serviceHomework.verifySubjectExistence).toBeDefined();
+        var list = [{}];
+        serviceHomework.verifySubjectExistence(list);
+        expect($state.go).toHaveBeenCalledWith('app.homework-new');
+    });
+
+    it('TDD - should raise an alert when there is no item in list', function(){
+        expect(serviceHomework.verifySubjectExistence).toBeDefined();
+        var list = [];
+        serviceHomework.verifySubjectExistence(list);
+        expect($cordovaDialogs.alert).toHaveBeenCalledWith(
+            serviceConstants.MSG_NOT_ALLOW_CREATE_HOMEWORK.MSG,
+            serviceConstants.MSG_NOT_ALLOW_CREATE_HOMEWORK.ALERT,
+            serviceConstants.MSG_NOT_ALLOW_CREATE_HOMEWORK.BUTTON);
     })
 
 });

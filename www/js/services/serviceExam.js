@@ -163,7 +163,6 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDi
             return validator;
         },
 
-        //TODO: test
         verifySubjectExistence: function(list){
             if(list && list.length>0){
                 $state.go('app.exam-new');
