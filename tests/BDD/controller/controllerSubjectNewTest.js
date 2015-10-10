@@ -17,12 +17,22 @@ describe('SubjectNew controller', function () {
         $cordovaDialogs = $injector.get('$cordovaDialogs');
         $state = $injector.get('$state');
         serviceValidation = $injector.get('serviceValidation');
-        SubjectNewCtrl = $controller('SubjectNewCtrl', {'$scope': $scope});
 
         $httpBackend.whenGET(/templates\/.*/).respond(200);
         spyOn($cordovaDialogs, 'alert');
         spyOn($state, 'go');
         spyOn($scope, '$broadcast');
+
+        spyOn(serviceSubject, 'getSubjects').and.callFake(function(){
+            return{
+                then: function(callBack){
+                    var result = [{nome: 'teste1'}, {nome: 'teste2'}];
+                    callBack(result);
+                }
+            }
+        });
+
+        SubjectNewCtrl = $controller('SubjectNewCtrl', {'$scope': $scope});
     }));
 
     it('TDD - Should define SubjectNewCtrl', function(){

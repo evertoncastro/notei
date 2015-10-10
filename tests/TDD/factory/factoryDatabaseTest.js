@@ -12,6 +12,7 @@ describe('Database - factory test', function(){
         factoryDatabase = $injector.get('factoryDatabase');
         $ionicLoading = $injector.get('$ionicLoading');
 
+        window.cordova = { mocked: true };
         window.sqlitePlugin = {
             openDatabase: angular.noop,
             deleteDatabase: angular.noop,
@@ -31,7 +32,7 @@ describe('Database - factory test', function(){
     });
 
     it('TDD - should verify the start of database', function(){
-        expect(factoryDatabase.init()).not.toBeUndefined;
+        expect(factoryDatabase.init()).toBeDefined;
         expect(window.sqlitePlugin.openDatabase).toHaveBeenCalled();
     });
 

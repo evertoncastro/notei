@@ -25,7 +25,7 @@ module.exports = function(config) {
       '../node_modules/angular-mocks/angular-mocks.js',
       'js/**/*.js',
       'lib/ionic/js/angular-resource.min.js',
-      '../tests/BDD/**/*.js'
+      '../tests/TDD/**/*.js'
     ],
 
 

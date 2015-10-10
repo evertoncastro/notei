@@ -41,6 +41,7 @@ app.factory('factoryDatabase', function($cordovaSQLite, $q){
             return defer.promise;
         },
 
+        //TODO: test
         setupWEB: function (script) {
             if (!window.cordova) {
                 var splitted = script.split(';');
