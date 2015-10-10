@@ -118,6 +118,20 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
             return defer.promise;
         },
 
+        //TODO: test
+        validDuplicatedSubject: function(list, newName){
+            var validator = false;
+            if(list.length){
+                for(var i = 0; i<list.length; i++){
+                    if(list[i].nome==newName){
+                        validator = true;
+                        break;
+                    }
+                }
+            }
+            return validator;
+        },
+
         setCurrentSubject: function(data){
             currentSubject = data;
         },
