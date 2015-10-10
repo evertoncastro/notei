@@ -26,6 +26,11 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
             $ionicLoading.hide();
             $scope.showExam = false;
         });
+        serviceSubject.getSubjects($scope.sort).then(
+            function(list){
+            $scope.data.subjectList = list;
+            $ionicLoading.hide();
+        });
     };
 
     $scope.deleteExam = function(data){
@@ -53,6 +58,11 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
                     )
                 }
             });
+    };
+
+    //TODO: test
+    $scope.goToNewExam = function(){
+        serviceExam.verifySubjectExistence($scope.data.subjectList);
     };
 
     $scope.updateExam = function(data){
@@ -113,10 +123,6 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
             $ionicLoading.hide();
         });
     };
-
-   /* $scope.reLoadPage = function(){
-        $rootScope.$broadcast('serviceExam:manipulatedExam');
-    };*/
 
     $scope.init();
 

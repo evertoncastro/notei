@@ -3,7 +3,7 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDialogs, serviceConstants){
+app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDialogs, serviceConstants, $state){
 
     var currentExam = null;
     var currentSortExam = 'asc';
@@ -161,6 +161,18 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDi
                 }
             }
             return validator;
+        },
+
+        //TODO: test
+        verifySubjectExistence: function(list){
+            if(list && list.length>0){
+                $state.go('app.exam-new');
+            }else{
+                $cordovaDialogs.alert(
+                    serviceConstants.MSG_NOT_ALLOW_CREATE_EXAM.MSG,
+                    serviceConstants.MSG_NOT_ALLOW_CREATE_EXAM.ALERT,
+                    serviceConstants.MSG_NOT_ALLOW_CREATE_EXAM.BUTTON);
+            }
         },
 
         setCurrentExam: function(data){

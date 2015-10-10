@@ -27,6 +27,11 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
             $ionicLoading.hide();
             $scope.showHomework = false;
         });
+        serviceSubject.getSubjects($scope.sort).then(
+            function(list){
+                $scope.data.subjectList = list;
+                $ionicLoading.hide();
+            });
     };
 
     $scope.deleteHomework = function(data){
@@ -54,6 +59,11 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
                     )
                 }
             });
+    };
+
+    //TODO: test
+    $scope.goToNewHomework = function(){
+        serviceHomework.verifySubjectExistence($scope.data.subjectList);
     };
 
     $scope.updateHomework = function(data){

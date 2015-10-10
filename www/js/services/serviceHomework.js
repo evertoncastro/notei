@@ -3,7 +3,7 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordovaDialogs, serviceConstants){
+app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordovaDialogs, serviceConstants, $state){
 
     var currentHomework = null;
     var currentSortHomework = 'asc';
@@ -83,6 +83,18 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
                 );
             }
             return defer.promise;
+        },
+
+        //TODO: test
+        verifySubjectExistence: function(list){
+            if(list && list.length>0){
+                $state.go('app.homework-new');
+            }else{
+                $cordovaDialogs.alert(
+                    serviceConstants.MSG_NOT_ALLOW_CREATE_HOMEWORK.MSG,
+                    serviceConstants.MSG_NOT_ALLOW_CREATE_HOMEWORK.ALERT,
+                    serviceConstants.MSG_NOT_ALLOW_CREATE_HOMEWORK.BUTTON);
+            }
         },
 
         updateHomework: function(data) {
