@@ -9,7 +9,7 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova']).config(function(
 })
 
 
-.run(function($ionicPlatform, factoryDatabase,serviceConfig) {
+.run(function($ionicPlatform, factoryDatabase, serviceConfig, serviceConstants) {
   $ionicPlatform.ready(function() {
     if (window.cordova) {
       factoryDatabase.init();
@@ -29,6 +29,13 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova']).config(function(
       StatusBar.styleDefault();
     }
   });
+
+  if (!window.cordova){
+    //WHEN ENVIRONMENT IS NOT CORDOVA
+    factoryDatabase.init();
+    factoryDatabase.setupWEB(serviceConstants.DB_SCHEMA);
+    //$rootScope.$broadcast('internal::startedapp');
+  }
 })
 
 .config(function($stateProvider, $urlRouterProvider) {

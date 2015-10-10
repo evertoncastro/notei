@@ -11,11 +11,16 @@ app.factory('factoryDatabase', function($cordovaSQLite, $q){
 
     return{
         init: function(){
-            if(currentDB == undefined){
-                currentDB = window.sqlitePlugin.openDatabase({
-                    name: DATABASE_NAME,
-                    createFromResource: PATH
-                });
+            if(window.cordova){
+                if(currentDB == undefined){
+                    currentDB = window.sqlitePlugin.openDatabase({
+                        name: DATABASE_NAME,
+                        createFromResource: PATH
+                    });
+                }
+            }else if(!window.cordova){
+                // open in WEB mode: database name, description is unecessary and size is fixed
+                currentDB = window.openDatabase(DATABASE_NAME, '1.0', '', 2 * 1024 * 1024);
             }
             return currentDB;
         },
@@ -34,8 +39,18 @@ app.factory('factoryDatabase', function($cordovaSQLite, $q){
                 }
             );
             return defer.promise;
+        },
+
+        setupWEB: function (script) {
+            if (!window.cordova) {
+                var splitted = script.split(';');
+
+                currentDB.transaction(function (tx) {
+                    for (var i = 0; currentDB && splitted && i < splitted.length; i++) {
+                        tx.executeSql(splitted[i]); // execute all tables....
+                    }
+                });
+            }
         }
-
-
     }
 });
