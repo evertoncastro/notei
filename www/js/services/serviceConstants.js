@@ -6,6 +6,7 @@ var app = angular.module('anotei');
 app.service('serviceConstants', function() {
     return {
 
+        DB_SCHEMA: 'CREATE TABLE trabalhos ( `id` integer, `trabalho` text NOT NULL, `data_entrega` text NOT NULL, `observacoes` text, `peso` numeric, `nota` numeric, `id_materia` INTEGER, `ativo` INTEGER DEFAULT "1", PRIMARY KEY(id) ); CREATE TABLE provas ( `id` integer, `titulo` text NOT NULL, `data` text NOT NULL, `observacoes` text, `peso` numeric, `nota` numeric, `id_materia` INTEGER, `ativo` INTEGER DEFAULT "1", PRIMARY KEY(id) ); CREATE TABLE materias ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `nome` TEXT NOT NULL, `max_faltas` INTEGER, `professor` TEXT, `email_prof` TEXT, `num_faltas` INTEGER ); CREATE TABLE `config_notas` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `intervalo_de` NUMERIC, `intervalo_para` NUMERIC, `media_minima` NUMERIC ); INSERT INTO `config_notas` VALUES(1,0,10,7)',
 
         MSG_SUCCESS_SUBJECT_NEW:            {MSG: 'Matéria criada com sucesso!', ALERT: 'Aviso', BUTTON: 'OK'},
         MSG_DATA_INVALID_SUBJECT_NEW:       {MSG: 'Dados preenchidos incorretamente', ALERT: 'Aviso', BUTTON: 'OK'},
