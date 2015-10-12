@@ -54,7 +54,7 @@
             </div>
         </div>
     </ion-content>
-    <ion-footer-bar class="footer-button-sort-area">
+    <ion-footer-bar class="footer-button-sort-area" ng-if="data.examList.length>0">
         <div class="button-asc" ng-click="sortExamList('desc')"
              ng-if="sort == 'asc'">
             <span>A-Z</span>

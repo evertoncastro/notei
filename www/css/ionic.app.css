@@ -7812,6 +7812,12 @@ ion-content {
         font-weight: bold;
         font-family: robotoregular;
         color: #848484; }
+.box-dash-board .no-subjects {
+  color: #848484;
+  display: block;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 50%; }
 
 .content {
   bottom: 0px; }
