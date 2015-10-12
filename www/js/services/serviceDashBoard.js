@@ -25,6 +25,7 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, ser
                         prova.peso = resultSet.rows.item(i).peso;
                         prova.nota = resultSet.rows.item(i).nota;
                         prova.id_materia = resultSet.rows.item(i).id_materia;
+                        prova.observacoes = resultSet.rows.item(i).observacoes;
                         prova.tipo = 'prova';
                         if(resultSet.rows.item(i).ativo==1){
                             prova.ativo = true;
@@ -59,6 +60,7 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, ser
                         trabalho.peso = resultSet.rows.item(i).peso;
                         trabalho.nota = resultSet.rows.item(i).nota;
                         trabalho.id_materia = resultSet.rows.item(i).id_materia;
+                        trabalho.observacoes = resultSet.rows.item(i).observacoes;
                         trabalho.tipo = 'trabalho';
                         if(resultSet.rows.item(i).ativo==1){
                             trabalho.ativo = true;

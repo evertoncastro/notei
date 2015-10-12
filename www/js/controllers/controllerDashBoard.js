@@ -96,11 +96,11 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
         if($scope.data.manipulate==true){
             serviceDashBoard.multipleUpdate($scope.data.listActivities).then(
                 function(){
-                    $scope.closeModal();
+                    $scope.data.manipulate = false;
                 }
             );
         }else{
-            $scope.closeModal();
+            $scope.data.manipulate = false;
         }
     };
 
@@ -118,23 +118,23 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
         $scope.modal.show();
     };
     $scope.closeModal = function() {
-        $scope.data.manipulate = false;
         $scope.modal.hide();
     };
     //Cleanup the modal when we're done with it!
     $scope.$on('$destroy', function() {
         $scope.modal.remove();
+        console.log('Modal destruido');
     });
     // Execute action on hide modal
     $scope.$on('modal.hidden', function() {
-        //$scope.finishDashBoard();
-        // Execute action
-        //serviceDashBoard.multipleUpdate($scope.data.listActivities);
+        $scope.finishDashBoard();
+        console.log('Modal hidden');
     });
     // Execute action on remove modal
     $scope.$on('modal.removed', function() {
         //$scope.finishDashBoard();
         // Execute action
+        console.log('Modal removido')
     });
 
     $scope.init();

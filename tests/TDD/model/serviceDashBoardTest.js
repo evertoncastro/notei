@@ -45,6 +45,7 @@ describe('Service DashBoard Test', function(){
                             peso: 2,
                             nota: 7,
                             id_materia: 1,
+                            observacoes: '',
                             ativo: 1
                         }
                     ];
@@ -73,6 +74,7 @@ describe('Service DashBoard Test', function(){
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
+                observacoes: '',
                 tipo: 'prova',
                 ativo: true
             }]
@@ -93,6 +95,7 @@ describe('Service DashBoard Test', function(){
                             peso: 2,
                             nota: 7,
                             id_materia: 1,
+                            observacoes: '',
                             ativo: 1
                         }];
 
@@ -120,6 +123,7 @@ describe('Service DashBoard Test', function(){
                 peso: 2,
                 nota: 7,
                 id_materia: 1,
+                observacoes: '',
                 tipo: 'trabalho',
                 ativo: true
             }]
