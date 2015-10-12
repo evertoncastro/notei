@@ -134,6 +134,16 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova'])
         controller: 'SettingsCtrl'
       }
     }
+  })
+
+  .state('app.contact', {
+    url: "/contact",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/contact.html",
+        controller: 'ContactCtrl'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
