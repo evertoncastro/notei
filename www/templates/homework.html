@@ -6,7 +6,7 @@
         <div id="wrapper-homework">
             <div class="box-homework">
                 <div class="homeworks-board">
-                    <div class="homework-item" ng-repeat="homework in data.homeworkList">
+                    <div class="homework-item" ng-repeat="homework in data.homeworkList track by $index">
                         <div class="homework-title">
                             <span class="title" ng-click="openHomework(homework.id)">{{homework.trabalho}}</span>
                             <span class="title title-min" ng-click="openHomework(homework.id)">{{homework.nome}}</span>
@@ -28,8 +28,9 @@
                             </div>
                             <div class="board-detail" ng-show="showLeftTab">
                                 <label class="item-board-detail item item-input">
-                                    <span class="display-label">Data de entrega:</span><input ng-model="homework.data_entrega"
-                                                                             type="date" ng-change="updateHomework(homework)">
+                                    <span class="display-label">Data de entrega:</span>
+                                    <input ng-model="homework.data_entrega" ng-click="inputByDatePicker($index)"
+                                           ng-readonly="disableInput" type="date">
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Peso: </span><input type="number"

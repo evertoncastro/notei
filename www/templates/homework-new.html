@@ -17,8 +17,8 @@
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Data de entrega</span>
-                        <input class="text" type="date" placeholder="Digite aqui"
-                                ng-model="data.data_entrega">
+                        <input class="text" type="date" placeholder="Digite aqui" ng-readonly="disableInput"
+                                ng-model="data.data_entrega" ng-click="inputByDatePicker()">
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Observações</span>

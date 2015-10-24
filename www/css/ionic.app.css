@@ -8223,7 +8223,8 @@ ion-content {
               width: auto;
               position: absolute;
               top: 3px;
-              left: 145px; }
+              left: 145px;
+              background-color: transparent !important; }
             .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input[type=number] {
               display: inline-block;
               width: auto;
@@ -8285,6 +8286,8 @@ ion-content {
       -webkit-appearance: none;
       font-family: robotoregular;
       color: #848484; }
+    .box-homework-new .homework-form .item input[type=date] {
+      background-color: transparent !important; }
     .box-homework-new .homework-form .item .text {
       font-family: robotoregular;
       color: #848484;
@@ -8670,7 +8673,8 @@ ion-content {
               width: auto;
               position: absolute;
               top: 4px;
-              left: 55px; }
+              left: 55px;
+              background-color: transparent !important; }
             .box-exam .exams-board .exam-item .exam-details .board-detail .item-board-detail input[type=number] {
               display: inline-block;
               width: auto;
@@ -8732,6 +8736,8 @@ ion-content {
       border: 0;
       -webkit-appearance: none;
       color: #848484; }
+    .box-exam-new .exam-form .item input[type=date] {
+      background-color: transparent !important; }
     .box-exam-new .exam-form .item .text {
       font-family: robotoregular;
       font-size: 16px;

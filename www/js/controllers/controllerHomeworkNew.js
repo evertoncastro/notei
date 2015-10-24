@@ -4,11 +4,27 @@
 angular.module('anotei').controller('HomeworkNewCtrl', HomeworkNewCtrl);
 
 function HomeworkNewCtrl($scope, $state, $ionicLoading, serviceHomework, serviceSubject,
-                     $rootScope, serviceConstants, $cordovaDialogs, serviceUtil){
+                     $rootScope, serviceConstants, $cordovaDialogs, serviceUtil, serviceDatePicker){
     $scope.title = null;
     $scope.wayForm = null;
     $scope.data = {};
     $scope.currentHomeworkList = null;
+
+    if(window.cordova){
+        $scope.disableInput = true;
+    }else{
+        $scope.disableInput = false;
+    }
+    //TODO: TDD & BDD
+    $scope.inputByDatePicker = function(){
+        if($scope.disableInput){
+            serviceDatePicker.inputByDatePicker().then(
+                function(date){
+                    $scope.data.data_entrega = date;
+                }
+            );
+        }
+    };
 
     $scope.manipulateHomework = function(data, wayForm){
         function validate(data){

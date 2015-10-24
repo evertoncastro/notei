@@ -5,7 +5,7 @@
 angular.module('anotei').controller('HomeworkCtrl', HomeworkCtrl);
 
 function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
-                  serviceConstants, $cordovaDialogs, $rootScope, $state){
+                  serviceConstants, $cordovaDialogs, $rootScope, $state, serviceDatePicker){
 
     $scope.showHomework = false;
     $scope.homework_id = null;
@@ -33,6 +33,26 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
                 $ionicLoading.hide();
             });
     };
+
+
+    if(window.cordova){
+        $scope.disableInput = true;
+    }else{
+        $scope.disableInput = false;
+    }
+    //TODO: TDD & BDD
+    $scope.inputByDatePicker = function(index){
+        if($scope.disableInput){
+            serviceDatePicker.inputByDatePicker().then(
+                function(date){
+                    $scope.data.homeworkList[index].data_entrega = date;
+                    var homework = $scope.data.homeworkList[index];
+                    $scope.updateHomework(homework);
+                }
+            );
+        }
+    };
+
 
     $scope.deleteHomework = function(data){
         $cordovaDialogs.confirm(serviceConstants.MSG_CONFIRM_DELETE_HOMEWORK.MSG+'"'+data.trabalho+'"?',

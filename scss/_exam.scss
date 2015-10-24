@@ -143,6 +143,7 @@
               position: absolute;
               top: 4px;
               left: 55px;
+              background-color: transparent !important;
             }
             input[type=number]{
               display: inline-block;
@@ -221,6 +222,9 @@
         border: 0;
         -webkit-appearance: none;
         color: $mainFont;
+      }
+      input[type=date]{
+        background-color: transparent !important;
       }
       .text{
         font-family: $mainFontType;

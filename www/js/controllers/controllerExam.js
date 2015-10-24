@@ -3,7 +3,7 @@
  */
 angular.module('anotei').controller('ExamCtrl', ExamCtrl);
 
-function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
+function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject, serviceDatePicker,
                   serviceConstants, $cordovaDialogs, $rootScope, $state){
 
     $scope.showExam = false;
@@ -31,6 +31,24 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject,
             $scope.data.subjectList = list;
             $ionicLoading.hide();
         });
+    };
+
+    if(window.cordova){
+        $scope.disableInput = true;
+    }else{
+        $scope.disableInput = false;
+    }
+    //TODO: TDD & BDD
+    $scope.inputByDatePicker = function(index){
+        if($scope.disableInput){
+            serviceDatePicker.inputByDatePicker().then(
+                function(date){
+                    $scope.data.examList[index].data = date;
+                    var exam = $scope.data.examList[index];
+                    $scope.updateExam(exam);
+                }
+            );
+        }
     };
 
     $scope.deleteExam = function(data){

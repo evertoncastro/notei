@@ -6,7 +6,7 @@
         <div id="wrapper-exam">
             <div class="box-exam">
                 <div class="exams-board">
-                    <div class="exam-item" ng-repeat="exam in data.examList">
+                    <div class="exam-item" ng-repeat="exam in data.examList track by $index">
                         <div class="exam-title">
                             <span class="title" ng-click="openExam(exam.id)">{{exam.titulo}}</span>
                             <span class="title title-min" ng-click="openExam(exam.id)">{{exam.nome}}</span>
@@ -29,7 +29,7 @@
                             <div class="board-detail" ng-show="showLeftTab">
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Data:</span><input ng-model="exam.data" type="date"
-                                                                                   ng-change="updateExam(exam)">
+                                          ng-readonly="disableInput" ng-click="inputByDatePicker($index)" ng-change="updateExam(exam)">
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Peso: </span><input ng-model="exam.peso" type="number"
