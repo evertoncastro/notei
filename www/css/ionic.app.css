@@ -8127,17 +8127,20 @@ ion-content {
           font-weight: bold;
           color: $mainFont;*/ }
         .box-homework .homeworks-board .homework-item .homework-title .title-min {
-          font-size: 14px !important; }
+          font-size: 14px !important;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
         .box-homework .homeworks-board .homework-item .homework-title .ion-edit {
           position: absolute;
-          right: 75px;
+          right: 45px;
           font-size: 25px;
           top: 0px;
           padding: 20px 10px 16px 10px;
           color: #848484; }
         .box-homework .homeworks-board .homework-item .homework-title .ion-trash-a {
           position: absolute;
-          right: 20px;
+          right: 5px;
           font-size: 30px;
           top: 0px;
           padding: 17px 10px 13px 10px;
@@ -8570,26 +8573,29 @@ ion-content {
         border: solid 1px #00BFFF; }
         .box-exam .exams-board .exam-item .exam-title .title {
           padding: 5px 0px 5px 10px;
-          width: 62%;
+          width: 70%;
           display: block;
           font-size: 20px;
           font-weight: bold;
           color: #848484; }
         .box-exam .exams-board .exam-item .exam-title .title-min {
-          font-size: 14px !important; }
+          font-size: 14px !important;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
         .box-exam .exams-board .exam-item .exam-title .ion-edit {
           position: absolute;
-          right: 75px;
+          right: 45px;
           font-size: 25px;
           top: 0px;
-          padding: 18px 10px 18px 10px;
+          padding: 20px 10px 18px 10px;
           color: #848484; }
         .box-exam .exams-board .exam-item .exam-title .ion-trash-a {
           position: absolute;
-          right: 20px;
+          right: 5px;
           font-size: 30px;
           top: 0px;
-          padding: 16px 10px 15px 10px;
+          padding: 17px 10px 15px 10px;
           color: #848484; }
       .box-exam .exams-board .exam-item .exam-details {
         height: auto;
@@ -8887,7 +8893,8 @@ ion-content {
       margin: 18px 0px 0px 15px; }
     #wrapper-subject .subjects-board .subject-item .subject-title .ion-edit {
       font-size: 28px;
-      padding: 19px 10px 13px 10px; }
+      padding: 19px 10px 13px 10px;
+      right: 55px; }
     #wrapper-subject .subjects-board .subject-item .subject-title .ion-trash-a {
       font-size: 34px;
       padding: 14px 10px 10px 10px; }
@@ -8916,7 +8923,8 @@ ion-content {
       margin: 4px 0px 0px 10px !important; }
     #wrapper-exam .exams-board .exam-item .exam-title .ion-edit {
       font-size: 30px;
-      padding: 22px 10px 18px 10px; }
+      padding: 22px 10px 18px 10px;
+      right: 55px !important; }
     #wrapper-exam .exams-board .exam-item .exam-title .ion-trash-a {
       font-size: 36px;
       padding: 19px 10px 15px 10px; }
@@ -8965,11 +8973,12 @@ ion-content {
       line-height: 15px !important;
       margin: 4px 0px 0px 10px !important; }
     #wrapper-homework .homeworks-board .homework-item .homework-title .ion-edit {
-      font-size: 26px;
-      padding: 18px 10px 16px 10px; }
+      font-size: 30px;
+      padding: 22px 10px 18px 10px;
+      right: 55px !important; }
     #wrapper-homework .homeworks-board .homework-item .homework-title .ion-trash-a {
-      font-size: 32px;
-      padding: 15px 10px 13px 10px; }
+      font-size: 36px;
+      padding: 19px 10px 15px 10px; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .homework-info {
     height: 55px;
     margin-bottom: 15px; }
@@ -9025,7 +9034,8 @@ ion-content {
       margin: 21px 0px 0px 15px; }
     #wrapper-subject .subjects-board .subject-item .subject-title .ion-edit {
       font-size: 30px;
-      padding: 22px 10px 18px 10px; }
+      padding: 22px 10px 18px 10px;
+      right: 55px; }
     #wrapper-subject .subjects-board .subject-item .subject-title .ion-trash-a {
       font-size: 36px;
       padding: 20px 10px 14px 10px; }
@@ -9058,7 +9068,8 @@ ion-content {
       margin: 8px 0px 0px 10px !important; }
     #wrapper-exam .exams-board .exam-item .exam-title .ion-edit {
       font-size: 32px;
-      padding: 26px 10px 22px 10px; }
+      padding: 26px 10px 22px 10px;
+      right: 55px !important; }
     #wrapper-exam .exams-board .exam-item .exam-title .ion-trash-a {
       font-size: 38px;
       padding: 23px 10px 19px 10px; }
@@ -9109,9 +9120,13 @@ ion-content {
       font-size: 16px !important;
       line-height: 16px !important;
       margin: 8px 0px 0px 10px !important; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .ion-edit {
+      font-size: 32px;
+      padding: 26px 10px 22px 10px;
+      right: 55px !important; }
     #wrapper-homework .homeworks-board .homework-item .homework-title .ion-trash-a {
-      font-size: 36px;
-      padding: 19px 10px 15px 10px; }
+      font-size: 38px;
+      padding: 23px 10px 19px 10px; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .homework-info {
     height: 55px;
     margin-bottom: 25px; }
@@ -9171,7 +9186,8 @@ ion-content {
       margin: 24px 0px 0px 15px; }
     #wrapper-subject .subjects-board .subject-item .subject-title .ion-edit {
       font-size: 32px;
-      padding: 26px 18px 22px 18px; }
+      padding: 26px 18px 22px 18px;
+      right: 55px; }
     #wrapper-subject .subjects-board .subject-item .subject-title .ion-trash-a {
       font-size: 40px;
       padding: 20px 14px 20px 14px; }
@@ -9202,7 +9218,8 @@ ion-content {
       margin: 8px 0px 0px 10px !important; }
     #wrapper-exam .exams-board .exam-item .exam-title .ion-edit {
       font-size: 32px;
-      padding: 26px 10px 22px 10px; }
+      padding: 26px 10px 22px 10px;
+      right: 55px !important; }
     #wrapper-exam .exams-board .exam-item .exam-title .ion-trash-a {
       font-size: 38px;
       padding: 23px 10px 19px 10px; }
@@ -9253,9 +9270,13 @@ ion-content {
       font-size: 16px !important;
       line-height: 16px !important;
       margin: 8px 0px 0px 10px !important; }
+    #wrapper-homework .homeworks-board .homework-item .homework-title .ion-edit {
+      font-size: 32px;
+      padding: 26px 10px 22px 10px;
+      right: 55px !important; }
     #wrapper-homework .homeworks-board .homework-item .homework-title .ion-trash-a {
-      font-size: 36px;
-      padding: 19px 10px 15px 10px; }
+      font-size: 38px;
+      padding: 23px 10px 19px 10px; }
   #wrapper-homework .homeworks-board .homework-item .homework-details .homework-info {
     height: 55px;
     margin-bottom: 25px; }

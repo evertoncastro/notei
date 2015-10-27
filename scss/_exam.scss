@@ -26,7 +26,7 @@
         border: solid 1px $mainColor;
         .title{
           padding: 5px 0px 5px 10px;
-          width: 62%;
+          width: 70%;
           display: block;
           font-size: 20px;
           font-weight: bold;
@@ -34,21 +34,24 @@
         }
         .title-min{
           font-size: 14px !important;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         .ion-edit{
           position: absolute;
-          right: 75px;
+          right: 45px;
           font-size: 25px;
           top: 0px;
-          padding: 18px 10px 18px 10px;
+          padding: 20px 10px 18px 10px;
           color: $mainFont;
         }
         .ion-trash-a{
           position: absolute;
-          right: 20px;
+          right: 5px;
           font-size: 30px;
           top: 0px;
-          padding: 16px 10px 15px 10px;
+          padding: 17px 10px 15px 10px;
           color: $mainFont;
         }
       }

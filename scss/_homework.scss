@@ -40,10 +40,13 @@
         }
         .title-min{
           font-size: 14px !important;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         .ion-edit{
           position: absolute;
-          right: 75px;
+          right: 45px;
           font-size: 25px;
           top: 0px;
           padding: 20px 10px 16px 10px;
@@ -51,7 +54,7 @@
         }
         .ion-trash-a{
           position: absolute;
-          right: 20px;
+          right: 5px;
           font-size: 30px;
           top: 0px;
           padding: 17px 10px 13px 10px;
