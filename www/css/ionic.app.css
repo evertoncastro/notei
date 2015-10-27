@@ -7803,13 +7803,13 @@ ion-content {
       /* box-shadow: 1px 1px 20px 0px #888888; */
       border: solid 1px #00BFFF; }
       .box-dash-board .subjects-board .subject-item .subject-title .title {
-        display: inline-block;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin: -10px 0px 0px -125px;
+        display: block;
+        margin: 14px 5px 0px 5px;
         font-size: 20px;
         font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         font-family: robotoregular;
         color: #848484; }
 .box-dash-board .no-subjects {
@@ -8288,7 +8288,11 @@ ion-content {
       border: 0;
       -webkit-appearance: none;
       font-family: robotoregular;
-      color: #848484; }
+      color: #848484;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 30px; }
     .box-homework-new .homework-form .item input[type=date] {
       background-color: transparent !important; }
     .box-homework-new .homework-form .item .text {
@@ -8741,7 +8745,11 @@ ion-content {
       line-height: 1;
       border: 0;
       -webkit-appearance: none;
-      color: #848484; }
+      color: #848484;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 30px; }
     .box-exam-new .exam-form .item input[type=date] {
       background-color: transparent !important; }
     .box-exam-new .exam-form .item .text {
@@ -8881,7 +8889,7 @@ ion-content {
   #wrapper-dash-board .subjects-board .subject-item .subject-title {
     height: 60px; }
     #wrapper-dash-board .subjects-board .subject-item .subject-title .title {
-      margin: -12px 0px 0px -63px;
+      margin: 17px 10px 0px 5px;
       font-size: 24px;
       line-height: 24px; }
   /****MEDIA QUERY FOR SUBJECT PAGE****/
@@ -9022,7 +9030,7 @@ ion-content {
   #wrapper-dash-board .subjects-board .subject-item .subject-title {
     height: 70px; }
     #wrapper-dash-board .subjects-board .subject-item .subject-title .title {
-      margin: -14px 0px 0px -75px;
+      margin: 20px 10px 0px 10px;
       font-size: 28px;
       line-height: 28px; }
   /****MEDIA QUERY FOR SUBJECT PAGE****/
@@ -9174,7 +9182,7 @@ ion-content {
   #wrapper-dash-board .subjects-board .subject-item .subject-title {
     height: 80px; }
     #wrapper-dash-board .subjects-board .subject-item .subject-title .title {
-      margin: -16px 0px 0px -85px;
+      margin: 23px 10px 0px 10px;
       font-size: 32px;
       line-height: 32px; }
   /****MEDIA QUERY FOR SUBJECT PAGE****/

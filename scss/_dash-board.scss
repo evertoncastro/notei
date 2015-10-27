@@ -18,13 +18,13 @@
         /* box-shadow: 1px 1px 20px 0px #888888; */
         border: solid 1px $mainColor;
         .title{
-          display: inline-block;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          margin: -10px 0px 0px -125px;
+          display: block;
+          margin: 14px 5px 0px 5px;
           font-size: 20px;
           font-weight: bold;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
           font-family: $mainFontType;
           color: $mainFont;
         }

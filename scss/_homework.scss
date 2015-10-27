@@ -230,6 +230,10 @@
         -webkit-appearance: none;
         font-family: $mainFontType;
         color: $mainFont;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 30px;
       }
       input[type=date]{
         background-color: transparent !important;
