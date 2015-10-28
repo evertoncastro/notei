@@ -56,7 +56,9 @@ app.service('serviceConstants', function() {
 
         MSG_NOT_ALLOW_CREATE_EXAM:          {MSG: 'Você não possui matérias cadastradas. \nCrie uma matéria antes de continuar', ALERT: 'Alerta', BUTTON: 'OK'},
 
-        MSG_NOT_ALLOW_CREATE_HOMEWORK:      {MSG: 'Você não possui matérias cadastradas. \nCrie uma matéria antes de continuar', ALERT: 'Alerta', BUTTON: 'OK'}
+        MSG_NOT_ALLOW_CREATE_HOMEWORK:      {MSG: 'Você não possui matérias cadastradas. \nCrie uma matéria antes de continuar', ALERT: 'Alerta', BUTTON: 'OK'},
+
+        MSG_LARGE_CONFIG_VALUE:             {MSG: 'Informe um valor menor que 100', ALERT: 'Alerta', BUTTON: 'OK'}
 
     }
 });

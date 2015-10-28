@@ -65,6 +65,70 @@ app.service('serviceValidation', function(serviceConfig, $cordovaDialogs, servic
                 return data.oldValue;
             }
 
+        },
+
+        //TODO: test
+        validateInputConfig: function(value, input){
+            var newValue = undefined;
+            var aux = undefined;
+            switch (input){
+                case 'intervalFrom':
+                    if(value.intervalo_de.constructor===String){
+                        newValue = value.intervalo_de.replace(/[^0-9.]+/g,'');
+                    }else{
+                        newValue = value.intervalo_de.toString().replace(/[^0-9.]+/g,'');
+                    }
+                    aux =  value.intervalo_de;
+                    break;
+
+                case 'intervalTo':
+                    if(value.intervalo_para.constructor===String){
+                        newValue = value.intervalo_para.replace(/[^0-9.]+/g,'');
+                    }else{
+                        newValue = value.intervalo_para.toString().replace(/[^0-9.]+/g,'');
+                    }
+                    aux =  value.intervalo_para;
+                    break;
+
+                case 'average':
+                    if(value.media_minima.constructor===String){
+                        newValue = value.media_minima.replace(/[^0-9.]+/g,'');
+                    }else{
+                        newValue = value.media_minima.toString().replace(/[^0-9.]+/g,'');
+                    }
+                    aux =  value.media_minima;
+                    break;
+            }
+            if(newValue != aux){
+                $cordovaDialogs.alert(
+                    serviceConstants.MSG_ALERT_INVALID_INPUTS.MSG,
+                    serviceConstants.MSG_ALERT_INVALID_INPUTS.ALERT,
+                    serviceConstants.MSG_ALERT_INVALID_INPUTS.BUTTON);
+                newValue =  '0';
+            }else if(Number(newValue)>99){
+                $cordovaDialogs.alert(
+                    serviceConstants.MSG_LARGE_CONFIG_VALUE.MSG,
+                    serviceConstants.MSG_LARGE_CONFIG_VALUE.ALERT,
+                    serviceConstants.MSG_LARGE_CONFIG_VALUE.BUTTON);
+                newValue =  '0';
+            }
+
+            switch (input){
+                case 'intervalFrom':
+                    value.intervalo_de = newValue;
+                    break;
+
+                case 'intervalTo':
+                    value.intervalo_para = newValue;
+                    break;
+
+                case 'average':
+                    value.media_minima = newValue;
+                    break;
+            }
+
+            return value;
+
         }
     }
 });

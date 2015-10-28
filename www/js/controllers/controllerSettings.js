@@ -3,7 +3,7 @@
  */
 angular.module('anotei').controller('SettingsCtrl', SettingsCtrl);
 
-    function SettingsCtrl($scope, serviceConfig){
+    function SettingsCtrl($scope, serviceConfig, serviceValidation){
 
         $scope.init = function(){
 
@@ -15,7 +15,10 @@ angular.module('anotei').controller('SettingsCtrl', SettingsCtrl);
 
         };
 
-        $scope.updateConfigNotes = function(data){
+
+        //TODO: test
+        $scope.updateConfigNotes = function(data, input){
+            data = serviceValidation.validateInputConfig(data, input);
             serviceConfig.updateConfigNotes(data);
         };
 
