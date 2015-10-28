@@ -4,7 +4,7 @@
 angular.module('anotei').controller('ExamCtrl', ExamCtrl);
 
 function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject, serviceDatePicker,
-                  serviceConstants, $cordovaDialogs, $rootScope, $state){
+                  serviceConstants, $cordovaDialogs, $rootScope, $state, serviceValidation){
 
     $scope.showExam = false;
     $scope.exam_id = null;
@@ -83,10 +83,22 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject, serviceDat
         serviceExam.verifySubjectExistence($scope.data.subjectList);
     };
 
-    $scope.updateExam = function(data){
-        $ionicLoading.show();
+    //TODO: test
+    $scope.updateExam = function(data, value){
+        var oldValue = $scope.oldValue;
+        var obj = {};
+        if(value == 'peso'){
+            obj = {newValue: data.peso, oldValue: oldValue};
+            data.peso = serviceValidation.validateInputNotes(obj);
+        }else if(value == 'nota'){
+            obj = {newValue: data.nota, oldValue: oldValue};
+            data.nota = serviceValidation.validateInputNotes(obj);
+        }
         serviceExam.updateExam(data);
-        $ionicLoading.hide();
+    };
+
+    $scope.setOldValue = function(value){
+        $scope.oldValue = value;
     };
 
     $scope.updateFullExam = function(data){

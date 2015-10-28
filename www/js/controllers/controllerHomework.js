@@ -4,7 +4,7 @@
 
 angular.module('anotei').controller('HomeworkCtrl', HomeworkCtrl);
 
-function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
+function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject, serviceValidation,
                   serviceConstants, $cordovaDialogs, $rootScope, $state, serviceDatePicker){
 
     $scope.showHomework = false;
@@ -40,6 +40,7 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
     }else{
         $scope.disableInput = false;
     }
+
     //TODO: TDD & BDD
     $scope.inputByDatePicker = function(index){
         if($scope.disableInput){
@@ -86,10 +87,23 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
         serviceHomework.verifySubjectExistence($scope.data.subjectList);
     };
 
-    $scope.updateHomework = function(data){
-        $ionicLoading.show();
+
+    //TODO: test
+    $scope.updateHomework = function(data, input){
+        var oldValue = $scope.oldValue;
+        var obj = {};
+        if(input == 'peso'){
+            obj = {newValue: data.peso, oldValue: oldValue};
+            data.peso = serviceValidation.validateInputNotes(obj);
+        }else if(input == 'nota'){
+            obj = {newValue: data.nota, oldValue: oldValue};
+            data.nota = serviceValidation.validateInputNotes(obj);
+        }
         serviceHomework.updateHomework(data);
-        $ionicLoading.hide();
+    };
+
+    $scope.setOldValue = function(value){
+        $scope.oldValue = value;
     };
 
     $scope.updateFullHomework = function(data){
@@ -145,42 +159,7 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject,
         });
     };
 
-    /* $scope.reLoadPage = function(){
-     $rootScope.$broadcast('serviceHomework:manipulatedHomework');
-     };*/
 
     $scope.init();
 
 }
-
-/*
-angular.module('anotei').controller('HomeworkCtrl', HomeworkCtrl);
-
-function HomeworkCtrl($scope){
-
-    $scope.showHomework = false;
-    $scope.showLeftTab = true;
-    $scope.showRightTab = false;
-
-
-
-    $scope.openHomework = function(){
-      $scope.showHomework = !$scope.showHomework;
-    };
-
-    $scope.openLeftTab = function(){
-        $scope.showLeftTab = !$scope.showLeftTab;
-        $scope.showRightTab = !$scope.showRightTab;
-        console.log('Left');
-    };
-
-    $scope.openRightTab = function(){
-        $scope.showRightTab = !$scope.showRightTab;
-        $scope.showLeftTab = !$scope.showLeftTab;
-        console.log('Right');
-    };
-
-
-    $scope.init();
-
-}*/

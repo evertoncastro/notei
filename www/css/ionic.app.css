@@ -8115,17 +8115,14 @@ ion-content {
         border: solid 1px #00BFFF; }
         .box-homework .homeworks-board .homework-item .homework-title .title {
           padding: 5px 0px 5px 10px;
-          width: 62%;
+          width: 70%;
           display: block;
           font-size: 20px;
           font-weight: bold;
           color: #848484;
-          /*margin-top: 15px;
-          margin-left: 15px;
-          display: inline-block;
-          font-size: 20px;
-          font-weight: bold;
-          color: $mainFont;*/ }
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
         .box-homework .homeworks-board .homework-item .homework-title .title-min {
           font-size: 14px !important;
           white-space: nowrap;
@@ -8350,7 +8347,7 @@ ion-content {
       font-size: 25px !important;
       color: #848484;
       font-weight: bold !important;
-      width: 80%;
+      width: 75%;
       text-align: left !important;
       position: absolute !important;
       left: 1px !important; }
@@ -8452,10 +8449,13 @@ ion-content {
         }*/ }
       #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .display-label {
         display: block;
-        width: 75%;
+        width: 80%;
         padding: 4px 0px 7px 0px;
         font-weight: bold;
-        color: #848484; }
+        color: #848484;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family: robotoregular; }
       #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group {
         padding: 0px 0px 0px 0px;
         border-radius: 10px;

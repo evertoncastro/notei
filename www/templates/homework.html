@@ -34,11 +34,13 @@
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Peso: </span><input type="number"
-                                        ng-model="homework.peso" ng-maxlength="5" ng-blur="updateHomework(homework)">
+                                        ng-model="homework.peso" ng-maxlength="5" ng-blur="updateHomework(homework, 'peso')"
+                                        ng-focus="setOldValue(homework.peso)">
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Nota: </span><input type="number"
-                                        ng-model="homework.nota" ng-maxlength="5" ng-blur="updateHomework(homework)">
+                                        ng-model="homework.nota" ng-maxlength="5" ng-blur="updateHomework(homework, 'nota')"
+                                        ng-focus="setOldValue(homework.nota)">
                                 </label>
                             </div>
                             <div class="board-observation" ng-show="showRightTab">

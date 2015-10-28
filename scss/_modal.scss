@@ -17,7 +17,7 @@
       font-size: 25px !important;
       color: $mainFont;
       font-weight: bold !important;
-      width: 80%;
+      width: 75%;
       text-align: left !important;
       position: absolute !important;
       left: 1px !important;
@@ -120,10 +120,13 @@
         padding: 6px 0 5px 10px;
         .display-label{
           display: block;
-          width: 75%;
+          width: 80%;
           padding: 4px 0px 7px 0px;
           font-weight: bold;
           color: $mainFont;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-family: robotoregular;
         }
         .group{
           padding: 0px 0px 0px 0px;

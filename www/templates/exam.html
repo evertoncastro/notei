@@ -33,11 +33,11 @@
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Peso: </span><input ng-model="exam.peso" type="number"
-                                                                      ng-maxlength="5" ng-blur="updateExam(exam)">
+                                               ng-focus="setOldValue(exam.peso)" ng-maxlength="5" ng-blur="updateExam(exam, 'peso')">
                                 </label>
                                 <label class="item-board-detail item item-input">
                                     <span class="display-label">Nota: </span><input ng-model="exam.nota" type="number"
-                                                                      ng-maxlength="5" ng-blur="updateExam(exam)">
+                                               ng-focus="setOldValue(exam.nota)" ng-maxlength="5" ng-blur="updateExam(exam, 'nota')">
                                 </label>
                             </div>
                             <div class="board-observation" ng-show="showRightTab">
