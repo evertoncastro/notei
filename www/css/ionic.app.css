@@ -7727,6 +7727,11 @@ ion-content {
   position: absolute !important;
   bottom: 50% !important;
   margin: 0px 0px -22px 0px !important; }
+.platform-android .bar.bar-stable .title {
+  text-align: center !important; }
+.platform-android .bar.bar-stable .title {
+  left: 40px !important;
+  right: 40px !important; }
 .platform-android .ion-android-arrow-back {
   position: absolute;
   bottom: 50%;
