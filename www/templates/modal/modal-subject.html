@@ -1,11 +1,11 @@
 <ion-modal-view id="wrapper-modal-subject">
-    <ion-header-bar>
-        <h1 class="title">{{data.subject.nome}}</h1>
+    <ion-header-bar style="height: 44px">
+        <h1 class="title title-modal">{{data.subject.nome}}</h1>
         <button class="close-modal" ng-click="closeModal()">
             Fechar
         </button>
     </ion-header-bar>
-    <div class="bar bar-subheader">
+    <div class="bar bar-subheader subheader-modal">
         <div class="col col-50">
             <span class="title-grade-media">Média:</span>
             <span class="value-grade notes"
@@ -17,10 +17,10 @@
                 {{data.subject.num_faltas}} / {{data.subject.max_faltas}}</span>
         </div>
     </div>
-    <ion-content >
+    <ion-content class="modal-content">
         <div class="box-modal-subject">
            <div class="area-for-grade">
-               <label class="item-for-grade item item-input" ng-repeat="activity in data.listActivities track by $index">
+               <div class="item-for-grade item item-input" ng-repeat="activity in data.listActivities track by $index">
                    <span class="display-label">{{activity.nome}}</span>
                    <label class="group">
                        <span class="title-detail">Peso:</span>
@@ -36,7 +36,7 @@
                        <input type="checkbox" ng-model="activity.ativo"
                                ng-change="changeShowActivity(activity)">
                    </label>
-               </label>
+               </div>
            </div>
         </div>
     </ion-content>

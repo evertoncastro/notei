@@ -7741,6 +7741,8 @@ ion-content {
   margin: 0px 0px -28px 0px !important; }
 .platform-ios .has-header {
   top: 75px !important; }
+.platform-ios .bar-subheader {
+  top: 36px !important; }
 .platform-ios .bar.bar-stable .title {
   padding: 4px 0px 0px 0px !important; }
 .platform-ios .ion-ios-arrow-back {
@@ -8322,17 +8324,26 @@ ion-content {
       margin: -7px 0px 0px 6px;
       color: #848484; }
 
+.platform-ios .title-modal {
+  margin-top: 0px !important; }
+.platform-ios .modal-content {
+  top: 72px !important; }
+
+.platform-android .bar-subheader {
+  margin: -2px 0px 0px 0px !important; }
+
 #wrapper-modal-subject {
   font-family: robotoregular;
-  border-radius: 10px;
+  border-radius: 5px;
   border: solid 1px #888888;
   padding: 3%; }
   #wrapper-modal-subject ion-header-bar {
-    border-radius: 10px 10px 0px 0px;
-    background-image: none; }
+    border-radius: 5px 5px 0px 0px;
+    border: none;
+    background-color: #00BFFF; }
     #wrapper-modal-subject ion-header-bar h1 {
       font-size: 25px !important;
-      color: #848484;
+      color: #fff;
       font-weight: bold !important;
       width: 75%;
       text-align: left !important;
@@ -8346,17 +8357,22 @@ ion-content {
       height: 35px;
       border-radius: 20px;
       border: none;
-      background: #FFFFFF;
+      background: #00BFFF;
       font-size: 15px;
-      color: #848484;
-      font-weight: bold; }
+      color: #fff;
+      font-weight: bold;
+      padding: 0px;
+      margin: 0px; }
+  #wrapper-modal-subject .platform-ios .has-header {
+    top: 72px !important; }
   #wrapper-modal-subject .has-header {
-    top: 88px; }
+    top: 75px; }
   #wrapper-modal-subject .bar-subheader {
-    border-bottom: solid 1px #ddd; }
+    background-color: #00BFFF;
+    height: 35px; }
     #wrapper-modal-subject .bar-subheader .col-50 {
       position: relative;
-      padding: 8px 0px 0px 0px;
+      padding: 0px 0px 0px 0px;
       display: inline-block;
       max-width: 49.3%;
       height: 100%;
@@ -8366,7 +8382,7 @@ ion-content {
         text-align: center;
         display: inline-block;
         font-size: 18px;
-        color: #848484; }
+        color: #fff; }
       #wrapper-modal-subject .bar-subheader .col-50 .value-grade {
         width: 65px;
         display: inline-block;
@@ -8385,39 +8401,7 @@ ion-content {
     background-color: #FFFFFF;
     margin: 0px 0px 60px 0px;
     border-color: #ffffff !important;
-    color: #848484;
-    /*.col-50{
-        position: relative;
-        padding: 12px 0px 0px 0px;
-        display: inline-block;
-        max-width: 49.3%;
-        height: 100%;
-        font-weight: bold;
-        .title-grade-media{
-          text-align: center;
-          display: block;
-          font-size: 18px;
-        }
-        .value-grade{
-          width: 65px;
-          height: 36px;
-          display: inline-block;
-          padding: 7px 7px 6px 6px;
-          border-radius: 15px;
-          text-align: center;
-          font-weight: bold;
-          font-size: 16px;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          margin: 0px 0px 0px -33px;
-          color: $mainFont;
-        }
-        .attendance{
-          width: 66px;
-          margin: 0px 0px 0px -33px;
-        }
-      }*/ }
+    color: #848484; }
     #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade {
       display: block;
       background-color: transparent;
@@ -8460,7 +8444,7 @@ ion-content {
           padding: 0px;
           text-align: center;
           border: solid 1px #00BFFF;
-          border-radius: 10px;
+          border-radius: 5px;
           margin: 0px 10px 0px 6px;
           color: #848484; }
       #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox {
