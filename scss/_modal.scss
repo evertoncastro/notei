@@ -90,6 +90,7 @@
       }
       .attendance{
         color: blue;
+        text-align: right;
       }
       .attendance-status{
         color: red !important;
@@ -129,6 +130,17 @@
             color: $mainFont;
           }
           input[type=tel]{
+            display: inline-block;
+            height: 100%;
+            width: 50px;
+            padding: 0px;
+            text-align: center;
+            border: solid 1px $modalColor;
+            border-radius: 5px;
+            margin: 0px 10px 0px 6px;
+            color: $mainFont;
+          }
+          input[type=number]{
             display: inline-block;
             height: 100%;
             width: 50px;

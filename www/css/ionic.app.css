@@ -7693,7 +7693,7 @@ ion-content {
     margin-bottom: 25px;
     position: relative;
     /* box-shadow: 1px 1px 20px 0px #888888; */
-    border: solid 1px #00BFFF; }
+    border: solid 1px #01DFD7; }
     .box-home .home-item .item-img {
       width: 30%;
       display: inline-block; }
@@ -7712,7 +7712,7 @@ ion-content {
 .bar.bar-stable {
   color: #FFFFFF;
   height: 75px;
-  background-color: #00BFFF;
+  background-color: #01DFD7;
   border: none; }
 
 .bar-stable .button.button-clear {
@@ -7794,7 +7794,7 @@ ion-content {
   top: 75px; }
 
 .wrapper-menu-left ion-item {
-  border-color: #00BFFF;
+  border-color: #01DFD7;
   color: #848484;
   font-size: 20px;
   font-family: robotoregular; }
@@ -7816,7 +7816,7 @@ ion-content {
       text-align: center;
       margin: 5% 0% 0% 0%;
       /* box-shadow: 1px 1px 20px 0px #888888; */
-      border: solid 1px #00BFFF; }
+      border: solid 1px #01DFD7; }
       .box-dash-board .subjects-board .subject-item .subject-title .title {
         display: block;
         margin: 14px 5px 0px 5px;
@@ -7886,7 +7886,7 @@ ion-content {
         border-radius: 10px 10px 10px 10px;
         margin: 5% 0% 0% 0%;
         /* box-shadow: 1px 1px 20px 0px #888888; */
-        border: solid 1px #00BFFF; }
+        border: solid 1px #01DFD7; }
         .box-subject .subjects-board .subject-item .subject-title .title {
           margin: 15px 0px 15px 15px;
           display: inline-block;
@@ -7918,7 +7918,7 @@ ion-content {
         margin-top: -7px;
         position: relative;
         z-index: -1;
-        border: solid 1px #00BFFF;
+        border: solid 1px #01DFD7;
         /* box-shadow: 1px 1px 20px 0px #888888; */
         /*.board-observation{
           padding-left: 1px;
@@ -8028,7 +8028,7 @@ ion-content {
   .box-subject-new .subject-form .item {
     margin: 0px 0px 10px 0px;
     border-radius: 10px;
-    border: solid 1px #00BFFF; }
+    border: solid 1px #01DFD7; }
     .box-subject-new .subject-form .item .input-label {
       font-size: 20px;
       color: #848484; }
@@ -8038,7 +8038,7 @@ ion-content {
   .box-subject-new .subject-form .button {
     border-radius: 10px;
     font-family: robotoregular;
-    background-color: #00BFFF;
+    background-color: #01DFD7;
     border: none;
     font-size: 22px; }
 
@@ -8101,7 +8101,7 @@ ion-content {
         border-radius: 10px 10px 10px 10px;
         margin: 5% 0% 0% 0%;
         /* box-shadow: 1px 1px 20px 0px #888888; */
-        border: solid 1px #00BFFF; }
+        border: solid 1px #01DFD7; }
         .box-homework .homeworks-board .homework-item .homework-title .title {
           padding: 5px 0px 5px 10px;
           width: 70%;
@@ -8138,7 +8138,7 @@ ion-content {
         margin-top: -7px;
         position: relative;
         z-index: -1;
-        border: solid 1px #00BFFF;
+        border: solid 1px #01DFD7;
         /* box-shadow: 1px 1px 20px 0px #888888; */ }
         .box-homework .homeworks-board .homework-item .homework-details .homework-info {
           display: inline-block;
@@ -8258,7 +8258,7 @@ ion-content {
   .box-homework-new .homework-form .item {
     margin: 0px 0px 10px 0px;
     border-radius: 10px;
-    border: solid 1px #00BFFF; }
+    border: solid 1px #01DFD7; }
     .box-homework-new .homework-form .item .input-label {
       font-size: 20px;
       color: #848484; }
@@ -8293,7 +8293,7 @@ ion-content {
   .box-homework-new .homework-form .button {
     border-radius: 10px;
     font-family: robotoregular;
-    background-color: #00BFFF;
+    background-color: #01DFD7;
     border: none;
     font-size: 22px; }
 
@@ -8340,7 +8340,7 @@ ion-content {
   #wrapper-modal-subject ion-header-bar {
     border-radius: 5px 5px 0px 0px;
     border: none;
-    background-color: #00BFFF; }
+    background-color: #01DFD7; }
     #wrapper-modal-subject ion-header-bar h1 {
       font-size: 25px !important;
       color: #fff;
@@ -8357,7 +8357,7 @@ ion-content {
       height: 35px;
       border-radius: 20px;
       border: none;
-      background: #00BFFF;
+      background: #01DFD7;
       font-size: 15px;
       color: #fff;
       font-weight: bold;
@@ -8368,7 +8368,7 @@ ion-content {
   #wrapper-modal-subject .has-header {
     top: 75px; }
   #wrapper-modal-subject .bar-subheader {
-    background-color: #00BFFF;
+    background-color: #01DFD7;
     height: 35px; }
     #wrapper-modal-subject .bar-subheader .col-50 {
       position: relative;
@@ -8394,7 +8394,8 @@ ion-content {
       #wrapper-modal-subject .bar-subheader .col-50 .notes-status {
         color: green !important; }
       #wrapper-modal-subject .bar-subheader .col-50 .attendance {
-        color: blue; }
+        color: blue;
+        text-align: right; }
       #wrapper-modal-subject .bar-subheader .col-50 .attendance-status {
         color: red !important; }
   #wrapper-modal-subject .box-modal-subject .area-for-grade {
@@ -8443,7 +8444,17 @@ ion-content {
           width: 50px;
           padding: 0px;
           text-align: center;
-          border: solid 1px #00BFFF;
+          border: solid 1px #01DFD7;
+          border-radius: 5px;
+          margin: 0px 10px 0px 6px;
+          color: #848484; }
+        #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .group input[type=number] {
+          display: inline-block;
+          height: 100%;
+          width: 50px;
+          padding: 0px;
+          text-align: center;
+          border: solid 1px #01DFD7;
           border-radius: 5px;
           margin: 0px 10px 0px 6px;
           color: #848484; }
@@ -8466,10 +8477,10 @@ ion-content {
           -webkit-appearance: none;
           padding: 8px; }
       #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:checked:before, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:checked + .checkbox-icon:before {
-        background: #00BFFF;
-        border-color: #00BFFF; }
+        background: #01DFD7;
+        border-color: #01DFD7; }
       #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:before, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox-icon:before {
-        border: solid 1px #00BFFF;
+        border: solid 1px #01DFD7;
         background: #FFFFFF; }
       #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:after, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox-icon:after {
         top: 39%;
@@ -8549,7 +8560,7 @@ ion-content {
         border-radius: 10px 10px 10px 10px;
         margin: 5% 0% 0% 0%;
         /* box-shadow: 1px 1px 20px 0px #888888; */
-        border: solid 1px #00BFFF; }
+        border: solid 1px #01DFD7; }
         .box-exam .exams-board .exam-item .exam-title .title {
           padding: 5px 0px 5px 10px;
           width: 70%;
@@ -8583,7 +8594,7 @@ ion-content {
         margin-top: -7px;
         position: relative;
         z-index: -1;
-        border: solid 1px #00BFFF;
+        border: solid 1px #01DFD7;
         /* box-shadow: 1px 1px 20px 0px #888888; */ }
         .box-exam .exams-board .exam-item .exam-details .exam-info {
           display: inline-block;
@@ -8704,7 +8715,7 @@ ion-content {
   .box-exam-new .exam-form .item {
     margin: 0px 0px 10px 0px;
     border-radius: 10px;
-    border: solid 1px #00BFFF; }
+    border: solid 1px #01DFD7; }
     .box-exam-new .exam-form .item .input-label {
       font-size: 20px;
       color: #848484; }
@@ -8739,7 +8750,7 @@ ion-content {
   .box-exam-new .exam-form .button {
     border-radius: 10px;
     font-family: robotoregular;
-    background-color: #00BFFF;
+    background-color: #01DFD7;
     border: none;
     font-size: 22px; }
 
@@ -8775,7 +8786,7 @@ ion-content {
   .box-settings .list-setting {
     height: auto;
     margin: 5% 5%;
-    border: solid 1px #00BFFF;
+    border: solid 1px #01DFD7;
     border-radius: 10px;
     padding: 0px 5px 5px 10px; }
     .box-settings .list-setting h2 {
@@ -8803,7 +8814,7 @@ ion-content {
         margin: 0px 10px 0px 5px;
         height: 35px;
         padding: 0px 0px 0px 0px;
-        border-color: #00BFFF; }
+        border-color: #01DFD7; }
         .box-settings .list-setting .row .label-number input {
           width: 100%;
           height: 100%;
@@ -8819,7 +8830,7 @@ ion-content {
   .box-contact .list-contact {
     height: auto;
     margin: 5% 5%;
-    border: solid 1px #00BFFF;
+    border: solid 1px #01DFD7;
     border-radius: 10px;
     padding: 0px 5px 5px 10px; }
     .box-contact .list-contact h2 {
@@ -8845,7 +8856,7 @@ ion-content {
         margin: 0px 10px 0px 5px;
         height: 35px;
         padding: 0px 0px 0px 0px;
-        border-color: #00BFFF; }
+        border-color: #01DFD7; }
         .box-contact .list-contact .row .label-number input {
           width: 100%;
           height: 100%;
