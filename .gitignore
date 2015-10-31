@@ -7,4 +7,3 @@ plugins/
 .idea/
 .DS_Store
 karma_html/
-www/js/lib/mod.utillib.min.js
