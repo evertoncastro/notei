@@ -7709,47 +7709,60 @@ ion-content {
         margin: -13px 0px 0px 0px;
         color: #848484; }
 
-/*.header-default{
-  background-color: $mainColor;
-  height: 75px;
-  color: #ffffff;
-  .title{
-    left: 41px !important;
-    right: 72px;
-    margin: 16px 0px 0px 0px;
-    color: #FFFFFF;
-    font-family: robotoblack;
-    font-size: 22px !important;
-    font-weight: bold;
-    line-height: 44px !important;
-    text-align: left !important;
-  }
-  .button.button-clear{
-    color: #ffffff;
-    margin-top: 12px;
-    border-color: transparent;
-    background: none;
-    box-shadow: none;
-    font-size: 17px;
-    display: block;
-    margin-right: 5px;
-    padding: 0;
-    white-space: nowrap;
-    font-weight: 400;
-    .ion-android-arrow-back{
-      font-size: 24px !important;
-    }
-  }
-}*/
 .bar.bar-stable {
   color: #FFFFFF;
   height: 75px;
   background-color: #00BFFF;
   border: none; }
 
+.bar-stable .button.button-clear {
+  height: 50px;
+  position: absolute;
+  bottom: 50%;
+  margin: 0px 0px -25px 0px;
+  padding: 0px 15px 0px 0px; }
+
+/*ANDROID HEADER CONFIG*/
+.platform-android .bar-stable .button.button-clear.ion-navicon {
+  position: absolute !important;
+  bottom: 50% !important;
+  margin: 0px 0px -22px 0px !important; }
+.platform-android .ion-android-arrow-back {
+  position: absolute;
+  bottom: 50%;
+  margin: 0px 0px -12px 0px; }
+
+/*IOS HEADER CONFIG*/
+.platform-ios .bar.bar-stable {
+  height: 75px !important; }
+.platform-ios .bar-stable .button.button-clear.ion-navicon {
+  position: absolute !important;
+  bottom: 50% !important;
+  margin: 0px 0px -28px 0px !important; }
+.platform-ios .has-header {
+  top: 75px !important; }
+.platform-ios .bar.bar-stable .title {
+  padding: 4px 0px 0px 0px !important; }
+.platform-ios .ion-ios-arrow-back {
+  position: absolute;
+  bottom: 50%;
+  margin: 0px 0px -24px 0px; }
+
+/*IOS INPUT*/
+.platform-ios input[type=date] {
+  padding-top: 10px !important; }
+.platform-ios input[type=number] {
+  padding-bottom: 2px !important; }
+
+/*ANDROID INPUT*/
+.platform-android input[type=date] {
+  padding-top: 10px !important; }
+.platform-android input[type=number] {
+  padding-top: 4px !important; }
+
 .bar.bar-stable .title {
   color: #FFFFFF;
-  font-family: robotoblack;
+  font-family: robotoregular;
   margin-top: 16px;
   font-size: 22px;
   font-weight: bold; }
@@ -7773,7 +7786,7 @@ ion-content {
   margin-top: -5px;
   position: absolute;
   left: 50%;
-  margin-left: -95px; }
+  margin-left: -78px; }
 
 .has-header {
   top: 75px; }
@@ -7905,29 +7918,6 @@ ion-content {
         z-index: -1;
         border: solid 1px #00BFFF;
         /* box-shadow: 1px 1px 20px 0px #888888; */
-        /*.subject-observation{
-          display: inline-block;
-          width: 50%;
-          text-align: center;
-          float: right;
-          height: 50px;
-          background-color: #e8e8e8;
-          margin-top: 0px;
-          .title{
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            border: none;
-            background-color: #FFFFFF;
-            padding: 6px 6px 0px 6px;
-            font-size: 20px;
-            font-weight: bold;
-          }
-          .title-before-click{
-            background-color: #A9E2F3;
-            color: #FFFFFF;
-          }
-        }*/
         /*.board-observation{
           padding-left: 1px;
           height: 220px;
@@ -7985,13 +7975,6 @@ ion-content {
             padding: 10px 0px 10px 0px;
             text-align: left;
             font-size: 14px;
-            /* input[type=date]{
-              display: inline-block;
-              width: auto;
-              position: absolute;
-              top: 3px;
-              left: 145px;
-            }*/
             /*select{
               background: transparent;
               display: inline-block;
@@ -8018,7 +8001,7 @@ ion-content {
               width: 62%;
               font-size: 12px;
               float: right;
-              padding: 3px 10px 0px 0px; }
+              padding: 2px 10px 0px 0px; }
             .box-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input[type=number] {
               left: 60px; }
             .box-subject .subjects-board .subject-item .subject-details .board-detail .item-board-detail input[type=text] {
@@ -8089,7 +8072,11 @@ ion-content {
 
 .ion-android-add-circle {
   font-size: 30px;
-  padding: 18px 10px 18px 18px; }
+  padding: 18px 10px 18px 18px;
+  position: absolute;
+  right: 0px;
+  bottom: 50%;
+  margin: 0px 0px -33px 0px; }
 
 .content-homework {
   bottom: 0px; }
@@ -8222,14 +8209,14 @@ ion-content {
               display: inline-block;
               width: auto;
               position: absolute;
-              top: 3px;
+              top: 4px;
               left: 145px;
               background-color: transparent !important; }
             .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail input[type=number] {
               display: inline-block;
               width: auto;
               position: absolute;
-              top: 3px;
+              top: 4px;
               left: 60px; }
             .box-homework .homeworks-board .homework-item .homework-details .board-detail .item-board-detail .input-text {
               width: 60%;
@@ -8551,7 +8538,11 @@ ion-content {
 
 .ion-android-add-circle {
   font-size: 30px;
-  padding: 18px 10px 18px 18px; }
+  padding: 18px 10px 18px 18px;
+  position: absolute;
+  right: 0px;
+  bottom: 50%;
+  margin: 0px 0px -33px 0px; }
 
 .content-exam {
   bottom: 0px; }
@@ -8815,14 +8806,16 @@ ion-content {
         display: inline-block;
         padding: 7px 0px 8px 0px;
         margin: 0px 5px 0px 0px;
-        font-size: 20px;
+        font-size: 18px;
         color: #848484; }
+      .box-settings .list-setting .row .first {
+        width: 120px; }
       .box-settings .list-setting .row .item-input {
         margin: 0px 0px 15px 0px;
         border-radius: 5px;
         display: inline-block; }
       .box-settings .list-setting .row .label-number {
-        width: 45px;
+        width: 40px;
         margin: 0px 10px 0px 5px;
         height: 35px;
         padding: 0px 0px 0px 0px;
