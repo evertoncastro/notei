@@ -1,21 +1,33 @@
+.platform-ios{
+  .title-modal{
+    margin-top: 0px !important;
+  }
+  .modal-content{
+    top: 72px !important;
+  }
+}
+
+.platform-android{
+  .bar-subheader {
+    margin: -2px 0px 0px 0px !important;
+  }
+}
+
 #wrapper-modal-subject{
   font-family: $mainFontType;
-  //width: 90%;
-  //height: 90%;
-  //margin: 5%;
-  border-radius: 10px;
+  border-radius: 5px;
   border: solid 1px #888888;
-  //box-shadow: 0px 0px 20px 3px #888888;
   padding: 3%;
   .scroll-content{
     //margin-top: -32px;
   }
   ion-header-bar{
-    border-radius: 10px 10px 0px 0px;
-    background-image: none;
+    border-radius: 5px 5px 0px 0px;
+    border: none;
+    background-color: $modalColor;
     h1{
       font-size: 25px !important;
-      color: $mainFont;
+      color: #fff;
       font-weight: bold !important;
       width: 75%;
       text-align: left !important;
@@ -30,20 +42,28 @@
       height: 35px;
       border-radius: 20px;
       border: none;
-      background: #FFFFFF;
+      background: $modalColor;
       font-size: 15px;
-      color: $mainFont;
+      color: #fff;
       font-weight: bold;
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+  .platform-ios{
+    .has-header{
+      top: 72px !important;
     }
   }
   .has-header{
-    top: 88px;
+    top: 75px;
   }
   .bar-subheader{
-    border-bottom: solid 1px #ddd;
+    background-color: $modalColor;
+    height: 35px;
     .col-50{
       position: relative;
-      padding: 8px 0px 0px 0px;
+      padding: 0px 0px 0px 0px;
       display: inline-block;
       max-width: 49.3%;
       height: 100%;
@@ -53,7 +73,7 @@
         text-align: center;
         display: inline-block;
         font-size: 18px;
-        color: $mainFont;
+        color: #fff;
       }
       .value-grade{
         width: 65px;
@@ -70,6 +90,7 @@
       }
       .attendance{
         color: blue;
+        text-align: right;
       }
       .attendance-status{
         color: red !important;
@@ -82,38 +103,7 @@
       margin: 0px 0px 60px 0px;
       border-color: #ffffff !important;
       color: $mainFont;
-      /*.col-50{
-        position: relative;
-        padding: 12px 0px 0px 0px;
-        display: inline-block;
-        max-width: 49.3%;
-        height: 100%;
-        font-weight: bold;
-        .title-grade-media{
-          text-align: center;
-          display: block;
-          font-size: 18px;
-        }
-        .value-grade{
-          width: 65px;
-          height: 36px;
-          display: inline-block;
-          padding: 7px 7px 6px 6px;
-          border-radius: 15px;
-          text-align: center;
-          font-weight: bold;
-          font-size: 16px;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          margin: 0px 0px 0px -33px;
-          color: $mainFont;
-        }
-        .attendance{
-          width: 66px;
-          margin: 0px 0px 0px -33px;
-        }
-      }*/
+
       .item-for-grade{
         display: block;
         background-color: transparent;
@@ -146,7 +136,18 @@
             padding: 0px;
             text-align: center;
             border: solid 1px $modalColor;
-            border-radius: 10px;
+            border-radius: 5px;
+            margin: 0px 10px 0px 6px;
+            color: $mainFont;
+          }
+          input[type=number]{
+            display: inline-block;
+            height: 100%;
+            width: 50px;
+            padding: 0px;
+            text-align: center;
+            border: solid 1px $modalColor;
+            border-radius: 5px;
             margin: 0px 10px 0px 6px;
             color: $mainFont;
           }
