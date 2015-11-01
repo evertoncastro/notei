@@ -17,7 +17,12 @@ app.service('serviceValidation', function(serviceConfig, $cordovaDialogs, servic
         },
 
         validateInputNotes: function(data){
-            var newData = data.newValue.toString().replace(/[^0-9.]+/g,'');
+            var newData = undefined;
+            if(data && data.newValue){
+                newData = data.newValue.toString().replace(/[^0-9.]+/g,'');
+            }else{
+                newData = '';
+            }
             if(newData != data.newValue){
                 $cordovaDialogs.alert(
                     serviceConstants.MSG_ALERT_INVALID_INPUTS.MSG,
