@@ -7,11 +7,25 @@
 angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova'])
 
 
-.run(function($ionicPlatform, factoryDatabase, serviceConfig, serviceConstants) {
+.run(function($ionicPlatform, factoryDatabase, serviceConfig, serviceConstants, serviceUser,
+              $cordovaGoogleAnalytics, serviceGA) {
   $ionicPlatform.ready(function() {
+    if(window.cordova){
+      $cordovaGoogleAnalytics.startTrackerWithId('UA-69517395-1');
+      console.log("Google Analytics started");
+    }
+
     if (window.cordova) {
       factoryDatabase.init();
       //TODO: test
+
+      serviceUser.loadUserInfo().then(
+          function(resp){
+            console.log('User id '+resp.date_register);
+            $cordovaGoogleAnalytics.setUserId(resp.date_register);
+          }
+      );
+
       serviceConfig.getConfigNotes().then(
           function(obj){
             serviceConfig.setObjNotes(obj);
@@ -33,6 +47,14 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova'])
     factoryDatabase.init();
     factoryDatabase.setupWEB(serviceConstants.DB_SCHEMA);
     //$rootScope.$broadcast('internal::startedapp');
+  }
+
+  if(!window.cordova){
+    serviceUser.loadUserInfo().then(
+        function(resp){
+          serviceGA.setUser(resp.date_register);
+        }
+    );
   }
 })
 

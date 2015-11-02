@@ -11,14 +11,14 @@ app.service('serviceContact', function($q, $cordovaEmailComposer){
             var email = {};
             if(type=='suggestion'){
                 email = {
-                    to: 'evertoncastro.sp@gmail.com',
+                    to: 'anotei.app@gmail.com',
                     subject: 'Sugestões para o aplicativo Anotei',
                     body: '',
                     isHtml: false
                 };
             }else if(type=='error'){
                 email = {
-                    to: 'evertoncastro.sp@gmail.com',
+                    to: 'anotei.app@gmail.com',
                     subject: 'Erros encontrados no aplicativo Anotei',
                     body: '',
                     isHtml: false
