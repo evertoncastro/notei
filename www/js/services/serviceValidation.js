@@ -17,6 +17,12 @@ app.service('serviceValidation', function(serviceConfig, $cordovaDialogs, servic
         },
 
         validateInputNotes: function(data){
+            if(data.newValue != undefined && data.newValue.constructor===Number){
+                data.newValue = data.newValue.toString();
+            }
+            if(data.oldValue != undefined && data.oldValue.constructor===Number){
+                data.oldValue = data.oldValue.toString();
+            }
             var newData = undefined;
             if(data && data.newValue){
                 newData = data.newValue.toString().replace(/[^0-9.]+/g,'');
@@ -29,7 +35,7 @@ app.service('serviceValidation', function(serviceConfig, $cordovaDialogs, servic
                     serviceConstants.MSG_ALERT_INVALID_INPUTS.ALERT,
                     serviceConstants.MSG_ALERT_INVALID_INPUTS.BUTTON);
                 this.setStatusValidation(false);
-                return data.oldValue;
+                return Number(data.oldValue);
             }else{
                 var dataConfig = serviceConfig.getObjNotes();
                 if(data.newValue < dataConfig.intervalo_de || data.newValue > dataConfig.intervalo_para || data.newValue == '' || data.newValue == null){
@@ -38,7 +44,7 @@ app.service('serviceValidation', function(serviceConfig, $cordovaDialogs, servic
                         serviceConstants.MSG_ALERT_FOR_INPUT_NOTES.ALERT,
                         serviceConstants.MSG_ALERT_FOR_INPUT_NOTES.BUTTON);
                     this.setStatusValidation(false);
-                    return data.oldValue;
+                    return Number(data.oldValue);
                 }
                 this.setStatusValidation(true);
                 return Number(newData);
@@ -55,7 +61,7 @@ app.service('serviceValidation', function(serviceConfig, $cordovaDialogs, servic
                         serviceConstants.MSG_ALERT_INVALID_INPUTS.BUTTON);
                     this.setStatusValidation(false);
                     return data.oldValue;
-                }if(newData>=100 || newData<0){
+                }if(newData>=101 || newData<0){
                     $cordovaDialogs.alert(
                         serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.MSG,
                         serviceConstants.MSG_LARGE_INPUT_ATTENDANCE.ALERT,
@@ -110,7 +116,7 @@ app.service('serviceValidation', function(serviceConfig, $cordovaDialogs, servic
                     serviceConstants.MSG_ALERT_INVALID_INPUTS.ALERT,
                     serviceConstants.MSG_ALERT_INVALID_INPUTS.BUTTON);
                 newValue =  '0';
-            }else if(Number(newValue)>99){
+            }else if(Number(newValue)>100){
                 $cordovaDialogs.alert(
                     serviceConstants.MSG_LARGE_CONFIG_VALUE.MSG,
                     serviceConstants.MSG_LARGE_CONFIG_VALUE.ALERT,

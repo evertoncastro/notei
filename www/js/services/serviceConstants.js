@@ -54,7 +54,7 @@ app.service('serviceConstants', function() {
 
         MSG_ALERT_INVALID_INPUTS:           {MSG: 'O valor informado possui espaços ou caracteres inválidos. Separe casas decimais com ponto (.)', ALERT: 'Alerta', BUTTON: 'OK'},
 
-        MSG_LARGE_INPUT_ATTENDANCE:         {MSG: 'Informe um valor menor que 100.', ALERT: 'Alerta', BUTTON: 'OK'},
+        MSG_LARGE_INPUT_ATTENDANCE:         {MSG: 'Informe um valor até 100.', ALERT: 'Alerta', BUTTON: 'OK'},
 
         MSG_DUPLICATED_SUBJECT_NAME:        {MSG: 'Já existe uma matéria com o nome: ', ALERT: 'Alerta', BUTTON: 'OK'},
 
@@ -62,7 +62,7 @@ app.service('serviceConstants', function() {
 
         MSG_NOT_ALLOW_CREATE_HOMEWORK:      {MSG: 'Você não possui matérias cadastradas. \nCrie uma matéria antes de continuar', ALERT: 'Alerta', BUTTON: 'OK'},
 
-        MSG_LARGE_CONFIG_VALUE:             {MSG: 'Informe um valor menor que 100', ALERT: 'Alerta', BUTTON: 'OK'}
+        MSG_LARGE_CONFIG_VALUE:             {MSG: 'Informe um valor até 100', ALERT: 'Alerta', BUTTON: 'OK'}
 
     }
 });
