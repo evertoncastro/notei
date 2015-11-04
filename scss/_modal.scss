@@ -152,18 +152,6 @@
             color: $mainFont;
           }
         }
-      /*  .toggle{
-          position: absolute;
-          display: inline-block;
-          pointer-events: auto;
-          top: 23px;
-          right: 10px;
-          padding: 5px;
-          input:checked + .track {
-            border-color: #F3E2A9;
-            background-color: #F3E2A9;
-          }
-        }*/
         .checkbox{
           position: absolute;
           display: inline-block;
@@ -197,6 +185,13 @@
           left: 35%;
         }
       }
+    }
+    .no-activities{
+      color: $mainFont;
+      display: block;
+      font-size: 16px;
+      text-align: center;
+      margin-top: 50%;
     }
   }
 }

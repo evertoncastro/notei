@@ -8411,19 +8411,7 @@ ion-content {
     #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade {
       display: block;
       background-color: transparent;
-      padding: 6px 0 5px 10px;
-      /*  .toggle{
-          position: absolute;
-          display: inline-block;
-          pointer-events: auto;
-          top: 23px;
-          right: 10px;
-          padding: 5px;
-          input:checked + .track {
-            border-color: #F3E2A9;
-            background-color: #F3E2A9;
-          }
-        }*/ }
+      padding: 6px 0 5px 10px; }
       #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .display-label {
         display: block;
         width: 80%;
@@ -8490,6 +8478,12 @@ ion-content {
       #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox input:after, #wrapper-modal-subject .box-modal-subject .area-for-grade .item-for-grade .checkbox-icon:after {
         top: 39%;
         left: 35%; }
+  #wrapper-modal-subject .box-modal-subject .no-activities {
+    color: #848484;
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 50%; }
 
 .modal-backdrop-bg {
   background-color: #000;

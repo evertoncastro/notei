@@ -56,9 +56,9 @@ app.service('serviceValidation', function(serviceConfig, $cordovaDialogs, servic
                 var newData = data.newValue.toString().replace(/[^0-9.]+/g,'');
                 if(newData != data.newValue){
                     $cordovaDialogs.alert(
-                        serviceConstants.MSG_ALERT_INVALID_INPUTS.MSG,
-                        serviceConstants.MSG_ALERT_INVALID_INPUTS.ALERT,
-                        serviceConstants.MSG_ALERT_INVALID_INPUTS.BUTTON);
+                        serviceConstants.MSG_ALERT_INVALID_INPUTS_ATTENDANCE.MSG,
+                        serviceConstants.MSG_ALERT_INVALID_INPUTS_ATTENDANCE.ALERT,
+                        serviceConstants.MSG_ALERT_INVALID_INPUTS_ATTENDANCE.BUTTON);
                     this.setStatusValidation(false);
                     return data.oldValue;
                 }if(newData>=101 || newData<0){
