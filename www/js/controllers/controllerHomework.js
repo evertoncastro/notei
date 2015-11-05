@@ -5,7 +5,7 @@
 angular.module('anotei').controller('HomeworkCtrl', HomeworkCtrl);
 
 function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject, serviceValidation,
-                  serviceConstants, $cordovaDialogs, $rootScope, $state, serviceDatePicker){
+                  serviceConstants, $cordovaDialogs, $rootScope, $state, serviceDatePicker, serviceGA){
 
     $scope.showHomework = false;
     $scope.homework_id = null;
@@ -31,7 +31,10 @@ function HomeworkCtrl($scope, $ionicLoading, serviceHomework, serviceSubject, se
             function(list){
                 $scope.data.subjectList = list;
                 $ionicLoading.hide();
-            });
+        });
+
+        //TODO: tests
+        serviceGA.gaTrackerView('Homework view accessed');
     };
 
 

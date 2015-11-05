@@ -3,7 +3,7 @@
  */
 angular.module('anotei').controller('SubjectNewCtrl', SubjectNewCtrl);
 
-function SubjectNewCtrl($scope, $state, $ionicLoading, serviceSubject, $rootScope,
+function SubjectNewCtrl($scope, $state, $ionicLoading, serviceSubject, $rootScope, serviceGA,
                         serviceConstants, $cordovaDialogs, serviceUtil, serviceValidation){
     $scope.title = null;
     $scope.wayForm = null;
@@ -94,6 +94,9 @@ function SubjectNewCtrl($scope, $state, $ionicLoading, serviceSubject, $rootScop
             $scope.data = data;
             serviceSubject.setCurrentSubject(null);
         }
+
+        //TODO: tests
+        serviceGA.gaTrackerView('Subject_New view accessed');
     };
 
     $scope.setOldValue = function(value){

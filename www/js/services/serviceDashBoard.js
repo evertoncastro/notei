@@ -4,7 +4,7 @@
 var app = angular.module('anotei');
 
 app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, serviceExam, serviceHomework,
-                                         $cordovaDialogs, serviceConstants){
+                                         $cordovaDialogs, serviceConstants, serviceGA){
 
     return{
 
@@ -145,6 +145,8 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, ser
             factoryDatabase.executeQuery(sqlQuery, params).then(
                 function(result){
                     defer.resolve(result);
+                    //TODO: tests
+                    serviceGA.gaTrackerEvent('Category: Activity', 'Event: show: '+data.ativo, 'Description: type: '+data.tipo, '');
                 },
                 function(error){
                     defer.reject(error);

@@ -3,7 +3,7 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceContact', function($q, $cordovaEmailComposer){
+app.service('serviceContact', function($q, $cordovaEmailComposer, serviceGA){
 
     return{
         sendEmail : function(type){
@@ -16,6 +16,10 @@ app.service('serviceContact', function($q, $cordovaEmailComposer){
                     body: '',
                     isHtml: false
                 };
+
+                //TODO: tests
+                serviceGA.gaTrackerEvent('Category: Contact', 'Event: Email to', 'Description: suggestion', '');
+
             }else if(type=='error'){
                 email = {
                     to: 'anotei.app@gmail.com',
@@ -23,10 +27,15 @@ app.service('serviceContact', function($q, $cordovaEmailComposer){
                     body: '',
                     isHtml: false
                 };
+
+                //TODO: tests
+                serviceGA.gaTrackerEvent('Category: Contact', 'Event: Email to', 'Description: error', '');
             }
             $cordovaEmailComposer.open(email).then(
                 function(){
                    defer.resolve(true);
+                    //TODO: tests
+                    serviceGA.gaTrackerEvent('Category: Contact', 'Event: Email to', 'Description: sent with success', '');
                 },
                 function(error){
                     defer.reject(error);

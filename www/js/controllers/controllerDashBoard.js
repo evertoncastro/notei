@@ -4,7 +4,7 @@
 angular.module('anotei').controller('DashBoardCtrl', DashBoardCtrl);
 
 function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
-                       serviceDashBoard, serviceConfig, serviceValidation){
+                       serviceDashBoard, serviceConfig, serviceValidation, serviceGA){
     $scope.data = {};
     $scope.data.manipulate = false;
     //$scope.listActivities = [];
@@ -18,6 +18,9 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
             $ionicLoading.hide();
             $scope.showSubject = false;
         });
+
+        //TODO: tests
+        serviceGA.gaTrackerView('Dashboard view accessed');
     };
 
     $scope.loadActivities = function(subject){
@@ -116,6 +119,8 @@ function DashBoardCtrl($scope, $ionicModal, serviceSubject, $ionicLoading,
     });
     $scope.openModal = function() {
         $scope.modal.show();
+        //TODO: tests
+        serviceGA.gaTrackerView('Dashboard modal accessed');
     };
     $scope.closeModal = function() {
         $scope.modal.hide();

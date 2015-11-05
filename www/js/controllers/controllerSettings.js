@@ -3,7 +3,7 @@
  */
 angular.module('anotei').controller('SettingsCtrl', SettingsCtrl);
 
-    function SettingsCtrl($scope, serviceConfig, serviceValidation){
+    function SettingsCtrl($scope, serviceConfig, serviceValidation, serviceGA){
 
         $scope.init = function(){
 
@@ -11,8 +11,10 @@ angular.module('anotei').controller('SettingsCtrl', SettingsCtrl);
                 function(obj){
                     $scope.configNotes = obj;
                 }
-            )
+            );
 
+            //TODO: tests
+            serviceGA.gaTrackerView('Settings view accessed');
         };
 
 

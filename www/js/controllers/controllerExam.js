@@ -3,7 +3,7 @@
  */
 angular.module('anotei').controller('ExamCtrl', ExamCtrl);
 
-function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject, serviceDatePicker,
+function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject, serviceDatePicker, serviceGA,
                   serviceConstants, $cordovaDialogs, $rootScope, $state, serviceValidation){
 
     $scope.showExam = false;
@@ -31,6 +31,9 @@ function ExamCtrl($scope, $ionicLoading, serviceExam, serviceSubject, serviceDat
             $scope.data.subjectList = list;
             $ionicLoading.hide();
         });
+
+        //TODO: tests
+        serviceGA.gaTrackerView('Exam view accessed');
     };
 
     if(window.cordova){

@@ -7,24 +7,21 @@
 angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova'])
 
 
-.run(function($ionicPlatform, factoryDatabase, serviceConfig, serviceConstants, serviceUser,
-              $cordovaGoogleAnalytics, serviceGA) {
+.run(function($ionicPlatform, factoryDatabase, serviceConfig, serviceConstants,
+              $cordovaGoogleAnalytics, serviceGA, $cordovaDevice) {
   $ionicPlatform.ready(function() {
+
     if(window.cordova){
       $cordovaGoogleAnalytics.startTrackerWithId('UA-69517395-1');
       console.log("Google Analytics started");
+      var deviceId = $cordovaDevice.getUUID();
+      console.log('Device ID '+deviceId);
+      $cordovaGoogleAnalytics.setUserId(deviceId);
+      serviceGA.gaTrackerView('App started');
     }
 
     if (window.cordova) {
       factoryDatabase.init();
-      //TODO: test
-
-      serviceUser.loadUserInfo().then(
-          function(resp){
-            console.log('User id '+resp.date_register);
-            $cordovaGoogleAnalytics.setUserId(resp.date_register);
-          }
-      );
 
       serviceConfig.getConfigNotes().then(
           function(obj){
@@ -37,7 +34,6 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova'])
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
     if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
   });
@@ -46,15 +42,6 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova'])
     //WHEN ENVIRONMENT IS NOT CORDOVA
     factoryDatabase.init();
     factoryDatabase.setupWEB(serviceConstants.DB_SCHEMA);
-    //$rootScope.$broadcast('internal::startedapp');
-  }
-
-  if(!window.cordova){
-    serviceUser.loadUserInfo().then(
-        function(resp){
-          serviceGA.setUser(resp.date_register);
-        }
-    );
   }
 })
 

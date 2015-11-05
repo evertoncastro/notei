@@ -3,7 +3,7 @@
  */
 angular.module('anotei').controller('ExamNewCtrl', ExamNewCtrl);
 
-function ExamNewCtrl($scope, $state, $ionicLoading, serviceExam, serviceSubject,
+function ExamNewCtrl($scope, $state, $ionicLoading, serviceExam, serviceSubject, serviceGA,
                      $rootScope, serviceConstants, $cordovaDialogs, serviceUtil, serviceDatePicker){
     $scope.title = null;
     $scope.wayForm = null;
@@ -120,6 +120,9 @@ function ExamNewCtrl($scope, $state, $ionicLoading, serviceExam, serviceSubject,
             $scope.data = data;
             serviceExam.setCurrentExam(null);
         }
+
+        //TODO: tests
+        serviceGA.gaTrackerView('Exam_New view accessed');
     };
 
     $scope.loadForm();

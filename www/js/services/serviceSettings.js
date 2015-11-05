@@ -3,7 +3,7 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceConfig', function($q, factoryDatabase, serviceUtil,
+app.service('serviceConfig', function($q, factoryDatabase, serviceUtil, serviceGA,
                                         $cordovaDialogs, serviceConstants){
     var objNotes = {};
 
@@ -51,6 +51,8 @@ app.service('serviceConfig', function($q, factoryDatabase, serviceUtil,
                 factoryDatabase.executeQuery(sqlQuery, params).then(
                     function(result){
                         defer.resolve(result);
+                        //TODO: tests
+                        serviceGA.gaTrackerEvent('Category: Settings manipulation', 'Event: update', 'Description: '+JSON.stringify(data), '');
                     },
                     function(error){
                         defer.reject(error);

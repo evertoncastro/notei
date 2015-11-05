@@ -3,7 +3,8 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordovaDialogs, serviceConstants, $state){
+app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordovaDialogs,
+                                        serviceConstants, $state, serviceGA){
 
     var currentHomework = null;
     var currentSortHomework = 'asc';
@@ -75,6 +76,8 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
                 resp.then(
                     function(){
                         defer.resolve(2);
+                        //TODO: tests
+                        serviceGA.gaTrackerEvent('Category: Homework', 'Event: insert', 'Description: '+data.trabalho, '');
                     },
 
                     function(error){
@@ -117,6 +120,8 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
                 factoryDatabase.executeQuery(sqlQuery, param).then(
                     function () {
                         defer.resolve();
+                        //TODO: tests
+                        serviceGA.gaTrackerEvent('Category: Homework', 'Event: update', 'Description: '+data.trabalho, '');
                     },
                     function (error) {
                         defer.reject(error);
@@ -136,6 +141,8 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
                 .then(
                 function(){
                     defer.resolve();
+                    //TODO: tests
+                    serviceGA.gaTrackerEvent('Category: Homework', 'Event: delete', 'Description: id homework = '+id, '');
                 },
                 function(error){
                     defer.reject(error);

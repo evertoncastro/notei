@@ -3,13 +3,6 @@
  */
 angular.module('anotei').controller('HomeCtrl', HomeCtrl);
 
-function HomeCtrl($scope, serviceGA){
+function HomeCtrl($scope){
 
-    $scope.init = function(){
-
-        serviceGA.gaTrackerView('Home');
-
-    };
-
-    $scope.init();
 }

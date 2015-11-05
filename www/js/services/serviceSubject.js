@@ -3,7 +3,7 @@
  */
 var app = angular.module('anotei');
 
-app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
+app.service('serviceSubject', function($q, factoryDatabase, serviceUtil, serviceGA){
 
     var currentSubject = null;
     var currentSortSubject = 'asc';
@@ -67,8 +67,10 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
                     data.email_prof, 0];
                 var resp = factoryDatabase.executeQuery(sqlQuery, param);
                 resp.then(
-                    function(result){
+                    function(){
                         defer.resolve(2);
+                        //TODO: tests
+                        serviceGA.gaTrackerEvent('Category: Subject', 'Event: insert', 'Description: '+data.nome, '');
                     },
 
                     function(error){
@@ -93,6 +95,8 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
             factoryDatabase.executeQuery(sqlQuery, param).then(
                 function(){
                     defer.resolve();
+                    //TODO: tests
+                    serviceGA.gaTrackerEvent('Category: Subject', 'Event: update', 'Description: '+data.nome, '');
                 },
                 function(error){
                     defer.reject(error);
@@ -110,6 +114,8 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil){
                 .then(
                 function(){
                     defer.resolve();
+                    //TODO: tests
+                    serviceGA.gaTrackerEvent('Category: Subject', 'Event: delete', 'id subject = '+id, '');
                 },
                 function(error){
                     defer.reject(error);

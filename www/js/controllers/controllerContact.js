@@ -3,7 +3,10 @@
  */
 angular.module('anotei').controller('ContactCtrl', ContactCtrl);
 
-function ContactCtrl($scope, serviceContact){
+function ContactCtrl($scope, serviceContact, serviceGA){
+
+    //TODO: tests
+    serviceGA.gaTrackerView('Contact view accessed');
 
     $scope.sendEmail = function(type){
         serviceContact.sendEmail(type);

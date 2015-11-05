@@ -3,7 +3,7 @@
  */
 angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
 
-    function SubjectCtrl($scope, serviceSubject, $rootScope, serviceConstants,
+    function SubjectCtrl($scope, serviceSubject, $rootScope, serviceConstants, serviceGA,
                          $ionicLoading, $state, $cordovaDialogs, serviceValidation){
 
         $scope.showSubject = false;
@@ -22,6 +22,9 @@ angular.module('anotei').controller('SubjectCtrl', SubjectCtrl);
                 $scope.data.subjectList = list;
                 $ionicLoading.hide();
             });
+
+            //TODO: tests
+            serviceGA.gaTrackerView('Subject view accessed');
         };
 
         $scope.updateSubject = function(data){

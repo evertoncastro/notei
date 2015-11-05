@@ -10,6 +10,14 @@ app.service('serviceGA', function($gaWrapper){
         gaTrackerView: function(view){
             if(window.cordova){
                 $gaWrapper.trackView(view);
+                console.log('GA tracking view: '+view);
+            }
+        },
+
+        gaTrackerEvent: function(cat, event, desc, timmer){
+            if(window.cordova){
+                $gaWrapper.trackEvent(cat, event, desc, timmer);
+                console.log('GA tracking event: '+cat, event, desc, timmer);
             }
         }
     }

@@ -3,7 +3,7 @@
  */
 angular.module('anotei').controller('HomeworkNewCtrl', HomeworkNewCtrl);
 
-function HomeworkNewCtrl($scope, $state, $ionicLoading, serviceHomework, serviceSubject,
+function HomeworkNewCtrl($scope, $state, $ionicLoading, serviceHomework, serviceSubject, serviceGA,
                      $rootScope, serviceConstants, $cordovaDialogs, serviceUtil, serviceDatePicker){
     $scope.title = null;
     $scope.wayForm = null;
@@ -120,6 +120,9 @@ function HomeworkNewCtrl($scope, $state, $ionicLoading, serviceHomework, service
             $scope.data = data;
             serviceHomework.setCurrentHomework(null);
         }
+
+        //TODO: tests
+        serviceGA.gaTrackerView('Homework_New view accessed');
     };
 
     $scope.loadForm();
