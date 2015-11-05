@@ -70,7 +70,7 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil, service
                     function(){
                         defer.resolve(2);
                         //TODO: tests
-                        serviceGA.gaTrackerEvent('Category: Subject', 'Event: insert', 'Description: '+data.nome, '');
+                        serviceGA.gaTrackerEvent('Subject', 'insert', data.nome, '');
                     },
 
                     function(error){
@@ -96,7 +96,7 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil, service
                 function(){
                     defer.resolve();
                     //TODO: tests
-                    serviceGA.gaTrackerEvent('Category: Subject', 'Event: update', 'Description: '+data.nome, '');
+                    serviceGA.gaTrackerEvent('Subject', 'update', data.nome, '');
                 },
                 function(error){
                     defer.reject(error);
@@ -115,7 +115,7 @@ app.service('serviceSubject', function($q, factoryDatabase, serviceUtil, service
                 function(){
                     defer.resolve();
                     //TODO: tests
-                    serviceGA.gaTrackerEvent('Category: Subject', 'Event: delete', 'id subject = '+id, '');
+                    serviceGA.gaTrackerEvent('Subject', 'delete', 'id subject = '+id, '');
                 },
                 function(error){
                     defer.reject(error);

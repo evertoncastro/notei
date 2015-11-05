@@ -77,7 +77,7 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
                     function(){
                         defer.resolve(2);
                         //TODO: tests
-                        serviceGA.gaTrackerEvent('Category: Homework', 'Event: insert', 'Description: '+data.trabalho, '');
+                        serviceGA.gaTrackerEvent('Homework', 'insert', data.trabalho, '');
                     },
 
                     function(error){
@@ -121,7 +121,7 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
                     function () {
                         defer.resolve();
                         //TODO: tests
-                        serviceGA.gaTrackerEvent('Category: Homework', 'Event: update', 'Description: '+data.trabalho, '');
+                        serviceGA.gaTrackerEvent('Homework', 'update', data.trabalho, '');
                     },
                     function (error) {
                         defer.reject(error);
@@ -142,7 +142,7 @@ app.service('serviceHomework', function($q, factoryDatabase, serviceUtil, $cordo
                 function(){
                     defer.resolve();
                     //TODO: tests
-                    serviceGA.gaTrackerEvent('Category: Homework', 'Event: delete', 'Description: id homework = '+id, '');
+                    serviceGA.gaTrackerEvent('Homework', 'delete', 'id homework = '+id, '');
                 },
                 function(error){
                     defer.reject(error);

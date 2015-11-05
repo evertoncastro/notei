@@ -146,7 +146,7 @@ app.service('serviceDashBoard', function($q, factoryDatabase, serviceConfig, ser
                 function(result){
                     defer.resolve(result);
                     //TODO: tests
-                    serviceGA.gaTrackerEvent('Category: Activity', 'Event: show: '+data.ativo, 'Description: type: '+data.tipo, '');
+                    serviceGA.gaTrackerEvent('Activity in Modal', 'show: '+data.ativo, 'type: '+data.tipo, '');
                 },
                 function(error){
                     defer.reject(error);

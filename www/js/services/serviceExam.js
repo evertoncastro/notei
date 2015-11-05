@@ -82,7 +82,7 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDi
                     function(){
                         defer.resolve(2);
                         //TODO: tests
-                        serviceGA.gaTrackerEvent('Category: Exam', 'Event: insert', 'Description: '+data.titulo, '');
+                        serviceGA.gaTrackerEvent('Exam', 'insert', data.titulo, '');
                     },
 
                     function(error){
@@ -115,7 +115,7 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDi
                     function () {
                         defer.resolve();
                         //TODO: tests
-                        serviceGA.gaTrackerEvent('Category: Exam', 'Event: update', 'Description: '+data.titulo, '');
+                        serviceGA.gaTrackerEvent('Exam', 'update', data.titulo, '');
                     },
                     function (error) {
                         defer.reject(error);
@@ -136,7 +136,7 @@ app.service('serviceExam', function($q, factoryDatabase, serviceUtil, $cordovaDi
                 function(){
                     defer.resolve();
                     //TODO: tests
-                    serviceGA.gaTrackerEvent('Category: Exam', 'Event: delete', 'Description: id exam = '+id, '');
+                    serviceGA.gaTrackerEvent('Exam', 'delete', 'id exam = '+id, '');
                 },
                 function(error){
                     defer.reject(error);

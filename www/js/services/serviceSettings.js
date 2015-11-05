@@ -52,7 +52,7 @@ app.service('serviceConfig', function($q, factoryDatabase, serviceUtil, serviceG
                     function(result){
                         defer.resolve(result);
                         //TODO: tests
-                        serviceGA.gaTrackerEvent('Category: Settings manipulation', 'Event: update', 'Description: '+JSON.stringify(data), '');
+                        serviceGA.gaTrackerEvent('Settings manipulation', 'update', JSON.stringify(data), '');
                     },
                     function(error){
                         defer.reject(error);

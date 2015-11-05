@@ -18,7 +18,7 @@ app.service('serviceContact', function($q, $cordovaEmailComposer, serviceGA){
                 };
 
                 //TODO: tests
-                serviceGA.gaTrackerEvent('Category: Contact', 'Event: Email to', 'Description: suggestion', '');
+                serviceGA.gaTrackerEvent('Contact', 'Email to', 'suggestion', '');
 
             }else if(type=='error'){
                 email = {
@@ -29,13 +29,11 @@ app.service('serviceContact', function($q, $cordovaEmailComposer, serviceGA){
                 };
 
                 //TODO: tests
-                serviceGA.gaTrackerEvent('Category: Contact', 'Event: Email to', 'Description: error', '');
+                serviceGA.gaTrackerEvent('Contact', 'Email to', 'error', '');
             }
             $cordovaEmailComposer.open(email).then(
                 function(){
                    defer.resolve(true);
-                    //TODO: tests
-                    serviceGA.gaTrackerEvent('Category: Contact', 'Event: Email to', 'Description: sent with success', '');
                 },
                 function(error){
                     defer.reject(error);
