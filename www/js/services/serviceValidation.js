@@ -52,7 +52,7 @@ app.service('serviceValidation', function(serviceConfig, $cordovaDialogs, servic
         },
 
         validateInputAttendance: function(data){
-            if(data.newValue){
+            if(data.newValue || data.newValue==0){
                 var newData = data.newValue.toString().replace(/[^0-9.]+/g,'');
                 if(newData != data.newValue){
                     $cordovaDialogs.alert(
