@@ -12,7 +12,7 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova'])
   $ionicPlatform.ready(function() {
 
     if(window.cordova){
-      $cordovaGoogleAnalytics.startTrackerWithId('UA-69517395-1');
+      $cordovaGoogleAnalytics.startTrackerWithId('UA-69779114-1');
       console.log("Google Analytics started");
       var deviceId = $cordovaDevice.getUUID();
       console.log('Device ID '+deviceId);

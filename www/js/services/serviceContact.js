@@ -11,7 +11,7 @@ app.service('serviceContact', function($q, $cordovaEmailComposer, serviceGA){
             var email = {};
             if(type=='suggestion'){
                 email = {
-                    to: 'anotei.app@gmail.com',
+                    to: 'educa.appcentral@gmail.com',
                     subject: 'Sugestões para o aplicativo Anotei',
                     body: '',
                     isHtml: false
@@ -22,7 +22,7 @@ app.service('serviceContact', function($q, $cordovaEmailComposer, serviceGA){
 
             }else if(type=='error'){
                 email = {
-                    to: 'anotei.app@gmail.com',
+                    to: 'educa.appcentral@gmail.com',
                     subject: 'Erros encontrados no aplicativo Anotei',
                     body: '',
                     isHtml: false

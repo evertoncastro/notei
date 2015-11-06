@@ -41,7 +41,7 @@ describe('Service Contact Test', function() {
         );
 
         expect($cordovaEmailComposer.open).toHaveBeenCalledWith({
-            to: 'anotei.app@gmail.com',
+            to: 'educa.appcentral@gmail.com',
             subject: 'Sugestões para o aplicativo Anotei',
             body: '',
             isHtml: false
