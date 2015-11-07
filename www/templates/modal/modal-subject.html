@@ -24,12 +24,12 @@
                    <span class="display-label">{{activity.nome}}</span>
                    <label class="group">
                        <span class="title-detail">Peso:</span>
-                       <input type="tel" ng-model="activity.peso" ng-blur="validateInputNotes(activity.peso, $index, 'peso')"
+                       <input type="number" ng-model="activity.peso" ng-blur="validateInputNotes(activity.peso, $index, 'peso')"
                                ng-change="refreshAverage()" ng-focus="setOldValue(activity.peso)">
                    </label>
                    <label class="group">
                        <span class="title-detail">Nota:</span>
-                       <input type="tel" ng-model="activity.nota" ng-blur="validateInputNotes(activity.nota, $index, 'nota')"
+                       <input type="number" ng-model="activity.nota" ng-blur="validateInputNotes(activity.nota, $index, 'nota')"
                                ng-change="refreshAverage()" ng-focus="setOldValue(activity.nota)">
                    </label>
                    <label class="checkbox">

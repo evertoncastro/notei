@@ -53,7 +53,9 @@ app.service('serviceConstants', function() {
 
         MSG_ALERT_INVALID_INPUTS:           {MSG: 'O valor informado possui espaços ou caracteres inválidos. Separe casas decimais com ponto (.)', ALERT: 'Alerta', BUTTON: 'OK'},
 
-        MSG_ALERT_INVALID_INPUTS_ATTENDANCE:           {MSG: 'O valor informado possui espaços ou caracteres inválidos.', ALERT: 'Alerta', BUTTON: 'OK'},
+        MSG_ALERT_INVALID_INPUTS_ATTENDANCE: {MSG: 'O valor informado possui espaços ou caracteres inválidos.', ALERT: 'Alerta', BUTTON: 'OK'},
+
+        MSG_ALERT_INVALID_INPUTS_SETTINGS: {MSG: 'O valor informado possui espaços ou caracteres inválidos.', ALERT: 'Alerta', BUTTON: 'OK'},
 
         MSG_LARGE_INPUT_ATTENDANCE:         {MSG: 'Informe um valor até 100.', ALERT: 'Alerta', BUTTON: 'OK'},
 

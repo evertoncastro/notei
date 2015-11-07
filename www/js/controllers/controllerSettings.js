@@ -17,11 +17,17 @@ angular.module('anotei').controller('SettingsCtrl', SettingsCtrl);
             serviceGA.gaTrackerView('Settings view accessed');
         };
 
+        $scope.setOldValue = function(value){
+            $scope.oldValue = value;
+        };
+
 
         //TODO: test
         $scope.updateConfigNotes = function(data, input){
-            data = serviceValidation.validateInputConfig(data, input);
-            serviceConfig.updateConfigNotes(data);
+            data = serviceValidation.validateInputConfig(data, input, $scope.oldValue);
+            if(data.validation){
+                serviceConfig.updateConfigNotes(data);
+            }
         };
 
 
