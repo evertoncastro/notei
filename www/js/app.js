@@ -18,6 +18,7 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova'])
       console.log('Device ID '+deviceId);
       $cordovaGoogleAnalytics.setUserId(deviceId);
       serviceGA.gaTrackerView('App started');
+      serviceGA.gaTrackerEvent('User', 'enter', deviceId, '');
     }
 
     if (window.cordova) {
