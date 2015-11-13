@@ -1,0 +1,63 @@
+<ion-view view-title="Minhas Matérias" cache-view="false">
+    <ion-nav-buttons class="button-add-subject" side="right">
+        <i class="ion-android-add-circle" ui-sref="app.subject-new"></i>
+    </ion-nav-buttons>
+    <!--<div class="bar bar-subheader button-sort-area">
+        <div class="button-sort">
+            <i class="ion-loop"></i>
+        </div>
+    </div>-->
+    <ion-content class="content-subject">
+        <div id="wrapper-subject">
+            <div class="box-subject">
+                <div class="subjects-board">
+                    <div class="subject-item" ng-repeat="subject in data.subjectList track by $index">
+                        <div class="subject-title">
+                            <span class="title" ng-click="openSubject(subject.id)">{{subject.nome}}</span>
+                            <i class="ion-edit" ng-click="updateFullSubject(subject)"></i>
+                            <i class="ion-trash-a" ng-click="deleteSubject(subject)"></i>
+                        </div>
+                        <div class="subject-details" ng-if="showSubject && subject.id==subject_id">
+                            <div class="board-detail">
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Professor:</span><input ng-model="subject.professor" type="text"
+                                                                                        ng-blur="updateSubject(subject)">
+                                </label>
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">E-mail profº:</span><input ng-model="subject.email_prof" type="email"
+                                                                                           ng-blur="updateSubject(subject)">
+                                </label>
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Máx. faltas:</span><input ng-model="subject.max_faltas" type="tel"
+                                                                     ng-focus="setOldValue(subject.max_faltas)" ng-blur="validateInputAttendance(subject, $index, 'max_faltas')">
+                                </label>
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Faltas:</span><input ng-model="subject.num_faltas" type="tel"
+                                                                    ng-focus="setOldValue(subject.num_faltas)" ng-blur="validateInputAttendance(subject, $index, 'num_faltas')">
+                                </label>
+                            </div>
+                            <!--<div class="board-observation" ng-show="showRightTab">
+                                <label class="item-board-observation item item-input">
+                                    <textarea>
+
+                                    </textarea>
+                                </label>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <span class="no-subjects" ng-if="data.subjectList.length<=0">Você não possui matérias cadastradas</span>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="footer-button-sort-area" ng-if="data.subjectList.length>0">
+        <div class="button-asc" ng-click="sortSubjectList('desc')"
+             ng-if="sort == 'asc'">
+            <span>A-Z</span>
+        </div>
+        <div class="button-desc" ng-click="sortSubjectList('asc')"
+             ng-if="sort == 'desc'">
+            <span>Z-A</span>
+        </div>
+    </ion-footer-bar>
+</ion-view>

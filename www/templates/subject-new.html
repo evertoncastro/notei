@@ -1,0 +1,30 @@
+<ion-view view-title="{{title}}" cache-view="false">
+    <ion-content>
+        <div class="wrapper-subject-new">
+            <div class="box-subject-new">
+                <div class="subject-form">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Nome</span>
+                        <input class="text" type="text" ng-model="data.nome" placeholder="Digite aqui">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Número máximo de faltas</span>
+                        <input class="text" type="number" ng-model="data.max_faltas" placeholder="Digite aqui"
+                                ng-focus="setOldValue(data.max_faltas)" ng-blur="validateInputAttendance(data.max_faltas)">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Professor</span>
+                        <input class="text" type="text" ng-model="data.professor" placeholder="Digite aqui">
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">E-mail do professor</span>
+                        <input class="text" type="email" ng-model="data.email_prof" placeholder="Digite aqui">
+                    </label>
+                    <button class="button button-block button-positive" ng-click="manipulateSubject(data, wayForm)">
+                        Gravar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

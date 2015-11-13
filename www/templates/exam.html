@@ -1,0 +1,67 @@
+<ion-view view-title="Minhas Provas" cache-view="false">
+    <ion-nav-buttons class="button-add-exam" side="right">
+        <i class="ion-android-add-circle" ng-click="goToNewExam()"></i>
+    </ion-nav-buttons>
+    <ion-content class="content-exam">
+        <div id="wrapper-exam">
+            <div class="box-exam">
+                <div class="exams-board">
+                    <div class="exam-item" ng-repeat="exam in data.examList track by $index">
+                        <div class="exam-title">
+                            <span class="title" ng-click="openExam(exam.id)">{{exam.titulo}}</span>
+                            <span class="title title-min" ng-click="openExam(exam.id)">{{exam.nome}}</span>
+                            <i class="ion-edit" ng-click="updateFullExam(exam)"></i>
+                            <i class="ion-trash-a" ng-click="deleteExam(exam)"></i>
+                        </div>
+                        <div class="exam-details" ng-show="showExam && exam.id==exam_id">
+                            <div class="exam-info">
+                                <button class="title" ng-click="openLeftTab()"
+                                        ng-disabled="showLeftTab" ng-class="{'title-before-click': showRightTab}">
+                                    <span>Detalhes</span>
+                                </button>
+                            </div>
+                            <div class="exam-observation">
+                                <button class="title" ng-click="openRightTab()"
+                                        ng-disabled="showRightTab" ng-class="{'title-before-click': showLeftTab}">
+                                    <span>Observações</span>
+                                </button>
+                            </div>
+                            <div class="board-detail" ng-show="showLeftTab">
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Data:</span><input ng-model="exam.data" type="date"
+                                          ng-readonly="disableInput" ng-click="inputByDatePicker($index)" ng-change="updateExam(exam)">
+                                </label>
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Peso: </span><input ng-model="exam.peso" type="number"
+                                               ng-focus="setOldValue(exam.peso)" ng-maxlength="5" ng-blur="updateExam(exam, 'peso')">
+                                </label>
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Nota: </span><input ng-model="exam.nota" type="number"
+                                               ng-focus="setOldValue(exam.nota)" ng-maxlength="5" ng-blur="updateExam(exam, 'nota')">
+                                </label>
+                            </div>
+                            <div class="board-observation" ng-show="showRightTab">
+                                <label class="item-board-observation item item-input">
+                                    <textarea ng-model="exam.observacoes" ng-blur="updateExam(exam)">
+
+                                    </textarea>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="no-exams" ng-if="data.examList.length<=0">Você não possui provas cadastradas</span>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="footer-button-sort-area" ng-if="data.examList.length>0">
+        <div class="button-asc" ng-click="sortExamList('desc')"
+             ng-if="sort == 'asc'">
+            <span>A-Z</span>
+        </div>
+        <div class="button-desc" ng-click="sortExamList('asc')"
+             ng-if="sort == 'desc'">
+            <span>Z-A</span>
+        </div>
+    </ion-footer-bar>
+</ion-view>

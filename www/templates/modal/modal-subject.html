@@ -1,0 +1,44 @@
+<ion-modal-view id="wrapper-modal-subject">
+    <ion-header-bar style="height: 44px">
+        <h1 class="title title-modal">{{data.subject.nome}}</h1>
+        <button class="close-modal" ng-click="closeModal()">
+            Fechar
+        </button>
+    </ion-header-bar>
+    <div class="bar bar-subheader subheader-modal">
+        <div class="col col-50">
+            <span class="title-grade-media">Média:</span>
+            <span class="value-grade notes"
+                    ng-class="{'notes-status': data.statusAverage}">{{data.average}}</span>
+        </div>
+        <div class="col col-50">
+            <span class="title-grade-media">Faltas:</span>
+            <span class="value-grade attendance" ng-class="{'attendance-status': data.statusAttendance}">
+                {{data.subject.num_faltas}} / {{data.subject.max_faltas}}</span>
+        </div>
+    </div>
+    <ion-content class="modal-content">
+        <div class="box-modal-subject">
+           <div class="area-for-grade">
+               <div class="item-for-grade item item-input" ng-repeat="activity in data.listActivities track by $index">
+                   <span class="display-label">{{activity.nome}}</span>
+                   <label class="group">
+                       <span class="title-detail">Peso:</span>
+                       <input type="number" ng-model="activity.peso" ng-blur="validateInputNotes(activity.peso, $index, 'peso')"
+                               ng-change="refreshAverage()" ng-focus="setOldValue(activity.peso)">
+                   </label>
+                   <label class="group">
+                       <span class="title-detail">Nota:</span>
+                       <input type="number" ng-model="activity.nota" ng-blur="validateInputNotes(activity.nota, $index, 'nota')"
+                               ng-change="refreshAverage()" ng-focus="setOldValue(activity.nota)">
+                   </label>
+                   <label class="checkbox">
+                       <input type="checkbox" ng-model="activity.ativo"
+                               ng-change="changeShowActivity(activity)">
+                   </label>
+               </div>
+           </div>
+            <span class="no-activities" ng-if="data.listActivities.length<=0">Nenhuma atividade para manipular.</span>
+        </div>
+    </ion-content>
+</ion-modal-view>

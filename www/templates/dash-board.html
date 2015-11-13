@@ -1,0 +1,26 @@
+<ion-view view-title="Área de trabalho">
+    <ion-content class="content">
+        <div id="wrapper-dash-board">
+            <div class="box-dash-board">
+                <div class="subjects-board">
+                    <div class="subject-item" ng-repeat="subject in data.subjectList">
+                        <div class="subject-title" ng-click="loadActivities(subject)">
+                            <span class="title">{{subject.nome}}</span>
+                        </div>
+                    </div>
+                </div>
+                <span class="no-subjects" ng-if="data.subjectList.length<=0">Não há matérias cadastradas</span>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="footer-button-sort-area" ng-if="data.subjectList.length>0">
+        <div class="button-asc" ng-click="sortSubjectList('desc')"
+             ng-if="sort == 'asc'">
+            <span>A-Z</span>
+        </div>
+        <div class="button-desc" ng-click="sortSubjectList('asc')"
+             ng-if="sort == 'desc'">
+            <span>Z-A</span>
+        </div>
+    </ion-footer-bar>
+</ion-view>

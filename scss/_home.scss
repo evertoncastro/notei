@@ -1,0 +1,40 @@
+.header-details{
+  .header-img{
+    width: 150px;
+    margin-top: -10px;
+  }
+}
+ion-content{
+  background-color: #FFFFFF;
+}
+.box-home{
+  padding: 15px 10%;
+  position: relative;
+  .home-item{
+    display: inline-block;
+    /* background-color: #F3E2A9; */
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    position: relative;
+    /* box-shadow: 1px 1px 20px 0px #888888; */
+    border: solid 1px $mainColor;
+    .item-img{
+      width: 30%;
+      display: inline-block;
+    }
+    .col-right{
+      width: auto;
+      display: inline-block;
+      span{
+        font-family: $mainFontType;
+        font-size: 26px;
+        line-height: 26px;
+        position: absolute;
+        top: 50%;
+        margin: -13px 0px 0px 0px;
+        color: $mainFont;
+      }
+    }
+  }
+}

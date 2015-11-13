@@ -1,0 +1,47 @@
+<ion-view view-title="{{title}}">
+    <!--<ion-nav-bar class="header-default">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-android-arrow-back"></i>
+        </ion-nav-back-button>
+    </ion-nav-bar>-->
+    <ion-content>
+        <div class="wrapper-exam-new">
+            <div class="box-exam-new">
+                <form class="exam-form">
+                    <label class="item item-input item-stacked-label ion-ios-arrow-down">
+                        <span class="input-label">Título</span>
+                        <select ng-model="data.titulo">
+                            <option value="">Selecione uma opção</option>
+                            <option value="Prova 1">Prova 1</option>
+                            <option value="Prova 2">Prova 2</option>
+                            <option value="Prova 3">Prova 3</option>
+                            <option value="Prova 4">Prova 4</option>
+                            <option value="Prova 5">Prova 5</option>
+                        </select>
+                    </label>
+                    <label class="item item-input item-stacked-label ion-ios-arrow-down">
+                        <span class="input-label">Matéria</span>
+                        <select ng-model="data.id_materia"
+                                ng-options="s.id as s.nome for s in subjectList">
+                            <option value='' selected>Selecione uma matéria</option>
+                        </select>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Data</span>
+                        <input class="text" type="date" placeholder="Digite aqui"
+                                ng-model="data.data" ng-readonly="disableInput" ng-click="inputByDatePicker()">
+                    </label>
+
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Observações</span>
+                        <textarea class="text" ng-model="data.observacoes">
+                        </textarea>
+                    </label>
+                    <button class="button button-block button-positive" ng-click="manipulateExam(data, wayForm)">
+                        Gravar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

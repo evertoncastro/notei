@@ -1,0 +1,242 @@
+.ion-android-add-circle{
+  font-size: 30px;
+  padding: 18px 10px 18px 18px;
+}
+.box-subject{
+  font-family: $mainFontType;
+  .subjects-board{
+    height: auto;
+    margin: 5% 5%;
+    .subject-item{
+      height: auto;
+      border-radius: 15px;
+      position: relative;
+      z-index: 0;
+      .subject-title{
+        display: block;
+        background-color: #FFFFFF;
+        color: #000000;
+        height: 50px;
+        border-radius: 10px 10px 10px 10px;
+        margin: 5% 0% 0% 0%;
+        /* box-shadow: 1px 1px 20px 0px #888888; */
+        border: solid 1px $mainColor;
+        .title{
+          margin: 15px 0px 15px 15px;
+          display: inline-block;
+          font-size: 20px;
+          font-weight: bold;
+          color: $mainFont;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 60%;
+        }
+        .ion-edit{
+          position: absolute;
+          right: 55px;
+          font-size: 25px;
+          top: 0px;
+          padding: 13px 10px 13px 10px;
+          color: $mainFont;
+        }
+        .ion-trash-a{
+          position: absolute;
+          right: 10px;
+          font-size: 30px;
+          top: 0px;
+          padding: 10px 10px 10px 10px;
+          color: $mainFont;
+        }
+      }
+      .subject-details{
+        height: auto;
+        border: solid 1px #888888;
+        border-radius: 0px 0px 10px 10px;
+        margin-top: -7px;
+        position: relative;
+        z-index: -1;
+        border: solid 1px $mainColor;
+        /* box-shadow: 1px 1px 20px 0px #888888; */
+        .subject-info{
+          display: block;
+          width: 100%;
+          text-align: center;
+          height: 50px;
+          background-color: #FFFFFF;
+          margin-top: 0px;
+          .title{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #FFFFFF;
+            padding: 20px 6px 0px 6px;
+            font-size: 20px;
+            font-weight: bold;
+            color: $mainFont;
+          }
+        }
+        .board-detail{
+          height: auto;
+          padding: 15px 0px 15px 0px;
+          .item-board-detail{
+            width: 90%;
+            position: relative;
+            background-color: #F2F2F2;
+            color: $mainFont;
+            border-radius: 10px;
+            margin: 7px 5% 0% 5%;
+            display: block;
+            border: none;
+            padding: 10px 0px 10px 0px;
+            text-align: left;
+            font-size: 14px;
+            .display-label{
+              padding: 7px 0px 7px 7px;
+              margin-right: 10px;
+              width: auto;
+            }
+            input{
+              display: inline-block;
+              color: $mainFont;
+              font-family: $mainFontType;
+              font-weight: 700;
+              height: auto;
+              top: 4px;
+              width: 62%;
+              font-size: 12px;
+              float: right;
+              padding: 2px 10px 0px 0px;
+            }
+            input[type=number]{
+              left: 60px;
+            }
+            input[type=text]{
+              left: 90px;
+            }
+            input[type=email]{
+
+            }
+            /*select{
+              background: transparent;
+              display: inline-block;
+              width: 100%;
+              font-size: 14px;
+              margin-left: 15px;
+              margin-top: 0px;
+              line-height: 1;
+              border: 0;
+              -webkit-appearance: none;
+              color: #666666;
+            }*/
+            .input-text {
+              width: 60%;
+              padding: 0px;
+              text-align: center;
+              margin-left: 20%;
+              border: solid 1px;
+              border-radius: 10px;
+            }
+          }
+         /* .ion-ios-arrow-down:before{
+            float: right;
+            position: absolute;
+            right: 17px;
+            top: 70%;
+            margin-top: -14px;
+          }*/
+        }
+        /*.board-observation{
+          padding-left: 1px;
+          height: 220px;
+          .item-board-observation{
+            width: 90%;
+            height: 63%;
+            margin: 0% 5% 0% 5%;
+            padding: 0%;
+            border: none;
+            textarea{
+              width: 100%;
+              height: 100%;
+              background-color: #F2F2F2;
+              border-radius: 10px;
+              padding: 2% 5%;
+            }
+          }
+        }*/
+      }
+    }
+  }
+  .no-subjects{
+    color: $mainFont;
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 50%;
+  }
+}
+
+
+.box-subject-new{
+  padding: 15px;
+  font-family: $mainFontType;
+  .subject-form{
+    .item{
+      margin: 0px 0px 10px 0px;
+      border-radius: 10px;
+      border: solid 1px $mainColor;
+      .input-label{
+        //font-family: action_manbold;
+        font-size: 20px;
+        color: $mainFont;
+      }
+      .text{
+        //font-family: action_manregular;
+        font-size: 16px;
+        color: $mainFont;
+      }
+    }
+    .button{
+      border-radius: 10px;
+      font-family: $mainFontType;
+      background-color: $mainColor;
+      border: none;
+      font-size: 22px;
+    }
+  }
+}
+.has-footer{
+  bottom: 0px;
+}
+.footer-button-sort-area{
+  height: 0px;
+  border: none;
+  padding: 0px;
+  .button-asc{
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    top: -45px;
+    span{
+      font-size: 22px;
+      position: absolute;
+      top: 50%;
+      margin: -7px 0px 0px 6px;
+      color: $mainFont;
+    }
+  }
+  .button-desc{
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    top: -45px;
+    span{
+      font-size: 22px;
+      position: absolute;
+      top: 50%;
+      margin: -7px 0px 0px 6px;
+      color: $mainFont;
+    }
+  }
+}

@@ -1,0 +1,495 @@
+@media screen and (min-width: 600px) and (max-width: 799px) {
+  /****MEDIA QUERY FOR HOME PAGE****/
+  #wrapper-home{
+    .col-right{
+      span{
+        font-size: 44px;
+        line-height: 44px;
+        margin: -22px 0px 0px 0px;
+      }
+    }
+  }
+
+  /****MEDIA QUERY FOR DASH BOARD PAGE****/
+  #wrapper-dash-board{
+    .subjects-board {
+      .subject-item {
+        .subject-title {
+          height: 70px;
+          .title {
+            margin: 20px 10px 0px 10px;
+            font-size: 28px;
+            line-height: 28px;
+          }
+        }
+      }
+    }
+  }
+
+  /****MEDIA QUERY FOR SUBJECT PAGE****/
+  #wrapper-subject{
+    .subjects-board {
+      .subject-item {
+        .subject-title {
+          height: 70px;
+          .title {
+            font-size: 28px;
+            line-height: 28px;
+            margin: 21px 0px 0px 15px;
+          }
+          .ion-edit{
+            font-size: 30px;
+            padding: 22px 10px 18px 10px;
+            right: 55px;
+          }
+          .ion-trash-a{
+            font-size: 36px;
+            padding: 20px 10px 14px 10px;
+          }
+        }
+        .subject-details{
+          .subject-info{
+            .title{
+              font-size: 24px;
+              span{
+
+              }
+            }
+          }
+          .board-detail{
+            height: auto;
+            padding: 15px 0px 20px 0px;
+            .item-board-detail{
+              border: none;
+              padding: 17px 0px 17px 0px;
+              margin: 13px 5% 0% 5%;
+              font-size: 20px;
+              .display-label{
+
+              }
+              input{
+                padding: 0px 0px 2px 0px;
+                font-size: 20px;
+                width: 70%;
+              }
+            }
+          }
+        }
+      }
+    }
+    .no-subjects{
+      font-size: 26px;
+    }
+  }
+
+  /****MEDIA QUERY FOR EXAM PAGE****/
+  #wrapper-exam{
+    .exams-board {
+      .exam-item {
+        .exam-title {
+          height: 80px;
+          .title {
+            font-size: 26px;
+            line-height: 26px;
+            margin: 2px 0px 0px 10px;
+          }
+          .title-min{
+            font-size: 16px !important;
+            line-height: 16px !important;
+            margin: 8px 0px 0px 10px !important;
+          }
+          .ion-edit{
+            font-size: 32px;
+            padding: 26px 10px 22px 10px;
+            right: 55px !important;
+          }
+          .ion-trash-a{
+            font-size: 38px;
+            padding: 23px 10px 19px 10px;
+          }
+        }
+        .exam-details{
+          .exam-info{
+            height: 60px;
+            margin-bottom: 25px;
+            .title{
+              font-size: 23px;
+            }
+          }
+          .exam-observation{
+            height: 60px;
+            .title{
+              font-size: 23px;
+            }
+          }
+          .board-detail{
+            padding: 0px 0px 25px 0px;
+            height: 285px;
+            .item-board-detail{
+              font-size: 20px;
+              margin: 14px 5% 0% 5%;
+              select{
+                font-size: 18px;
+              }
+              input{
+                top: 5px;
+                left: 65px;
+                font-size: 18px;
+              }
+              input[type=date]{
+                padding-top: 4px;
+              }
+              input[type=number]{
+                padding-top: 5px;
+              }
+            }
+            .ion-ios-arrow-down:before{
+              margin-top: -22px !important;
+              font-size: 25px;
+            }
+          }
+          .board-observation{
+            height: 285px;
+            .item-board-observation{
+              height: 63%;
+              textarea{
+                font-size: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .no-exams{
+      font-size: 26px;
+    }
+  }
+
+  /****MEDIA QUERY FOR HOMEWORK PAGE****/
+  #wrapper-homework{
+    .homeworks-board {
+      .homework-item {
+        .homework-title {
+          height: 80px;
+          .title {
+            font-size: 26px;
+            line-height: 26px;
+            margin: 2px 0px 0px 10px;
+          }
+          .title-min{
+            font-size: 16px !important;
+            line-height: 16px !important;
+            margin: 8px 0px 0px 10px !important;
+          }
+          .ion-edit{
+            font-size: 32px;
+            padding: 26px 10px 22px 10px;
+            right: 55px !important;
+          }
+          .ion-trash-a{
+            font-size: 38px;
+            padding: 23px 10px 19px 10px;
+          }
+        }
+        .homework-details{
+          .homework-info{
+            height: 55px;
+            margin-bottom: 25px;
+            .title{
+              font-size: 22px;
+            }
+          }
+          .homework-observation{
+            height: 55px;
+            .title{
+              font-size: 22px;
+            }
+          }
+          .board-detail{
+            height: 285px;
+            padding: 0px 0px 25px 0px;
+            .item-board-detail{
+              font-size: 20px;
+              margin: 15px 5% 0% 5%;
+              select{
+                font-size: 18px;
+              }
+              input{
+                top: 5px;
+                font-size: 20px;
+              }
+              input[type=date]{
+                padding-top: 6px;
+                margin-left: 14px;
+              }
+              input[type=number]{
+                top: 7px;
+                margin-left: 5px;
+              }
+            }
+            .ion-ios-arrow-down:before{
+              margin-top: -17px !important;
+            }
+          }
+          .board-observation{
+            height: 285px;
+            .item-board-observation{
+              height: 63%;
+              textarea{
+                font-size: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .no-homeworks{
+      font-size: 26px;
+    }
+  }
+}
+
+
+@media screen and (min-width: 800px) and (max-width: 999px) {
+  /****MEDIA QUERY FOR HOME PAGE****/
+  #wrapper-home{
+    .col-right{
+      span{
+        font-size: 50px;
+        line-height: 50px;
+        margin: -25px 0px 0px 0px;
+      }
+    }
+  }
+
+  /****MEDIA QUERY FOR DASH BOARD PAGE****/
+  #wrapper-dash-board{
+    .subjects-board {
+      .subject-item {
+        .subject-title {
+          height: 80px;
+          .title {
+            margin: 23px 10px 0px 10px;
+            font-size: 32px;
+            line-height: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  /****MEDIA QUERY FOR SUBJECT PAGE****/
+  #wrapper-subject{
+    .subjects-board {
+      .subject-item {
+        .subject-title {
+          height: 80px;
+          .title {
+            font-size: 32px;
+            line-height: 32px;
+            margin: 24px 0px 0px 15px;
+          }
+          .ion-edit{
+            font-size: 32px;
+            padding: 26px 18px 22px 18px;
+            right: 55px;
+          }
+          .ion-trash-a{
+            font-size: 40px;
+            padding: 20px 14px 20px 14px;
+          }
+        }
+        .subject-details{
+          .board-detail{
+            padding: 20px 0px 25px 0px;
+            height: auto;
+            .item-board-detail{
+              border: none;
+              padding: 17px 0px 17px 0px;
+              margin: 15px 5% 0% 5%;
+              font-size: 24px;
+              .display-label{
+
+              }
+              input{
+                padding: 0px 0px 2px 0px;
+                font-size: 24px;
+                width: 70%;
+              }
+            }
+          }
+        }
+      }
+    }
+    .no-subjects{
+      font-size: 26px;
+    }
+  }
+
+  /****MEDIA QUERY FOR EXAM PAGE****/
+  #wrapper-exam{
+    .exams-board {
+      .exam-item {
+        .exam-title {
+          height: 80px;
+          .title {
+            font-size: 26px;
+            line-height: 26px;
+            margin: 2px 0px 0px 10px;
+          }
+          .title-min{
+            font-size: 16px !important;
+            line-height: 16px !important;
+            margin: 8px 0px 0px 10px !important;
+          }
+          .ion-edit{
+            font-size: 32px;
+            padding: 26px 10px 22px 10px;
+            right: 55px !important;
+          }
+          .ion-trash-a{
+            font-size: 38px;
+            padding: 23px 10px 19px 10px;
+          }
+        }
+        .exam-details{
+          .exam-info{
+            height: 60px;
+            margin-bottom: 25px;
+            .title{
+              font-size: 23px;
+            }
+          }
+          .exam-observation{
+            height: 60px;
+            .title{
+              font-size: 23px;
+            }
+          }
+          .board-detail{
+            padding: 0px 0px 25px 0px;
+            height: 290px;
+            .item-board-detail{
+              font-size: 20px;
+              margin: 14px 5% 0% 5%;
+              select{
+                font-size: 18px;
+              }
+              input{
+                top: 5px;
+                left: 65px;
+                font-size: 18px;
+              }
+              input[type=date]{
+                padding-top: 4px;
+              }
+              input[type=number]{
+                padding-top: 5px;
+              }
+            }
+            .ion-ios-arrow-down:before{
+              margin-top: -22px !important;
+              font-size: 25px;
+            }
+          }
+          .board-observation{
+            height: 290px;
+            .item-board-observation{
+              height: 64%;
+              textarea{
+                font-size: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .no-exams{
+      font-size: 26px;
+    }
+  }
+
+  /****MEDIA QUERY FOR HOMEWORK PAGE****/
+  #wrapper-homework{
+    .homeworks-board {
+      .homework-item {
+        .homework-title {
+          height: 80px;
+          .title {
+            font-size: 26px;
+            line-height: 26px;
+            margin: 2px 0px 0px 10px;
+          }
+          .title-min{
+            font-size: 16px !important;
+            line-height: 16px !important;
+            margin: 8px 0px 0px 10px !important;
+          }
+          .ion-edit{
+            font-size: 32px;
+            padding: 26px 10px 22px 10px;
+            right: 55px !important;
+          }
+          .ion-trash-a{
+            font-size: 38px;
+            padding: 23px 10px 19px 10px;
+          }
+        }
+        .homework-details{
+          .homework-info{
+            height: 55px;
+            margin-bottom: 25px;
+            .title{
+              font-size: 22px;
+            }
+          }
+          .homework-observation{
+            height: 55px;
+            .title{
+              font-size: 22px;
+            }
+          }
+          .board-detail{
+            height: 290px;
+            padding: 0px 0px 25px 0px;
+            .item-board-detail{
+              font-size: 20px;
+              margin: 15px 5% 0% 5%;
+              select{
+                font-size: 18px;
+              }
+              input{
+                top: 5px;
+                font-size: 20px;
+              }
+              input[type=date]{
+                padding-top: 6px;
+                margin-left: 14px;
+              }
+              input[type=number]{
+                top: 7px;
+                margin-left: 5px;
+              }
+            }
+            .ion-ios-arrow-down:before{
+              margin-top: -17px !important;
+            }
+          }
+          .board-observation{
+            height: 290px;
+            .item-board-observation{
+              height: 64%;
+              textarea{
+                font-size: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .no-homeworks{
+      font-size: 26px;
+    }
+  }
+
+}

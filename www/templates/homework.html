@@ -1,0 +1,70 @@
+<ion-view view-title="Meus Trabalhos" cache-view="false">
+    <ion-nav-buttons class="button-add-homework" side="right">
+        <i class="ion-android-add-circle" ng-click="goToNewHomework()"></i>
+    </ion-nav-buttons>
+    <ion-content class="content-homework">
+        <div id="wrapper-homework">
+            <div class="box-homework">
+                <div class="homeworks-board">
+                    <div class="homework-item" ng-repeat="homework in data.homeworkList track by $index">
+                        <div class="homework-title">
+                            <span class="title" ng-click="openHomework(homework.id)">{{homework.trabalho}}</span>
+                            <span class="title title-min" ng-click="openHomework(homework.id)">{{homework.nome}}</span>
+                            <i class="ion-edit" ng-click="updateFullHomework(homework)"></i>
+                            <i class="ion-trash-a" ng-click="deleteHomework(homework)"></i>
+                        </div>
+                        <div class="homework-details" ng-show="showHomework && homework.id==homework_id">
+                            <div class="homework-info">
+                                <button class="title" ng-click="openLeftTab()"
+                                        ng-disabled="showLeftTab" ng-class="{'title-before-click': showRightTab}">
+                                    <span>Detalhes</span>
+                                </button>
+                            </div>
+                            <div class="homework-observation">
+                                <button class="title" ng-click="openRightTab()"
+                                        ng-disabled="showRightTab" ng-class="{'title-before-click': showLeftTab}">
+                                    <span>Observações</span>
+                                </button>
+                            </div>
+                            <div class="board-detail" ng-show="showLeftTab">
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Data de entrega:</span>
+                                    <input ng-model="homework.data_entrega" ng-click="inputByDatePicker($index)"
+                                           ng-readonly="disableInput" type="date">
+                                </label>
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Peso: </span><input type="number"
+                                        ng-model="homework.peso" ng-maxlength="5" ng-blur="updateHomework(homework, 'peso')"
+                                        ng-focus="setOldValue(homework.peso)">
+                                </label>
+                                <label class="item-board-detail item item-input">
+                                    <span class="display-label">Nota: </span><input type="number"
+                                        ng-model="homework.nota" ng-maxlength="5" ng-blur="updateHomework(homework, 'nota')"
+                                        ng-focus="setOldValue(homework.nota)">
+                                </label>
+                            </div>
+                            <div class="board-observation" ng-show="showRightTab">
+                                <label class="item-board-observation item item-input">
+                                    <textarea ng-model="homework.observacoes" ng-blur="updateHomework(homework)">
+
+                                    </textarea>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="no-homeworks" ng-if="data.homeworkList.length<=0">Você não possui trabalhos cadastrados</span>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="footer-button-sort-area-homework" ng-if="data.homeworkList.length>0">
+        <div class="button-asc" ng-click="sortHomeworkList('desc')"
+             ng-if="sort == 'asc'">
+            <span>A-Z</span>
+        </div>
+        <div class="button-desc" ng-click="sortHomeworkList('asc')"
+             ng-if="sort == 'desc'">
+            <span>Z-A</span>
+        </div>
+    </ion-footer-bar>
+</ion-view>

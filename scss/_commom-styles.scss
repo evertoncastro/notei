@@ -1,0 +1,146 @@
+
+.bar.bar-stable {
+  color: #FFFFFF;
+  height: 75px;
+  background-color: $mainColor;
+  border: none;
+}
+
+.bar.bar-stable .title {
+  height: 60px !important;
+}
+
+.bar-stable .button.button-clear {
+  height: 50px;
+  position: absolute;
+  bottom: 50%;
+  margin: 0px 0px -25px 0px;
+  padding: 0px 50px 0px 0px;
+}
+
+
+
+/*ANDROID HEADER CONFIG*/
+.platform-android{
+  .bar-stable .button.button-clear.ion-navicon {
+    position: absolute !important;
+    bottom: 50% !important;
+    margin: 0px 0px -22px 0px !important;
+  }
+
+  .bar.bar-stable .title {
+    text-align: center !important;
+  }
+  .bar.bar-stable .title {
+    left: 40px !important;
+    right: 40px !important;
+  }
+
+  .ion-android-arrow-back{
+    position: absolute;
+    bottom: 50%;
+    margin: 0px 0px -12px 0px;
+  }
+}
+
+
+
+/*IOS HEADER CONFIG*/
+.platform-ios{
+  .bar.bar-stable {
+    height: 75px !important;
+  }
+
+  .bar-stable .button.button-clear.ion-navicon {
+    position: absolute !important;
+    bottom: 50% !important;
+    margin: 0px 0px -28px 0px !important;
+  }
+
+  .has-header{
+    top: 75px !important;
+  }
+
+  .bar-subheader{
+    top: 36px !important;
+  }
+
+  .bar.bar-stable .title {
+    padding: 4px 0px 0px 0px !important;
+  }
+
+  .ion-ios-arrow-back{
+    position: absolute;
+    bottom: 50%;
+    margin: 0px 0px -24px 0px;
+  }
+}
+
+/*IOS INPUT*/
+
+.platform-ios{
+  input[type=date]{
+    padding-top: 10px !important;
+  }
+
+  input[type=number]{
+    padding-bottom: 2px !important;
+  }
+}
+
+
+/*ANDROID INPUT*/
+
+.platform-android{
+  input[type=date]{
+    padding-top: 10px !important;
+  }
+
+  input[type=number]{
+    padding-top: 4px !important;
+  }
+}
+
+
+//Header logo area
+.bar.bar-stable .title {
+  color: #FFFFFF;
+  font-family: $mainFontType;
+  margin-top: 16px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+//Making the button back to be pull from top
+.bar-stable .button.button-clear {
+  margin-top: 12px;
+}
+
+.bar-stable .button.button-clear {
+  color: #ffffff;
+}
+
+//MAKE TEXT BUTTON BACK TO BE DISABLED
+.default-title{
+  display: none !important;
+}
+
+//INCREMENT THE WIDTH FOR HEADER TITLE
+.bar.bar-stable .title {
+  margin: 16px 0px 0px 0px;
+  left: 40px;
+  right: 40px;
+}
+.platform-android{
+  .header-details .header-img {
+    width: 150px;
+    margin-top: -5px;
+    position: absolute;
+    left: 50%;
+    margin-left: -78px;
+  }
+}
+
+.has-header {
+  top: 75px;
+}

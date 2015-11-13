@@ -1,0 +1,75 @@
+.box-dash-board{
+  .subjects-board{
+    height: auto;
+    margin: 5% 10%;
+    .subject-item{
+      height: auto;
+      border-radius: 15px;
+      position: relative;
+      z-index: 0;
+      .subject-title{
+        display: block;
+        background-color: #FFFFFF;
+        color: #000000;
+        height: 50px;
+        border-radius: 10px 10px 10px 10px;
+        text-align: center;
+        margin: 5% 0% 0% 0%;
+        /* box-shadow: 1px 1px 20px 0px #888888; */
+        border: solid 1px $mainColor;
+        .title{
+          display: block;
+          margin: 14px 5px 0px 5px;
+          font-size: 20px;
+          font-weight: bold;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-family: $mainFontType;
+          color: $mainFont;
+        }
+      }
+    }
+  }
+  .no-subjects{
+    color: $mainFont;
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 50%;
+  }
+}
+.content{
+  bottom: 0px;
+}
+.footer-button-sort-area{
+  height: 0px;
+  border: none;
+  padding: 0px;
+  .button-asc{
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    top: -45px;
+    span{
+      font-size: 22px;
+      position: absolute;
+      top: 50%;
+      margin: -7px 0px 0px 6px;
+      color: $mainFont;
+    }
+  }
+  .button-desc{
+    position: absolute;
+    height: 44px;
+    width: 44px;
+    top: -45px;
+    span{
+      font-size: 22px;
+      position: absolute;
+      top: 50%;
+      margin: -7px 0px 0px 6px;
+      color: $mainFont;
+    }
+  }
+}
