@@ -6,13 +6,16 @@
   border: none;
 }
 
+.bar.bar-stable .title {
+  height: 60px !important;
+}
 
 .bar-stable .button.button-clear {
   height: 50px;
   position: absolute;
   bottom: 50%;
   margin: 0px 0px -25px 0px;
-  padding: 0px 15px 0px 0px;
+  padding: 0px 50px 0px 0px;
 }
 
 

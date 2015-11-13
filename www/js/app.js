@@ -46,7 +46,7 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova'])
   }
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $stateProvider
 
   .state('app', {
@@ -158,4 +158,7 @@ angular.module('anotei', ['ionic', 'mod.utillib', 'ngCordova'])
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
+
+  //Remove text from back button
+  $ionicConfigProvider.backButton.previousTitleText(false);
 });

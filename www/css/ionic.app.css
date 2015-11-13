@@ -7677,7 +7677,7 @@ a.button {
 
 .header-details .header-img {
   width: 150px;
-  margin-top: -5px; }
+  margin-top: -10px; }
 
 ion-content {
   background-color: #FFFFFF; }
@@ -7715,12 +7715,15 @@ ion-content {
   background-color: #01DFD7;
   border: none; }
 
+.bar.bar-stable .title {
+  height: 60px !important; }
+
 .bar-stable .button.button-clear {
   height: 50px;
   position: absolute;
   bottom: 50%;
   margin: 0px 0px -25px 0px;
-  padding: 0px 15px 0px 0px; }
+  padding: 0px 50px 0px 0px; }
 
 /*ANDROID HEADER CONFIG*/
 .platform-android .bar-stable .button.button-clear.ion-navicon {
