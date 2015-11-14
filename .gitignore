@@ -4,6 +4,7 @@
 node_modules/
 platforms/
 plugins/
+apks/
 .idea/
 notei.keystore
 .keystore
