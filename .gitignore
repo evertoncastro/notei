@@ -7,5 +7,6 @@ plugins/
 .idea/
 notei.keystore
 .keystore
+.apk
 .DS_Store
 karma_html/
