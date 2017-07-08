@@ -2,7 +2,7 @@
 <widget id="com.educa.appcentral.notei" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Notei</name>
   <description>
-        An app for students
+        An app for students tasks
     </description>
   <author email="educa.appcentral@gmail.com" href="https://br.linkedin.com/in/evertonfatecit">
      Everton de Castro : evertoncastro.sp@gmail.com
